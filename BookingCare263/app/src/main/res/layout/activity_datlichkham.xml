@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+    tools:context=".Datlichkham">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imgavtarbsdt2"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/bg_circle"
+
+            android:padding="5dp"
+            app:srcCompat="@drawable/baseline_account_circle_24" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtnamebs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PGS. TS. BSCKII. TTUT Vũ Văn Huè"
+                android:textColor="#2196F3"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtthongtin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:text="Bạn có thể mô tả rõ hơn về phần &quot;thông tin&quot; bạn đang cần không?                   \n Bạn muốn hiển thị thêm thông tin về bác sĩ trong phần &quot;Xem thêm&quot;?                     \nHay bạn cần cách quản lý dữ liệu bác sĩ trong ứng dụng?" />
+
+            <TextView
+                android:id="@+id/btmxemthem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="xem thêm"
+                android:textColor="#009688" />
+
+            <TextView
+                android:id="@+id/txttime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="9:00 - 9:30 - Thứ 2 - 17/03/2025"
+                android:textColor="#DBCA31"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/txtdiachi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Hà Nội"
+                android:textColor="@color/purple_700" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <androidx.core.widget.NestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/khungbo"
+            android:orientation="vertical"
+            android:padding="5dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/dotcomxanh" />
+
+                <TextView
+                    android:id="@+id/txtchuyenkhoa1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Khám &amp; Mội soi Tai mũi họng" />
+
+                <TextView
+                    android:id="@+id/txtgiakhamdk"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="400.000 Đ" />
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/edthoten"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/khungbo"
+                android:drawableLeft="@drawable/baseline_account_circle_24"
+                android:hint="  Họ tên bệnh nhân (Bắt buộc)"
+                android:padding="5dp" />
+
+            <EditText
+                android:id="@+id/edtsdt"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/khungbo"
+                android:drawableLeft="@drawable/graycall"
+                android:hint=" Số điện thoại liên hệ (Bắt buộc)"
+                android:padding="5dp" />
+
+            <EditText
+                android:id="@+id/edtngay"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/khungbo"
+                android:ems="10"
+                android:hint="dd/mm/yyyy"
+                android:drawableLeft="@drawable/icons8_calendar_50"
+                android:inputType="date"
+                android:padding="5dp" />
+
+            <EditText
+                android:id="@+id/textView15"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/khungbo"
+                android:drawableLeft="@drawable/dotcom"
+                android:hint="  Địa chỉ"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/textView16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hình thức thanh toán"
+                android:textColor="#374592"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Giá khám"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Phí đặt lịch"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/textView22"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tổng cộng"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/txtgiakham"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="TextView"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txtview23"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="Miễn phí"
+                        android:textColor="@color/black" />
+
+                    <TextView
+                        android:id="@+id/txttong"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="right"
+                        android:text="TextView"
+                        android:textColor="@color/black" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Quý khách vui lòng điền đầy đủ thông tin để tiết kiệm thời gian làm thủ tục khám" />
+
+            <Button
+                android:id="@+id/btnxnkham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#EFB508"
+                android:text="Xác nhận đặt khám" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Bằng việc xác nhận đặt hám, bạn đã hoàn toàn đồng ý với Điều khoản sử dụng dịch vụ của chúng tôi" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
