@@ -77,9 +77,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return bacsi;
     }
+    public ArrayList<Bacsi> getAllBacsi(ArrayList<Bacsi> bacSiList) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        try {
+            Cursor cursor = db.query("tbbacsi", null, null, null, null, null, null);
+            while (cursor.moveToNext()) {
+                Bacsi bacsi = new Bacsi(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getInt(6)
+                );
+                bacSiList.add(bacsi);
+
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return bacSiList;
+
+    }
 
 
-    public ArrayList<Bacsi> getAllBacsi(ArrayList<Bacsi> bacSiList, String chuyenkhoa) {
+
+    public ArrayList<Bacsi> getBacsiByChuyenKhoa(ArrayList<Bacsi> bacSiList, String chuyenkhoa) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         try {

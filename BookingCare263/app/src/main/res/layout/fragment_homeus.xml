@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.uiuser.HomeFragment"
     android:orientation="vertical">
-
-    <EditText
+    <TextView
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="30dp"
@@ -17,8 +16,9 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/khungbo"
         android:drawableStart="@drawable/search"
-        android:hint="Tìm bác sĩ, triệu chứng..."
+        android:hint="Tìm bác sĩ, chuyên khoa khám..."
         android:paddingStart="16dp" />
+
 
     <ViewFlipper
         android:layout_width="match_parent"

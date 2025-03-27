@@ -10,9 +10,10 @@ public class Item implements Serializable {
     String thongtin;
 
 
-    public Item(String name, int icon) {
+    public Item(String name, int icon, String thongtin) {
         this.name = name;
         this.icon = icon;
+        this.thongtin = thongtin;
     }
 
     public String getName() {

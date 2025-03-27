@@ -18,6 +18,7 @@ import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.UserActivity;
 import com.example.bookingcare263.adapterus.adapterLichhen;
 import com.example.bookingcare263.databinding.FragmentLichhenusBinding;
+import com.example.bookingcare263.lichhenDetail;
 import com.example.bookingcare263.model.lichhen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
@@ -40,6 +41,12 @@ public class lichhenFragment extends Fragment {
         View root = binding.getRoot();
         anhxa();
 
+        adapter.setOnItemClickListener(lichhen -> {
+            Intent intent = new Intent(getContext(), lichhenDetail.class);
+            intent.putExtra("lichhen", lichhen);
+            startActivity(intent);
+        });
+
         return root;
     }
 
@@ -61,6 +68,7 @@ public class lichhenFragment extends Fragment {
     public void loadData(){
         dbhelper = new DatabaseHelper(getContext());
         listlichhen = dbhelper.getAlllichhen(UserActivity.iduser);
+        adapter.notifyDataSetChanged();
 
     }
 

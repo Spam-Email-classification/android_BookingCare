@@ -89,14 +89,11 @@ public class UserActivity extends AppCompatActivity {
         TextView txtnameheader = headerView.findViewById(R.id.txtnameheader);
         TextView txtsdtheader = headerView.findViewById(R.id.txtsdtheader);
         ImageView imgheader = headerView.findViewById(R.id.imgheader);
-        txtnameheader.setText(name);
-        txtsdtheader.setText(phone);
 
-
-
-
-
-
+        if(name != null && phone != null){
+            txtnameheader.setText(name);
+            txtsdtheader.setText(phone);
+        }
 
 
     }
@@ -128,20 +125,9 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this, ThongtinUser.class);
                 startActivity(intent);
             }
-            return true; // Đã xử lý xong, không cần gọi super
+            return true;
         }
 
-//        if (id == R.id.nav_dangxuat) {
-//            UserActivity.iduser = null; // Xóa thông tin người dùng
-//
-//            // Chuyển về màn hình đăng nhập
-//            Intent intent = new Intent(this, LoginActivity.class);
-//            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-//            startActivity(intent);
-//            finish();
-//
-//            return true; // Đã xử lý xong, không cần gọi super
-//        }
 
         return super.onOptionsItemSelected(item);
     }

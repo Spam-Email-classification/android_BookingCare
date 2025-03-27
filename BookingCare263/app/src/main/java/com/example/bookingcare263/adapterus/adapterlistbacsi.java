@@ -57,6 +57,12 @@ public class adapterlistbacsi extends RecyclerView.Adapter<adapterlistbacsi.View
         return listbacsi.size();
     }
 
+    public void updateList(ArrayList<Bacsi> newList) {
+        listbacsi.clear();
+        listbacsi.addAll(newList);
+        notifyDataSetChanged();
+    }
+
     class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView imgava;
         private TextView txttenbs;

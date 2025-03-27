@@ -9,47 +9,53 @@
     android:orientation="vertical">
 
 
-    <TextView
-        android:id="@+id/txttrangthai"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:background="@drawable/khungbo"
-        android:drawableLeft="@drawable/dotcomxan"
-        android:padding="5dp"
-        android:text="Đã đặt lịch"
-        android:textColor="#33A038" />
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="match_parent"
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/txtnamebacsi"
+            android:id="@+id/txttrangthai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="5dp"
-            android:gravity="center"
-            android:padding="10dp"
-            android:text="Hoàng Thị Phương"
-            android:textColor="@color/black"
-            android:textSize="18dp"
-            android:textStyle="bold" />
+            android:layout_margin="10dp"
+            android:background="@drawable/khungbo"
+            android:drawableLeft="@drawable/dotcomxan"
+            android:padding="5dp"
+            android:text="Đã đặt lịch"
+            android:textColor="#33A038" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="right"
-            android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_height="70dp"
+            android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/imglichhen"
-                android:layout_width="70dp"
-                android:layout_height="60dp"
-                app:srcCompat="@drawable/baseline_account_circle_24" />
+            <TextView
+                android:id="@+id/txtnamebacsi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="5dp"
+                android:gravity="center"
+                android:text="Hoàng Thị Phương"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/imglichhen"
+                    android:layout_width="80dp"
+                    android:layout_height="60dp"
+                    app:srcCompat="@drawable/baseline_account_circle_24" />
+            </LinearLayout>
+
         </LinearLayout>
 
     </LinearLayout>

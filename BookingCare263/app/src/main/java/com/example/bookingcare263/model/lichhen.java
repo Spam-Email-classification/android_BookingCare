@@ -1,6 +1,8 @@
 package com.example.bookingcare263.model;
 
-public class lichhen {
+import java.io.Serializable;
+
+public class lichhen implements Serializable {
     private String id;
     private String idbenhnhan;
     private String idbacsi;

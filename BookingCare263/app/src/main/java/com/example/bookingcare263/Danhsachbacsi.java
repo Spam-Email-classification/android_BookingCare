@@ -1,8 +1,14 @@
 package com.example.bookingcare263;
 
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.adapterus.adapterlistbacsi;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.lichhen;
 
 import java.util.ArrayList;
 
@@ -23,12 +30,15 @@ public class Danhsachbacsi extends AppCompatActivity {
     private TextView txttitle;
     private TextView txtDescription;
     private TextView txtSeeMore;
+    private EditText search_bar1;
 
     DatabaseHelper databaseHelper;
 
     private RecyclerView rcvlistbacsi;
     private adapterlistbacsi adapter;
     private ArrayList<Bacsi> listbacsi;
+    private ArrayList<Bacsi> filteredList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +57,7 @@ public class Danhsachbacsi extends AppCompatActivity {
         // lay du lieu tu sqlite
 
         databaseHelper = new DatabaseHelper(this);
-        listbacsi = databaseHelper.getAllBacsi(listbacsi, title);
+        listbacsi = databaseHelper.getBacsiByChuyenKhoa(listbacsi, title);
         adapter.notifyDataSetChanged();
 
 
@@ -61,10 +71,52 @@ public class Danhsachbacsi extends AppCompatActivity {
 
         });
 
+        search_bar1.setOnEditorActionListener((v, actionId, event) -> {
+            listbacsi.clear();
+            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                String query = search_bar1.getText().toString().trim();
+                filterList(query);
+                hideKeyboard();
+                return true;
+            }
+            return false;
+        });
+
+
+    }
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(search_bar1.getWindowToken(), 0);
+        }
+    }
+
+
+    private void filterList(String query) {
+        filteredList.clear();
+        listbacsi = databaseHelper.getAllBacsi(listbacsi);
+
+        if (query.isEmpty()) {
+            filteredList.addAll(listbacsi);  // Hiển thị tất cả nếu không nhập gì
+        } else {
+            for (Bacsi item : listbacsi) {
+                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
+                if (item.getName().toLowerCase().contains(query.toLowerCase()) ||
+                        item.getChuyenkhoa().toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(item);
+                }
+            }
+        }
+        adapter.updateList(filteredList);
 
     }
 
+
+
     private void anhxa() {
+        filteredList = new ArrayList<>();
+
+        search_bar1 = findViewById(R.id.search_bar1);
         txttitle = findViewById(R.id.txttitle);
         txtDescription = findViewById(R.id.txtDescription);
         txtSeeMore = findViewById(R.id.txtSeeMore);
@@ -79,6 +131,7 @@ public class Danhsachbacsi extends AppCompatActivity {
         });
 
         listbacsi = new ArrayList<>();
+
         rcvlistbacsi = findViewById(R.id.rcvlistbacsi);
         rcvlistbacsi.setLayoutManager(new LinearLayoutManager(this));
         adapter = new adapterlistbacsi(listbacsi);

@@ -21,6 +21,15 @@ import java.util.ArrayList;
 public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHolder>{
     ArrayList<lichhen> listlichhen;
 
+    private OnItemClickListener onItemClickListener;
+    public interface OnItemClickListener {
+        void onItemClick(lichhen lichhen);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener) {
+        this.onItemClickListener = listener;
+    }
+
+
 
 
     public adapterLichhen(ArrayList<lichhen> listlichhen) {
@@ -39,10 +48,12 @@ public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         lichhen lichhen = listlichhen.get(position);
-
-
-
         holder.bind(lichhen);
+        holder.itemView.setOnClickListener(v -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(lichhen);
+            }
+        });
 
 
     }
@@ -71,6 +82,10 @@ public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHold
         public void bind(lichhen lichhen){
             
             txttrangthai.setText(lichhen.getTrangthai());
+
+            // lay namebas
+//            String namebs = lichhen.getNamebs();
+
             txtnamebacsi.setText(lichhen.getNamebenhnhan());
             txtgiokham.setText("Thời gian khám: " + lichhen.getKhunggiokham());
             txtnambenhnhan.setText("Tên bệnh nhân: " + lichhen.getNamebenhnhan());
