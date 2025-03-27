@@ -2,9 +2,11 @@ package com.example.bookingcare263;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -38,7 +40,10 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         anhxa();
-
+        edtpasslogin.setOnEditorActionListener((v, actionId, event) -> {
+                    hideKeyboard();
+                    return false;
+                });
         btnlogin.setOnClickListener(e->login());
         tosigup.setOnClickListener(e->startActivity(new Intent(LoginActivity.this, SignUpActitvity.class)));
     }
@@ -98,6 +103,12 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
+    }
+    private void hideKeyboard() {
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if (imm != null) {
+            imm.hideSoftInputFromWindow(edtpasslogin.getWindowToken(), 0);
+        }
     }
 
     private boolean validate (String sdt, String pass){
