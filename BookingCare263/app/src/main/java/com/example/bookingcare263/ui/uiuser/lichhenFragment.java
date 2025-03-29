@@ -54,6 +54,7 @@ public class lichhenFragment extends Fragment {
         dbhelper = new DatabaseHelper(getContext());
         listlichhen = dbhelper.getAlllichhen(UserActivity.iduser);
 
+
         Log.d("listlichhen size", listlichhen.size() + "");
 
         rcvlichhen = binding.rcvlichhen;

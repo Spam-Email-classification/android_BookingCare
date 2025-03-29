@@ -38,6 +38,10 @@ android {
 dependencies {
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation(libs.legacy.support.v4)
+    implementation(libs.firebase.auth)
+    implementation(libs.credentials)
+    implementation(libs.credentials.play.services.auth)
+    implementation(libs.googleid)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation(libs.appcompat)

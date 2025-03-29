@@ -71,16 +71,37 @@ public class Danhsachbacsi extends AppCompatActivity {
 
         });
 
-        search_bar1.setOnEditorActionListener((v, actionId, event) -> {
-            listbacsi.clear();
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+        search_bar1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                listbacsi.clear();
                 String query = search_bar1.getText().toString().trim();
                 filterList(query);
                 hideKeyboard();
-                return true;
+
             }
-            return false;
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
         });
+//
+//        search_bar1.setOnEditorActionListener((v, actionId, event) -> {
+//            listbacsi.clear();
+//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+//                String query = search_bar1.getText().toString().trim();
+//                filterList(query);
+//                hideKeyboard();
+//                return true;
+//            }
+//            return false;
+//        });
 
 
     }

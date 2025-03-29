@@ -1,17 +1,19 @@
 package com.example.bookingcare263.model;
 
 public class accout {
-    private String name, phone, pass, as;
+    private String name, phone, pass, email,  as;
 
-    public accout(String name, String phone, String pass, String as) {
+    public accout(String name, String phone, String pass, String as, String email) {
         this.name = name;
         this.phone = phone;
         this.pass = pass;
         this.as = as;
+        this.email = email;
     }
 
     public accout() {
     }
+
 
     public String getName() {
         return name;

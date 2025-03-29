@@ -22,7 +22,7 @@
             android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="60dp"
 
             android:layout_marginBottom="20dp"
 
@@ -65,7 +65,7 @@
                 android:background="@drawable/khungbo"
                 android:drawableLeft="@drawable/baseline_account_circle_24"
                 android:ems="10"
-                android:hint="  Số điện thoại"
+                android:hint="  số điện thoại"
                 android:inputType="text"
                 android:padding="5dp"
                 android:textSize="20sp" />
@@ -78,29 +78,39 @@
                 android:drawableLeft="@drawable/baseline_admin_panel_settings_24"
                 android:ems="10"
                 android:hint="  Mật khẩu"
-                android:inputType="text"
+                android:inputType="textPassword"
                 android:padding="5dp"
                 android:textColor="@color/black"
                 android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/tosigup"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="Đăng kí"
-                android:textColor="#488AA9"
-                android:textSize="16dp"
-                android:textStyle="italic" />
 
             <Button
                 android:id="@+id/btnlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="0dp"
                 android:backgroundTint="#009688"
                 android:text="Đăng nhập" />
+
+            <TextView
+                android:id="@+id/txtquenmk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="Quên mật khẩu?"
+                android:textColor="#488AA9"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/tosigup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Chưa có tài khoản? Đăng ký ->"
+                android:textColor="#488AA9"
+                android:textSize="16dp"
+                android:textStyle="italic" />
+
         </LinearLayout>
 
     </LinearLayout>

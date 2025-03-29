@@ -4,8 +4,10 @@ import static android.widget.Toast.LENGTH_SHORT;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,11 +16,10 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,8 +32,10 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button btnlogin;
     private TextView tosigup;
+    private TextView txtquenmk;
 
     DatabaseReference reference;
+    FirebaseAuth auth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +43,64 @@ public class LoginActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_login);
         anhxa();
+        auth = FirebaseAuth.getInstance();
         edtpasslogin.setOnEditorActionListener((v, actionId, event) -> {
                     hideKeyboard();
                     return false;
                 });
         btnlogin.setOnClickListener(e->login());
         tosigup.setOnClickListener(e->startActivity(new Intent(LoginActivity.this, SignUpActitvity.class)));
+
+
+        txtquenmk.setOnClickListener(e->{
+            AlertDialog builder = new AlertDialog.Builder(LoginActivity.this).create();
+            View view = LayoutInflater.from(this).inflate(R.layout.dialog_fotgotpassword, null);
+            EditText  edtemailforgot = view.findViewById(R.id.edtemailforgot);
+            Button btncancel = view.findViewById(R.id.btncancel);
+            Button btnforgot = view.findViewById(R.id.btnforgot);
+            builder.setView(view);
+
+            btncancel.setOnClickListener(v->{
+                builder.dismiss();
+            });
+
+            btnforgot.setOnClickListener(v->{
+                checkemail(edtemailforgot);
+                builder.dismiss();
+            });
+
+            if(builder.getWindow()!= null){
+                builder.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            }
+            builder.show();
+
+        });
+
+        // cap nhap mat khau moi len realtime neu có
+
+
+    }
+
+
+    private void checkemail(EditText email){
+        if(email.getText().toString().trim().isEmpty()){
+            email.setError("Vui lòng nhập số điện thoại");
+            email.requestFocus();
+            return ;
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(email.getText().toString().trim()).matches()){
+            email.setError("Vui lòng nhập đúng định dạng emial");
+            email.requestFocus();
+            return ;
+        }
+
+        auth.sendPasswordResetEmail(email.getText().toString().trim()).addOnCompleteListener(task->{
+            if(task.isSuccessful()){
+                Toast.makeText(LoginActivity.this, "Đã gửi email thành công", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
     }
 
     private void login() {
@@ -64,16 +119,11 @@ public class LoginActivity extends AppCompatActivity {
                     for (DataSnapshot ds: snapshot.getChildren()){
                         String passfromdb = ds.child("pass").getValue(String.class);
                         if(passfromdb!=null && passfromdb.equals(pass)){
-
                             // lấy role
                             String asdb = ds.child("as").getValue(String.class);
                             if(asdb!=null && asdb.equals("user")){
-
                                 String name = ds.child("name").getValue(String.class);
                                 String phone = ds.child("phone").getValue(String.class);
-
-
-
 
                                 Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                 intent.putExtra("iduser", sdt);
@@ -92,13 +142,10 @@ public class LoginActivity extends AppCompatActivity {
                 } else{
                     Toast.makeText(LoginActivity.this, "Tài khoản không tồn tại", LENGTH_SHORT).show();
                 }
-
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
             }
         });
 
@@ -132,6 +179,7 @@ public class LoginActivity extends AppCompatActivity {
         edtpasslogin = findViewById(R.id.edtpasslogin);
         btnlogin = findViewById(R.id.btnlogin);
         tosigup = findViewById(R.id.tosigup);
+        txtquenmk = findViewById(R.id.txtquenmk);
 
     }
 }
