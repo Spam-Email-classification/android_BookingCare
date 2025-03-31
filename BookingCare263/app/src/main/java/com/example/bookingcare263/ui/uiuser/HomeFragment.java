@@ -162,7 +162,7 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                     break;
 
-                case "KHÁM NHA KHOA":
+                case "KHÁM TỔNG QUÁT":
                     intent = new Intent(getActivity(), Danhsachbacsi.class);
                     intent.putExtra("title", itemName);
                     intent.putExtra("thongtin", x.getThongtin());
@@ -193,6 +193,8 @@ public class HomeFragment extends Fragment {
         adaptercosoyte adaptercsyt = new adaptercosoyte(cosoyteList);
         rcvcosoyte.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvcosoyte.setAdapter(adaptercsyt);
+
+
 
 
 
