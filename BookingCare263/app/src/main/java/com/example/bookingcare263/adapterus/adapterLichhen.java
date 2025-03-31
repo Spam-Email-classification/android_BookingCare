@@ -86,7 +86,7 @@ public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHold
             // lay namebas
 //            String namebs = lichhen.getNamebs();
 
-            txtnamebacsi.setText(lichhen.getNamebenhnhan());
+            txtnamebacsi.setText(lichhen.getNamebs());
             txtgiokham.setText("Thời gian khám: " + lichhen.getKhunggiokham());
             txtnambenhnhan.setText("Tên bệnh nhân: " + lichhen.getNamebenhnhan());
 

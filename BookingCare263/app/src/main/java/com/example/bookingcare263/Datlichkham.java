@@ -88,7 +88,8 @@ public class Datlichkham extends AppCompatActivity {
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
                     edtdiachi.getText().toString(),
-                    anh
+                    anh,
+                    bacsi.getName()
             );
             boolean inserted = dbhelper.addlichhen(lh);
             if(inserted){

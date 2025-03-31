@@ -182,6 +182,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("sodienthoai", lh.getSdtbenhnhan());
         values.put("diachi", lh.getDiachibenhnhan());
         values.put("avatarbs", lh.getAvatarbs());
+        values.put("namebs", lh.getNamebs());
         long result = db.insert("tblichhen", null, values);
         db.close();
         return result != -1;
@@ -204,7 +205,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(6),
                         cursor.getString(7),
                         cursor.getString(8),
-                        cursor.getString(9)
+                        cursor.getString(9),
+                        cursor.getString(10)
+
                 );
                 lichhenList.add(lh);
             }

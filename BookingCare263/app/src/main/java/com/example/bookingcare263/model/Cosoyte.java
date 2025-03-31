@@ -17,6 +17,7 @@ public class Cosoyte {
         this.img = img;
         this.diachi = diachi;
         this.thongtin = thongtin;
+
     }
 
     public String getName() {
