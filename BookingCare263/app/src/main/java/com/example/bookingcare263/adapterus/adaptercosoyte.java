@@ -1,44 +1,45 @@
 package com.example.bookingcare263.adapterus;
 
+
+
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
+import com.bumptech.glide.Glide;
 import com.example.bookingcare263.R;
-import com.example.bookingcare263.model.Bacsi;
-import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.Cosoyte;
+
 
 import java.util.ArrayList;
 
-public class adapterBacsi  extends RecyclerView.Adapter<adapterBacsi.ViewHolder> {
-    ArrayList <Bacsi> listitems;
+public class adaptercosoyte  extends RecyclerView.Adapter<adaptercosoyte.ViewHolder> {
+    ArrayList <Cosoyte> listitems;
 
-    private OnBacsiClickListener listener;
-    public interface OnBacsiClickListener {
-        void onItemClick(Bacsi items);
+    public OnItemClickListener listener;
+    public interface OnItemClickListener {
+        void onItemClick(Cosoyte items);
     }
-
-
-    public void setOnItemClickListener(OnBacsiClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
-    public adapterBacsi(ArrayList<Bacsi> listitems) {
+    public adaptercosoyte(ArrayList<Cosoyte> listitems) {
         this.listitems = listitems;
+
     }
 
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.bacsi_layout,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.csyte_layout,parent,false);
         return new ViewHolder(view);
     }
 
@@ -46,7 +47,7 @@ public class adapterBacsi  extends RecyclerView.Adapter<adapterBacsi.ViewHolder>
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
         holder.bind(listitems.get(position));
-        holder.itemView.setOnClickListener(v -> {
+        holder.itemView.setOnClickListener(v->{
             if (listener != null) {
                 listener.onItemClick(listitems.get(position));
             }
@@ -71,24 +72,18 @@ public class adapterBacsi  extends RecyclerView.Adapter<adapterBacsi.ViewHolder>
             txtitems = itemView.findViewById(R.id.txtitemsbs);
             imgIcon = itemView.findViewById(R.id.imgiconbs);
         }
-        public void bind(Bacsi items){
+        public void bind(Cosoyte items){
             txtitems.setText(items.getName());
-            Glide.with(imgIcon.getContext())
-                    .load(items.getImg())  // Nếu `items.getIcon()` trả về ID ảnh drawable
-                    .apply(RequestOptions.circleCropTransform()) // Làm tròn ảnh
-                    .into(imgIcon);
 
             String avatarUri = items.getImg();
             if (avatarUri != null && !avatarUri.isEmpty()) {
                 Glide.with(imgIcon.getContext())
                         .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                        .circleCrop()
                         .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                         .into(imgIcon);
             } else {
                 imgIcon.setImageResource(R.drawable.baseline_account_circle_24);
             }
-            imgIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
         }
     }
 }

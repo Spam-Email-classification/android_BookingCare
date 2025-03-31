@@ -145,10 +145,28 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/khungbo"
                 android:ems="10"
-                android:hint="dd/mm/yyyy"
+                android:hint="Chọn ngày khám"
                 android:drawableLeft="@drawable/icons8_calendar_50"
                 android:inputType="date"
                 android:padding="5dp" />
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thời gian khám"
+                android:textColor="#374592"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroupGioKham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+                <RadioButton android:id="@+id/radio7h_8h30" android:layout_width="wrap_content" android:checked="true" android:layout_height="wrap_content" android:text="7h - 8h30" />
+                <RadioButton android:id="@+id/radio9h_10h30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="9h - 10h30" />
+                <RadioButton android:id="@+id/radio14h_15h30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="14h - 15h30" />
+                <RadioButton android:id="@+id/radio16h_17h30" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="16h - 17h30" />
+            </RadioGroup>
 
             <EditText
                 android:id="@+id/textView15"

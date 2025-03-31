@@ -60,10 +60,16 @@ public class Bacsi_details extends AppCompatActivity {
                 .into(imgavtarbsdt);
 
         btndatlichdt.setOnClickListener(v -> {
-            Intent intent1 = new Intent(Bacsi_details.this, Datlichkham.class);
-            intent1.putExtra("bacsi", bacsi);
-            intent1.putExtra("anh", anh);
-            startActivity(intent1);
+            if(UserActivity.iduser!=null){
+                Intent intent1 = new Intent(Bacsi_details.this, Datlichkham.class);
+                intent1.putExtra("bacsi", bacsi);
+                intent1.putExtra("anh", anh);
+                startActivity(intent1);
+                finish();
+            } else{
+                Intent intent1 = new Intent(Bacsi_details.this, LoginActivity.class);
+                startActivity(intent1);
+            }
         });
 
 

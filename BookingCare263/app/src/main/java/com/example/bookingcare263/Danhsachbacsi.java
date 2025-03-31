@@ -69,6 +69,7 @@ public class Danhsachbacsi extends AppCompatActivity {
             intent1.putExtra("anh", bacsi.getImg());
             startActivity(intent1);
 
+
         });
 
         search_bar1.addTextChangedListener(new TextWatcher() {
@@ -82,7 +83,7 @@ public class Danhsachbacsi extends AppCompatActivity {
                 listbacsi.clear();
                 String query = search_bar1.getText().toString().trim();
                 filterList(query);
-                hideKeyboard();
+
 
             }
 
@@ -91,25 +92,8 @@ public class Danhsachbacsi extends AppCompatActivity {
 
             }
         });
-//
-//        search_bar1.setOnEditorActionListener((v, actionId, event) -> {
-//            listbacsi.clear();
-//            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-//                String query = search_bar1.getText().toString().trim();
-//                filterList(query);
-//                hideKeyboard();
-//                return true;
-//            }
-//            return false;
-//        });
 
 
-    }
-    private void hideKeyboard() {
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-        if (imm != null) {
-            imm.hideSoftInputFromWindow(search_bar1.getWindowToken(), 0);
-        }
     }
 
 

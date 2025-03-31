@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.lichhen;
 
 import java.io.File;
@@ -30,6 +31,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+
+
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -39,6 +42,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " +"tbbacsi");
         onCreate(db);
+    }
+
+    // get cosoyte
+    public ArrayList<Cosoyte> getCosoyte(){
+        ArrayList<Cosoyte> cosoyteList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tbsoyte", null, null, null, null, null, null);
+            while (cursor.moveToNext()) {
+                Cosoyte cosoyte = new Cosoyte(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4)
+                );
+                cosoyteList.add(cosoyte);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return cosoyteList;
     }
 
     public boolean addBacsi(Bacsi bacsi) {

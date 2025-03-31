@@ -1,11 +1,14 @@
 package com.example.bookingcare263;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +24,7 @@ import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.lichhen;
 
 import java.io.File;
+import java.util.Calendar;
 
 public class Datlichkham extends AppCompatActivity {
     private TextView txtDescription;
@@ -30,6 +34,9 @@ public class Datlichkham extends AppCompatActivity {
     EditText edthoten, edtsdt, edtngay, edtdiachi;
 
     DatabaseHelper dbhelper;
+
+    // xly radio group
+     RadioGroup radioGroupGioKham;
 
 
     @Override
@@ -52,12 +59,22 @@ public class Datlichkham extends AppCompatActivity {
         txtgiakham.setText(String.valueOf(bacsi.getGiaKham()));
         txttong.setText(String.valueOf(bacsi.getGiaKham()));
 
+
+        // xu ly radiogroup
+        int selectedid = radioGroupGioKham.getCheckedRadioButtonId();
+
+        RadioButton selectedRadioButton = findViewById(selectedid);
+        String selectedText = selectedRadioButton.getText().toString();
+
+
+        txtTime.setText(edtngay.getText() + " - " + selectedText);
         String anh = intent.getStringExtra("anh");
         Glide.with(this)
                 .load(new File(this.getFilesDir(), anh))
                 .apply(RequestOptions.circleCropTransform())
                 .into(imgavtars);
         Log.d("anh ", anh);
+        edtngay.setOnClickListener(e->showDatePickerDialog());
         btndatlichkham.setOnClickListener(e->{
             String iduser = UserActivity.iduser;
             if(!validate()) return;
@@ -79,8 +96,7 @@ public class Datlichkham extends AppCompatActivity {
             } else{
                 Log.d("DatabaseHelper", "❌ Thêm lịch hẹn thất bại!");
             }
-
-
+            
             finish();
 
         });
@@ -88,6 +104,23 @@ public class Datlichkham extends AppCompatActivity {
 
 
 
+    }
+
+    private void showDatePickerDialog() {
+        final Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        // Hiển thị DatePickerDialog
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, selectedYear, selectedMonth, selectedDay) -> {
+            String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;
+            edtngay.setText(selectedDate);  // Hiển thị ngày chọn trong EditText
+        }, year, month, day);
+
+        // Giới hạn ngày: Chỉ cho phép chọn từ ngày hôm nay trở đi
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
+
+        datePickerDialog.show();
     }
 
     private boolean validate(){
@@ -132,6 +165,7 @@ public class Datlichkham extends AppCompatActivity {
         edtsdt = findViewById(R.id.edtsdt);
         edtngay = findViewById(R.id.edtngay);
         edtdiachi = findViewById(R.id.textView15);
+        radioGroupGioKham = findViewById(R.id.radioGroupGioKham);
 
 
         txtSeeMore.setOnClickListener(v -> {
