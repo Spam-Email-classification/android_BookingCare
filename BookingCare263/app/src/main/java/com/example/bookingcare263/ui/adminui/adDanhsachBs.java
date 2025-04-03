@@ -2,6 +2,7 @@ package com.example.bookingcare263.ui.adminui;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
@@ -19,6 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
+import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
@@ -73,11 +75,44 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
             toolbar.setTitle("QUẢN LÝ CSYT");
             listcsyte = new ArrayList<>();
             listcsyte = helper.getCosoyte();
+            Log.d("listcsyt", listcsyte.size( ) +"");
             adaptercsyt = new adaptercosoyte(listcsyte);
+
             rcvlisbsad.setAdapter(adaptercsyt);
             rcvlisbsad.setLayoutManager(new GridLayoutManager(this, 2));
+            adaptercsyt.setOnItemClickListener(csyt->{
+                Intent intent1 = new Intent(adDanhsachBs.this, ChitietCSYT.class);
+                intent1.putExtra("cosoyte", csyt);
+                startActivity(intent1);
+            });
         }
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(manager != null && manager.equals("quanlybacsi")){
+            loadDatabs();
+        }
+        if(manager != null && manager.equals("quanlycsyt")){
+            loadDatacsyt();
+        }
+
+    }
+
+    public void loadDatacsyt(){
+        listcsyte.clear();
+        listcsyte.addAll(helper.getCosoyte());
+        adaptercsyt.notifyDataSetChanged();
+
+    }
+
+    public void loadDatabs(){
+        listbacsi.clear();
+        listbacsi = helper.getAllBacsi(listbacsi);
+        adapter.notifyDataSetChanged();
 
     }
 
@@ -105,11 +140,11 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
 
     @Override
     public void onItemClick(Bacsi bacsi) {
-        Intent intent = new Intent(this, Bacsi_details.class);
-        intent.putExtra("bacsi", bacsi);
-        intent.putExtra("anh", bacsi.getImg());
-        intent.putExtra("title", bacsi.getChuyenkhoa());
-        startActivity(intent);
+//        Intent intent = new Intent(this, Bacsi_details.class);
+//        intent.putExtra("bacsi", bacsi);
+//        intent.putExtra("anh", bacsi.getImg());
+//        intent.putExtra("title", bacsi.getChuyenkhoa());
+//        startActivity(intent);
     }
 
     @Override
@@ -123,6 +158,10 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
 
     @Override
     public void onFixClick(Bacsi bacsi) {
+        Intent intent = new Intent(this, SuaBS.class);
+        intent.putExtra("bacsi", bacsi);
+        startActivity(intent);
+
 
     }
 

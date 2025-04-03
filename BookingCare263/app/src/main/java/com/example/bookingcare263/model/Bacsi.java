@@ -9,7 +9,7 @@ public class Bacsi implements Serializable {
     private String diachi;
     private String img;
     private String thongtin;
-    private int GiaKham;
+    private String GiaKham;
 
     private String sogiayphephanhnghe;
     private String email;
@@ -21,7 +21,7 @@ public class Bacsi implements Serializable {
     }
 
     public Bacsi(String id, String name, String chuyenkhoa, String diachi, String img, String thongtin,
-                 int GiaKham, String sogiayphephanhnghe, String email, String sdt) {
+                 String GiaKham, String sogiayphephanhnghe, String email, String sdt) {
         this.id = id;
         this.name = name;
         this.chuyenkhoa = chuyenkhoa;
@@ -33,6 +33,21 @@ public class Bacsi implements Serializable {
         this.email = email;
         this.sdt = sdt;
     }
+
+    public Bacsi(String name, String chuyenkhoa, String diachi, String img, String thongtin,
+                 String GiaKham, String sogiayphephanhnghe, String email, String sdt) {
+
+        this.name = name;
+        this.chuyenkhoa = chuyenkhoa;
+        this.diachi = diachi;
+        this.img = img;
+        this.thongtin = thongtin;
+        this.GiaKham = GiaKham;
+        this.sogiayphephanhnghe = sogiayphephanhnghe;
+        this.email = email;
+        this.sdt = sdt;
+    }
+
 
     public String getSogiayphephanhnghe() {
         return sogiayphephanhnghe;
@@ -105,11 +120,11 @@ public class Bacsi implements Serializable {
         this.thongtin = thongtin;
     }
 
-    public int getGiaKham() {
+    public String getGiaKham() {
         return GiaKham;
     }
 
-    public void setGiaKham(int giaKham) {
+    public void setGiaKham(String giaKham) {
         GiaKham = giaKham;
     }
 }

@@ -1,7 +1,9 @@
 package com.example.bookingcare263.model;
 
-public class Cosoyte {
-    private String id;
+import java.io.Serializable;
+
+public class Cosoyte implements Serializable {
+    private int id;
     private String name;
     private String img;
 
@@ -10,22 +12,80 @@ public class Cosoyte {
     private String masogiayphep;
     private String email;
     private String sdt;
+    private String website;
+    String chuyenkhoa;
 
 
     public Cosoyte() {
     }
 
-    public Cosoyte(String id, String name, String img, String diachi, String thongtin
-            , String masogiayphep, String email, String sdt) {
+    public Cosoyte( String name, String img, String diachi, String thongtin
+            , String masogiayphep, String chuyenkhoa, String email, String sdt, String website) {
+        this.name = name;
+        this.img = img;
+        this.diachi = diachi;
+        this.thongtin = thongtin;
+        this.masogiayphep = masogiayphep;
+        this.website = website;
+        this.sdt = sdt;
+        this.email = email;
+        this.chuyenkhoa = chuyenkhoa;
+
+    }
+
+
+    public Cosoyte(int id, String name, String img, String diachi, String thongtin
+            , String masogiayphep, String chuyenkhoa,String email, String sdt, String website) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.diachi = diachi;
         this.thongtin = thongtin;
         this.masogiayphep = masogiayphep;
-        this.email = email;
+        this.website = website;
         this.sdt = sdt;
+        this.email = email;
+        this.chuyenkhoa = chuyenkhoa;
+    }
 
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public String getMasogiayphep() {
+        return masogiayphep;
+    }
+
+    public String getChuyenkhoa() {
+        return chuyenkhoa;
+    }
+
+    public void setChuyenkhoa(String chuyenkhoa) {
+        this.chuyenkhoa = chuyenkhoa;
+    }
+
+    public void setMasogiayphep(String masogiayphep) {
+        this.masogiayphep = masogiayphep;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getSdt() {
+        return sdt;
+    }
+
+    public void setSdt(String sdt) {
+        this.sdt = sdt;
     }
 
     public String getName() {
@@ -36,11 +96,11 @@ public class Cosoyte {
         this.name = name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

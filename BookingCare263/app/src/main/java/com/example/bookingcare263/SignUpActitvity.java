@@ -2,8 +2,10 @@ package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,12 +22,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 
 public class SignUpActitvity extends AppCompatActivity {
-    EditText edtnamesignup, edtsdtsignup, edtpasssignup, edtemailsigup;
+    EditText edtnamesignup, edtsdtsignup, edtpasssignup;
     Button btnsigup;
     TextView tologin;
     DatabaseReference reference;
     DatabaseHelper helper;
-    FirebaseAuth auth;
+    Spinner spinrole;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +39,16 @@ public class SignUpActitvity extends AppCompatActivity {
         edtnamesignup = findViewById(R.id.edtnamesignup);
         edtsdtsignup = findViewById(R.id.edtsdtsignup);
         edtpasssignup = findViewById(R.id.edtpasssignup);
-        edtemailsigup = findViewById(R.id.edtemailsigup);
         btnsigup = findViewById(R.id.btnsigup);
         tologin = findViewById(R.id.tologin);
-        auth = FirebaseAuth.getInstance();
+        spinrole = findViewById(R.id.spinrole);
+        String role[] = { "benh nhan", "bacsi"};
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
+        spinrole.setAdapter(adapter);
+        spinrole.setSelection(0);
+
+
 
         btnsigup.setOnClickListener(e->{
 
@@ -59,8 +67,13 @@ public class SignUpActitvity extends AppCompatActivity {
         String name = edtnamesignup.getText().toString().trim();
         String sdt = edtsdtsignup.getText().toString().trim();
         String pass = edtpasssignup.getText().toString().trim();
-        String email = edtemailsigup.getText().toString().trim();
         String as = "user";
+        as = spinrole.getSelectedItem().toString();
+        if (as.equals("benh nhan")) {
+            as = "user";
+        } else {
+            as = "admin";
+        }
 
         // Kiểm tra dữ liệu trước khi đăng ký
         if (name.isEmpty()) {
@@ -71,14 +84,8 @@ public class SignUpActitvity extends AppCompatActivity {
             edtsdtsignup.setError("Please enter phone number");
             return;
         }
-        if (email.isEmpty()) {
-            edtemailsigup.setError("Please enter email");
-            return;
-        }
-        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-            edtemailsigup.setError("Invalid email format");
-            return;
-        }
+
+
         if (pass.isEmpty()) {
             edtpasssignup.setError("Please enter password");
             return;
@@ -89,10 +96,7 @@ public class SignUpActitvity extends AppCompatActivity {
         }
 
         // Đăng ký Firebase Authentication
-        auth.createUserWithEmailAndPassword(email, pass).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-
-                accout acc = new accout(name, sdt, pass, as, email);
+        accout acc = new accout(name, sdt, pass, as);
                 reference.child(sdt).setValue(acc).addOnSuccessListener(aVoid -> {
                     Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActitvity.this, LoginActivity.class));
@@ -101,11 +105,6 @@ public class SignUpActitvity extends AppCompatActivity {
                 });
 
 
-            } else {
-                // Xử lý lỗi chi tiết
-                String errorMessage = task.getException().getMessage();
-                Toast.makeText(SignUpActitvity.this, "Lỗi đăng ký: " + errorMessage, Toast.LENGTH_LONG).show();
-            }
-        });
+
     }
 }

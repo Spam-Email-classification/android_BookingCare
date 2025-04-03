@@ -2,6 +2,7 @@ package com.example.bookingcare263.adapterus;
 
 
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +13,24 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.bumptech.glide.Glide;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.chuyenkhoa;
 
 import java.util.ArrayList;
 
 public class adapterkhamchuyenkhoa  extends RecyclerView.Adapter<adapterkhamchuyenkhoa.ViewHolder> {
-    ArrayList <Item> listitems;
+    ArrayList <chuyenkhoa> listitems;
     int layout;
     public OnItemClickListener listener;
     public interface OnItemClickListener {
-        void onItemClick(Item items);
+        void onItemClick(chuyenkhoa items);
     }
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }
-    public adapterkhamchuyenkhoa(ArrayList<Item> listitems, int layout) {
+    public adapterkhamchuyenkhoa(ArrayList<chuyenkhoa> listitems, int layout) {
         this.listitems = listitems;
         this.layout = layout;
     }
@@ -68,9 +71,15 @@ public class adapterkhamchuyenkhoa  extends RecyclerView.Adapter<adapterkhamchuy
             txtitems = itemView.findViewById(R.id.txtitemsbs);
             imgIcon = itemView.findViewById(R.id.imgiconbs);
         }
-        public void bind(Item items){
-            txtitems.setText(items.getName());
-            imgIcon.setImageResource(items.getIcon());
+        public void bind(chuyenkhoa items){
+            txtitems.setText(items.getTenchuyenkhoa());
+            Glide.with(imgIcon.getContext())
+                    .load(Uri.parse(items.getImg())) // Chuyển String thành Uri
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imgIcon);
+
+
         }
     }
 }

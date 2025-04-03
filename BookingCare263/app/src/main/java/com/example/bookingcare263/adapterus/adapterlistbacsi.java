@@ -1,5 +1,6 @@
 package com.example.bookingcare263.adapterus;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,18 +79,18 @@ public class adapterlistbacsi extends RecyclerView.Adapter<adapterlistbacsi.View
 
         }
         public void bind(Bacsi bacsi) {
-            String imagePath = bacsi.getImg();
-            if(imagePath != null){
-                Toast.makeText(imgava.getContext(), imagePath, Toast.LENGTH_SHORT).show();
+
+            String avatarUri = bacsi.getImg();
+            if (avatarUri != null && !avatarUri.isEmpty()) {
+                Glide.with(imgava.getContext())
+                        .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                        .circleCrop()
+                        .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                        .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                        .into(imgava);
+            } else {
+                imgava.setImageResource(R.drawable.baseline_account_circle_24);
             }
-            else{
-                Toast.makeText(imgava.getContext(), "Không có ảnh", Toast.LENGTH_SHORT).show();
-            }
-            Glide.with(imgava.getContext())
-                    .load(new File(imgava.getContext().getFilesDir(), imagePath) )
-                    .apply(RequestOptions.circleCropTransform())
-                    .placeholder(R.drawable.baseline_account_circle_24)
-                    .into(imgava);
 
 
 

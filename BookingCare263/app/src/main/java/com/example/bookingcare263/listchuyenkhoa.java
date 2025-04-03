@@ -1,16 +1,24 @@
 package com.example.bookingcare263;
 
+import static com.example.bookingcare263.ui.adminui.AdminActivity.roleadmin;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.adapterus.adapterkhamchuyenkhoa;
-import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.chuyenkhoa;
+import com.example.bookingcare263.ui.adminui.SuaChuyenKhoa;
+import com.example.bookingcare263.ui.adminui.ThemChuyenkhoa;
+import com.example.bookingcare263.ui.adminui.adDanhsachBs;
 import com.example.bookingcare263.ui.uiuser.Danhsachbacsi;
 
 import java.util.ArrayList;
@@ -19,7 +27,8 @@ public class listchuyenkhoa extends AppCompatActivity {
     private Toolbar tbkhamchuyenkhoa;
     private RecyclerView rcvkhamchuyenkhoa;
     private adapterkhamchuyenkhoa adapter;
-    public  ArrayList<Item> listitems;
+    public  ArrayList<chuyenkhoa> listitems;
+    DatabaseHelper helper;
 
 
     @Override
@@ -36,40 +45,76 @@ public class listchuyenkhoa extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadData();
+    }
+
+    private void loadData() {
+        listitems.clear();
+        listitems.addAll(helper.getChuyenKhoa());
+        adapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+
+        //
+        if (roleadmin != null) {
+            getMenuInflater().inflate(R.menu.addmenu, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.plusss) {
+            // add
+            Intent intent1 = new Intent(listchuyenkhoa.this, ThemChuyenkhoa.class);
+            startActivity(intent1);
+
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
     private void anhxa() {
 
 
         tbkhamchuyenkhoa = findViewById(R.id.toolbar2);
         rcvkhamchuyenkhoa = findViewById(R.id.rcvkhamchuyenkhoa);
         listitems = new ArrayList<>();
-        listitems.add(new Item("Cơ xương khớp", R.drawable.ck1, "Cơ xương khớp"));
-        listitems.add(new Item("Thần kinh", R.drawable.ck2, "Cơ xương khớp"));
-        listitems.add(new Item("Tiêu hóa", R.drawable.ck3, "Cơ xương khớp"));
-        listitems.add(new Item("Tim mạch", R.drawable.ck4, "Cơ xương khớp"));
-        listitems.add(new Item("Cột sống", R.drawable.ck5, "Cơ xương khớp"));
-        listitems.add(new Item("Y học cổ truyền", R.drawable.ck6, "Cơ xương khớp"));
-        listitems.add(new Item("Châm cứu", R.drawable.ck7, "Cơ xương khớp"));
-        listitems.add(new Item("Sản phụ khoa", R.drawable.ck8, "Cơ xương khớp"));
-        listitems.add(new Item("Da liễu", R.drawable.ck9, "Cơ xương khớp"));
-        listitems.add(new Item("Hô hấp phổi", R.drawable.ck10, "Cơ xương khớp"));
-        listitems.add(new Item("Chuyên khoa mắt", R.drawable.ck11, "Cơ xương khớp"));
-        listitems.add(new Item("Thân - Tiết niệu", R.drawable.ck12, "Cơ xương khớp"));
-        listitems.add(new Item("Ung bướu", R.drawable.ck13, "Cơ xương khớp"));
-        listitems.add(new Item("Tư vấn, trị liệu tâm lý", R.drawable.ck14, "Cơ xương khớp"));
-
+        helper = new DatabaseHelper(this);
+        listitems = helper.getChuyenKhoa();
         adapter = new adapterkhamchuyenkhoa(listitems, R.layout.item_chuyenkhoa);
         rcvkhamchuyenkhoa.setLayoutManager(new GridLayoutManager(this, 2));
 
         rcvkhamchuyenkhoa.setAdapter(adapter);
         adapter.setOnItemClickListener(item -> {
-            Item x = item;
-            String itemName = item.getName();
-            Intent intent = new Intent(this, Danhsachbacsi.class);
-            intent.putExtra("title", itemName);
-            intent.putExtra("thongtin", x.getThongtin());
-            startActivity(intent);
-            finish();
 
+            chuyenkhoa x = item;
+
+            if(roleadmin == null) {
+
+                String itemName = item.getTenchuyenkhoa();
+                Intent intent = new Intent(this, Danhsachbacsi.class);
+                intent.putExtra("title", itemName);
+                intent.putExtra("thongtin", x.getThongtin());
+                startActivity(intent);
+                finish();
+            } else {
+                Intent intent = new Intent(this, SuaChuyenKhoa.class);
+                intent.putExtra("chuyen khoa", x);
+                startActivity(intent);
+
+            }
         });
 
     }

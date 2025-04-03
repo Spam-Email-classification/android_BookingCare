@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
+import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.model.lichhen;
 
 import java.io.File;
@@ -43,6 +44,58 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " +"tbbacsi");
         onCreate(db);
     }
+    //Chuyen khoa
+
+    public ArrayList <chuyenkhoa> getChuyenKhoa(){
+        ArrayList<chuyenkhoa> chuyenkhoaList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try{
+            Cursor cursor = db.query("tbchuyenkhoa", null, null, null, null, null, null);
+            while (cursor.moveToNext()){
+                chuyenkhoa chuyenkhoa = new chuyenkhoa(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3)
+                );
+                chuyenkhoaList.add(chuyenkhoa);
+            }
+            db.close();
+            cursor.close();
+        }catch (Exception e){
+            }
+
+        return chuyenkhoaList;
+
+    }
+    public boolean insertChuyenKhoa(chuyenkhoa ck){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tenchuyenkhoa", ck.getTenchuyenkhoa());
+        values.put("img", ck.getImg());
+        values.put("thongtin", ck.getThongtin());
+        long result = db.insert("tbchuyenkhoa", null, values);
+        db.close();
+        return result != -1;
+    }
+
+    public boolean deleteChuyenKhoa(String id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("tbchuyenkhoa", "id=?", new String[]{id});
+        db.close();
+        return result > 0;
+    }
+    public boolean updateChuyenKhoa(chuyenkhoa ck){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("tenchuyenkhoa", ck.getTenchuyenkhoa());
+        values.put("img", ck.getImg());
+        values.put("thongtin", ck.getThongtin());
+        int result = db.update("tbchuyenkhoa", values, "id=?", new String[]{ck.getId()});
+        db.close();
+        return result > 0;
+    }
+
 
     // get cosoyte
     public ArrayList<Cosoyte> getCosoyte(){
@@ -52,14 +105,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.query("tbsoyte", null, null, null, null, null, null);
             while (cursor.moveToNext()) {
                 Cosoyte cosoyte = new Cosoyte(
-                        cursor.getString(0),
+                        cursor.getInt(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
                         cursor.getString(6),
-                        cursor.getString(7)
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9)
 
                 );
                 cosoyteList.add(cosoyte);
@@ -70,6 +125,49 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             e.printStackTrace();
         }
         return cosoyteList;
+    }
+
+    public boolean insertCosoyte(Cosoyte cosoyte) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", cosoyte.getName());
+        values.put("img", cosoyte.getImg());
+        values.put("diachi", cosoyte.getDiachi());
+        values.put("thongtin", cosoyte.getThongtin());
+        values.put("masogiayphep", cosoyte.getMasogiayphep());
+        values.put("website", cosoyte.getWebsite());
+        values.put("sodienthoai", cosoyte.getSdt());
+        values.put("email", cosoyte.getEmail());
+        values.put("chuyenkhoa", cosoyte.getChuyenkhoa());
+
+        long result = db.insert("tbsoyte", null, values);
+        db.close();
+        return result != -1;
+
+    }
+
+    public boolean deletecsyt(int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("tbsoyte", "id=?", new String[]{String.valueOf(id)});
+        db.close();
+        return result > 0;
+    }
+    public boolean updatecsyt(Cosoyte cosoyte){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", cosoyte.getName());
+        values.put("img", cosoyte.getImg());
+        values.put("diachi", cosoyte.getDiachi());
+        values.put("thongtin", cosoyte.getThongtin());
+        values.put("masogiayphep", cosoyte.getMasogiayphep());
+        values.put("website", cosoyte.getWebsite());
+        values.put("sodienthoai", cosoyte.getSdt());
+        values.put("email", cosoyte.getEmail());
+        values.put("chuyenkhoa", cosoyte.getChuyenkhoa());
+        int result = db.update("tbsoyte", values, "id=?", new String[]{String.valueOf(cosoyte.getId())});
+        db.close();
+        return result > 0;
+
     }
 
     public boolean addBacsi(Bacsi bacsi) {
@@ -88,7 +186,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result != -1;
     }
-
+    // update bacsi
+    public boolean updateBacsi(Bacsi bacsi) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("ten", bacsi.getName());
+        values.put("chuyenkhoa", bacsi.getChuyenkhoa());
+        values.put("diachi", bacsi.getDiachi());
+        values.put("avatar", bacsi.getImg());
+        values.put("thongtin", bacsi.getThongtin());
+        values.put("giakham", bacsi.getGiaKham());
+        values.put("sogiayphephanhnghe", bacsi.getSogiayphephanhnghe());
+        values.put("email", bacsi.getEmail());
+        values.put("sdt", bacsi.getSdt());
+        int result = db.update("tbbacsi", values, "id=?", new String[]{bacsi.getId()});
+        db.close();
+        return result > 0;
+    }
 
     // lay danh sach bacsi theo chuyen khoa
 
@@ -104,7 +218,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 bacsi.setDiachi(cursor.getString(3));
                 bacsi.setImg(cursor.getString(4));
                 bacsi.setThongtin(cursor.getString(5));
-                bacsi.setGiaKham(cursor.getInt(6));
+                bacsi.setGiaKham(cursor.getString(6));
                 bacsi.setSogiayphephanhnghe(cursor.getString(7));
                 bacsi.setEmail(cursor.getString(8));
                 bacsi.setSdt(cursor.getString(9));
@@ -130,7 +244,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
-                        cursor.getInt(6),
+                        cursor.getString(6),
                         cursor.getString(7),
                         cursor.getString(8),
                         cursor.getString(9)
@@ -162,7 +276,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         cursor.getString(3),
                         cursor.getString(4),
                         cursor.getString(5),
-                        cursor.getInt(6),
+                        cursor.getString(6),
                         cursor.getString(7),
                         cursor.getString(8),
                         cursor.getString(9)

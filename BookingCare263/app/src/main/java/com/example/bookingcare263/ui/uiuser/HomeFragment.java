@@ -27,6 +27,7 @@ import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.chuyenkhoa;
 
 import java.util.ArrayList;
 
@@ -83,7 +84,7 @@ public class HomeFragment extends Fragment {
 
 
         listitems = new ArrayList<>();
-        listitems.add(new Item("Cơ xương khớp", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
+        listitems.add(new Item("Khám chuyên khoa", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
         listitems.add(new Item("KHÁM TỔNG QUAT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
 
         listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
@@ -114,23 +115,8 @@ public class HomeFragment extends Fragment {
         // hien thi chuyen khoa main
 
         rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
-        ArrayList<Item> listck = new ArrayList<>();
-        listck.add(new Item("Cơ xương khớp", R.drawable.ck1, "Cơ xương khớp"));
-        listck.add(new Item("Thần kinh", R.drawable.ck2, "Cơ xương khớp"));
-        listck.add(new Item("Tiêu hóa", R.drawable.ck3, "Cơ xương khớp"));
-        listck.add(new Item("Tim mạch", R.drawable.ck4, "Cơ xương khớp"));
-        listck.add(new Item("Cột sống", R.drawable.ck5, "Cơ xương khớp"));
-        listck.add(new Item("Y học cổ truyền", R.drawable.ck6, "Cơ xương khớp"));
-        listck.add(new Item("Châm cứu", R.drawable.ck7, "Cơ xương khớp"));
-        listck.add(new Item("Sản phụ khoa", R.drawable.ck8, "Cơ xương khớp"));
-        listck.add(new Item("Da liễu", R.drawable.ck9, "Cơ xương khớp"));
-        listck.add(new Item("Hô hấp phổi", R.drawable.ck10, "Cơ xương khớp"));
-        listck.add(new Item("Chuyên khoa mắt", R.drawable.ck11, "Cơ xương khớp"));
-        listck.add(new Item("Thân - Tiết niệu", R.drawable.ck12, "Cơ xương khớp"));
-        listck.add(new Item("Ung bướu", R.drawable.ck13, "Cơ xương khớp"));
-        listck.add(new Item("Tư vấn, trị liệu tâm lý", R.drawable.ck14, "Cơ xương khớp"));
-
-
+        ArrayList<chuyenkhoa> listck = new ArrayList<>();
+        listck = databaseHelper.getChuyenKhoa();
         adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
         rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
@@ -154,7 +140,7 @@ public class HomeFragment extends Fragment {
             Intent intent;
 
             switch (itemName){
-                case "Cơ xương khớp":
+                case "Khám chuyên khoa":
                     intent = new Intent(getActivity(), listchuyenkhoa.class);
                     startActivity(intent);
                     break;

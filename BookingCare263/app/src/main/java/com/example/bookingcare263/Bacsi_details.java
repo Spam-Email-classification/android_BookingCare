@@ -3,9 +3,11 @@ package com.example.bookingcare263;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +18,8 @@ import com.example.bookingcare263.ui.uiuser.Datlichkham;
 import com.example.bookingcare263.ui.uiuser.UserActivity;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class Bacsi_details extends AppCompatActivity {
     TextView txttiltedt, txttenbsdt, txtthogtindt, txtdiachidt, txtgiakhamdt;
@@ -54,14 +58,12 @@ public class Bacsi_details extends AppCompatActivity {
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());
 
         String avatarUri = bacsi.getImg();
-        if (avatarUri != null && !avatarUri.isEmpty()) {
-            Glide.with(imgavtarbsdt.getContext())
-                    .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                    .into(imgavtarbsdt);
-        } else {
-            imgavtarbsdt.setImageResource(R.drawable.baseline_account_circle_24);
-        }
+        Glide.with(imgavtarbsdt.getContext())
+                .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                .into(imgavtarbsdt);
+
 
         btndatlichdt.setOnClickListener(v -> {
             if(UserActivity.iduser!=null){

@@ -45,76 +45,92 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/edtten4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Tên" />
-
-    <EditText
-        android:id="@+id/edtsdtadd4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Số điện thoại" />
-
-    <EditText
-        android:id="@+id/edtemailadd4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Email" />
-    <EditText
-        android:id="@+id/edtdiachi"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Địa chỉ khám" />
-
-    <EditText
-        android:id="@+id/edtchuyenkhoa"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Chuyên khoa" />
-
-    <EditText
-        android:id="@+id/edtmasogiayphep"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="mã số giấy phép" />
-
-    <EditText
-        android:id="@+id/edtwebsite"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="website" />
 
 
-    <EditText
-        android:id="@+id/edtthongtin4"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Thông tin thêm" />
 
-    <Button
-        android:id="@+id/btnThem4"
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Lưu"
-        android:backgroundTint="#FF9800"/>
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/edtten4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Tên" />
+
+            <EditText
+                android:id="@+id/edtsdtadd4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Số điện thoại" />
+
+            <EditText
+                android:id="@+id/edtemailadd4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Email" />
+            <EditText
+                android:id="@+id/edtdiachi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Địa chỉ khám" />
+
+            <Spinner
+                android:id="@+id/spinckbs"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+            <EditText
+                android:id="@+id/edtmasogiayphep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Mã số giấy phép hành nghề" />
+
+            <EditText
+                android:id="@+id/edtgiakhamadd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Giá khám" />
+
+
+            <EditText
+                android:id="@+id/edtthongtin4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:hint="Thông tin thêm" />
+            <Button
+                android:id="@+id/btnThem4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:backgroundTint="#FF9800"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
 
 
 </LinearLayout>
