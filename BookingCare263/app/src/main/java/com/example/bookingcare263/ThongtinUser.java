@@ -13,7 +13,7 @@ import com.example.bookingcare263.ui.uiuser.UserActivity;
 public class ThongtinUser extends AppCompatActivity {
 
     private Button btndangxuat;
-    private TextView txtchiase;
+    private TextView txtchiase, txthosoyte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +30,10 @@ public class ThongtinUser extends AppCompatActivity {
             finish();
         });
         txtchiase.setOnClickListener(v -> shareApp());
+        txthosoyte.setOnClickListener(v->{
+            Intent intent = new Intent(ThongtinUser.this, Hosoyte.class);
+            startActivity(intent);
+        });
     }
     private void shareApp() {
         String packageName = getPackageName(); // Lấy package của ứng dụng
@@ -47,6 +51,8 @@ public class ThongtinUser extends AppCompatActivity {
     private void anhxa() {
         btndangxuat = findViewById(R.id.btndangxuat);
         txtchiase = findViewById(R.id.txtchiase);
+        txthosoyte = findViewById(R.id.txthosoyte);
+
 
 
 

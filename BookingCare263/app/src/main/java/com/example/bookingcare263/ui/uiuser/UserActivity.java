@@ -30,6 +30,7 @@ public class UserActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityUserBinding binding;
     public static  String iduser ;
+    public static String phoneuser;
 
 
     @Override
@@ -81,7 +82,7 @@ public class UserActivity extends AppCompatActivity {
         Intent intent = getIntent();
         iduser = intent.getStringExtra("iduser");
         String name = intent.getStringExtra("name");
-        String phone = intent.getStringExtra("phone");
+        phoneuser = intent.getStringExtra("phone");
 
         Toast.makeText(this, "iduser" + iduser, Toast.LENGTH_SHORT).show();
 
@@ -91,9 +92,9 @@ public class UserActivity extends AppCompatActivity {
         TextView txtsdtheader = headerView.findViewById(R.id.txtsdtheader);
         ImageView imgheader = headerView.findViewById(R.id.imgheader);
 
-        if(name != null && phone != null){
+        if(name != null && phoneuser != null){
             txtnameheader.setText(name);
-            txtsdtheader.setText(phone);
+            txtsdtheader.setText(phoneuser);
         }
 
 

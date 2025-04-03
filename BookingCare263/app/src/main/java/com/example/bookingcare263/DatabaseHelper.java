@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
+import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.model.lichhen;
 
@@ -44,6 +45,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " +"tbbacsi");
         onCreate(db);
     }
+    // get benhnhan by sodt
+    public benhnhan getbenhnhan(String sodt){
+        SQLiteDatabase db = this.getReadableDatabase();
+        benhnhan benhnhan = new benhnhan();
+        try{
+            Cursor cursor = db.query("tbbenhnhan", null, "sodienthoai=?", new String[]{sodt}, null, null, null);
+            if(cursor.moveToFirst()){
+                benhnhan.setId(cursor.getString(0));
+
+        }        db.close();
+            cursor.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return benhnhan;
+    }
+
+    public boolean insertbenhnhan(benhnhan bn){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("ten", bn.getTen());
+        values.put("sodienthoai", bn.getSodienthoai());
+        values.put("diachi", bn.getDiachi());
+        values.put("gioitinh", bn.getGioitinh());
+        values.put("ngaysinh", bn.getNgaysinh());
+        values.put("benhlynen", bn.getBenhlynen());
+        long result = db.insert("tbbenhnhan", null, values);
+        db.close();
+        return result != -1;
+    }
+
+    // update benh nhan
+
+    public boolean updatebenhnha(benhnhan bn){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("ten", bn.getTen());
+        values.put("sodienthoai", bn.getSodienthoai());
+        values.put("diachi", bn.getDiachi());
+        values.put("gioitinh", bn.getGioitinh());
+        values.put("ngaysinh", bn.getNgaysinh());
+        values.put("benhlynen", bn.getBenhlynen());
+        int result = db.update("tbbenhnhan", values, "id=?", new String[]{bn.getId()});
+        db.close();
+        return result > 0;
+
+    }
+
+
+
     //Chuyen khoa
 
     public ArrayList <chuyenkhoa> getChuyenKhoa(){
@@ -126,6 +177,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return cosoyteList;
     }
+
+
 
     public boolean insertCosoyte(Cosoyte cosoyte) {
         SQLiteDatabase db = this.getWritableDatabase();

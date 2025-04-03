@@ -16,6 +16,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.bookingcare263.model.accout;
+import com.example.bookingcare263.model.benhnhan;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -43,6 +44,7 @@ public class SignUpActitvity extends AppCompatActivity {
         tologin = findViewById(R.id.tologin);
         spinrole = findViewById(R.id.spinrole);
         String role[] = { "benh nhan", "bacsi"};
+        helper = new DatabaseHelper(this);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
         spinrole.setAdapter(adapter);
@@ -95,11 +97,13 @@ public class SignUpActitvity extends AppCompatActivity {
             return;
         }
 
-        // Đăng ký Firebase Authentication
         accout acc = new accout(name, sdt, pass, as);
                 reference.child(sdt).setValue(acc).addOnSuccessListener(aVoid -> {
+                    benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
+                    helper.insertbenhnhan(bn);
                     Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActitvity.this, LoginActivity.class));
+                    finish();
                 }).addOnFailureListener(e -> {
                     Toast.makeText(this, "Lỗi lưu dữ liệu: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 });
