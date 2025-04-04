@@ -75,12 +75,8 @@ public class SuaCSYT extends AppCompatActivity {
                 avatar = imageUri.toString();
             }
             Cosoyte csyt1 = new Cosoyte(ten, sdt, email, diachi, chuyenkhoa, masogiayphep, website, thongtin, avatar);
-
             helper.updatecsyt(csyt1);
             finish();
-
-
-
 
         });
 

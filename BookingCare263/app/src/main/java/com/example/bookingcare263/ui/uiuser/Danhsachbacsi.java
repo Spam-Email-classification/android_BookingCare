@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +22,7 @@ import com.example.bookingcare263.model.Bacsi;
 import java.util.ArrayList;
 
 public class Danhsachbacsi extends AppCompatActivity {
+    Toolbar tbbacsi;
     private TextView txttitle;
     private TextView txtDescription;
     private TextView txtSeeMore;
@@ -128,6 +130,13 @@ public class Danhsachbacsi extends AppCompatActivity {
                 txtSeeMore.setText("Xem thêm");
             }
         });
+        tbbacsi = findViewById(R.id.tbbacsilish);
+
+        // tool bar
+        setSupportActionBar(tbbacsi);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tbbacsi.setNavigationOnClickListener(v -> finish());
+
 
         listbacsi = new ArrayList<>();
 

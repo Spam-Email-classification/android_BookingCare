@@ -124,6 +124,7 @@ public class UserActivity extends AppCompatActivity {
             if (UserActivity.iduser == null) {
                 Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             } else {
                 Intent intent = new Intent(UserActivity.this, ThongtinUser.class);
                 startActivity(intent);

@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
+import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBacsi;
@@ -73,6 +74,41 @@ public class HomeFragment extends Fragment {
         viewFlipper.setFlipInterval(3000); // 3 giây đổi ảnh
         viewFlipper.startFlipping();
 
+        adapter.setOnItemClickListener(items -> {
+            Item x = items;
+            String itemName = items.getName();
+            Intent intent;
+
+            switch (itemName){
+                case "Khám chuyên khoa":
+                    intent = new Intent(getActivity(), listchuyenkhoa.class);
+                    startActivity(intent);
+                    break;
+
+                case "KHÁM TỔNG QUÁT":
+                    intent = new Intent(getActivity(), Danhsachbacsi.class);
+                    intent.putExtra("title", itemName);
+                    intent.putExtra("thongtin", x.getThongtin());
+                    startActivity(intent);
+                    break;
+
+
+                case "ĐẶT LỊCH KHÁM":
+                    intent = new Intent(getActivity(), Danhsachbacsi.class);
+                    intent.putExtra("title", itemName);
+                    intent.putExtra("thongtin", x.getThongtin());
+                    startActivity(intent);
+                    break;
+                case "XÉT NGHIỆM":
+                    intent = new Intent(getActivity(), Danhsachbacsi.class);
+                    intent.putExtra("title", itemName);
+                    intent.putExtra("thongtin", x.getThongtin());
+                    startActivity(intent);
+                    break;
+
+            }
+        });
+
         return root;
     }
 
@@ -111,17 +147,6 @@ public class HomeFragment extends Fragment {
         rcvbacsi.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvbacsi.setAdapter(adapterDoctors);
 
-
-        // hien thi chuyen khoa main
-
-        rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
-        ArrayList<chuyenkhoa> listck = new ArrayList<>();
-        listck = databaseHelper.getChuyenKhoa();
-        adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
-        rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
-
-
         adapterDoctors.setOnItemClickListener(bacsi->{
 
             String itemName = bacsi.getName();
@@ -134,48 +159,46 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
 
-        adapter.setOnItemClickListener(items -> {
-            Item x = items;
-            String itemName = items.getName();
+
+
+        // hien thi chuyen khoa main
+
+        rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
+        ArrayList<chuyenkhoa> listck = new ArrayList<>();
+        listck = databaseHelper.getChuyenKhoa();
+        adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
+        rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
+
+        adapterchuyenkh.setOnItemClickListener(chuyenkhoa -> {
+            String itemName = chuyenkhoa.getTenchuyenkhoa();
             Intent intent;
-
-            switch (itemName){
-                case "Khám chuyên khoa":
-                    intent = new Intent(getActivity(), listchuyenkhoa.class);
-                    startActivity(intent);
-                    break;
-
-                case "KHÁM TỔNG QUÁT":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
-                    intent.putExtra("thongtin", x.getThongtin());
-                    startActivity(intent);
-                    break;
+            intent = new Intent(getActivity(), Danhsachbacsi.class);
+            intent.putExtra("title", itemName);
+            intent.putExtra("thongtin", chuyenkhoa.getThongtin());
+            startActivity(intent);
+                });
 
 
-                case "ĐẶT LỊCH KHÁM":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
-                    intent.putExtra("thongtin", x.getThongtin());
-                    startActivity(intent);
-                    break;
-                case "XÉT NGHIỆM":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
-                    intent.putExtra("thongtin", x.getThongtin());
-                    startActivity(intent);
-                    break;
-
-            }
-        });
 
 
-        // hien thi so y te
+
+        // hien thi co so y te
         ArrayList<Cosoyte> cosoyteList = databaseHelper.getCosoyte();
         rcvcosoyte = binding.rcvcsyte;
         adaptercosoyte adaptercsyt = new adaptercosoyte(cosoyteList);
         rcvcosoyte.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvcosoyte.setAdapter(adaptercsyt);
+
+        adaptercsyt.setOnItemClickListener(cosoyte -> {
+            String itemName = cosoyte.getName();
+            Intent intent;
+            intent = new Intent(getActivity(), ChitietCSYT.class);
+            intent.putExtra("cosoyte", cosoyte);
+
+            startActivity(intent);
+
+        });
 
 
 

@@ -59,6 +59,14 @@ public class AdminActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        roleadmin = null;
+
     }
 
     private void checkAndRequestPermission() {

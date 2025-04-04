@@ -8,6 +8,19 @@
     android:background="#7BC9DE"
     android:orientation="vertical"
     tools:context=".ui.uiuser.Danhsachbacsi">
+    <androidx.appcompat.widget.Toolbar
+
+        android:id="@+id/tbbacsilish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Danh sách bác sĩ"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        app:titleTextColor="@color/white"
+        android:background="#7BC9DE"
+
+        android:theme="?attr/actionBarTheme" />
+
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Bacsi;
@@ -22,7 +23,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 
 public class Bacsi_details extends AppCompatActivity {
-    TextView txttiltedt, txttenbsdt, txtthogtindt, txtdiachidt, txtgiakhamdt;
+    Toolbar tbbacsidetail;
+    TextView txttiltedt, txttenbsdt, txtthogtindt, txtdiachidt, txtgiakhamdt, txtemaildetail, txtsdtdetail;
     Button btndatlichdt;
     ImageView imgavtarbsdt;
 
@@ -46,6 +48,15 @@ public class Bacsi_details extends AppCompatActivity {
         txtgiakhamdt = findViewById(R.id.txtgiakhamdt);
         btndatlichdt = findViewById(R.id.btndatlichdt);
         imgavtarbsdt = findViewById(R.id.imgavtarbsdt2);
+        txtemaildetail = findViewById(R.id.txtemaildetail);
+        txtsdtdetail = findViewById(R.id.txtsdtdetail);
+        tbbacsidetail = findViewById(R.id.tbbacsidetail);
+
+
+        // toolbar
+        setSupportActionBar(tbbacsidetail);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tbbacsidetail.setNavigationOnClickListener(v -> finish());
     }
 
     private void loadData(){
@@ -55,6 +66,9 @@ public class Bacsi_details extends AppCompatActivity {
         txttenbsdt.setText(bacsi.getName());
         txtthogtindt.setText(bacsi.getThongtin());
         txtdiachidt.setText(bacsi.getDiachi());
+        txtemaildetail.setText("Email" + bacsi.getEmail());
+        txtsdtdetail.setText("Liên hệ: " + bacsi.getSdt());
+
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());
 
         String avatarUri = bacsi.getImg();

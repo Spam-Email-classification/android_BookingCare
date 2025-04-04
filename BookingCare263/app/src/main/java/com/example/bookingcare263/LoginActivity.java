@@ -132,12 +132,15 @@ public class LoginActivity extends AppCompatActivity {
                                 intent.putExtra("name", name);
                                 intent.putExtra("phone", phone);
                                 startActivity(intent);
+                                finish();
+
 
                             } else {
                                 Toast.makeText(LoginActivity.this, "Iam admin", LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                 intent.putExtra("role", "admin");
                                 startActivity(intent);
+                                finish();
                             }
 
 
