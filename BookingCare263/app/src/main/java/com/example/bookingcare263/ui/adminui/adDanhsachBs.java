@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -25,21 +26,24 @@ import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.ThongtinUser;
+import com.example.bookingcare263.adapterus.adapterAccout;
 import com.example.bookingcare263.adapterus.adapterbsAd;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
+import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.ui.uiuser.UserActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
-public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onClickListener {
+public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onClickListener {
 
 
     Toolbar toolbar;
     RecyclerView rcvlisbsad;
-    adapterbsAd adapter;
-    ArrayList<Bacsi> listbacsi;
+
     ArrayList<Cosoyte> listcsyte;
 
     adaptercosoyte adaptercsyt;
@@ -48,6 +52,10 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
     DatabaseHelper helper;
 
     String manager;
+
+    adapterAccout adapteracc;
+    ArrayList <accout> listacc;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,15 +68,25 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
         manager = intent.getStringExtra("manager");
         if (manager != null && manager.equals("quanlybacsi")) {
             toolbar.setTitle("Quản lý bác sĩ");
-            listbacsi = new ArrayList<>();
-            listbacsi = helper.getAllBacsi(listbacsi);
-            adapter = new adapterbsAd(listbacsi);
-            rcvlisbsad.setAdapter(adapter);
+            // get list acc by  role = bac si
+            listacc = new ArrayList<>();
+            listacc = helper.getaccoutbyrole("bacsi");
+            adapteracc = new adapterAccout(listacc);
+            rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
-            adapter.setOnClickListener(this);
+            adapteracc.setonListener(this);
+
+
+
 
         } else if(manager != null && manager.equals("quanlybenhnhan")){
             toolbar.setTitle("Quản lý bệnh nhân");
+            listacc = new ArrayList<>();
+            listacc = helper.getaccoutbyrole("benh nhan");
+            adapteracc = new adapterAccout(listacc);
+            rcvlisbsad.setAdapter(adapteracc);
+            rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
+            adapteracc.setonListener(this);
 
 
         } else if (manager != null && manager.equals("quanlycsyt")) {
@@ -110,17 +128,26 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
     }
 
     public void loadDatabs(){
-        listbacsi.clear();
-        listbacsi = helper.getAllBacsi(listbacsi);
-        adapter.notifyDataSetChanged();
+        listacc.clear();
+        listacc.addAll(helper.getaccoutbyrole("bacsi"));
+        adapteracc.notifyDataSetChanged();
 
     }
+
+    public void loadDatabenhnha(){
+        listacc.clear();
+        listacc.addAll(helper.getaccoutbyrole("benh nhan"));
+        adapteracc.notifyDataSetChanged();
+
+    }
+
 
     private void anhxa() {
         toolbar = findViewById(R.id.tbqlbsad);
         rcvlisbsad = findViewById(R.id.rcvbsad);
         txtsearch = findViewById(R.id.edtsearchad);
         helper = new DatabaseHelper(this);
+
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -132,55 +159,55 @@ public class adDanhsachBs extends AppCompatActivity implements adapterbsAd.onCli
 
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.addmenu, menu);
-        return true;
-    }
-
-    @Override
-    public void onItemClick(Bacsi bacsi) {
-//        Intent intent = new Intent(this, Bacsi_details.class);
-//        intent.putExtra("bacsi", bacsi);
-//        intent.putExtra("anh", bacsi.getImg());
-//        intent.putExtra("title", bacsi.getChuyenkhoa());
-//        startActivity(intent);
-    }
-
-    @Override
-    public void onDeleteClick(Bacsi bacsi) {
-        helper.deleteBacsi(bacsi.getId());
-        listbacsi.remove(bacsi);
-        adapter.notifyDataSetChanged();
-
-
-    }
-
-    @Override
-    public void onFixClick(Bacsi bacsi) {
-        Intent intent = new Intent(this, SuaBS.class);
+    public void onFixClick(int position) {
+        String sdt = listacc.get(position).getPhone();
+        Bacsi bacsi = helper.getBacsiBySdt(sdt);
+        Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
         intent.putExtra("bacsi", bacsi);
         startActivity(intent);
 
-
     }
 
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
+    // xoa accout tren firebase
 
-        if (id == R.id.plusss) {
-            if (manager != null && manager.equals("quanlybacsi")) {
-                Intent intent = new Intent(adDanhsachBs.this, AddBacSi.class);
-                startActivity(intent);
-            } else if(manager != null && manager.equals("quanlycsyt")){
-                Intent intent = new Intent(adDanhsachBs.this, AddCSYT.class);
-                startActivity(intent);
-            }
-            return true;
+
+    @Override
+    public void onDeleteClick(int position) {
+        String sdt = listacc.get(position).getPhone();
+        String role = listacc.get(position).getAs();
+        helper.deleteaccout(sdt);
+        if (role.equals("bacsi")){
+            helper.deleteBacsi(sdt);
+            loadDatabs();
+            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+            // xoa tai khoan tren firebase realtime
+
+        } else {
+            helper.deletebenhnhan(sdt);
+            loadDatabenhnha();
+            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
         }
+        reference = FirebaseDatabase.getInstance().getReference("Users");
+
+        reference.child(sdt).removeValue();
 
 
-        return super.onOptionsItemSelected(item);
+
     }
 
+    @Override
+    public void onStatusLongClick(int position) {
+
+    }
+
+    @Override
+    public void onItemClick(int position) {
+        // get bacsi by sdt
+        String sdt = listacc.get(position).getPhone();
+        Bacsi bacsi = helper.getBacsiBySdt(sdt);
+        Intent intent = new Intent(adDanhsachBs.this, Bacsi_details.class);
+        intent.putExtra("bacsi",bacsi);
+        startActivity(intent);
+
+    }
 }

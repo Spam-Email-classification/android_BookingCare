@@ -1,5 +1,6 @@
 package com.example.bookingcare263.adapterus;
 
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -90,23 +91,12 @@ public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHold
             txtgiokham.setText("Thời gian khám: " + lichhen.getKhunggiokham());
             txtnambenhnhan.setText("Tên bệnh nhân: " + lichhen.getNamebenhnhan());
 
-            String avatarPath = lichhen.getAvatarbs();
-            if (avatarPath != null && !avatarPath.isEmpty()) {
-                File avatarFile = new File(imglichhen.getContext().getFilesDir(), avatarPath);
-                if (avatarFile.exists()) {
-                    Glide.with(imglichhen.getContext())
-                            .load(avatarFile)
-                            .apply(RequestOptions.circleCropTransform())
-                            .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định trong khi tải
-                            .into(imglichhen);
-                } else {
-                    // Nếu file không tồn tại, hiển thị ảnh mặc định
-                    imglichhen.setImageResource(R.drawable.baseline_account_circle_24);
-                }
-            } else {
-                // Nếu avatarPath là null hoặc rỗng, hiển thị ảnh mặc định
-                imglichhen.setImageResource(R.drawable.baseline_account_circle_24);
-            }
+            Glide.with(imglichhen.getContext())
+                    .load(Uri.parse(lichhen.getAvatarbs())) // Chuyển String thành Uri
+                    .circleCrop()
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imglichhen);
 
         }
 

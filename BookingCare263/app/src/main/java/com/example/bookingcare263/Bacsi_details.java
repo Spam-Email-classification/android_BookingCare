@@ -83,7 +83,6 @@ public class Bacsi_details extends AppCompatActivity {
             if(UserActivity.iduser!=null){
                 Intent intent1 = new Intent(Bacsi_details.this, Datlichkham.class);
                 intent1.putExtra("bacsi", bacsi);
-                intent1.putExtra("anh", bacsi.getImg());
                 startActivity(intent1);
                 finish();
             } else{
