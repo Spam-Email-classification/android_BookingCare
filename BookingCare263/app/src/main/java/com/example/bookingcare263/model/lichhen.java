@@ -35,7 +35,7 @@ public class lichhen implements Serializable {
 
     }
     public lichhen( String idbenhnhan, String idbacsi, String ngayhenkham, String khunggiokham, String trangthai,
-                    String namebenhnhan, String sdtbenhnhan, String diachibenhnhan, String avatarbs, String namebs, String diachikham, String sttKham) {
+                    String namebenhnhan, String sdtbenhnhan, String diachibenhnhan, String avatarbs, String namebs) {
         this.idbenhnhan = idbenhnhan;
         this.idbacsi = idbacsi;
         this.ngayhenkham = ngayhenkham;

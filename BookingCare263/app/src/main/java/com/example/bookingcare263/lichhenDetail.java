@@ -55,7 +55,6 @@ public class lichhenDetail extends AppCompatActivity {
         giohenkham = findViewById(R.id.gioHenKham);
         trangThai = findViewById(R.id.trangThai);
         nutHuyLichHen = findViewById(R.id.nutHuyLichHen);
-
         nutHuyLichHen.setOnClickListener(v -> huyLichHen());
     }
 
