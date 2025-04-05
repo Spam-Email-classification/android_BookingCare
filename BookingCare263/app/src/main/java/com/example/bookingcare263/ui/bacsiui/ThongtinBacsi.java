@@ -1,4 +1,4 @@
-package com.example.bookingcare263.ui;
+package com.example.bookingcare263.ui.bacsiui;
 
 import android.os.Bundle;
 
@@ -10,13 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.bookingcare263.R;
 
-public class BacsiMainActivity extends AppCompatActivity {
+public class ThongtinBacsi extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_bacsi_main);
+        setContentView(R.layout.activity_thongtin_bacsi);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

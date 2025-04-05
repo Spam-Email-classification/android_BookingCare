@@ -105,7 +105,6 @@ public class SignUpActitvity extends AppCompatActivity {
 
         accout acc = new accout(name, sdt, pass, as, status);
 
-
                 reference.child(sdt).setValue(acc).addOnSuccessListener(aVoid -> {
                     helper.insertaccout(acc);
 

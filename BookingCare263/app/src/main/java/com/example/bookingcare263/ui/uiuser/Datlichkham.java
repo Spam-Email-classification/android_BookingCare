@@ -87,13 +87,13 @@ public class Datlichkham extends AppCompatActivity {
 
             lichhen lh = new lichhen(
                     iduser,
-                    bacsi.getId(),
+                    bacsi.getSdt(),
                     edtngay.getText().toString(),
                     time,
                     "Đang chờ",
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
-                    bacsi.getDiachi(),''
+                    bacsi.getDiachi(),
                     bacsi.getImg(),
                     bacsi.getName()
             );

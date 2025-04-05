@@ -58,11 +58,10 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
                 listener.onDeleteClick(position);
             }
         });
-        holder.imgstatus.setOnLongClickListener(v->{
+        holder.imgstatus.setOnClickListener(v->{
             if (listener != null){
                 listener.onStatusLongClick(position);
             }
-            return true;
         });
         holder.itemView.setOnClickListener(v->{
             if (listener != null){

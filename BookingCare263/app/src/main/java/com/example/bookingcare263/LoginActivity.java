@@ -133,28 +133,37 @@ public class LoginActivity extends AppCompatActivity {
                                     String name = ds.child("name").getValue(String.class);
                                     String phone = ds.child("phone").getValue(String.class);
 
-
                                     Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                     intent.putExtra("iduser", sdt);
                                     intent.putExtra("name", name);
                                     intent.putExtra("phone", phone);
+                                    intent.putExtra("role", asdb);
                                     startActivity(intent);
                                     finish();
 
 
-                                } else if(asdb!=null && asdb.equals("admin")) {
+                                } else if( asdb.equals("admin")) {
                                     Toast.makeText(LoginActivity.this, "Iam admin", LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     intent.putExtra("role", "admin");
                                     startActivity(intent);
                                     finish();
                                 } else if(asdb!=null && asdb.equals("bacsi")){
+                                    String name = ds.child("name").getValue(String.class);
+                                    String phone = ds.child("phone").getValue(String.class);
+
+
+                                    Intent intent = new Intent(LoginActivity.this, UserActivity.class);
+                                    intent.putExtra("iduser", sdt);
+                                    intent.putExtra("name", name);
+                                    intent.putExtra("phone", phone);
+                                    intent.putExtra("role", asdb);
+                                    startActivity(intent);
+                                    finish();
+
 
                                 }
                             }
-
-
-
 
                         }
                     }

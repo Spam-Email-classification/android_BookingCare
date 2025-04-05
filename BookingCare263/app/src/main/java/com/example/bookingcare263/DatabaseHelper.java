@@ -553,7 +553,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<lichhen> getAlllichhen(String idbenhnhan){
+    public ArrayList<lichhen> getAlllichhenbyidbenhnhan(String idbenhnhan){
         ArrayList<lichhen> lichhenList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
@@ -583,6 +583,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return lichhenList;
     }
+
+    public ArrayList<lichhen> getAlllichhenbyidbacsi(String idbacsi){
+        ArrayList<lichhen> lichhenList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tblichhen", null, "idbacsi=?", new String[]{idbacsi}, null, null, null);
+            while (cursor.moveToNext()) {
+                lichhen lh = new lichhen(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
+
+                );
+                lichhenList.add(lh);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return lichhenList;
+    }
+
 
     public boolean deletelichhen(String id){
         SQLiteDatabase db = this.getWritableDatabase();

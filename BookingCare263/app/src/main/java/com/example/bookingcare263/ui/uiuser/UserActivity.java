@@ -14,6 +14,7 @@ import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.ThongtinUser;
 import com.example.bookingcare263.model.accout;
+import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -35,6 +36,8 @@ public class UserActivity extends AppCompatActivity {
     private ActivityUserBinding binding;
     public static  String iduser ;
     public static String phoneuser;
+    public static String roleuser;
+
     public static ArrayList <accout> listaccactive;
     DatabaseHelper helper;
 
@@ -89,6 +92,7 @@ public class UserActivity extends AppCompatActivity {
         iduser = intent.getStringExtra("iduser");
         String name = intent.getStringExtra("name");
         phoneuser = intent.getStringExtra("phone");
+        roleuser = intent.getStringExtra("role");
 
         Toast.makeText(this, "iduser" + iduser, Toast.LENGTH_SHORT).show();
 
@@ -136,8 +140,12 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
-            } else {
+            } else if(UserActivity.roleuser.equals("user")){
+
                 Intent intent = new Intent(UserActivity.this, ThongtinUser.class);
+                startActivity(intent);
+            } else if(UserActivity.roleuser.equals("bacsi")){
+                Intent intent = new Intent(UserActivity.this, ThongtinBacsi.class);
                 startActivity(intent);
             }
             return true;
