@@ -18,7 +18,6 @@
             android:background="@drawable/khungtoobar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
             app:title="BookCare"
-            android:padding="5dp"
             app:titleTextAppearance="@style/ToolbarTitleText"
             />
 

@@ -73,22 +73,18 @@ public class adapterBacsi  extends RecyclerView.Adapter<adapterBacsi.ViewHolder>
         }
         public void bind(Bacsi items){
             txtitems.setText(items.getName());
-            Glide.with(imgIcon.getContext())
-                    .load(items.getImg())  // Nếu `items.getIcon()` trả về ID ảnh drawable
-                    .apply(RequestOptions.circleCropTransform()) // Làm tròn ảnh
-                    .into(imgIcon);
+
 
             String avatarUri = items.getImg();
             if (avatarUri != null && !avatarUri.isEmpty()) {
                 Glide.with(imgIcon.getContext())
                         .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
                         .circleCrop()
-                        .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                         .into(imgIcon);
             } else {
                 imgIcon.setImageResource(R.drawable.baseline_account_circle_24);
             }
-            imgIcon.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
         }
     }
 }

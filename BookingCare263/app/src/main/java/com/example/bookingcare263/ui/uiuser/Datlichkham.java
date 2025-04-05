@@ -2,6 +2,7 @@ package com.example.bookingcare263.ui.uiuser;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -47,8 +48,9 @@ public class Datlichkham extends AppCompatActivity {
 
         Intent intent = getIntent();
         dbhelper = new DatabaseHelper(this);
-
         Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
+
+
         txtDescription.setText(bacsi.getThongtin());
         txtAddress.setText(bacsi.getDiachi());
         txtNameBs.setText(bacsi.getName());
@@ -65,37 +67,38 @@ public class Datlichkham extends AppCompatActivity {
         String selectedText = selectedRadioButton.getText().toString();
 
 
-        txtTime.setText(edtngay.getText() + " - " + selectedText);
-        String anh = intent.getStringExtra("anh");
+
         Glide.with(this)
-                .load(new File(this.getFilesDir(), anh))
-                .apply(RequestOptions.circleCropTransform())
+                .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
+                .circleCrop()
+                .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                 .into(imgavtars);
-        Log.d("anh ", anh);
+
+
+
         edtngay.setOnClickListener(e->showDatePickerDialog());
+
+
         btndatlichkham.setOnClickListener(e->{
+            String time = edtngay.getText() + " - " + selectedText;
             String iduser = UserActivity.iduser;
             if(!validate()) return;
 
             lichhen lh = new lichhen(
                     iduser,
-                    bacsi.getId(),
+                    bacsi.getSdt(),
                     edtngay.getText().toString(),
-                    txtTime.getText().toString(),
+                    time,
                     "Đang chờ",
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
-                    edtdiachi.getText().toString(),
-                    anh,
+                    bacsi.getDiachi(),
+                    bacsi.getImg(),
                     bacsi.getName()
             );
             boolean inserted = dbhelper.addlichhen(lh);
-            if(inserted){
-                Log.d("DatabaseHelper", "✅ Đã thêm lịch hẹn thành công!");
-            } else{
-                Log.d("DatabaseHelper", "❌ Thêm lịch hẹn thất bại!");
-            }
-            
+
             finish();
 
         });
@@ -110,6 +113,8 @@ public class Datlichkham extends AppCompatActivity {
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH);
         int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+
         // Hiển thị DatePickerDialog
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, (view, selectedYear, selectedMonth, selectedDay) -> {
             String selectedDate = selectedDay + "/" + (selectedMonth + 1) + "/" + selectedYear;

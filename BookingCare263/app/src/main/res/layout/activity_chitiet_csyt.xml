@@ -50,7 +50,7 @@
                     android:id="@+id/imgHospital"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitCenter"
                     android:src="@drawable/benhvien1" />
             </androidx.cardview.widget.CardView>
 

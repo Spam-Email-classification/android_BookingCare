@@ -9,6 +9,7 @@ import android.util.Log;
 
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
+import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.model.lichhen;
@@ -33,8 +34,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
     @Override
     public void onCreate(SQLiteDatabase db) {
 
@@ -42,27 +41,142 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " +"tbbacsi");
+        db.execSQL("DROP TABLE IF EXISTS " + "tbbacsi");
         onCreate(db);
     }
+
+    // get accout by sdt
+    public accout getaccout(String sodt) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        accout accout = new accout();
+        try {
+            Cursor cursor = db.query("tb_accout", null, "sodienthoai=?", new String[]{sodt}, null, null, null);
+            if (cursor.moveToFirst()) {
+                accout.setId(cursor.getString(0));
+                accout.setName(cursor.getString(1));
+                accout.setPhone(cursor.getString(2));
+                accout.setAs(cursor.getString(3));
+                accout.setStatus(cursor.getString(4));
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return accout;
+
+    }
+
+    // get accout by role
+    public ArrayList<accout> getaccoutbyrole(String role) {
+        ArrayList<accout> accoutList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        try {
+            Cursor cursor = db.query("tb_accout", null, "role=?", new String[]{role}, null, null, null);
+            while (cursor.moveToNext()) {
+                accout accout = new accout(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+                accoutList.add(accout);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return accoutList;
+    }
+
+
+    // them taikhoan accout
+    public boolean insertaccout(accout accout){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", accout.getName());
+        values.put("sdt", accout.getPhone());
+        values.put("password", accout.getPass());
+        values.put("role", accout.getAs());
+        values.put("status", accout.getStatus());
+        long result = db.insert("tb_accout", null, values);
+        db.close();
+        return result != -1;
+    }
+
+    // xoa tai khoan accout
+    public boolean deleteaccout(String sdt) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("tb_accout", "sdt=?", new String[]{sdt});
+        db.close();
+        return result > 0;
+
+    }
+
+
+    // get accout by status and by role
+    public ArrayList<accout> getaccoutbystatusandbyrole(String status, String role) {
+        ArrayList<accout> accoutList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tb_accout", null, "status=? and role=?", new String[]{status, role}, null, null, null);
+            while (cursor.moveToNext()) {
+                accout accout = new accout(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+                accoutList.add(accout);
+            }
+            db.close();
+            cursor.close();
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        return accoutList;
+        }
+
+    // update tai khoan accout
+    public boolean updateaccout(accout accout) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", accout.getName());
+        values.put("sdt", accout.getPhone());
+        values.put("password", accout.getPass());
+        values.put("role", accout.getAs());
+        values.put("status", accout.getStatus());
+        int result = db.update("tb_accout", values, "sdt=?", new String[]{accout.getPhone()});
+        db.close();
+        return result > 0;
+    }
     // get benhnhan by sodt
-    public benhnhan getbenhnhan(String sodt){
+    public benhnhan getbenhnhan(String sodt) {
         SQLiteDatabase db = this.getReadableDatabase();
         benhnhan benhnhan = new benhnhan();
-        try{
+        try {
             Cursor cursor = db.query("tbbenhnhan", null, "sodienthoai=?", new String[]{sodt}, null, null, null);
-            if(cursor.moveToFirst()){
+            if (cursor.moveToFirst()) {
                 benhnhan.setId(cursor.getString(0));
 
-        }        db.close();
+            }
+            db.close();
             cursor.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return benhnhan;
     }
 
-    public boolean insertbenhnhan(benhnhan bn){
+    public boolean insertbenhnhan(benhnhan bn) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ten", bn.getTen());
@@ -71,6 +185,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("gioitinh", bn.getGioitinh());
         values.put("ngaysinh", bn.getNgaysinh());
         values.put("benhlynen", bn.getBenhlynen());
+        values.put("img", bn.getImg());
         long result = db.insert("tbbenhnhan", null, values);
         db.close();
         return result != -1;
@@ -78,7 +193,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // update benh nhan
 
-    public boolean updatebenhnha(benhnhan bn){
+    public boolean updatebenhnha(benhnhan bn) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("ten", bn.getTen());
@@ -87,22 +202,29 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("gioitinh", bn.getGioitinh());
         values.put("ngaysinh", bn.getNgaysinh());
         values.put("benhlynen", bn.getBenhlynen());
+        values.put("img", bn.getImg());
         int result = db.update("tbbenhnhan", values, "id=?", new String[]{bn.getId()});
         db.close();
         return result > 0;
 
     }
 
+    public boolean deletebenhnhan(String sdt) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.delete("tbbenhnhan", "sodienthoai=?", new String[]{sdt});
+        db.close();
+        return result > 0;
+    }
 
 
     //Chuyen khoa
 
-    public ArrayList <chuyenkhoa> getChuyenKhoa(){
+    public ArrayList<chuyenkhoa> getChuyenKhoa() {
         ArrayList<chuyenkhoa> chuyenkhoaList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        try{
+        try {
             Cursor cursor = db.query("tbchuyenkhoa", null, null, null, null, null, null);
-            while (cursor.moveToNext()){
+            while (cursor.moveToNext()) {
                 chuyenkhoa chuyenkhoa = new chuyenkhoa(
                         cursor.getString(0),
                         cursor.getString(1),
@@ -113,13 +235,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             db.close();
             cursor.close();
-        }catch (Exception e){
-            }
+        } catch (Exception e) {
+        }
 
         return chuyenkhoaList;
 
     }
-    public boolean insertChuyenKhoa(chuyenkhoa ck){
+
+    public boolean insertChuyenKhoa(chuyenkhoa ck) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenchuyenkhoa", ck.getTenchuyenkhoa());
@@ -130,13 +253,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return result != -1;
     }
 
-    public boolean deleteChuyenKhoa(String id){
+    public boolean deleteChuyenKhoa(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete("tbchuyenkhoa", "id=?", new String[]{id});
         db.close();
         return result > 0;
     }
-    public boolean updateChuyenKhoa(chuyenkhoa ck){
+
+    public boolean updateChuyenKhoa(chuyenkhoa ck) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("tenchuyenkhoa", ck.getTenchuyenkhoa());
@@ -146,10 +270,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result > 0;
     }
-
-
     // get cosoyte
-    public ArrayList<Cosoyte> getCosoyte(){
+    public ArrayList<Cosoyte> getCosoyte() {
         ArrayList<Cosoyte> cosoyteList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
@@ -172,13 +294,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             db.close();
             cursor.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return cosoyteList;
     }
-
-
 
     public boolean insertCosoyte(Cosoyte cosoyte) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -199,13 +319,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean deletecsyt(int id){
+    public boolean deletecsyt(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         int result = db.delete("tbsoyte", "id=?", new String[]{String.valueOf(id)});
         db.close();
         return result > 0;
     }
-    public boolean updatecsyt(Cosoyte cosoyte){
+
+    public boolean updatecsyt(Cosoyte cosoyte) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("name", cosoyte.getName());
@@ -221,6 +342,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result > 0;
 
+    }
+
+    // get csyte by id
+    public Cosoyte getCosoyteById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cosoyte cosoyte = new Cosoyte();
+        try {
+            Cursor cursor = db.query("tbsoyte", null, "id=?", new String[]{String.valueOf(id)}, null, null, null);
+            if (cursor.moveToFirst()) {
+                cosoyte.setId(cursor.getInt(0));
+                cosoyte.setName(cursor.getString(1));
+                cosoyte.setImg(cursor.getString(2));
+                cosoyte.setDiachi(cursor.getString(3));
+                cosoyte.setThongtin(cursor.getString(4));
+                cosoyte.setMasogiayphep(cursor.getString(5));
+                cosoyte.setWebsite(cursor.getString(6));
+                cosoyte.setSdt(cursor.getString(7));
+                cosoyte.setEmail(cursor.getString(8));
+                cosoyte.setChuyenkhoa(cursor.getString(9));
+                }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cosoyte;
     }
 
     public boolean addBacsi(Bacsi bacsi) {
@@ -239,6 +386,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result != -1;
     }
+
     // update bacsi
     public boolean updateBacsi(Bacsi bacsi) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -259,12 +407,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // lay danh sach bacsi theo chuyen khoa
 
-    public Bacsi getBacsiById(String id){
+    public Bacsi getBacsiById(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Bacsi bacsi = new Bacsi();
-        try{
+        try {
             Cursor cursor = db.query("tbbacsi", null, "id=?", new String[]{id}, null, null, null);
-            if(cursor.moveToFirst()){
+            if (cursor.moveToFirst()) {
                 bacsi.setId(cursor.getString(0));
                 bacsi.setName(cursor.getString(1));
                 bacsi.setChuyenkhoa(cursor.getString(2));
@@ -279,11 +427,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             db.close();
             cursor.close();
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return bacsi;
     }
+
     public ArrayList<Bacsi> getAllBacsi(ArrayList<Bacsi> bacSiList) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -307,12 +456,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             db.close();
             cursor.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return bacSiList;
 
     }
+
+    // get bac si by sodienthoai
+    public Bacsi getBacsiBySdt(String sdt) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Bacsi bacsi = new Bacsi();
+        try {
+            Cursor cursor = db.query("tbbacsi", null, "sdt=?", new String[]{sdt}, null, null, null);
+            if (cursor.moveToFirst()) {
+                bacsi.setId(cursor.getString(0));
+                bacsi.setName(cursor.getString(1));
+                bacsi.setChuyenkhoa(cursor.getString(2));
+                bacsi.setDiachi(cursor.getString(3));
+                bacsi.setImg(cursor.getString(4));
+                bacsi.setThongtin(cursor.getString(5));
+                bacsi.setGiaKham(cursor.getString(6));
+                bacsi.setSogiayphephanhnghe(cursor.getString(7));
+                bacsi.setEmail(cursor.getString(8));
+                bacsi.setSdt(cursor.getString(9));
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return bacsi;
+
+    }
+
+
 
 
 
@@ -347,9 +525,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // delete 1 bacsi
-    public boolean deleteBacsi(String id) {
+    public boolean deleteBacsi(String sdt) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete("tbbacsi", "id=?", new String[]{id});
+        int result = db.delete("tbbacsi", "sdt=?", new String[]{sdt});
         db.close();
         return result > 0;
 
@@ -375,7 +553,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<lichhen> getAlllichhen(String idbenhnhan){
+    public ArrayList<lichhen> getAlllichhenbyidbenhnhan(String idbenhnhan){
         ArrayList<lichhen> lichhenList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
@@ -441,6 +619,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update("tblichhen", values, "id=?", new String[]{id});
         db.close();
     }
+
+    public ArrayList<lichhen> getAlllichhenbyidbacsi(String idbacsi){
+        ArrayList<lichhen> lichhenList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tblichhen", null, "idbacsi=?", new String[]{idbacsi}, null, null, null);
+            while (cursor.moveToNext()) {
+                lichhen lh = new lichhen(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5),
+                        cursor.getString(6),
+                        cursor.getString(7),
+                        cursor.getString(8),
+                        cursor.getString(9),
+                        cursor.getString(10)
+
+                );
+                lichhenList.add(lh);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e){
+            e.printStackTrace();
+
+        }
+        return lichhenList;
+    }
+
 
     public boolean deletelichhen(String id){
         SQLiteDatabase db = this.getWritableDatabase();

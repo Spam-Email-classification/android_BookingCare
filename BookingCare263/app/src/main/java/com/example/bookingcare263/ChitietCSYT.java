@@ -41,7 +41,6 @@ public class ChitietCSYT extends AppCompatActivity {
         loadData();
         if(roleadmin!= null){
           btnviewonmap.setVisibility(View.GONE);
-
         }
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
@@ -50,7 +49,8 @@ public class ChitietCSYT extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menusua_xoa, menu);
+       if(roleadmin!= null)
+           getMenuInflater().inflate(R.menu.menusua_xoa, menu);
         return true;
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -66,8 +66,6 @@ public class ChitietCSYT extends AppCompatActivity {
             finish();
 
         }
-
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -83,17 +81,18 @@ public class ChitietCSYT extends AppCompatActivity {
         Intent intent = getIntent();
         csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
+        Cosoyte  csyt1 = helper.getCosoyteById(csyt.getId());
         Glide.with(this).
-                load(Uri.parse(csyt.getImg())).
+                load(Uri.parse(csyt1.getImg())).
                 into(imgchitietcsyt);
 
-        txtHospitalName.setText(csyt.getName());
-        txtAddress.setText("\uD83D\uDCCD Địa chỉ :" + csyt.getDiachi());
-        tvPhone.setText("\uD83D\uDCDE Thông tin liên hệ :"+ csyt.getSdt());
-        txtemail.setText("Email: " + csyt.getEmail());
-        txtwebsite.setText("Website: " + csyt.getWebsite());
-        txtsogiayphephanhnghe.setText("Sogiayphephanhnghe: " + csyt.getMasogiayphep());
-        tvinfo.setText(csyt.getThongtin());
+        txtHospitalName.setText(csyt1.getName());
+        txtAddress.setText("\uD83D\uDCCD Địa chỉ :" + csyt1.getDiachi());
+        tvPhone.setText("\uD83D\uDCDE Thông tin liên hệ :"+ csyt1.getSdt());
+        txtemail.setText("Email: " + csyt1.getEmail());
+        txtwebsite.setText("Website: " + csyt1.getWebsite());
+        txtsogiayphephanhnghe.setText("Sogiayphephanhnghe: " + csyt1.getMasogiayphep());
+        tvinfo.setText(csyt1.getThongtin());
 
 
     }
@@ -110,8 +109,6 @@ public class ChitietCSYT extends AppCompatActivity {
         tvinfo = findViewById(R.id.tvInfo);
         btnviewonmap = findViewById(R.id.btnViewOnMap);
         helper = new DatabaseHelper(this);
-
-
 
         setSupportActionBar(tbchitietcsyt);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

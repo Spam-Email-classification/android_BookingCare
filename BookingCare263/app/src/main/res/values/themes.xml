@@ -13,7 +13,7 @@
     </style>
 
     <style name="ToolbarTitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">22sp</item> <!-- Điều chỉnh cỡ chữ -->
+        <item name="android:textSize">18sp</item> <!-- Điều chỉnh cỡ chữ -->
     </style>
 
 

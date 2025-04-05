@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
+import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBacsi;
@@ -27,6 +28,7 @@ import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.chuyenkhoa;
 
 import java.util.ArrayList;
@@ -73,67 +75,6 @@ public class HomeFragment extends Fragment {
         viewFlipper.setFlipInterval(3000); // 3 giây đổi ảnh
         viewFlipper.startFlipping();
 
-        return root;
-    }
-
-    private void anhxa() {
-
-        viewFlipper = binding.flipper;
-        searchBar = binding.searchBar;
-        rcvItems = binding.rcvItems;
-
-
-        listitems = new ArrayList<>();
-        listitems.add(new Item("Khám chuyên khoa", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
-        listitems.add(new Item("KHÁM TỔNG QUAT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
-
-        listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
-        listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
-
-        ArrayList<Bacsi> listDoctors = new ArrayList<>();
-        rcvbacsi = binding.rcvbacsi;
-
-        databaseHelper = new DatabaseHelper(getContext());
-        listDoctors = databaseHelper.getAllBacsi(listDoctors);
-
-
-        // danh sach kham main
-
-        adapter =  new adapterItems(listitems);
-        rcvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        rcvItems.setAdapter(adapter);
-
-
-        // hien thi bacsi main
-
-        rcvbacsi = binding.rcvbacsi;
-        adapterBacsi adapterDoctors = new adapterBacsi(listDoctors);
-        rcvbacsi.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        rcvbacsi.setAdapter(adapterDoctors);
-
-
-        // hien thi chuyen khoa main
-
-        rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
-        ArrayList<chuyenkhoa> listck = new ArrayList<>();
-        listck = databaseHelper.getChuyenKhoa();
-        adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
-        rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
-
-
-        adapterDoctors.setOnItemClickListener(bacsi->{
-
-            String itemName = bacsi.getName();
-            Intent intent;
-            intent = new Intent(getActivity(), Bacsi_details.class);
-            intent.putExtra("bacsi", bacsi);
-            intent.putExtra("title", itemName);
-            intent.putExtra("anh", bacsi.getImg());
-
-            startActivity(intent);
-        });
-
         adapter.setOnItemClickListener(items -> {
             Item x = items;
             String itemName = items.getName();
@@ -169,13 +110,105 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        return root;
+    }
 
-        // hien thi so y te
+    private void anhxa() {
+
+        viewFlipper = binding.flipper;
+        searchBar = binding.searchBar;
+        rcvItems = binding.rcvItems;
+
+
+        listitems = new ArrayList<>();
+        listitems.add(new Item("Khám chuyên khoa", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
+        listitems.add(new Item("KHÁM TỔNG QUAT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
+
+        listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
+        listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
+
+        ArrayList<Bacsi> listDoctors = new ArrayList<>();
+        rcvbacsi = binding.rcvbacsi;
+
+        databaseHelper = new DatabaseHelper(getContext());
+        ArrayList<accout> listaccout = databaseHelper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
+        // get list bacsi by sdt;
+        listDoctors.clear();
+        for (accout accout : listaccout) {
+            Bacsi bacsi = databaseHelper.getBacsiBySdt(accout.getPhone());
+            listDoctors.add(bacsi);
+
+        }
+
+//        listDoctors = databaseHelper.getAllBacsi(listDoctors);
+
+
+        // danh sach kham main
+
+        adapter =  new adapterItems(listitems);
+        rcvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        rcvItems.setAdapter(adapter);
+
+
+        // hien thi bacsi main
+
+        rcvbacsi = binding.rcvbacsi;
+        adapterBacsi adapterDoctors = new adapterBacsi(listDoctors);
+        rcvbacsi.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rcvbacsi.setAdapter(adapterDoctors);
+
+        adapterDoctors.setOnItemClickListener(bacsi->{
+
+            String itemName = bacsi.getName();
+            Intent intent;
+            intent = new Intent(getActivity(), Bacsi_details.class);
+            intent.putExtra("bacsi", bacsi);
+            intent.putExtra("title", itemName);
+            intent.putExtra("anh", bacsi.getImg());
+
+            startActivity(intent);
+        });
+
+
+
+        // hien thi chuyen khoa main
+
+        rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
+        ArrayList<chuyenkhoa> listck = new ArrayList<>();
+        listck = databaseHelper.getChuyenKhoa();
+        adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
+        rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
+
+        adapterchuyenkh.setOnItemClickListener(chuyenkhoa -> {
+            String itemName = chuyenkhoa.getTenchuyenkhoa();
+            Intent intent;
+            intent = new Intent(getActivity(), Danhsachbacsi.class);
+            intent.putExtra("title", itemName);
+            intent.putExtra("thongtin", chuyenkhoa.getThongtin());
+            startActivity(intent);
+                });
+
+
+
+
+
+        // hien thi co so y te
         ArrayList<Cosoyte> cosoyteList = databaseHelper.getCosoyte();
         rcvcosoyte = binding.rcvcsyte;
         adaptercosoyte adaptercsyt = new adaptercosoyte(cosoyteList);
         rcvcosoyte.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvcosoyte.setAdapter(adaptercsyt);
+
+        adaptercsyt.setOnItemClickListener(cosoyte -> {
+            String itemName = cosoyte.getName();
+            Intent intent;
+            intent = new Intent(getActivity(), ChitietCSYT.class);
+            intent.putExtra("cosoyte", cosoyte);
+
+            startActivity(intent);
+
+        });
 
 
 

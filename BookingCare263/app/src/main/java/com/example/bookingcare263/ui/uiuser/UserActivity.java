@@ -9,9 +9,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.ThongtinUser;
+import com.example.bookingcare263.model.accout;
+import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -25,12 +28,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookingcare263.databinding.ActivityUserBinding;
 
+import java.util.ArrayList;
+
 public class UserActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityUserBinding binding;
     public static  String iduser ;
     public static String phoneuser;
+    public static String roleuser;
+
+    public static ArrayList <accout> listaccactive;
+    DatabaseHelper helper;
 
 
     @Override
@@ -83,6 +92,7 @@ public class UserActivity extends AppCompatActivity {
         iduser = intent.getStringExtra("iduser");
         String name = intent.getStringExtra("name");
         phoneuser = intent.getStringExtra("phone");
+        roleuser = intent.getStringExtra("role");
 
         Toast.makeText(this, "iduser" + iduser, Toast.LENGTH_SHORT).show();
 
@@ -96,6 +106,11 @@ public class UserActivity extends AppCompatActivity {
             txtnameheader.setText(name);
             txtsdtheader.setText(phoneuser);
         }
+        listaccactive = new ArrayList<>();
+        helper = new DatabaseHelper(this);
+        listaccactive = helper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
+
+
 
 
 
@@ -124,8 +139,13 @@ public class UserActivity extends AppCompatActivity {
             if (UserActivity.iduser == null) {
                 Intent intent = new Intent(UserActivity.this, LoginActivity.class);
                 startActivity(intent);
-            } else {
+                finish();
+            } else if(UserActivity.roleuser.equals("user")){
+
                 Intent intent = new Intent(UserActivity.this, ThongtinUser.class);
+                startActivity(intent);
+            } else if(UserActivity.roleuser.equals("bacsi")){
+                Intent intent = new Intent(UserActivity.this, ThongtinBacsi.class);
                 startActivity(intent);
             }
             return true;

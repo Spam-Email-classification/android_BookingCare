@@ -46,7 +46,13 @@ public class lichhenFragment extends Fragment {
 
     private void anhxa() {
         dbhelper = new DatabaseHelper(getContext());
-        listlichhen = dbhelper.getAlllichhen(UserActivity.iduser);
+ if(UserActivity.roleuser.equals("user")){
+            listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
+        } else if(UserActivity.roleuser.equals("bacsi")){
+            listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
+        } else{
+            listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
+        }
 
 
         Log.d("listlichhen size", listlichhen.size() + "");
@@ -75,7 +81,7 @@ public class lichhenFragment extends Fragment {
     // loaddu lieu
     public void loadData(){
         dbhelper = new DatabaseHelper(getContext());
-        listlichhen = dbhelper.getAlllichhen(UserActivity.iduser);
+        listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
         adapter.notifyDataSetChanged();
 
     }

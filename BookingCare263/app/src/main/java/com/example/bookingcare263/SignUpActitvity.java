@@ -2,6 +2,7 @@ package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,6 +16,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,11 +72,16 @@ public class SignUpActitvity extends AppCompatActivity {
         String sdt = edtsdtsignup.getText().toString().trim();
         String pass = edtpasssignup.getText().toString().trim();
         String as = "user";
-        as = spinrole.getSelectedItem().toString();
-        if (as.equals("benh nhan")) {
+        String status = "Đang hoạt động";
+        String banla = spinrole.getSelectedItem().toString();
+        Log.d("banla", banla);
+        if (banla.equals("benh nhan")) {
             as = "user";
+            status = "Đang hoạt động";
+
         } else {
-            as = "admin";
+            as = "bacsi";
+            status = "Chờ duyệt";
         }
 
         // Kiểm tra dữ liệu trước khi đăng ký
@@ -87,7 +94,6 @@ public class SignUpActitvity extends AppCompatActivity {
             return;
         }
 
-
         if (pass.isEmpty()) {
             edtpasssignup.setError("Please enter password");
             return;
@@ -97,10 +103,20 @@ public class SignUpActitvity extends AppCompatActivity {
             return;
         }
 
-        accout acc = new accout(name, sdt, pass, as);
+        accout acc = new accout(name, sdt, pass, as, status);
+
                 reference.child(sdt).setValue(acc).addOnSuccessListener(aVoid -> {
-                    benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
-                    helper.insertbenhnhan(bn);
+                    helper.insertaccout(acc);
+
+
+                    // them vao bang bs neu as la bacsi, benh nhan khong them vao bang bs
+                    if (acc.getAs().equals("user")) {
+                        benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
+                        helper.insertbenhnhan(bn);
+                    } else {
+                        Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt);
+                        helper.addBacsi(bs);
+                    }
                     Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(SignUpActitvity.this, LoginActivity.class));
                     finish();

@@ -78,6 +78,29 @@ public class AddCSYT extends AppCompatActivity {
 
 
         btnThem4csyt.setOnClickListener(v->{
+            if (!validate1()){
+                return;
+            }
+            String avatar = "";
+            if (imageUri != null) {
+                avatar = imageUri.toString();
+            }
+            Cosoyte csyt = new Cosoyte(
+                    edttencsyt.getText().toString(),
+                    avatar,
+                    edtdiachicsyt.getText().toString(),
+                    edtchuyenkhoacsyt.getText().toString(),
+                    edtmasogiayphepcsyt.getText().toString(),
+                    edtwebsitecsyt.getText().toString(),
+                    edtthongtin4csyt.getText().toString(),
+                    edtsdtadd4csyt.getText().toString(),
+                    edtemailadd4csyt.getText().toString()
+            );
+            helper.insertCosoyte(csyt);
+            Intent intent = new Intent(AddCSYT.this, adDanhsachBs.class);
+            intent.putExtra("manager", "quanlycsyt");
+            startActivity(intent);
+            finish();
 
         });
 

@@ -1,5 +1,7 @@
 package com.example.bookingcare263.ui.uiuser;
 
+import static com.example.bookingcare263.ui.uiuser.UserActivity.listaccactive;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
@@ -9,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,10 +20,12 @@ import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterlistbacsi;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.accout;
 
 import java.util.ArrayList;
 
 public class Danhsachbacsi extends AppCompatActivity {
+    Toolbar tbbacsi;
     private TextView txttitle;
     private TextView txtDescription;
     private TextView txtSeeMore;
@@ -93,7 +98,13 @@ public class Danhsachbacsi extends AppCompatActivity {
 
     private void filterList(String query) {
         filteredList.clear();
-        listbacsi = databaseHelper.getAllBacsi(listbacsi);
+        // get bacsi
+
+        ArrayList <accout> listacc = listaccactive;
+        for (accout accout : listacc) {
+            Bacsi bacsi = databaseHelper.getBacsiBySdt(accout.getPhone());
+            listbacsi.add(bacsi);
+        }
 
         if (query.isEmpty()) {
             filteredList.addAll(listbacsi);  // Hiển thị tất cả nếu không nhập gì
@@ -128,6 +139,13 @@ public class Danhsachbacsi extends AppCompatActivity {
                 txtSeeMore.setText("Xem thêm");
             }
         });
+        tbbacsi = findViewById(R.id.tbbacsilish);
+
+        // tool bar
+        setSupportActionBar(tbbacsi);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        tbbacsi.setNavigationOnClickListener(v -> finish());
+
 
         listbacsi = new ArrayList<>();
 

@@ -73,11 +73,17 @@ public class adapterkhamchuyenkhoa  extends RecyclerView.Adapter<adapterkhamchuy
         }
         public void bind(chuyenkhoa items){
             txtitems.setText(items.getTenchuyenkhoa());
+
+            if(items.getImg() != null)
             Glide.with(imgIcon.getContext())
                     .load(Uri.parse(items.getImg())) // Chuyển String thành Uri
                     .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                     .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                     .into(imgIcon);
+
+            else{
+                imgIcon.setImageResource(R.drawable.baseline_account_circle_24);
+            }
 
 
         }
