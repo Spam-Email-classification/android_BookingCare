@@ -48,14 +48,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // inser bai viet
 
-    public boolean insertbaiviet(Baiviet baiviet, String iduser){
+    public boolean insertbaiviet(Baiviet baiviet){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-
-        values.put("iduser", iduser);
+        values.put("iduser", baiviet.getIduser());
         values.put("title", baiviet.getTitile());
         values.put("content", baiviet.getContent());
         values.put("timestamp", baiviet.getTimestamp());
+        values.put("img", baiviet.getImg());
         long result = db.insert("tbbaiviet", null, values);
         db.close();
         return result != -1;

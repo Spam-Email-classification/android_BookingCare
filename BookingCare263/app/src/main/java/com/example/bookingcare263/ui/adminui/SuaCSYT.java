@@ -10,15 +10,12 @@ import android.widget.ImageView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Cosoyte;
-import com.example.bookingcare263.ui.copyImage;
+import com.example.bookingcare263.ui.Xuly;
 
 public class SuaCSYT extends AppCompatActivity {
     private Toolbar tbsuacsyt;
@@ -91,7 +88,7 @@ public class SuaCSYT extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
-            imageUri = copyImage.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
             Glide.with(imgavatarsuacsyt.getContext())
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
                     .circleCrop()

@@ -15,11 +15,15 @@ import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
+import com.example.bookingcare263.ui.Xuly;
 
 import java.util.ArrayList;
 
 public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHolder> {
     ArrayList <Baiviet> listbaiviet;
+    public adapterBaiviet(ArrayList<Baiviet> listbaiviet) {
+        this.listbaiviet = listbaiviet;
+    }
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -29,6 +33,8 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Baiviet baiviet = listbaiviet.get(position);
+        holder.bind(baiviet);
 
     }
 
@@ -39,15 +45,16 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgavatartbvshow, imganhbaivietshow;
-        TextView txtnametbvshow, txtitleshowbv, txtcontentbv, txtxemthembv;
+        TextView txtnametbvshow, txtitleshowbv, txtcontentbv, txtxemthembv, txttimetbvshow;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imgavatartbvshow = itemView.findViewById(R.id.imgavatartbvshow);
-            imganhbaivietshow = itemView.findViewById(R.id.imganhbaivietshow);
-            txtnametbvshow = itemView.findViewById(R.id.txtnametbvshow);
-            txtitleshowbv = itemView.findViewById(R.id.txtitleshowbv);
-            txtcontentbv = itemView.findViewById(R.id.txtcontentbv);
+            imgavatartbvshow = itemView.findViewById(R.id.imgavatartbvshowitem);
+            imganhbaivietshow = itemView.findViewById(R.id.imganhbaivietshowitem);
+            txtnametbvshow = itemView.findViewById(R.id.txtnametbvshowitem);
+            txtitleshowbv = itemView.findViewById(R.id.txtitleshowbvitem);
+            txtcontentbv = itemView.findViewById(R.id.txtcontentbvitem);
             txtxemthembv = itemView.findViewById(R.id.txtxemthembv);
+            txttimetbvshow = itemView.findViewById(R.id.txttimetbvshowitem);
 
         }
         public void bind(Baiviet baiviet){
@@ -69,18 +76,38 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
 
             txtitleshowbv.setText(baiviet.getTitile());
             txtcontentbv.setText(baiviet.getContent());
-            txtxemthembv.setText(baiviet.getTimestamp());
+           // neu so dòng content lớn hơn 3 thì ẩn nút xem thêm
+            if (txtcontentbv.getLineCount() > 3) {
+                txtxemthembv.setVisibility(View.VISIBLE);
+            } else {
+                txtxemthembv.setVisibility(View.GONE);
+            }
+
+            txtxemthembv.setOnClickListener(v -> {
+                if (txtcontentbv.getMaxLines() == 3) {
+                    txtcontentbv.setMaxLines(Integer.MAX_VALUE); // Hiển thị toàn bộ nội dung
+                    txtxemthembv.setText("Thu gọn");
+                } else {
+                    txtcontentbv.setMaxLines(3); // Giới hạn lại
+                    txtxemthembv.setText("Xem thêm");
+                }
+            });
+            String texttime = Xuly.getRelativeTime(baiviet.getTimestamp());
+            txttimetbvshow.setText(texttime);
+//            txtxemthembv.setText(baiviet.getTimestamp());
 
             String anhbaiviet = baiviet.getImg();
-            if (avatarUri != null && !avatarUri.isEmpty()) {
+            if (anhbaiviet != null && !anhbaiviet.isEmpty()) {
                 Glide.with(imganhbaivietshow.getContext())
                         .load(Uri.parse(anhbaiviet)) // Chuyển String thành Uri
-                        .circleCrop()
                         .into(imganhbaivietshow);
             } else {
+                imganhbaivietshow.setVisibility(View.GONE);
                 imganhbaivietshow.setImageResource(R.drawable.baseline_account_circle_24);
             }
         }
+
+
 
     }
 }

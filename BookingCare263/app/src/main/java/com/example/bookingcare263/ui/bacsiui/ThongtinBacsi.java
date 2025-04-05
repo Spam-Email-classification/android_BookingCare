@@ -12,15 +12,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
+import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.ui.adminui.SuaBS;
 import com.example.bookingcare263.ui.uiuser.UserActivity;
 import com.example.bookingcare263.ui.uiuser.lichhenFragment;
+
+import java.util.ArrayList;
 
 public class ThongtinBacsi extends AppCompatActivity {
 
@@ -29,6 +34,8 @@ public class ThongtinBacsi extends AppCompatActivity {
     RecyclerView rcvbaiviet;
     private ImageView imgavtarbsdt2;
     DatabaseHelper helper;
+    adapterBaiviet adapterbv;
+    ArrayList<Baiviet> listbaiviet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +82,20 @@ public class ThongtinBacsi extends AppCompatActivity {
             startActivity(intent);
         });
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        loadBaiviet();
+
+    }
+
+    void loadBaiviet(){
+        listbaiviet.clear();
+        listbaiviet.addAll(helper.getbaivietbyiduser(UserActivity.iduser));
+        adapterbv.notifyDataSetChanged();
     }
 
     private void anhxa() {
@@ -86,8 +107,13 @@ public class ThongtinBacsi extends AppCompatActivity {
         helper = new DatabaseHelper(this);
         txttenbs = findViewById(R.id.txtnamebstt);
         imgavtarbsdt2 = findViewById(R.id.imgavabsttbs);
+        listbaiviet = new ArrayList<>();
 
+        listbaiviet.addAll(helper.getbaivietbyiduser(UserActivity.iduser));
+        adapterbv = new adapterBaiviet(listbaiviet);
 
+        rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
+        rcvbaiviet.setAdapter(adapterbv);
 
     }
 

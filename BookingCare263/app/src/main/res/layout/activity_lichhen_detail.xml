@@ -38,7 +38,7 @@
                 android:layout_width="206dp"
                 android:layout_height="174dp"
                 android:layout_gravity="center"
-                android:cardCornerRadius="12dp"
+
                 android:elevation="8dp">
 
                 <ImageView
@@ -55,8 +55,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
-                android:cardCornerRadius="12dp"
-                android:cardElevation="4dp">
+              >
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -20,8 +20,6 @@ public class Baiviet {
         this.content = content;
         this.img = img;
 
-
-
     }
 
 

@@ -76,7 +76,9 @@
                    android:id="@+id/imganhbaiviet"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
-                   android:src="@tools:sample/avatars" />
+                   android:layout_gravity="center"
+                   app:srcCompat="@drawable/imagechose"
+                />
 
                <TextView
                    android:layout_width="wrap_content"

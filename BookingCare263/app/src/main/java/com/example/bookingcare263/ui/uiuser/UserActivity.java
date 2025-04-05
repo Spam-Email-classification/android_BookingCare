@@ -146,6 +146,7 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if(UserActivity.roleuser.equals("bacsi")){
                 Intent intent = new Intent(UserActivity.this, ThongtinBacsi.class);
+
                 startActivity(intent);
             }
             return true;

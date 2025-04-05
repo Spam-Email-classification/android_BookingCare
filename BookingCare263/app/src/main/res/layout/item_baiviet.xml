@@ -4,7 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="10dp"
+    android:layout_margin="3dp"
+    android:background="@drawable/khungbo">
 
 
     <LinearLayout
@@ -14,35 +17,51 @@
 
 
         <ImageView
-            android:id="@+id/imgavatartbvshow"
+            android:id="@+id/imgavatartbvshowitem"
             android:layout_width="40dp"
             android:layout_height="40dp"
             app:srcCompat="@drawable/baseline_account_circle_24" />
-
-        <TextView
-            android:id="@+id/txtnametbvshow"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="8"
             android:paddingLeft="20dp"
-            android:text="Bác sĩ: hoàng thị Phương"
-            android:textSize="20dp"
-            android:textStyle="bold" />
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/txtnametbvshowitem"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:text="Bác sĩ: hoàng thị Phương"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/txttimetbvshowitem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:text="time dang"
+                />
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <TextView
-        android:id="@+id/txtitleshowbv"
+        android:id="@+id/txtitleshowbvitem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Tiêu đề bài viết"
+        android:maxLength="2"
         android:textSize="16sp"
         android:textStyle="bold" />
     <TextView
-        android:id="@+id/txtcontentbv"
+        android:id="@+id/txtcontentbvitem"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="5dp"
         android:textSize="13dp"
+        android:maxLines="3"
         android:inputType="textMultiLine"
         android:hint="Bạn đang nghĩ gì" />
     <TextView
@@ -54,12 +73,12 @@
         android:textColor="#4CAF50"/>
 
     <ImageView
-        android:id="@+id/imganhbaivietshow"
+        android:id="@+id/imganhbaivietshowitem"
         android:layout_width="match_parent"
-        android:paddingRight="50dp"
-        android:paddingLeft="50dp"
         android:layout_height="180dp"
         android:layout_gravity="center"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
         tools:srcCompat="@tools:sample/avatars" />
 
 </LinearLayout>

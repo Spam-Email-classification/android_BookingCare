@@ -7,20 +7,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
-import com.example.bookingcare263.ui.copyImage;
+import com.example.bookingcare263.ui.Xuly;
+import com.example.bookingcare263.ui.uiuser.UserActivity;
 
 public class Taobaiviet extends AppCompatActivity {
     ImageView imganhbaiviet, imgavatartbv;
@@ -53,7 +50,7 @@ public class Taobaiviet extends AppCompatActivity {
             imgavatartbv.setImageResource(R.drawable.baseline_account_circle_24);
         }
 
-        imgavatartbv.setOnClickListener(view -> {
+        imganhbaiviet.setOnClickListener(view -> {
             // chon anh tu dien thoai
             Intent intent1 = new Intent(Intent.ACTION_PICK);
             intent1.setType("image/*");
@@ -69,12 +66,10 @@ public class Taobaiviet extends AppCompatActivity {
             if(imageUri != null){
                 anh = imageUri.toString();
             }else{
-                anh = null;
+                anh = "";
             }
-            Baiviet baiviet = new Baiviet(  bacsi.getId(), content, timestamp,edtbaibnvt.getText().toString(), anh);
-            if(helper.insertbaiviet(baiviet, bacsi.getId())){
-                Toast.makeText(this, "Đăng bài thành công", Toast.LENGTH_SHORT).show();
-            }
+            Baiviet baiviet = new Baiviet(UserActivity.iduser, content, timestamp,edttitletbv.getText().toString(), anh);
+            helper.insertbaiviet(baiviet);
             finish();
 
         });
@@ -86,10 +81,9 @@ public class Taobaiviet extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
-            imageUri = copyImage.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
             Glide.with(this)
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
-                    .circleCrop()
                     .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                     .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                     .into(imganhbaiviet);        }
@@ -102,6 +96,7 @@ public class Taobaiviet extends AppCompatActivity {
         txtnametbv = findViewById(R.id.txtnametbv);
         btndangtai = findViewById(R.id.btndangtai);
         edtbaibnvt = findViewById(R.id.edtbaibnvttbv);
+        edttitletbv = findViewById(R.id.txttitletbv);
         helper = new DatabaseHelper(this);
 
 

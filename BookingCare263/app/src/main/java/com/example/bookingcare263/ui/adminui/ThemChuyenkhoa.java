@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.chuyenkhoa;
-import com.example.bookingcare263.ui.copyImage;
+import com.example.bookingcare263.ui.Xuly;
 
 public class ThemChuyenkhoa extends AppCompatActivity {
     Toolbar tbAddchuyenkhoa;
@@ -80,7 +80,7 @@ public class ThemChuyenkhoa extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
-            imageUri = copyImage.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
             Glide.with(this)
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
                     .circleCrop()
