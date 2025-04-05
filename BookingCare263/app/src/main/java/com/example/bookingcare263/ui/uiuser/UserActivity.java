@@ -9,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.ThongtinUser;
+import com.example.bookingcare263.model.accout;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
@@ -25,12 +27,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookingcare263.databinding.ActivityUserBinding;
 
+import java.util.ArrayList;
+
 public class UserActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityUserBinding binding;
     public static  String iduser ;
     public static String phoneuser;
+    public static ArrayList <accout> listaccactive;
+    DatabaseHelper helper;
 
 
     @Override
@@ -96,6 +102,11 @@ public class UserActivity extends AppCompatActivity {
             txtnameheader.setText(name);
             txtsdtheader.setText(phoneuser);
         }
+        listaccactive = new ArrayList<>();
+        helper = new DatabaseHelper(this);
+        listaccactive = helper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
+
+
 
 
 

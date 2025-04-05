@@ -73,8 +73,10 @@ public class SuaCSYT extends AppCompatActivity {
             String avatar ="";
             if(imageUri != null){
                 avatar = imageUri.toString();
+            } else{
+                avatar = csyt.getImg();
             }
-            Cosoyte csyt1 = new Cosoyte(ten, sdt, email, diachi, chuyenkhoa, masogiayphep, website, thongtin, avatar);
+            Cosoyte csyt1 = new Cosoyte(csyt.getId(), ten, avatar, diachi, thongtin, masogiayphep, website, sdt, email, chuyenkhoa);
             helper.updatecsyt(csyt1);
             finish();
 
@@ -112,6 +114,7 @@ public class SuaCSYT extends AppCompatActivity {
         edtthongtin4csytsua = findViewById(R.id.edtthongtin4csytsua);
         btncsytsua = findViewById(R.id.btncsytsua);
         helper = new DatabaseHelper(this);
+
 
         setSupportActionBar(tbsuacsyt);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

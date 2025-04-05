@@ -2,6 +2,7 @@ package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,8 +73,9 @@ public class SignUpActitvity extends AppCompatActivity {
         String pass = edtpasssignup.getText().toString().trim();
         String as = "user";
         String status = "Đang hoạt động";
-        as = spinrole.getSelectedItem().toString();
-        if (as.equals("benh nhan")) {
+        String banla = spinrole.getSelectedItem().toString();
+        Log.d("banla", banla);
+        if (banla.equals("benh nhan")) {
             as = "user";
             status = "Đang hoạt động";
 
@@ -109,7 +111,7 @@ public class SignUpActitvity extends AppCompatActivity {
 
 
                     // them vao bang bs neu as la bacsi, benh nhan khong them vao bang bs
-                    if (acc.getAs().equals("benh nhan")) {
+                    if (acc.getAs().equals("user")) {
                         benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
                         helper.insertbenhnhan(bn);
                     } else {

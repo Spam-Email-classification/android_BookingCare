@@ -87,6 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 );
                 accoutList.add(accout);
             }
+            db.close();
+            cursor.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -115,6 +117,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result > 0;
 
+    }
+
+
+    // get accout by status and by role
+    public ArrayList<accout> getaccoutbystatusandbyrole(String status, String role) {
+        ArrayList<accout> accoutList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tb_accout", null, "status=? and role=?", new String[]{status, role}, null, null, null);
+            while (cursor.moveToNext()) {
+                accout accout = new accout(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+                accoutList.add(accout);
+            }
+            db.close();
+            cursor.close();
+            } catch (Exception e) {
+            e.printStackTrace();
+            }
+        return accoutList;
+        }
+
+    // update tai khoan accout
+    public boolean updateaccout(accout accout) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("name", accout.getName());
+        values.put("sdt", accout.getPhone());
+        values.put("password", accout.getPass());
+        values.put("role", accout.getAs());
+        values.put("status", accout.getStatus());
+        int result = db.update("tb_accout", values, "sdt=?", new String[]{accout.getPhone()});
+        db.close();
+        return result > 0;
     }
     // get benhnhan by sodt
     public benhnhan getbenhnhan(String sodt) {
@@ -228,8 +270,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result > 0;
     }
-
-
     // get cosoyte
     public ArrayList<Cosoyte> getCosoyte() {
         ArrayList<Cosoyte> cosoyteList = new ArrayList<>();
@@ -259,7 +299,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return cosoyteList;
     }
-
 
     public boolean insertCosoyte(Cosoyte cosoyte) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -303,6 +342,32 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return result > 0;
 
+    }
+
+    // get csyte by id
+    public Cosoyte getCosoyteById(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cosoyte cosoyte = new Cosoyte();
+        try {
+            Cursor cursor = db.query("tbsoyte", null, "id=?", new String[]{String.valueOf(id)}, null, null, null);
+            if (cursor.moveToFirst()) {
+                cosoyte.setId(cursor.getInt(0));
+                cosoyte.setName(cursor.getString(1));
+                cosoyte.setImg(cursor.getString(2));
+                cosoyte.setDiachi(cursor.getString(3));
+                cosoyte.setThongtin(cursor.getString(4));
+                cosoyte.setMasogiayphep(cursor.getString(5));
+                cosoyte.setWebsite(cursor.getString(6));
+                cosoyte.setSdt(cursor.getString(7));
+                cosoyte.setEmail(cursor.getString(8));
+                cosoyte.setChuyenkhoa(cursor.getString(9));
+                }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return cosoyte;
     }
 
     public boolean addBacsi(Bacsi bacsi) {

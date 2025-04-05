@@ -1,7 +1,12 @@
 package com.example.bookingcare263.ui.adminui;
 
+import static com.example.bookingcare263.ui.adminui.AdminActivity.roleadmin;
+import static com.example.bookingcare263.ui.uiuser.UserActivity.listaccactive;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -10,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
@@ -29,6 +35,7 @@ import com.example.bookingcare263.ThongtinUser;
 import com.example.bookingcare263.adapterus.adapterAccout;
 import com.example.bookingcare263.adapterus.adapterbsAd;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
+import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
@@ -48,7 +55,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     adaptercosoyte adaptercsyt;
 
-    EditText txtsearch;
+    EditText edtsearch;
     DatabaseHelper helper;
 
     String manager;
@@ -75,6 +82,8 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
+            edtsearch.setText("Tìm tên hoặc số điện thoại bác sĩ");
+            // size list
 
 
 
@@ -87,6 +96,9 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
+            edtsearch.setText("Tìm tên hoặc số điện thoại bệnh nhân");
+            // size list
+
 
 
         } else if (manager != null && manager.equals("quanlycsyt")) {
@@ -103,10 +115,95 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                 intent1.putExtra("cosoyte", csyt);
                 startActivity(intent1);
             });
+            edtsearch.setText("Tìm cơ sở y tế");
+        }
+
+        edtsearch.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                listbacsi.clear();
+                String query = edtsearch.getText().toString().trim();
+//                filterList(query);
+
+                if (manager != null && manager.equals("quanlybacsi")) {
+
+                    filterList(query, "bacsi");
+                } else if (manager != null && manager.equals("quanlybenhnhan")) {
+                    filterList(query, "benh nhan");
+                } else if (manager != null && manager.equals("quanlycsyt")) {
+                    filterListcsyt(query);
+                }
+
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+    //
+    private void filterList(String query, String role) {
+
+        ArrayList<accout> newlist = new ArrayList();
+        listacc.clear();
+        listacc.addAll(helper.getaccoutbyrole(role));
+
+        if (query.isEmpty()) {
+            adapteracc.notifyDataSetChanged();
+              // Hiển thị tất cả nếu không nhập gì
+        } else {
+            for (accout item : listacc) {
+                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
+                if (item.getName().toLowerCase().contains(query.toLowerCase()) ||
+                        item.getPhone().toLowerCase().contains(query.toLowerCase())) {
+                    newlist.add(item);
+                }
+            }
+            listacc.clear();
+            listacc.addAll(newlist);
+            adapteracc.notifyDataSetChanged();
         }
 
 
     }
+
+    private void filterListcsyt(String query) {
+
+        ArrayList<Cosoyte> newlist = new ArrayList();
+        listcsyte.clear();
+        listcsyte.addAll(helper.getCosoyte());
+
+        if (query.isEmpty()) {
+            adapteracc.notifyDataSetChanged();
+            // Hiển thị tất cả nếu không nhập gì
+        } else {
+            for (Cosoyte item : listcsyte) {
+                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
+                if (item.getName().toLowerCase().contains(query.toLowerCase()) )
+                    newlist.add(item);
+                }
+            }
+            listcsyte.clear();
+            listcsyte.addAll(newlist);
+            adapteracc.notifyDataSetChanged();
+        }
+
+
+
+
+
+
+
+
 
     @Override
     protected void onResume() {
@@ -116,6 +213,9 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         }
         if(manager != null && manager.equals("quanlycsyt")){
             loadDatacsyt();
+        }
+        if( manager != null && manager.equals("quanlybenhnhan")){
+            loadDatabenhnha();
         }
 
     }
@@ -136,7 +236,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     public void loadDatabenhnha(){
         listacc.clear();
-        listacc.addAll(helper.getaccoutbyrole("benh nhan"));
+        listacc.addAll(helper.getaccoutbyrole("user"));
         adapteracc.notifyDataSetChanged();
 
     }
@@ -145,7 +245,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
     private void anhxa() {
         toolbar = findViewById(R.id.tbqlbsad);
         rcvlisbsad = findViewById(R.id.rcvbsad);
-        txtsearch = findViewById(R.id.edtsearchad);
+        edtsearch = findViewById(R.id.edtsearchad);
         helper = new DatabaseHelper(this);
 
 
@@ -160,11 +260,17 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     @Override
     public void onFixClick(int position) {
-        String sdt = listacc.get(position).getPhone();
-        Bacsi bacsi = helper.getBacsiBySdt(sdt);
-        Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
-        intent.putExtra("bacsi", bacsi);
-        startActivity(intent);
+        if(manager != null && manager.equals("quanlybacsi")){
+            String sdt = listacc.get(position).getPhone();
+            Bacsi bacsi = helper.getBacsiBySdt(sdt);
+            Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
+            intent.putExtra("bacsi", bacsi);
+            startActivity(intent);
+        }  else{
+            // an thanh sua
+            Toast.makeText(this, "Bạn không có quyền sửa tài khoản này", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
 
@@ -197,17 +303,76 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     @Override
     public void onStatusLongClick(int position) {
+        accout acc = listacc.get(position);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Trạng thái tài khoản")
+                .setItems(new String[]{"Đang hoạt động", "Chờ duyệt", "Tạm khóa"}, (dialog, which) -> {
+                    String newStatus;
+                    if (which == 0) {
+                        newStatus = "Đang hoạt động";
+                    } else if (which == 1) {
+                        newStatus = "Chờ duyệt";
+                    } else {
+                        newStatus = "Tạm khóa";
+                    }
 
+                    // Cập nhật trạng thái
+                    acc.setStatus(newStatus);
+                    adapteracc.notifyDataSetChanged(); // Cập nhật lại RecyclerView
+
+                    // Nếu bạn lưu trạng thái vào database, cần gọi hàm cập nhật database ở đây
+                    helper.updateaccout(acc);
+                    // update len firebase
+                    reference = FirebaseDatabase.getInstance().getReference("Users");
+                    reference.child(acc.getPhone()).child("status").setValue(newStatus);
+
+                })
+                .show();
     }
+
+
+
 
     @Override
     public void onItemClick(int position) {
         // get bacsi by sdt
-        String sdt = listacc.get(position).getPhone();
-        Bacsi bacsi = helper.getBacsiBySdt(sdt);
-        Intent intent = new Intent(adDanhsachBs.this, Bacsi_details.class);
-        intent.putExtra("bacsi",bacsi);
-        startActivity(intent);
+       if(manager != null && manager.equals("quanlybacsi")){
+           String sdt = listacc.get(position).getPhone();
+           Bacsi bacsi = helper.getBacsiBySdt(sdt);
+           Intent intent = new Intent(adDanhsachBs.this, Bacsi_details.class);
+           intent.putExtra("bacsi",bacsi);
+           startActivity(intent);
+       }
+       else if(manager != null && manager.equals("quanlybenhnhan")){
+           Toast.makeText(this, "Bạn không có quyền xem tài khoản này", Toast.LENGTH_SHORT).show();
+
+        }
 
     }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        if (roleadmin == "admin" && manager != null && manager.equals("quanlycsyt")) {
+            getMenuInflater().inflate(R.menu.addmenu, menu);
+        }
+        return true;
+    }
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.plusss) {
+            // add
+            Intent intent1 = new Intent(adDanhsachBs.this, AddCSYT.class);
+            startActivity(intent1);
+            finish();
+
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
 }

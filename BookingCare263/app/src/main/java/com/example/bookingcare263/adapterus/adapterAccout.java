@@ -58,11 +58,16 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
                 listener.onDeleteClick(position);
             }
         });
-        holder.itemView.setOnLongClickListener(v->{
+        holder.imgstatus.setOnLongClickListener(v->{
             if (listener != null){
                 listener.onStatusLongClick(position);
             }
             return true;
+        });
+        holder.itemView.setOnClickListener(v->{
+            if (listener != null){
+                listener.onItemClick(position);
+            }
         });
 
 
@@ -110,7 +115,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
             txttenaccout.setText(name);
             txtsdtaccout.setText(sdt);
             txtstatusaccout.setText(status);
-            if(avatar != null)
+            if(avatar != null &&  !avatar.isEmpty())
                 Glide.with(imgaccout.getContext())
                     .load(Uri.parse(avatar)) // Chuyển String thành ặc đUri
                     .circleCrop()

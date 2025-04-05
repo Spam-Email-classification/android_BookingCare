@@ -28,6 +28,7 @@ import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.Item;
+import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.chuyenkhoa;
 
 import java.util.ArrayList;
@@ -130,7 +131,16 @@ public class HomeFragment extends Fragment {
         rcvbacsi = binding.rcvbacsi;
 
         databaseHelper = new DatabaseHelper(getContext());
-        listDoctors = databaseHelper.getAllBacsi(listDoctors);
+        ArrayList<accout> listaccout = databaseHelper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
+        // get list bacsi by sdt;
+        listDoctors.clear();
+        for (accout accout : listaccout) {
+            Bacsi bacsi = databaseHelper.getBacsiBySdt(accout.getPhone());
+            listDoctors.add(bacsi);
+
+        }
+
+//        listDoctors = databaseHelper.getAllBacsi(listDoctors);
 
 
         // danh sach kham main
