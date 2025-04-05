@@ -15,6 +15,8 @@ public class lichhen implements Serializable {
     private String avatarbs;
     private String namebs;
 
+
+
     public lichhen(String id, String idbenhnhan, String idbacsi, String ngayhenkham, String khunggiokham, String trangthai,
                    String namebenhnhan, String sdtbenhnhan, String diachibenhnhan,
                    String avatarbs, String namebs) {
@@ -30,9 +32,10 @@ public class lichhen implements Serializable {
         this.diachibenhnhan = diachibenhnhan;
         this.avatarbs = avatarbs;
         this.namebs = namebs;
+
     }
     public lichhen( String idbenhnhan, String idbacsi, String ngayhenkham, String khunggiokham, String trangthai,
-                    String namebenhnhan, String sdtbenhnhan, String diachibenhnhan, String avatarbs, String namebs) {
+                    String namebenhnhan, String sdtbenhnhan, String diachibenhnhan, String avatarbs, String namebs, String diachikham, String sttKham) {
         this.idbenhnhan = idbenhnhan;
         this.idbacsi = idbacsi;
         this.ngayhenkham = ngayhenkham;
@@ -43,6 +46,10 @@ public class lichhen implements Serializable {
         this.diachibenhnhan = diachibenhnhan;
         this.avatarbs = avatarbs;
         this.namebs = namebs;
+    }
+
+    public lichhen() {
+
     }
 
     public String getNamebs() {
@@ -132,4 +139,6 @@ public class lichhen implements Serializable {
     public void setTrangthai(String trangthai) {
         this.trangthai = trangthai;
     }
+
+
 }

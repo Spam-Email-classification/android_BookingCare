@@ -37,6 +37,7 @@ public class lichhenFragment extends Fragment {
         adapter.setOnItemClickListener(lichhen -> {
             Intent intent = new Intent(getContext(), lichhenDetail.class);
             intent.putExtra("lichhen", lichhen);
+            intent.putExtra("avatarbs", lichhen.getAvatarbs());
             startActivity(intent);
         });
 
@@ -55,6 +56,19 @@ public class lichhenFragment extends Fragment {
         rcvlichhen.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvlichhen.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+        adapter.setOnItemClickListener(
+                new adapterLichhen.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(lichhen lichhen) {
+                        Intent intent = new Intent(getContext(), lichhenDetail.class);
+                        intent.putExtra("lichhen", lichhen);
+                        startActivity(intent);
+                    }
+                }
+        );
+
+
+
 
 
     }

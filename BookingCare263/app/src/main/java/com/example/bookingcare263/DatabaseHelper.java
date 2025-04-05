@@ -405,6 +405,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return lichhenList;
     }
+    public lichhen getlichhenById(String id){
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        lichhen lh = new lichhen();
+        try{
+            Cursor cursor = db.query("tblichhen", null, "id=?", new String[]{id}, null, null, null);
+            if(cursor.moveToFirst()){
+                lh.setId(cursor.getString(0));
+                lh.setIdbenhnhan(cursor.getString(1));
+                lh.setIdbacsi(cursor.getString(2));
+                lh.setNgayhenkham(cursor.getString(3));
+                lh.setKhunggiokham(cursor.getString(4));
+                lh.setTrangthai(cursor.getString(5));
+                lh.setNamebenhnhan(cursor.getString(6));
+                lh.setSdtbenhnhan(cursor.getString(7));
+                lh.setDiachibenhnhan(cursor.getString(8));
+                lh.setAvatarbs(cursor.getString(9));
+
+
+            }
+            db.close();
+            cursor.close();
+            return lh;
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return lh;
+
+    }
+    public void updateTrangThaiLichHen(String id, String trangthai) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("trangthai", trangthai);
+        db.update("tblichhen", values, "id=?", new String[]{id});
+        db.close();
+    }
 
     public boolean deletelichhen(String id){
         SQLiteDatabase db = this.getWritableDatabase();

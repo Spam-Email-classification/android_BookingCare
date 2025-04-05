@@ -44,13 +44,14 @@
 
 
     </LinearLayout>
+
     <EditText
         android:id="@+id/edttenaddchuyenkhoa"
-        android:layout_width="match_parent"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
-        android:hint="Tên chuyên khoa" />
+        android:hint="Tên chuyên khoa"
+        android:inputType="text" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
