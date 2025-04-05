@@ -82,7 +82,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
-            edtsearch.setText("Tìm tên hoặc số điện thoại bác sĩ");
+            edtsearch.setHint("Tìm tên hoặc số điện thoại bác sĩ");
             // size list
 
 
@@ -96,7 +96,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
-            edtsearch.setText("Tìm tên hoặc số điện thoại bệnh nhân");
+            edtsearch.setHint("Tìm tên hoặc số điện thoại bệnh nhân");
             // size list
 
 
@@ -115,7 +115,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                 intent1.putExtra("cosoyte", csyt);
                 startActivity(intent1);
             });
-            edtsearch.setText("Tìm cơ sở y tế");
+            edtsearch.setHint("Tìm cơ sở y tế");
         }
 
         edtsearch.addTextChangedListener(new TextWatcher() {
