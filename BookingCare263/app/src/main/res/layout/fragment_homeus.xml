@@ -60,19 +60,7 @@
 
             </androidx.recyclerview.widget.RecyclerView>
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="3dp"
-                android:text="Bác sĩ"
-                android:textColor="#3F51B5"
-                android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rcvbacsi"
-                android:layout_width="match_parent"
-                android:layout_height="120dp" />
 
 
             <TextView
@@ -104,6 +92,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                  />
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="3dp"
+                android:text="Bác sĩ"
+                android:textColor="#3F51B5"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvbacsi"
+                android:layout_width="match_parent"
+                android:layout_height="120dp" />
 
             <TextView
                 android:id="@+id/textView17"
@@ -119,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:background="@drawable/bg1" />
+
 
 
 

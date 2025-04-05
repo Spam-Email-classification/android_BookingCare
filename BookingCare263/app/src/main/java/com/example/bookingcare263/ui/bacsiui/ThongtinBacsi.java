@@ -1,26 +1,94 @@
 package com.example.bookingcare263.ui.bacsiui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
+import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.ui.adminui.SuaBS;
+import com.example.bookingcare263.ui.uiuser.UserActivity;
+import com.example.bookingcare263.ui.uiuser.lichhenFragment;
 
 public class ThongtinBacsi extends AppCompatActivity {
+
+    private Button btnqllichhen, btnsuattbs, btnqlbaiviet;
+    private TextView txttaobaiviet, txttenbs;
+    RecyclerView rcvbaiviet;
+    private ImageView imgavtarbsdt2;
+    DatabaseHelper helper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_thongtin_bacsi);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+        // anh xa
+        anhxa();
+
+        // getbac by iduserr
+        Bacsi bacsi = helper.getBacsiBySdt(UserActivity.iduser);
+
+        txttenbs.setText(bacsi.getName());
+
+        String avatarUri = bacsi.getImg();
+        if (avatarUri != null && !avatarUri.isEmpty()) {
+            Glide.with(this)
+                    .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imgavtarbsdt2);
+        } else {
+            imgavtarbsdt2.setImageResource(R.drawable.baseline_account_circle_24);
+        }
+
+        btnsuattbs.setOnClickListener(e->{
+            Intent intent = new Intent(ThongtinBacsi.this, SuaBS.class);
+            intent.putExtra("bacsi",bacsi);
+            startActivity(intent);
         });
+        btnqllichhen.setOnClickListener(e->{
+//            Intent intent = new Intent(ThongtinBacsi.this,QLLichHen.class);
+//            startActivity(intent);
+            // chuyen sang fragment lichhen
+
+
+        });
+
+
+
+
+        txttaobaiviet.setOnClickListener(e->{
+            Intent intent = new Intent(ThongtinBacsi.this,Taobaiviet.class);
+            intent.putExtra("bacsi",bacsi);
+            startActivity(intent);
+        });
+
     }
+
+    private void anhxa() {
+        btnqllichhen = findViewById(R.id.btnqllhenn);
+        btnsuattbs = findViewById(R.id.btnsuattbs);
+        btnqlbaiviet = findViewById(R.id.btnqlbv);
+        txttaobaiviet = findViewById(R.id.txttaobaiviet);
+        rcvbaiviet = findViewById(R.id.rcvbaiviet);
+        helper = new DatabaseHelper(this);
+        txttenbs = findViewById(R.id.txtnamebstt);
+        imgavtarbsdt2 = findViewById(R.id.imgavabsttbs);
+
+
+
+    }
+
 }

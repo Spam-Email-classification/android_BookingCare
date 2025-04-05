@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
@@ -43,6 +44,70 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + "tbbacsi");
         onCreate(db);
+    }
+
+    // inser bai viet
+
+    public boolean insertbaiviet(Baiviet baiviet, String iduser){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+
+        values.put("iduser", iduser);
+        values.put("title", baiviet.getTitile());
+        values.put("content", baiviet.getContent());
+        values.put("timestamp", baiviet.getTimestamp());
+        long result = db.insert("tbbaiviet", null, values);
+        db.close();
+        return result != -1;
+    }
+
+    // get bai viet by iduser
+    public ArrayList<Baiviet> getbaivietbyiduser(String iduser) {
+        ArrayList<Baiviet> baivietList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tbbaiviet", null, "iduser=?", new String[]{iduser}, null, null, null);
+            while (cursor.moveToNext()) {
+                Baiviet baiviet = new Baiviet(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+                baivietList.add(baiviet);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return baivietList;
+    }
+
+
+    public ArrayList<Baiviet> getAllbaiviet(ArrayList<Baiviet> baivietList) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        try {
+            Cursor cursor = db.query("tbbaiviet", null, null, null, null, null, null);
+            while (cursor.moveToNext()) {
+                Baiviet baiviet = new Baiviet(
+                        cursor.getString(0),
+                        cursor.getString(1),
+                        cursor.getString(2),
+                        cursor.getString(3),
+                        cursor.getString(4),
+                        cursor.getString(5)
+                );
+                baivietList.add(baiviet);
+            }
+            db.close();
+            cursor.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return baivietList;
     }
 
     // get accout by sdt
