@@ -22,11 +22,6 @@
             android:name=".DieuKhoan"
             android:exported="false" />
         <activity
-            android:name=".DieuKhoanSuDung"
-            android:exported="false"
-            android:label="Điều khoản sử dụng"
-            android:parentActivityName=".ThongtinUser" />
-        <activity
             android:name=".Hosoyte"
             android:exported="false" />
         <activity
