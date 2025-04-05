@@ -134,8 +134,6 @@ public class LoginActivity extends AppCompatActivity {
                                     String phone = ds.child("phone").getValue(String.class);
 
 
-
-
                                     Intent intent = new Intent(LoginActivity.this, UserActivity.class);
                                     intent.putExtra("iduser", sdt);
                                     intent.putExtra("name", name);
@@ -144,12 +142,14 @@ public class LoginActivity extends AppCompatActivity {
                                     finish();
 
 
-                                } else {
+                                } else if(asdb!=null && asdb.equals("admin")) {
                                     Toast.makeText(LoginActivity.this, "Iam admin", LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     intent.putExtra("role", "admin");
                                     startActivity(intent);
                                     finish();
+                                } else if(asdb!=null && asdb.equals("bacsi")){
+
                                 }
                             }
 

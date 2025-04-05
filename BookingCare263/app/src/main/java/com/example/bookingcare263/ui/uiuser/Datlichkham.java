@@ -93,7 +93,7 @@ public class Datlichkham extends AppCompatActivity {
                     "Đang chờ",
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
-                    edtdiachi.getText().toString(),
+                    bacsi.getDiachi(),
                     bacsi.getImg(),
                     bacsi.getName()
             );
