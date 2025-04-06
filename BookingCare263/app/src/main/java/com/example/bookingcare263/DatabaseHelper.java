@@ -66,7 +66,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Baiviet> baivietList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            Cursor cursor = db.query("tbbaiviet", null, "iduser=?", new String[]{iduser}, null, null, null);
+            Cursor cursor = db.query("tbbaiviet", null, "iduser=?", new String[]{iduser}, null, null, "id DESC");
             while (cursor.moveToNext()) {
                 Baiviet baiviet = new Baiviet(
                         cursor.getString(0),
@@ -91,7 +91,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Baiviet> baivietList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            Cursor cursor = db.query("tbbaiviet", null, null, null, null, null, null);
+            Cursor cursor = db.query("tbbaiviet", null, null, null, null, null, "id DESC");
             while (cursor.moveToNext()) {
                 Baiviet baiviet = new Baiviet(
                         cursor.getString(0),
@@ -480,68 +480,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // lay danh sach bacsi theo chuyen khoa
 
-    public Bacsi getBacsiById(String id) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Bacsi bacsi = new Bacsi();
-        try {
-            Cursor cursor = db.query("tbbacsi", null, "id=?", new String[]{id}, null, null, null);
-            if (cursor.moveToFirst()) {
-                bacsi.setId(cursor.getString(0));
-                bacsi.setName(cursor.getString(1));
-                bacsi.setChuyenkhoa(cursor.getString(2));
-                bacsi.setDiachi(cursor.getString(3));
-                bacsi.setImg(cursor.getString(4));
-                bacsi.setThongtin(cursor.getString(5));
-                bacsi.setGiaKham(cursor.getString(6));
-                bacsi.setSogiayphephanhnghe(cursor.getString(7));
-                bacsi.setEmail(cursor.getString(8));
-                bacsi.setSdt(cursor.getString(9));
 
-            }
-            db.close();
-            cursor.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bacsi;
-    }
 
-    public ArrayList<Bacsi> getAllBacsi(ArrayList<Bacsi> bacSiList) {
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        try {
-            Cursor cursor = db.query("tbbacsi", null, null, null, null, null, null);
-            while (cursor.moveToNext()) {
-                Bacsi bacsi = new Bacsi(
-                        cursor.getString(0),
-                        cursor.getString(1),
-                        cursor.getString(2),
-                        cursor.getString(3),
-                        cursor.getString(4),
-                        cursor.getString(5),
-                        cursor.getString(6),
-                        cursor.getString(7),
-                        cursor.getString(8),
-                        cursor.getString(9)
-                );
-                bacSiList.add(bacsi);
-
-            }
-            db.close();
-            cursor.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return bacSiList;
-
-    }
 
     // get bac si by sodienthoai
     public Bacsi getBacsiBySdt(String sdt) {
         SQLiteDatabase db = this.getReadableDatabase();
         Bacsi bacsi = new Bacsi();
         try {
-            Cursor cursor = db.query("tbbacsi", null, "sdt=?", new String[]{sdt}, null, null, null);
+            Cursor cursor = db.query("tbbacsi", null, "sdt=?", new String[]{sdt}, null, null, "id DESC");
             if (cursor.moveToFirst()) {
                 bacsi.setId(cursor.getString(0));
                 bacsi.setName(cursor.getString(1));
@@ -570,9 +517,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public ArrayList<Bacsi> getBacsiByChuyenKhoa(ArrayList<Bacsi> bacSiList, String chuyenkhoa) {
         SQLiteDatabase db = this.getReadableDatabase();
 
-        try {
-            Cursor cursor = db.query("tbbacsi", null, "chuyenkhoa=?", new String[]{chuyenkhoa}, null, null, null);
-            while (cursor.moveToNext()) {
+                try {
+                    Cursor cursor = db.query("tbbacsi", null, "chuyenkhoa=?", new String[]{chuyenkhoa}, null, null, "id DESC");
+                    while (cursor.moveToNext()) {
                 Bacsi bacsi = new Bacsi(
                         cursor.getString(0),
                         cursor.getString(1),
@@ -626,11 +573,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public ArrayList<lichhen> getAlllichhenbyidbenhnhan(String idbenhnhan){
+    public ArrayList<lichhen> getAlllichhenbyidbenhnhan(String idbenhnhan) {
         ArrayList<lichhen> lichhenList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            Cursor cursor = db.query("tblichhen", null, "idbenhnhan=?", new String[]{idbenhnhan}, null, null, null);
+            Cursor cursor = db.query("tblichhen", null, "idbenhnhan=?", new String[]{idbenhnhan}, null, null, "id DESC");
             while (cursor.moveToNext()) {
                 lichhen lh = new lichhen(
                         cursor.getString(0),
@@ -650,40 +597,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             }
             db.close();
             cursor.close();
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
 
         }
         return lichhenList;
-    }
-    public lichhen getlichhenById(String id){
-
-        SQLiteDatabase db = this.getReadableDatabase();
-        lichhen lh = new lichhen();
-        try{
-            Cursor cursor = db.query("tblichhen", null, "id=?", new String[]{id}, null, null, null);
-            if(cursor.moveToFirst()){
-                lh.setId(cursor.getString(0));
-                lh.setIdbenhnhan(cursor.getString(1));
-                lh.setIdbacsi(cursor.getString(2));
-                lh.setNgayhenkham(cursor.getString(3));
-                lh.setKhunggiokham(cursor.getString(4));
-                lh.setTrangthai(cursor.getString(5));
-                lh.setNamebenhnhan(cursor.getString(6));
-                lh.setSdtbenhnhan(cursor.getString(7));
-                lh.setDiachibenhnhan(cursor.getString(8));
-                lh.setAvatarbs(cursor.getString(9));
-
-
-            }
-            db.close();
-            cursor.close();
-            return lh;
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-        return lh;
-
     }
     public void updateTrangThaiLichHen(String id, String trangthai) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -697,7 +615,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<lichhen> lichhenList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
-            Cursor cursor = db.query("tblichhen", null, "idbacsi=?", new String[]{idbacsi}, null, null, null);
+            Cursor cursor = db.query("tblichhen", null, "idbacsi=?", new String[]{idbacsi}, null, null, "id DESC");
             while (cursor.moveToNext()) {
                 lichhen lh = new lichhen(
                         cursor.getString(0),

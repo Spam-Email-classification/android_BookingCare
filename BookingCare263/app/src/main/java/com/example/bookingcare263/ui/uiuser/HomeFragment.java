@@ -260,6 +260,20 @@ public class HomeFragment extends Fragment {
 
     }
 
+    void loadbaiviet(){
+        listbaiviet.clear();
+        ArrayList <Baiviet> newbaiviet = databaseHelper.getAllbaiviet();
+        // sap xep theo thu tu giam dan id
+
+        listbaiviet.addAll(newbaiviet);
+        adapterbv.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
