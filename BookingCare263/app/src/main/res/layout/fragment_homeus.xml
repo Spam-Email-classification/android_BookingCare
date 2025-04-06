@@ -116,9 +116,9 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/txtcosoyte"
+                android:id="@+id/rcvbaiviet"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:background="@drawable/bg1" />
 
 

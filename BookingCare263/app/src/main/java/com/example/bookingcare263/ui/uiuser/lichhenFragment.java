@@ -18,6 +18,7 @@ import com.example.bookingcare263.adapterus.adapterLichhen;
 import com.example.bookingcare263.databinding.FragmentLichhenusBinding;
 import com.example.bookingcare263.lichhenDetail;
 import com.example.bookingcare263.model.lichhen;
+import com.example.bookingcare263.UserActivity;
 
 import java.util.ArrayList;
 
@@ -34,46 +35,38 @@ public class lichhenFragment extends Fragment {
         View root = binding.getRoot();
         anhxa();
 
-        adapter.setOnItemClickListener(lichhen -> {
-            Intent intent = new Intent(getContext(), lichhenDetail.class);
-            intent.putExtra("lichhen", lichhen);
-            intent.putExtra("avatarbs", lichhen.getAvatarbs());
-            startActivity(intent);
-        });
+
 
         return root;
     }
 
     private void anhxa() {
         dbhelper = new DatabaseHelper(getContext());
- if(UserActivity.roleuser.equals("user")){
+        if (UserActivity.iduser != null) {
+
+        if (UserActivity.roleuser.equals("user")) {
             listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
-        } else if(UserActivity.roleuser.equals("bacsi")){
+        } else if (UserActivity.roleuser.equals("bacsi")) {
             listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
-        } else{
+        } else {
             listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
         }
-
-
-        Log.d("listlichhen size", listlichhen.size() + "");
 
         rcvlichhen = binding.rcvlichhen;
         adapter = new adapterLichhen(listlichhen);
         rcvlichhen.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvlichhen.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-        adapter.setOnItemClickListener(
-                new adapterLichhen.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(lichhen lichhen) {
-                        Intent intent = new Intent(getContext(), lichhenDetail.class);
-                        intent.putExtra("lichhen", lichhen);
-                        startActivity(intent);
-                    }
-                }
-        );
 
 
+            adapter.setOnItemClickListener(lichhen -> {
+                Intent intent = new Intent(getContext(), lichhenDetail.class);
+                intent.putExtra("lichhen", lichhen);
+                intent.putExtra("avatarbs", lichhen.getAvatarbs());
+                startActivity(intent);
+            });
+
+}
 
 
 

@@ -4,7 +4,6 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -16,13 +15,12 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.lichhen;
+import com.example.bookingcare263.UserActivity;
 
-import java.io.File;
 import java.util.Calendar;
 
 public class Datlichkham extends AppCompatActivity {
@@ -52,7 +50,7 @@ public class Datlichkham extends AppCompatActivity {
 
 
         txtDescription.setText(bacsi.getThongtin());
-        txtAddress.setText(bacsi.getDiachi());
+
         txtNameBs.setText(bacsi.getName());
         txtchuyenkhoa.setText(bacsi.getChuyenkhoa());
         txtgiakhamdk.setText(String.valueOf(bacsi.getGiaKham()));
@@ -81,7 +79,7 @@ public class Datlichkham extends AppCompatActivity {
 
 
         btndatlichkham.setOnClickListener(e->{
-            String time = edtngay.getText() + " - " + selectedText;
+
             String iduser = UserActivity.iduser;
             if(!validate()) return;
 
@@ -89,11 +87,10 @@ public class Datlichkham extends AppCompatActivity {
                     iduser,
                     bacsi.getSdt(),
                     edtngay.getText().toString(),
-                    time,
-                    "Đang chờ",
+                    selectedText,                    "Đang chờ",
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
-                    bacsi.getDiachi(),
+                    edtdiachi.getText().toString(),
                     bacsi.getImg(),
                     bacsi.getName()
             );
@@ -104,9 +101,9 @@ public class Datlichkham extends AppCompatActivity {
         });
 
 
-
-
     }
+
+
 
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();

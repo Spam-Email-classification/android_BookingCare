@@ -1,7 +1,6 @@
 package com.example.bookingcare263.ui.adminui;
 
 import static com.example.bookingcare263.ui.adminui.AdminActivity.roleadmin;
-import static com.example.bookingcare263.ui.uiuser.UserActivity.listaccactive;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,10 +17,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -29,17 +24,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
-import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
-import com.example.bookingcare263.ThongtinUser;
 import com.example.bookingcare263.adapterus.adapterAccout;
-import com.example.bookingcare263.adapterus.adapterbsAd;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
-import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
-import com.example.bookingcare263.ui.uiuser.UserActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -134,7 +124,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
                     filterList(query, "bacsi");
                 } else if (manager != null && manager.equals("quanlybenhnhan")) {
-                    filterList(query, "benh nhan");
+                    filterList(query, "user");
                 } else if (manager != null && manager.equals("quanlycsyt")) {
                     filterListcsyt(query);
                 }
@@ -177,25 +167,25 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
     }
 
     private void filterListcsyt(String query) {
-
-        ArrayList<Cosoyte> newlist = new ArrayList();
+        ArrayList<Cosoyte> newlist = new ArrayList<>();
         listcsyte.clear();
-        listcsyte.addAll(helper.getCosoyte());
 
         if (query.isEmpty()) {
-            adapteracc.notifyDataSetChanged();
-            // Hiển thị tất cả nếu không nhập gì
+            // Khi query trống, tải lại danh sách đầy đủ
+            listcsyte.addAll(helper.getCosoyte());
         } else {
-            for (Cosoyte item : listcsyte) {
-                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
-                if (item.getName().toLowerCase().contains(query.toLowerCase()) )
+            // Nếu query có giá trị, tìm kiếm theo tên hoặc chuyên khoa
+            for (Cosoyte item : helper.getCosoyte()) {
+                if (item.getName().toLowerCase().contains(query.toLowerCase())) {
                     newlist.add(item);
                 }
             }
-            listcsyte.clear();
             listcsyte.addAll(newlist);
-            adapteracc.notifyDataSetChanged();
         }
+        // Cập nhật adapter sau khi thay đổi dữ liệu
+        adaptercsyt.notifyDataSetChanged();
+    }
+
 
 
 

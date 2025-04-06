@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:layout_margin="3dp"
+    android:backgroundTint="@color/white"
     android:background="@drawable/khungbo">
 
 
@@ -80,5 +81,14 @@
         android:paddingLeft="50dp"
         android:paddingRight="50dp"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <Button
+        android:id="@+id/btndlk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cornerRadius = "0dp"
+        android:backgroundTint="#48C9DB"
+        android:text="Đặt khám" />
 
 </LinearLayout>

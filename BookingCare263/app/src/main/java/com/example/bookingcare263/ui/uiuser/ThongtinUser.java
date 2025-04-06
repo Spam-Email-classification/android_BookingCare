@@ -1,16 +1,17 @@
-package com.example.bookingcare263;
+package com.example.bookingcare263.ui.uiuser;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.bookingcare263.ui.uiuser.UserActivity;
+import com.example.bookingcare263.DieuKhoan;
+import com.example.bookingcare263.LienHe;
+import com.example.bookingcare263.LoginActivity;
+import com.example.bookingcare263.R;
+import com.example.bookingcare263.UserActivity;
 
 public class ThongtinUser extends AppCompatActivity {
 

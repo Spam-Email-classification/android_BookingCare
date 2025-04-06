@@ -87,7 +87,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public ArrayList<Baiviet> getAllbaiviet(ArrayList<Baiviet> baivietList) {
+    public ArrayList<Baiviet> getAllbaiviet() {
+        ArrayList<Baiviet> baivietList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         try {
             Cursor cursor = db.query("tbbaiviet", null, null, null, null, null, null);
@@ -231,6 +232,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.query("tbbenhnhan", null, "sodienthoai=?", new String[]{sodt}, null, null, null);
             if (cursor.moveToFirst()) {
                 benhnhan.setId(cursor.getString(0));
+                benhnhan.setTen(cursor.getString(1));
+                benhnhan.setSodienthoai(cursor.getString(2));
+                benhnhan.setDiachi(cursor.getString(3));
+                benhnhan.setGioitinh(cursor.getString(4));
+                benhnhan.setNgaysinh(cursor.getString(5));
+                benhnhan.setBenhlynen(cursor.getString(6));
+                benhnhan.setImg(cursor.getString(7));
 
             }
             db.close();
@@ -268,7 +276,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put("ngaysinh", bn.getNgaysinh());
         values.put("benhlynen", bn.getBenhlynen());
         values.put("img", bn.getImg());
-        int result = db.update("tbbenhnhan", values, "id=?", new String[]{bn.getId()});
+        int result = db.update("tbbenhnhan", values, "sodienthoai=?", new String[]{bn.getSodienthoai()});
         db.close();
         return result > 0;
 

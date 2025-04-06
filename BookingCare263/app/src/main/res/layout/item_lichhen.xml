@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
+    android:padding="5dp"
     android:layout_marginLeft="5dp"
     android:background="@drawable/khungbo"
     android:orientation="vertical">
@@ -18,9 +19,9 @@
             android:id="@+id/txttrangthai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/khungbo"
+
             android:drawableLeft="@drawable/dotcomxan"
-            android:padding="2dp"
+            android:padding="4dp"
             android:layout_marginTop="2dp"
             android:text="Đã đặt lịch"
             android:textColor="#33A038" />
@@ -62,10 +63,11 @@
 
     <TextView
         android:id="@+id/txtgiokham"
+        android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:textColor="#F44336"
+        android:textColor="@color/black"
         android:text="Giờ khám" />
 
     <TextView

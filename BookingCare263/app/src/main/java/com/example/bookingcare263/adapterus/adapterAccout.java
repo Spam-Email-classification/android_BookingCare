@@ -124,7 +124,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
             else{
                 imgaccout.setImageResource(R.drawable.baseline_account_circle_24);
             }
-            if (status.equals("Đang hoạt đông")){
+            if (status.equals("Đang hoạt động")){
                 imgstatus.setImageResource(R.drawable.check_mark);
             } else if (status.equals("Chờ duyệt")){
                 imgstatus.setImageResource(R.drawable.dangduyet);

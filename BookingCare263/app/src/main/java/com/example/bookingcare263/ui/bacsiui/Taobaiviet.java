@@ -17,7 +17,7 @@ import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.ui.Xuly;
-import com.example.bookingcare263.ui.uiuser.UserActivity;
+import com.example.bookingcare263.UserActivity;
 
 public class Taobaiviet extends AppCompatActivity {
     ImageView imganhbaiviet, imgavatartbv;

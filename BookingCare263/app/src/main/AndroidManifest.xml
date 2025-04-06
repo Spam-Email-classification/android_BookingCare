@@ -18,6 +18,11 @@
         <activity
             android:name=".ui.bacsiui.ThongtinBacsi"
             android:exported="false" />
+        <activity
+            android:name=".DieuKhoan"
+            android:exported="false" />
+
+
 
         <activity
             android:name=".ui.bacsiui.BacsiActivity"
@@ -26,7 +31,7 @@
             android:name=".ui.BacsiMainActivity"
             android:exported="false" />
         <activity
-            android:name=".Hosoyte"
+            android:name=".ui.uiuser.Hosoyte"
             android:exported="false" />
         <activity
             android:name=".ui.bacsiui.Taobaiviet"
@@ -57,7 +62,7 @@
             android:name=".ui.adminui.AdminActivity"
             android:exported="true"/>
         <activity
-            android:name=".ui.uiuser.UserActivity"
+            android:name=".UserActivity"
             android:exported="true"
             android:theme="@style/Theme.BookingCare263.NoActionBar">
             <intent-filter>
@@ -77,7 +82,7 @@
             android:exported="false"
             android:theme="@style/Theme.BookingCare263" />
         <activity
-            android:name=".ThongtinUser"
+            android:name=".ui.uiuser.ThongtinUser"
             android:exported="false" />
         <activity
             android:name=".ui.uiuser.Datlichkham"

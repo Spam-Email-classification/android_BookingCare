@@ -2,11 +2,13 @@ package com.example.bookingcare263.ui.uiuser;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import androidx.annotation.NonNull;
@@ -20,12 +22,14 @@ import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBacsi;
+import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.adapterus.adapterItems;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
 import com.example.bookingcare263.adapterus.adapterkhamchuyenkhoa;
 import com.example.bookingcare263.databinding.FragmentHomeusBinding;
 import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.Item;
 import com.example.bookingcare263.model.accout;
@@ -43,6 +47,10 @@ public class HomeFragment extends Fragment {
     private TextView searchBar;
     DatabaseHelper databaseHelper;
     private ViewFlipper viewFlipper;
+
+    private adapterBaiviet adapterbv;
+    private RecyclerView rcvbaiviet;
+    private ArrayList<Baiviet> listbaiviet;
 
 
 
@@ -210,9 +218,43 @@ public class HomeFragment extends Fragment {
 
         });
 
+        // hien thi bai viet
 
+        rcvbaiviet = binding.rcvbaiviet;
+        listbaiviet = new ArrayList<>();
+        listbaiviet.addAll(databaseHelper.getAllbaiviet());
+        Log.d("listbaiviet","sizelis" +  listbaiviet.size());
+        adapterbv = new adapterBaiviet(listbaiviet);
+        rcvbaiviet.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcvbaiviet.setAdapter(adapterbv);
+        adapterbv.setOnItemClickListener( new adapterBaiviet.setItemClick() {
+            @Override
+            public void onItemClick(Baiviet baiviet) {
 
+            }
 
+            @Override
+            public void onImageavatarClick(Baiviet baiviet) {
+                Bacsi bacsi = databaseHelper.getBacsiBySdt(baiviet.getIduser());
+                Intent intent;
+                intent = new Intent(getActivity(), Bacsi_details.class);
+                intent.putExtra("bacsi", bacsi);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onItemDatkhamClick(Baiviet baiviet) {
+                // datlichkham
+
+                Bacsi bacsi = databaseHelper.getBacsiBySdt(baiviet.getIduser());
+                Intent intent = new Intent(getActivity(), Datlichkham.class);
+                intent.putExtra("bacsi", bacsi);
+                startActivity(intent);
+
+            }
+
+        });
 
 
 

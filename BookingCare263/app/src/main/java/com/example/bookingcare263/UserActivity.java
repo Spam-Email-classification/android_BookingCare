@@ -1,4 +1,4 @@
-package com.example.bookingcare263.ui.uiuser;
+package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,12 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.bookingcare263.DatabaseHelper;
-import com.example.bookingcare263.LoginActivity;
-import com.example.bookingcare263.R;
-import com.example.bookingcare263.ThongtinUser;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
+import com.example.bookingcare263.ui.uiuser.ThongtinUser;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;

@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,13 +17,24 @@ import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.ui.Xuly;
+import com.example.bookingcare263.UserActivity;
 
 import java.util.ArrayList;
 
 public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHolder> {
     ArrayList <Baiviet> listbaiviet;
+    private setItemClick listener;
+    public void setOnItemClickListener(setItemClick listener) {
+        this.listener = listener;
+    }
     public adapterBaiviet(ArrayList<Baiviet> listbaiviet) {
         this.listbaiviet = listbaiviet;
+    }
+
+    public interface setItemClick{
+        void onItemClick(Baiviet baiviet);
+        void onImageavatarClick(Baiviet baiviet);
+        void onItemDatkhamClick(Baiviet baiviet);
     }
     @NonNull
     @Override
@@ -35,6 +47,24 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Baiviet baiviet = listbaiviet.get(position);
         holder.bind(baiviet);
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemClick(baiviet);
+            }
+
+        });
+        holder.txtnametbvshow.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onImageavatarClick(baiviet);
+            }
+            });
+        holder.btndatkham.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemDatkhamClick(baiviet);
+            }
+        });
+
+
 
     }
 
@@ -46,6 +76,7 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgavatartbvshow, imganhbaivietshow;
         TextView txtnametbvshow, txtitleshowbv, txtcontentbv, txtxemthembv, txttimetbvshow;
+        Button btndatkham;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgavatartbvshow = itemView.findViewById(R.id.imgavatartbvshowitem);
@@ -55,6 +86,8 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
             txtcontentbv = itemView.findViewById(R.id.txtcontentbvitem);
             txtxemthembv = itemView.findViewById(R.id.txtxemthembv);
             txttimetbvshow = itemView.findViewById(R.id.txttimetbvshowitem);
+            btndatkham = itemView.findViewById(R.id.btndlk);
+
 
         }
         public void bind(Baiviet baiviet){
@@ -72,6 +105,13 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
             } else {
                 imgavatartbvshow.setImageResource(R.drawable.baseline_account_circle_24);
             }
+
+            if(UserActivity.roleuser != null && UserActivity.roleuser.equals("user")) {
+                btndatkham.setVisibility(View.VISIBLE);
+            } else {
+                btndatkham.setVisibility(View.GONE);
+            }
+
 
 
             txtitleshowbv.setText(baiviet.getTitile());

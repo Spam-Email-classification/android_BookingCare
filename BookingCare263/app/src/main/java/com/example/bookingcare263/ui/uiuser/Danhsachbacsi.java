@@ -1,6 +1,6 @@
 package com.example.bookingcare263.ui.uiuser;
 
-import static com.example.bookingcare263.ui.uiuser.UserActivity.listaccactive;
+import static com.example.bookingcare263.UserActivity.listaccactive;
 
 import android.content.Intent;
 import android.os.Bundle;

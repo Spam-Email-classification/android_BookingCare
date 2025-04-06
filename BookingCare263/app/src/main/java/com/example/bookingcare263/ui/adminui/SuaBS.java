@@ -53,17 +53,21 @@ public class SuaBS extends AppCompatActivity {
         edtgiakhamsua.setText(bacsi.getGiaKham());
         edtthongtin4sua.setText(bacsi.getThongtin());
         // chuyen khoa luu duoi dang String (
-        String chuyenkhoa = bacsi.getChuyenkhoa();
+
+        String chuyenkhoa = bacsi.getChuyenkhoa().trim();
         int index = -1;
         for (int i = 0; i < items.length; i++) {
-            if (items[i].equals(chuyenkhoa)) {
+            if (items[i].equalsIgnoreCase(chuyenkhoa)) {
                 index = i;
                 break;
-                }
             }
-        if (index != -1) {
-            spinchuyenkhoacsytsua.setSelection(index);
         }
+
+        if (index != -1) {
+            final int selectedIndex = index;
+            spinchuyenkhoacsytsua.post(() -> spinchuyenkhoacsytsua.setSelection(selectedIndex));
+        }
+
         Glide.with(imgavatr4csytsua.getContext())
                 .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
                 .circleCrop()
@@ -94,7 +98,6 @@ public class SuaBS extends AppCompatActivity {
             }
 
             helper.updateBacsi(bacsi);
-
             finish();
         });
 
@@ -128,8 +131,9 @@ public class SuaBS extends AppCompatActivity {
         edtgiakhamsua = findViewById(R.id.edtgiakhamsua);
         edtthongtin4sua = findViewById(R.id.edtthongtin4sua);
         btnsua4csyt = findViewById(R.id.btnSua4);
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-        spinchuyenkhoacsytsua.setAdapter(adapter);
+        ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
+        spinchuyenkhoacsytsua.setAdapter(adapter1);
+
         helper = new DatabaseHelper(this);
 
 

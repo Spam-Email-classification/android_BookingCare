@@ -1,6 +1,8 @@
 package com.example.bookingcare263.model;
 
-public class Baiviet {
+import java.io.Serializable;
+
+public class Baiviet implements Serializable {
     String id;
     String iduser;
     String titile;

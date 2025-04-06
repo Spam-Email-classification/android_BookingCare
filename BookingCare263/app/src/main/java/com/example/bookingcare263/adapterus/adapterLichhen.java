@@ -88,7 +88,7 @@ public class adapterLichhen extends RecyclerView.Adapter<adapterLichhen.ViewHold
 //            String namebs = lichhen.getNamebs();
 
             txtnamebacsi.setText(lichhen.getNamebs());
-            txtgiokham.setText("Thời gian khám: " + lichhen.getKhunggiokham());
+            txtgiokham.setText("Thời gian khám: "+ lichhen.getNgayhenkham() +"-" + lichhen.getKhunggiokham());
             txtnambenhnhan.setText("Tên bệnh nhân: " + lichhen.getNamebenhnhan());
 
             Glide.with(imglichhen.getContext())

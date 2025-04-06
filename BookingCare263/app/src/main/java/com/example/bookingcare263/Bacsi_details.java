@@ -3,11 +3,9 @@ package com.example.bookingcare263;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,11 +14,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.ui.uiuser.Datlichkham;
-import com.example.bookingcare263.ui.uiuser.UserActivity;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.InputStream;
 
 public class Bacsi_details extends AppCompatActivity {
     Toolbar tbbacsidetail;
