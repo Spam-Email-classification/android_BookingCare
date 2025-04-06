@@ -8,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,6 +17,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.ui.Xuly;
@@ -23,7 +27,8 @@ public class SuaBS extends AppCompatActivity {
 
     private Toolbar toolbar;
     private ImageView imgavatr4csytsua;
-    private EditText edtten4sua, edtsdtsua4, edtemailsua4, edtdiachisua, edtmasogiayphepsua, edtgiakhamsua, edtthongtin4sua;
+    private TextView edtten4sua, edtsdtsua4;
+    private EditText  edtemailsua4, edtdiachisua, edtmasogiayphepsua, edtgiakhamsua, edtthongtin4sua;
     private Button btnsua4csyt;
     private Spinner spinchuyenkhoacsytsua;
 
@@ -54,7 +59,7 @@ public class SuaBS extends AppCompatActivity {
         edtthongtin4sua.setText(bacsi.getThongtin());
         // chuyen khoa luu duoi dang String (
 
-        String chuyenkhoa = bacsi.getChuyenkhoa().trim();
+        String chuyenkhoa = bacsi.getChuyenkhoa();
         int index = -1;
         for (int i = 0; i < items.length; i++) {
             if (items[i].equalsIgnoreCase(chuyenkhoa)) {
@@ -68,12 +73,16 @@ public class SuaBS extends AppCompatActivity {
             spinchuyenkhoacsytsua.post(() -> spinchuyenkhoacsytsua.setSelection(selectedIndex));
         }
 
+        if ( bacsi.getImg() != null && !bacsi.getImg().isEmpty()){
         Glide.with(imgavatr4csytsua.getContext())
                 .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
                 .circleCrop()
                 .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                 .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                .into(imgavatr4csytsua);
+                .into(imgavatr4csytsua);}
+        else {
+            imgavatr4csytsua.setImageResource(R.drawable.baseline_account_circle_24);
+        }
 
         imgavatr4csytsua.setOnClickListener(view -> {
             // chon anh tu dien thoai
@@ -97,7 +106,18 @@ public class SuaBS extends AppCompatActivity {
                 bacsi.setImg(imageUri.toString());
             }
 
-            helper.updateBacsi(bacsi);
+            FirebaseHelper.updateBacsi(bacsi, new FirebaseCallBack() {
+                @Override
+                public void onSuccess(Object data) {
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
+
             finish();
         });
 
@@ -115,7 +135,9 @@ public class SuaBS extends AppCompatActivity {
                     .circleCrop()
                     .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                     .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                    .into(imgavatr4csytsua);        }
+                    .into(imgavatr4csytsua);
+
+        }
     }
 
 

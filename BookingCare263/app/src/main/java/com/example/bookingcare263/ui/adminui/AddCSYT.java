@@ -13,6 +13,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.Xuly;
@@ -64,41 +66,26 @@ public class AddCSYT extends AppCompatActivity {
                     edtemailadd4csyt.getText().toString()
             );
 
+            FirebaseHelper.insertcosoyte(csyt, new FirebaseCallBack() {
+                @Override
+                public void onSuccess(Object data) {
 
-            Intent intent = new Intent(AddCSYT.this, adDanhsachBs.class);
-            intent.putExtra("manager", "quanlybacsi");
-            startActivity(intent);
-            finish();
+                }
 
-        });
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
 
 
-        btnThem4csyt.setOnClickListener(v->{
-            if (!validate1()){
-                return;
-            }
-            String avatar = "";
-            if (imageUri != null) {
-                avatar = imageUri.toString();
-            }
-            Cosoyte csyt = new Cosoyte(
-                    edttencsyt.getText().toString(),
-                    avatar,
-                    edtdiachicsyt.getText().toString(),
-                    edtchuyenkhoacsyt.getText().toString(),
-                    edtmasogiayphepcsyt.getText().toString(),
-                    edtwebsitecsyt.getText().toString(),
-                    edtthongtin4csyt.getText().toString(),
-                    edtsdtadd4csyt.getText().toString(),
-                    edtemailadd4csyt.getText().toString()
-            );
-            helper.insertCosoyte(csyt);
             Intent intent = new Intent(AddCSYT.this, adDanhsachBs.class);
             intent.putExtra("manager", "quanlycsyt");
             startActivity(intent);
             finish();
 
         });
+
 
 
     }

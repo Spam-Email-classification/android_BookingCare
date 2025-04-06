@@ -31,6 +31,7 @@ public class UserActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityUserBinding binding;
+
     public static  String iduser ;
     public static String phoneuser;
     public static String roleuser;

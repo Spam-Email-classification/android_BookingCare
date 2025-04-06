@@ -351,7 +351,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Cursor cursor = db.query("tbsoyte", null, null, null, null, null, null);
             while (cursor.moveToNext()) {
                 Cosoyte cosoyte = new Cosoyte(
-                        cursor.getInt(0),
+                        cursor.getString(0),
                         cursor.getString(1),
                         cursor.getString(2),
                         cursor.getString(3),
@@ -392,9 +392,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean deletecsyt(int id) {
+    public boolean deletecsyt(String id) {
         SQLiteDatabase db = this.getWritableDatabase();
-        int result = db.delete("tbsoyte", "id=?", new String[]{String.valueOf(id)});
+        int result = db.delete("tbsoyte", "id=?", new String[]{id});
         db.close();
         return result > 0;
     }
@@ -418,13 +418,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     // get csyte by id
-    public Cosoyte getCosoyteById(int id) {
+    public Cosoyte getCosoyteById(String id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cosoyte cosoyte = new Cosoyte();
         try {
-            Cursor cursor = db.query("tbsoyte", null, "id=?", new String[]{String.valueOf(id)}, null, null, null);
+            Cursor cursor = db.query("tbsoyte", null, "id=?", new String[]{id}, null, null, null);
             if (cursor.moveToFirst()) {
-                cosoyte.setId(cursor.getInt(0));
+                cosoyte.setId(cursor.getString(0));
                 cosoyte.setName(cursor.getString(1));
                 cosoyte.setImg(cursor.getString(2));
                 cosoyte.setDiachi(cursor.getString(3));

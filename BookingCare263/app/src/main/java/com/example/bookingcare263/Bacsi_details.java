@@ -65,6 +65,7 @@ public class Bacsi_details extends AppCompatActivity {
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());
 
         String avatarUri = bacsi.getImg();
+        if ( avatarUri != null && !avatarUri.isEmpty())
         Glide.with(imgavtarbsdt.getContext())
                 .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
                 .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load

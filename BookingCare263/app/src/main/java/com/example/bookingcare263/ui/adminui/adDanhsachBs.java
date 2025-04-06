@@ -24,6 +24,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterAccout;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
@@ -64,16 +66,30 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         Intent intent = getIntent();
         manager = intent.getStringExtra("manager");
         if (manager != null && manager.equals("quanlybacsi")) {
+
             toolbar.setTitle("Quản lý bác sĩ");
-            // get list acc by  role = bac si
             listacc = new ArrayList<>();
-            listacc = helper.getaccoutbyrole("bacsi");
             adapteracc = new adapterAccout(listacc);
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
             edtsearch.setHint("Tìm tên hoặc số điện thoại bác sĩ");
-            // size list
+
+            // get list acc by  role = bac si
+
+            FirebaseHelper.getaccoutbyrole("bacsi", new FirebaseCallBack<ArrayList<accout>>() {
+                @Override
+                public void onSuccess(ArrayList<accout> data) {
+                    listacc.clear();
+                    listacc.addAll(data);
+                    adapteracc.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
 
 
 
@@ -81,12 +97,26 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         } else if(manager != null && manager.equals("quanlybenhnhan")){
             toolbar.setTitle("Quản lý bệnh nhân");
             listacc = new ArrayList<>();
-            listacc = helper.getaccoutbyrole("benh nhan");
             adapteracc = new adapterAccout(listacc);
             rcvlisbsad.setAdapter(adapteracc);
             rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
             adapteracc.setonListener(this);
             edtsearch.setHint("Tìm tên hoặc số điện thoại bệnh nhân");
+
+            FirebaseHelper.getaccoutbyrole("user", new FirebaseCallBack<ArrayList<accout>>() {
+                @Override
+                public void onSuccess(ArrayList<accout> data) {
+                    listacc.clear();
+                    listacc.addAll(data);
+                    adapteracc.notifyDataSetChanged();
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
             // size list
 
 
@@ -94,8 +124,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         } else if (manager != null && manager.equals("quanlycsyt")) {
             toolbar.setTitle("QUẢN LÝ CSYT");
             listcsyte = new ArrayList<>();
-            listcsyte = helper.getCosoyte();
-            Log.d("listcsyt", listcsyte.size( ) +"");
+
             adaptercsyt = new adaptercosoyte(listcsyte);
 
             rcvlisbsad.setAdapter(adaptercsyt);
@@ -105,6 +134,22 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                 intent1.putExtra("cosoyte", csyt);
                 startActivity(intent1);
             });
+
+            FirebaseHelper.getcosoyte(new FirebaseCallBack<ArrayList<Cosoyte>>() {
+                @Override
+                public void onSuccess(ArrayList<Cosoyte> data) {
+                    listcsyte.clear();
+                    listcsyte.addAll(data);
+                    adaptercsyt.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
+
+
             edtsearch.setHint("Tìm cơ sở y tế");
         }
 
@@ -190,48 +235,6 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
 
 
-
-
-
-
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if(manager != null && manager.equals("quanlybacsi")){
-            loadDatabs();
-        }
-        if(manager != null && manager.equals("quanlycsyt")){
-            loadDatacsyt();
-        }
-        if( manager != null && manager.equals("quanlybenhnhan")){
-            loadDatabenhnha();
-        }
-
-    }
-
-    public void loadDatacsyt(){
-        listcsyte.clear();
-        listcsyte.addAll(helper.getCosoyte());
-        adaptercsyt.notifyDataSetChanged();
-
-    }
-
-    public void loadDatabs(){
-        listacc.clear();
-        listacc.addAll(helper.getaccoutbyrole("bacsi"));
-        adapteracc.notifyDataSetChanged();
-
-    }
-
-    public void loadDatabenhnha(){
-        listacc.clear();
-        listacc.addAll(helper.getaccoutbyrole("user"));
-        adapteracc.notifyDataSetChanged();
-
-    }
-
-
     private void anhxa() {
         toolbar = findViewById(R.id.tbqlbsad);
         rcvlisbsad = findViewById(R.id.rcvbsad);
@@ -243,19 +246,30 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(v -> finish());
 
-
-
     }
-
 
     @Override
     public void onFixClick(int position) {
         if(manager != null && manager.equals("quanlybacsi")){
             String sdt = listacc.get(position).getPhone();
-            Bacsi bacsi = helper.getBacsiBySdt(sdt);
-            Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
-            intent.putExtra("bacsi", bacsi);
-            startActivity(intent);
+//            Bacsi bacsi = helper.getBacsiBySdt(sdt);
+
+            FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>() {
+                @Override
+                public void onSuccess(Bacsi data) {
+                    // Lưu đối tượng bacsi đã lấy được từ Firebase
+
+                    Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
+                    intent.putExtra("bacsi", data);  // Truyền đối tượng bacsi vào Intent
+                    startActivity(intent);
+                }
+                @Override
+                public void onFailed(String message) {
+                    // Xử lý lỗi khi không lấy được bác sĩ từ Firebase
+                    Log.e("Firebase", "Lỗi: " + message);
+                }
+            });
+
         }  else{
             // an thanh sua
             Toast.makeText(this, "Bạn không có quyền sửa tài khoản này", Toast.LENGTH_SHORT).show();
@@ -271,21 +285,24 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
     public void onDeleteClick(int position) {
         String sdt = listacc.get(position).getPhone();
         String role = listacc.get(position).getAs();
-        helper.deleteaccout(sdt);
+
         if (role.equals("bacsi")){
-            helper.deleteBacsi(sdt);
-            loadDatabs();
+            // xóa ở bảng bác six
+          FirebaseHelper.deleteBacsi(sdt);
             Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
             // xoa tai khoan tren firebase realtime
 
         } else {
-            helper.deletebenhnhan(sdt);
-            loadDatabenhnha();
+
+            FirebaseHelper.deletebenhnha(sdt);
+
             Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
         }
         reference = FirebaseDatabase.getInstance().getReference("Users");
 
         reference.child(sdt).removeValue();
+        // Xoa ở bảng bac si
+
 
 
 
@@ -310,8 +327,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                     acc.setStatus(newStatus);
                     adapteracc.notifyDataSetChanged(); // Cập nhật lại RecyclerView
 
-                    // Nếu bạn lưu trạng thái vào database, cần gọi hàm cập nhật database ở đây
-                    helper.updateaccout(acc);
+
                     // update len firebase
                     reference = FirebaseDatabase.getInstance().getReference("Users");
                     reference.child(acc.getPhone()).child("status").setValue(newStatus);
@@ -323,16 +339,39 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
 
 
+
+
     @Override
     public void onItemClick(int position) {
         // get bacsi by sdt
-       if(manager != null && manager.equals("quanlybacsi")){
-           String sdt = listacc.get(position).getPhone();
-           Bacsi bacsi = helper.getBacsiBySdt(sdt);
-           Intent intent = new Intent(adDanhsachBs.this, Bacsi_details.class);
-           intent.putExtra("bacsi",bacsi);
-           startActivity(intent);
-       }
+        if (manager != null && manager.equals("quanlybacsi")) {
+            String sdt = listacc.get(position).getPhone();
+
+
+            // Lấy bác sĩ theo số điện thoại để chuyển đến trang sửa
+            FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>() {
+                @Override
+                public void onSuccess(Bacsi data) {
+                    // Lưu đối tượng bacsi đã lấy được từ Firebase
+
+                    if(data == null){
+                        Toast.makeText(adDanhsachBs.this, "Không tìm thấy bác sĩ", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Intent intent = new Intent(adDanhsachBs.this, Bacsi_details.class);
+                    intent.putExtra("bacsi", data);  // Truyền đối tượng bacsi vào Intent
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailed(String message) {
+                    // Xử lý lỗi khi không lấy được bác sĩ từ Firebase
+                    Log.e("Firebase", "Lỗi: " + message);
+                }
+            });
+        }
+
+
        else if(manager != null && manager.equals("quanlybenhnhan")){
            Toast.makeText(this, "Bạn không có quyền xem tài khoản này", Toast.LENGTH_SHORT).show();
 

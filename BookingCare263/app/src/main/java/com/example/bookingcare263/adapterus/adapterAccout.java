@@ -12,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
+import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -100,30 +103,66 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
             String role = accout.getAs();
             String sdt = accout.getPhone();
             String status = accout.getStatus();
-            String avatar ;
+             String[] avatar = new String[1];
             if(role.equals("bacsi")){
-                // get bacsi by sdt;
-                Bacsi bacsi = helper.getBacsiBySdt(sdt);
-                avatar = bacsi.getImg();
+
+                FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>(){
+                    @Override
+                    public void onSuccess(Bacsi data) {
+
+                        avatar[0] = data.getImg();
+                        if(avatar[0] != null &&  !avatar[0].isEmpty())
+                            Glide.with(imgaccout.getContext())
+                                    .load(Uri.parse(avatar[0])) // Chuyển String thành ặc đUri
+                                    .circleCrop()
+                                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                                    .error(R.drawable.baseline_account_circle_24) // Ảnh mịnh nếu load thất bại
+                                    .into(imgaccout);
+                        else{
+                            imgaccout.setImageResource(R.drawable.baseline_account_circle_24);
+                        }
+
+
+                    }
+                    @Override
+                    public void onFailed(String message) {
+                    }
+                });
+
+
             } else {
                 // get benhh nhan by sdt;
-                benhnhan bn = helper.getbenhnhan(sdt);
-                avatar = bn.getImg();
+
+                FirebaseHelper.getbenhnhanBySdt(sdt, new FirebaseCallBack<benhnhan>() {
+                    @Override
+                    public void onSuccess(benhnhan data) {
+                        avatar[0] = data.getImg();
+                        if(avatar[0] != null &&  !avatar[0].isEmpty())
+                            Glide.with(imgaccout.getContext())
+                                    .load(Uri.parse(avatar[0])) // Chuyển String thành ặc đUri
+                                    .circleCrop()
+                                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                                    .error(R.drawable.baseline_account_circle_24) // Ảnh mịnh nếu load thất bại
+                                    .into(imgaccout);
+                        else{
+                            imgaccout.setImageResource(R.drawable.baseline_account_circle_24);
+                        }
+
+                    }
+
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
+
+
             }
 
             txttenaccout.setText(name);
             txtsdtaccout.setText(sdt);
             txtstatusaccout.setText(status);
-            if(avatar != null &&  !avatar.isEmpty())
-                Glide.with(imgaccout.getContext())
-                    .load(Uri.parse(avatar)) // Chuyển String thành ặc đUri
-                    .circleCrop()
-                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
-                    .error(R.drawable.baseline_account_circle_24) // Ảnh mịnh nếu load thất bại
-                    .into(imgaccout);
-            else{
-                imgaccout.setImageResource(R.drawable.baseline_account_circle_24);
-            }
+
             if (status.equals("Đang hoạt động")){
                 imgstatus.setImageResource(R.drawable.check_mark);
             } else if (status.equals("Chờ duyệt")){

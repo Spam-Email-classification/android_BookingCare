@@ -47,18 +47,13 @@ public class SignUpActitvity extends AppCompatActivity {
         spinrole = findViewById(R.id.spinrole);
         String role[] = { "benh nhan", "bacsi"};
         helper = new DatabaseHelper(this);
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
         spinrole.setAdapter(adapter);
         spinrole.setSelection(0);
 
 
 
-        btnsigup.setOnClickListener(e->{
-
-            signuprealtime();
-
-        });
+        btnsigup.setOnClickListener(e->signuprealtime());
 
         tologin.setOnClickListener(e->startActivity(new Intent(SignUpActitvity.this, LoginActivity.class)));
 
@@ -74,7 +69,7 @@ public class SignUpActitvity extends AppCompatActivity {
         String as = "user";
         String status = "Đang hoạt động";
         String banla = spinrole.getSelectedItem().toString();
-        Log.d("banla", banla);
+
         if (banla.equals("benh nhan")) {
             as = "user";
             status = "Đang hoạt động";
@@ -105,24 +100,45 @@ public class SignUpActitvity extends AppCompatActivity {
 
         accout acc = new accout(name, sdt, pass, as, status);
 
-                reference.child(sdt).setValue(acc).addOnSuccessListener(aVoid -> {
-                    helper.insertaccout(acc);
+                FirebaseHelper.addAccout(acc, new FirebaseCallBack<accout>(){
+                    @Override
+                    public void onSuccess(accout data) {
+                        // Them 1 bac si hoac benh nhan dựa  trên role của accout (them len fire base)
+                        if(acc.getAs().equals("user")){
+                            benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
+                            FirebaseHelper.addbenhnhan(bn, new FirebaseCallBack(){
+                                @Override
+                                public void onSuccess(Object data) {
+                                }
+                                @Override
+                                public void onFailed(String message) {
+                                }
 
+                            });
+                        } else {
+                            Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt);
+                            FirebaseHelper.addBacsi(bs, new FirebaseCallBack() {
+                                        @Override
+                                        public void onSuccess(Object data) {
+                                        }
 
-                    // them vao bang bs neu as la bacsi, benh nhan khong them vao bang bs
-                    if (acc.getAs().equals("user")) {
-                        benhnhan bn = new benhnhan(name, sdt, "", "", "", "", "");
-                        helper.insertbenhnhan(bn);
-                    } else {
-                        Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt);
-                        helper.addBacsi(bs);
+                                        @Override
+                                        public void onFailed(String message) {
+                                        }
+                                    }
+                                );
+
+                        }
+                        Toast.makeText(SignUpActitvity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(SignUpActitvity.this, LoginActivity.class));
+                        finish();
                     }
-                    Toast.makeText(this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                    startActivity(new Intent(SignUpActitvity.this, LoginActivity.class));
-                    finish();
-                }).addOnFailureListener(e -> {
-                    Toast.makeText(this, "Lỗi lưu dữ liệu: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                    @Override
+                    public void onFailed(String message) {
+                        Toast.makeText(SignUpActitvity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
+                    }
                 });
+
 
 
 

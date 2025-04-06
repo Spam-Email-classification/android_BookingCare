@@ -38,6 +38,9 @@ public class listchuyenkhoa extends AppCompatActivity {
         setContentView(R.layout.activity_listchuyenkhoa);
 
         anhxa();
+
+        // toolbar
+
         setSupportActionBar(tbkhamchuyenkhoa);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         tbkhamchuyenkhoa.setNavigationOnClickListener(v -> onBackPressed());
@@ -45,17 +48,6 @@ public class listchuyenkhoa extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadData();
-    }
-
-    private void loadData() {
-        listitems.clear();
-        listitems.addAll(helper.getChuyenKhoa());
-        adapter.notifyDataSetChanged();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -90,10 +82,8 @@ public class listchuyenkhoa extends AppCompatActivity {
         rcvkhamchuyenkhoa = findViewById(R.id.rcvkhamchuyenkhoa);
         listitems = new ArrayList<>();
         helper = new DatabaseHelper(this);
-        listitems = helper.getChuyenKhoa();
         adapter = new adapterkhamchuyenkhoa(listitems, R.layout.item_chuyenkhoa);
         rcvkhamchuyenkhoa.setLayoutManager(new GridLayoutManager(this, 2));
-
         rcvkhamchuyenkhoa.setAdapter(adapter);
         adapter.setOnItemClickListener(item -> {
 
@@ -111,6 +101,21 @@ public class listchuyenkhoa extends AppCompatActivity {
                 Intent intent = new Intent(this, SuaChuyenKhoa.class);
                 intent.putExtra("chuyen khoa", x);
                 startActivity(intent);
+
+            }
+        });
+
+        FirebaseHelper.getChuyenKhoa(new FirebaseCallBack<ArrayList<chuyenkhoa>>() {
+            @Override
+            public void onSuccess(ArrayList<chuyenkhoa> data) {
+                listitems.clear();
+                listitems.addAll(data);
+                adapter.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailed(String message) {
 
             }
         });

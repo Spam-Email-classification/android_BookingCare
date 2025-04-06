@@ -3,7 +3,7 @@ package com.example.bookingcare263.model;
 import java.io.Serializable;
 
 public class Cosoyte implements Serializable {
-    private int id;
+    private String id;
     private String name;
     private String img;
 
@@ -34,7 +34,7 @@ public class Cosoyte implements Serializable {
     }
 
 
-    public Cosoyte(int id, String name, String img, String diachi, String thongtin
+    public Cosoyte(String id, String name, String img, String diachi, String thongtin
             , String masogiayphep, String chuyenkhoa,String email, String sdt, String website) {
         this.id = id;
         this.name = name;
@@ -96,11 +96,11 @@ public class Cosoyte implements Serializable {
         this.name = name;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

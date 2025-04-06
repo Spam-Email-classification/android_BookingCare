@@ -20,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBacsi;
 import com.example.bookingcare263.adapterus.adapterBaiviet;
@@ -134,31 +136,18 @@ public class HomeFragment extends Fragment {
 
         listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
         listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
+        adapter =  new adapterItems(listitems);
+        rcvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
+        rcvItems.setAdapter(adapter);
+
+        // Xử lý recycleview bacsi
 
         ArrayList<Bacsi> listDoctors = new ArrayList<>();
         rcvbacsi = binding.rcvbacsi;
 
         databaseHelper = new DatabaseHelper(getContext());
-        ArrayList<accout> listaccout = databaseHelper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
-        // get list bacsi by sdt;
-        listDoctors.clear();
-        for (accout accout : listaccout) {
-            Bacsi bacsi = databaseHelper.getBacsiBySdt(accout.getPhone());
-            listDoctors.add(bacsi);
 
-        }
-
-//        listDoctors = databaseHelper.getAllBacsi(listDoctors);
-
-
-        // danh sach kham main
-
-        adapter =  new adapterItems(listitems);
-        rcvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        rcvItems.setAdapter(adapter);
-
-
-        // hien thi bacsi main
+        ArrayList<accout> listaccout = new ArrayList<>();
 
         rcvbacsi = binding.rcvbacsi;
         adapterBacsi adapterDoctors = new adapterBacsi(listDoctors);
@@ -177,13 +166,52 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
         });
 
+        FirebaseHelper.getaccoutbyStatusAndRole( "Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>()
+                {
+            @Override
+            public void onSuccess(ArrayList<accout> data) {
+                listaccout.clear();
+                listaccout.addAll(data);
+
+                // get listbac bysdt
+                listDoctors.clear();
+                for (accout accout : listaccout) {
+                    FirebaseHelper.getBacsiBySdt(accout.getPhone(), new FirebaseCallBack<Bacsi>(){
+                        @Override
+                        public void onSuccess(Bacsi data) {
+                            listDoctors.add(data);
+                            adapterDoctors.notifyDataSetChanged();
+
+                    }
+                        @Override
+                        public void onFailed(String message) {
+                            Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
+
+            }
+            @Override
+            public void onFailed(String message) {
+                Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
+
+
+
+
+
+
+
 
 
         // hien thi chuyen khoa main
 
         rcvchuyenkhoahome = binding.rcvchuyenkhoahome;
         ArrayList<chuyenkhoa> listck = new ArrayList<>();
-        listck = databaseHelper.getChuyenKhoa();
         adapterchuyenkh = new adapterkhamchuyenkhoa(listck, R.layout.bacsi_layout);
         rcvchuyenkhoahome.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvchuyenkhoahome.setAdapter(adapterchuyenkh);
@@ -197,17 +225,31 @@ public class HomeFragment extends Fragment {
             startActivity(intent);
                 });
 
+        FirebaseHelper.getChuyenKhoa(new FirebaseCallBack<ArrayList<chuyenkhoa>>() {
+            @Override
+            public void onSuccess(ArrayList<chuyenkhoa> data) {
+                listck.clear();
+                listck.addAll(data);
+                adapterchuyenkh.notifyDataSetChanged();
+
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+
 
 
 
 
         // hien thi co so y te
-        ArrayList<Cosoyte> cosoyteList = databaseHelper.getCosoyte();
+        ArrayList<Cosoyte> cosoyteList = new ArrayList<>();
         rcvcosoyte = binding.rcvcsyte;
         adaptercosoyte adaptercsyt = new adaptercosoyte(cosoyteList);
         rcvcosoyte.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         rcvcosoyte.setAdapter(adaptercsyt);
-
         adaptercsyt.setOnItemClickListener(cosoyte -> {
             String itemName = cosoyte.getName();
             Intent intent;
@@ -216,6 +258,20 @@ public class HomeFragment extends Fragment {
 
             startActivity(intent);
 
+        });
+
+        FirebaseHelper.getcosoyte(new FirebaseCallBack<ArrayList<Cosoyte>>() {
+            @Override
+            public void onSuccess(ArrayList<Cosoyte> data) {
+                cosoyteList.clear();
+                cosoyteList.addAll(data);
+                adaptercsyt.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
         });
 
         // hien thi bai viet

@@ -59,10 +59,12 @@ public class ChitietCSYT extends AppCompatActivity {
             Intent intent = new Intent(ChitietCSYT.this, SuaCSYT.class);
             intent.putExtra("cosoyte", csyt);
             startActivity(intent);
+            finish();
             return true;
         }
         if (id == R.id.csytxoa) {
-            helper.deletecsyt(csyt.getId());
+            FirebaseHelper.deletecsyt(csyt.getId());
+
             finish();
 
         }
@@ -71,28 +73,40 @@ public class ChitietCSYT extends AppCompatActivity {
 
 
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadData();
-    }
 
     void loadData(){
         Intent intent = getIntent();
         csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
-        Cosoyte  csyt1 = helper.getCosoyteById(csyt.getId());
-        Glide.with(this).
-                load(Uri.parse(csyt1.getImg())).
-                into(imgchitietcsyt);
 
-        txtHospitalName.setText(csyt1.getName());
-        txtAddress.setText("\uD83D\uDCCD Địa chỉ :" + csyt1.getDiachi());
-        tvPhone.setText("\uD83D\uDCDE Thông tin liên hệ :"+ csyt1.getSdt());
-        txtemail.setText("Email: " + csyt1.getEmail());
-        txtwebsite.setText("Website: " + csyt1.getWebsite());
-        txtsogiayphephanhnghe.setText("Sogiayphephanhnghe: " + csyt1.getMasogiayphep());
-        tvinfo.setText(csyt1.getThongtin());
+        FirebaseHelper.getcsytbyid(csyt.getId(), new FirebaseCallBack<Cosoyte>() {
+            @Override
+            public void onSuccess(Cosoyte data) {
+
+                if(data.getImg() != null)
+                    Glide.with(imgchitietcsyt.getContext()).
+                            load(Uri.parse(data.getImg())).
+                            into(imgchitietcsyt);
+                else{
+                    imgchitietcsyt.setImageResource(R.drawable.imagechose);
+                }
+                txtHospitalName.setText(data.getName());
+                txtAddress.setText("\uD83D\uDCCD Địa chỉ :" + data.getDiachi());
+                tvPhone.setText("\uD83D\uDCDE Thông tin liên hệ :"+ data.getSdt());
+                txtemail.setText("Email: " + data.getEmail());
+                txtwebsite.setText("Website: " + data.getWebsite());
+                txtsogiayphephanhnghe.setText("Sogiayphephanhnghe: " + data.getMasogiayphep());
+                tvinfo.setText(data.getThongtin());
+
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+//
+
 
 
     }

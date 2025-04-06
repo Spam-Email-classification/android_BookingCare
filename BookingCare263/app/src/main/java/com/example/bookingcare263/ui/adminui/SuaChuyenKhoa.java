@@ -16,6 +16,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.ui.Xuly;
@@ -64,7 +66,17 @@ public class SuaChuyenKhoa extends AppCompatActivity {
                         avatar = imageUri.toString();
                     }
                     chuyenkhoa ck1 = new chuyenkhoa(ck.getId(), tenchuyenkhoa, avatar, thongtin);
-                    helper.updateChuyenKhoa(ck1);
+                    FirebaseHelper.updatechuyenkhoa(ck1, new FirebaseCallBack() {
+                        @Override
+                        public void onSuccess(Object data) {
+
+                        }
+
+                        @Override
+                        public void onFailed(String message) {
+
+                        }
+                    });
                     finish();
                 }
         );
@@ -99,8 +111,8 @@ public class SuaChuyenKhoa extends AppCompatActivity {
 
         if (id == R.id.delete) {
             // add
-            helper.deleteChuyenKhoa(ck.getId());
-
+//            helper.deleteChuyenKhoa(ck.getId());
+            FirebaseHelper.deletechuyenkhoa(ck.getId());
             finish();
 
 

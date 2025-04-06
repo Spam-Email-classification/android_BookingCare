@@ -18,6 +18,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.ui.Xuly;
@@ -33,6 +35,7 @@ public class Hosoyte extends AppCompatActivity {
     RadioGroup rdgioitinh;
     DatabaseHelper helper;
     Uri imageUri;
+    String avatar = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,27 +47,45 @@ public class Hosoyte extends AppCompatActivity {
 
 
         benhnhan bn1 = helper.getbenhnhan(iduser);
-        edthotencsyt.setText(bn1.getTen());
-        edtsdthsyt.setText(bn1.getSodienthoai());
-        edtdiachiahsyt.setText(bn1.getDiachi());
-        edtngaysinhhsyt.setText(bn1.getNgaysinh());
-        edtbenhlyne.setText(bn1.getBenhlynen());
 
-        String avatar1 = bn1.getImg();
-        if (avatar1 != null && !avatar1.isEmpty()) {
-            Glide.with(this)
-                    .load(Uri.parse(avatar1)) // Chuyển String thành Uri
-                    .circleCrop()
-                    .into(imghsyt);
-        } else{
-            imghsyt.setImageResource(R.drawable.baseline_account_circle_24);
-        }
+        // get benhnhan by iduser
+        FirebaseHelper.getbenhnhanBySdt(iduser, new FirebaseCallBack<benhnhan>() {
+            @Override
+            public void onSuccess(benhnhan data) {
 
-        if(bn1.getGioitinh()!= null &&  bn1.getGioitinh().equals("Nam")){
-            rdgioitinh.check(R.id.rdbtnnam);
-        }else{
-            rdgioitinh.check(R.id.rdbtnnu);
-        }
+
+                edthotencsyt.setText(data.getTen());
+                edtsdthsyt.setText(data.getSodienthoai());
+                edtdiachiahsyt.setText(data.getDiachi());
+                edtngaysinhhsyt.setText(data.getNgaysinh());
+                edtbenhlyne.setText(data.getBenhlynen());
+
+                avatar = data.getImg();
+                if (avatar != null && !avatar.isEmpty()) {
+                    Glide.with(imghsyt.getContext())
+                            .load(Uri.parse(avatar)) // Chuyển String thành Uri
+                            .circleCrop()
+                            .into(imghsyt);
+                } else{
+                    imghsyt.setImageResource(R.drawable.baseline_account_circle_24);
+                }
+
+                if(data.getGioitinh()!= null &&  data.getGioitinh().equals("Nam")){
+                    rdgioitinh.check(R.id.rdbtnnam);
+                }else{
+                    rdgioitinh.check(R.id.rdbtnnu);
+                }
+
+
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+
+
 
         imghsyt.setOnClickListener(view -> {
             // chon anh tu dien thoai
@@ -95,12 +116,24 @@ public class Hosoyte extends AppCompatActivity {
             } else if (selectedId == R.id.rdbtnnu) {
                 gioitinh = "Nữ";
             }
-            String avatar = "";
+
             if (imageUri != null) {
                 avatar = imageUri.toString();
             }
+
             benhnhan bn = new benhnhan(ten, sdt, diachi, gioitinh, ngaysinh, benhlynen, avatar);
-            helper.updatebenhnha(bn);
+
+            FirebaseHelper.updatebenhnha(bn, new FirebaseCallBack() {
+                @Override
+                public void onSuccess(Object data) {
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
             finish();
         });
 
