@@ -45,6 +45,9 @@ public class lichhenFragment extends Fragment {
         if (UserActivity.iduser != null) {
 
         if (UserActivity.roleuser.equals("user")) {
+
+        if(UserActivity.roleuser.equals("user")){
+
             listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
         } else if (UserActivity.roleuser.equals("bacsi")) {
             listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
@@ -57,6 +60,18 @@ public class lichhenFragment extends Fragment {
         rcvlichhen.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvlichhen.setAdapter(adapter);
         adapter.notifyDataSetChanged();
+
+        adapter.setOnItemClickListener(
+                new adapterLichhen.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(lichhen lichhen) {
+                        Intent intent = new Intent(getContext(), lichhenDetail.class);
+                        intent.putExtra("lichhen", lichhen);
+                        intent.putExtra("avatarbs", lichhen.getAvatarbs());
+                        startActivity(intent);
+                    }
+                }
+        );
 
 
             adapter.setOnItemClickListener(lichhen -> {
