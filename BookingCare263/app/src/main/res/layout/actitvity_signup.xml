@@ -5,9 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:orientation="vertical"
-
     tools:context=".SignUpActitvity">
 
     <LinearLayout
@@ -45,12 +43,12 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
-            android:alpha="0.8"
+            android:alpha="0.9"
             android:background="@drawable/khungbo"
             android:backgroundTint="@color/white"
             android:orientation="vertical"
@@ -71,77 +69,64 @@
                 android:id="@+id/edtnamesignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/khungbo"
                 android:drawableLeft="@drawable/baseline_account_circle_24"
-                android:ems="10"
                 android:hint="  Nhập Tên"
                 android:inputType="text"
-                android:padding="5dp"
-                android:textSize="20sp" />
+                android:padding="10dp"
+                android:textSize="18sp" />
 
-            <EditText
-                android:id="@+id/edtemailsigup"
+            <Spinner
+                android:id="@+id/spinrole"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/khungbo"
-                android:drawableLeft="@drawable/email"
-                android:ems="10"
-                android:hint="  Email"
-                android:inputType="textEmailAddress"
-                android:padding="5dp"
-                android:textSize="20sp" />
+                android:padding="10dp" />
 
             <EditText
                 android:id="@+id/edtsdtsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/khungbo"
                 android:drawableLeft="@drawable/call"
-                android:ems="10"
                 android:hint="  Số điện thoại"
-                android:inputType="text"
-                android:padding="5dp"
-                android:textSize="20sp" />
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textSize="18sp" />
 
             <EditText
                 android:id="@+id/edtpasssignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
                 android:background="@drawable/khungbo"
                 android:drawableLeft="@drawable/baseline_admin_panel_settings_24"
-                android:ems="10"
                 android:hint="  Mật khẩu"
                 android:inputType="textPassword"
-                android:padding="5dp"
-                android:textSize="20sp" />
+                android:padding="10dp"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/tologin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:text="Đăng nhập"
                 android:textColor="#488AA9"
-                android:textSize="16dp"
+                android:textSize="16sp"
                 android:textStyle="italic" />
 
             <Button
                 android:id="@+id/btnsigup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
                 android:backgroundTint="#009688"
                 android:text="Đăng ký" />
-            <Spinner
-                android:id="@+id/spinrole"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>
