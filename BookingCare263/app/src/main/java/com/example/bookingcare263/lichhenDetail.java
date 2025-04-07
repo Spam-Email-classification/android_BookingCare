@@ -3,6 +3,7 @@ package com.example.bookingcare263;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class lichhenDetail extends AppCompatActivity {
     private TextView txtngayhenkham;
     private TextView txtgiohenkham;
     private TextView txttrangThai;
-    private Button btnnutHuyLichHen;
+    private Button btnnutHuyLichHen, btnxacnhan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,12 +61,20 @@ public class lichhenDetail extends AppCompatActivity {
         }
         btnnutHuyLichHen.setOnClickListener(v -> {
 
-            if(!lh.getTrangthai().equals("Xác nhận")){
-                FirebaseHelper.deletelichhen(lh.getId());
-            }
+          FirebaseHelper.deletelichhen(lh.getId());
+
             finish();
         });
+        if(!UserActivity.roleuser.equals("bacsi")){
+            btnxacnhan.setVisibility(View.GONE);
+        }
 
+
+
+        btnxacnhan.setOnClickListener(v -> {
+            FirebaseHelper.updateTrangThai(lh.getId(), "Xác nhận");
+            finish();
+        });
 
     }
 
@@ -79,8 +88,6 @@ public class lichhenDetail extends AppCompatActivity {
         txtgiohenkham = findViewById(R.id.gioHenKham);
         txttrangThai = findViewById(R.id.trangThai);
         btnnutHuyLichHen = findViewById(R.id.nutHuyLichHen);
-
-
-
+        btnxacnhan = findViewById(R.id.btnxacnhan);
     }
 }

@@ -202,6 +202,13 @@ public class FirebaseHelper {
                 });
     }
 
+    // update trang thai lich hen
+    public static void updateTrangThai(String id, String trangthai){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        ref.child(id).child("trangthai").setValue(trangthai);
+    }
+
+
 
 
 
