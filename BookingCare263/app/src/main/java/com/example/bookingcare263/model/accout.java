@@ -1,16 +1,25 @@
 package com.example.bookingcare263.model;
 
 public class accout {
-    private String id, name, phone, pass,  as, status;
+    private String id, name, phone, pass,  as, status,token;
 
 
-    public accout(String id, String name, String phone, String pass, String as, String status) {
+    public accout(String id, String name, String phone, String pass, String as,
+                  String status, String token) {
         this.id = id;
         this.name = name;
         this.phone = phone;
         this.pass = pass;
         this.as = as;
         this.status = status;
+        this.token = token;
+
+    }
+    public String getToken() {
+        return token;
+    }
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public String getId() {

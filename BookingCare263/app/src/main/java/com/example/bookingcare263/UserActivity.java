@@ -25,6 +25,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookingcare263.databinding.ActivityUserBinding;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 
@@ -104,11 +106,17 @@ public class UserActivity extends AppCompatActivity {
             txtsdtheader.setText(phoneuser);
         }
 
+    }
 
+    void getFMTToken(){
+        FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task->{
+            if(task.isSuccessful()){
+                String token = task.getResult();
+                // cap nhap token len realtime
+                DatabaseReference ref =
 
-
-
-
+            }
+        });
     }
 
     @Override

@@ -42,6 +42,8 @@ dependencies {
     implementation(libs.credentials)
     implementation(libs.credentials.play.services.auth)
     implementation(libs.googleid)
+    implementation(libs.firebase.firestore)
+    implementation(libs.firebase.messaging)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation(libs.appcompat)
