@@ -84,9 +84,10 @@
 
     <Button
         android:id="@+id/btndlk"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="2dp"
+        android:layout_gravity="right"
         app:cornerRadius = "0dp"
         android:backgroundTint="#48C9DB"
         android:text="Đặt khám" />

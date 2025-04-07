@@ -48,7 +48,6 @@ public class lichhenFragment extends Fragment {
             public void onItemClick(lichhen lichhen) {
                 Intent intent = new Intent(getContext(), lichhenDetail.class);
                 intent.putExtra("lichhen", lichhen);
-                intent.putExtra("avatarbs", lichhen.getAvatarbs());
                 startActivity(intent);
             }
         });

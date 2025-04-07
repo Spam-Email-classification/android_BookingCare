@@ -6,102 +6,81 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.core.content.ContextCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.lichhen;
 
 public class lichhenDetail extends AppCompatActivity {
 
-    private ImageView anhBacSi;
-    private TextView tenBacSi;
-    private TextView tenBenhNhan;
-    private TextView sdtBenhNhan;
-    private TextView diaChiKham;
-    private TextView ngayhenkham;
-    private TextView giohenkham;
-    private TextView trangThai;
-    private Button nutHuyLichHen;
+    private ImageView imganhBacSi;
+    private TextView txttenBacSi;
+    private TextView txttenBenhNhan;
+    private TextView txtsdtBenhNhan;
+    private TextView txtdiaChiKham;
+    private TextView txtngayhenkham;
+    private TextView txtgiohenkham;
+    private TextView txttrangThai;
+    private Button btnnutHuyLichHen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_lichhen_detail);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
+
+
+        anhxa();
+
+        Intent intent = getIntent();
+        lichhen lh = (lichhen) intent.getSerializableExtra("lichhen");
+
+        // load thong tin
+        txttenBacSi.setText(lh.getNamebs());
+        txttenBenhNhan.setText(lh.getNamebenhnhan());
+        txtsdtBenhNhan.setText(lh.getSdtbenhnhan());
+        txtdiaChiKham.setText(lh.getDiachibenhnhan());
+        txtngayhenkham.setText(lh.getNgayhenkham());
+        txtgiohenkham.setText(lh.getKhunggiokham());
+        txttrangThai.setText(lh.getTrangthai());
+
+        if(imganhBacSi != null){
+            Glide.with(imganhBacSi.getContext())
+                    .load(Uri.parse(imganhBacSi.toString())) // Chuyển String thành ặc đUri
+                    .circleCrop()
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mịnh nếu load thất bại
+                    .into(imganhBacSi);
+        }
+        btnnutHuyLichHen.setOnClickListener(v -> {
+
+            if(!lh.getTrangthai().equals("Xác nhận")){
+                FirebaseHelper.deletelichhen(lh.getId());
+            }
+            finish();
         });
 
-        AnhXa();
-            }
 
-    private void AnhXa() {
-        anhBacSi = findViewById(R.id.anhBacSi);
-        tenBacSi = findViewById(R.id.tenBacSi);
-        tenBenhNhan = findViewById(R.id.tenBenhNhan);
-        sdtBenhNhan = findViewById(R.id.soDienThoai);
-        diaChiKham = findViewById(R.id.diaDiem);
-        ngayhenkham = findViewById(R.id.ngayHenKham);
-        giohenkham = findViewById(R.id.gioHenKham);
-        trangThai = findViewById(R.id.trangThai);
-        nutHuyLichHen = findViewById(R.id.nutHuyLichHen);
-//        nutHuyLichHen.setOnClickListener(v -> huyLichHen());
     }
 
-//    private void loadDataFromIntent() {
-//        Intent intent = getIntent();
-//        if (intent != null) {
-//            lichhen lichHen = (lichhen) intent.getSerializableExtra("lichhen");
-//            String imagePath = intent.getStringExtra("anhbacsi");
-//            if (imagePath != null) {
-//
-//                tenBacSi.setText(lichHen.getNamebs());
-//                tenBenhNhan.setText(lichHen.getNamebenhnhan());
-//                sdtBenhNhan.setText(lichHen.getSdtbenhnhan());
-//                diaChiKham.setText(lichHen.getDiachibenhnhan());
-//                ngayhenkham.setText(lichHen.getNgayhenkham());
-//                giohenkham.setText(lichHen.getKhunggiokham());
-//                trangThai.setText(lichHen.getTrangthai());
-//                if (imagePath.startsWith("android.resource://")) {
-//                    Uri uri = Uri.parse(imagePath);
-//                    Glide.with(this).load(uri).into(anhBacSi);
-//                } else {
-//                    anhBacSi.setImageURI(Uri.parse(imagePath));
-//                }
-//            } else {
-//                anhBacSi.setImageResource(R.drawable.plus);
-//            }
-//        }
-//    }
+    private void anhxa() {
+        imganhBacSi = findViewById(R.id.anhBacSi);
+        txttenBacSi = findViewById(R.id.tenBacSi);
+        txttenBenhNhan = findViewById(R.id.tenBenhNhan);
+        txtsdtBenhNhan = findViewById(R.id.soDienThoai);
+        txtdiaChiKham = findViewById(R.id.diaDiem);
+        txtngayhenkham = findViewById(R.id.ngayHenKham);
+        txtgiohenkham = findViewById(R.id.gioHenKham);
+        txttrangThai = findViewById(R.id.trangThai);
+        btnnutHuyLichHen = findViewById(R.id.nutHuyLichHen);
 
-//    private void huyLichHen() {
-//        int lichHenId = getIntent().getIntExtra("id", -1);
-//
-//        if (lichHenId != -1) {
-//            DatabaseHelper helper = new DatabaseHelper(this);
-//            helper.updateTrangThaiLichHen(String.valueOf(lichHenId), "Đã hủy");
-//
-//            // Cập nhật giao diện
-//            trangThai.setText("Trạng thái: Đã hủy");
-//            trangThai.setTextColor(ContextCompat.getColor(this, R.color.red));
-//
-//            // Vô hiệu hóa nút
-//            nutHuyLichHen.setEnabled(false);
-//            nutHuyLichHen.setText("Đã hủy");
-//            nutHuyLichHen.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_700));
-//
-//            Toast.makeText(this, "Đã hủy lịch hẹn với ID: " + lichHenId, Toast.LENGTH_SHORT).show();
-//        } else {
-//            Toast.makeText(this, "Không tìm thấy lịch hẹn để hủy", Toast.LENGTH_SHORT).show();
-//        }
-//    }
+
+
+    }
 }

@@ -264,11 +264,6 @@ public class FirebaseHelper {
 
 
 
-
-
-
-
-
     // add bacsi tb_bacsi
     public static void addBacsi(Bacsi bs, FirebaseCallBack callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
@@ -324,6 +319,11 @@ public class FirebaseHelper {
     }
 
 
+    // xoa lich hen{
+    public static void deletelichhen(String id){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        ref.child(id).removeValue();
+    }
 
 
     // update bacsi bysdt

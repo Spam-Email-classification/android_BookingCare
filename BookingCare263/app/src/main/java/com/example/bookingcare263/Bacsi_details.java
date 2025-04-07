@@ -3,6 +3,7 @@ package com.example.bookingcare263;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -75,6 +76,10 @@ public class Bacsi_details extends AppCompatActivity {
                     .into(imgavtarbsdt);
         } else{
             imgavtarbsdt.setImageResource(R.drawable.imagechose);
+        }
+
+        if(!UserActivity.roleuser.equals("user")){
+            btndatlichdt.setVisibility(View.INVISIBLE);
         }
 
         btndatlichdt.setOnClickListener(v -> {
