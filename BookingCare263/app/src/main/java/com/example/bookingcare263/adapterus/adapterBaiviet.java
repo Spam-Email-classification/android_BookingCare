@@ -12,7 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
@@ -93,18 +94,30 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
         public void bind(Baiviet baiviet){
             txtnametbvshow.setText(baiviet.getTitile());
             // getbac by iduser
-            DatabaseHelper databaseHelper = new DatabaseHelper(itemView.getContext());
-            Bacsi bacsi = databaseHelper.getBacsiBySdt(baiviet.getIduser());
-            txtnametbvshow.setText(bacsi.getName());
-            String avatarUri = bacsi.getImg();
-            if (avatarUri != null && !avatarUri.isEmpty()) {
-                Glide.with(imgavatartbvshow.getContext())
-                        .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                        .circleCrop()
-                        .into(imgavatartbvshow);
-            } else {
-                imgavatartbvshow.setImageResource(R.drawable.baseline_account_circle_24);
-            }
+            FirebaseHelper.getBacsiBySdt(baiviet.getIduser(), new FirebaseCallBack<Bacsi>() {
+                @Override
+                public void onSuccess(Bacsi data) {
+
+                    txtnametbvshow.setText(data.getName());
+                    String avatarUri = data.getImg();
+                    if (avatarUri != null && !avatarUri.isEmpty()) {
+                        Glide.with(imgavatartbvshow.getContext())
+                                .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                                .circleCrop()
+                                .into(imgavatartbvshow);
+                    } else {
+                        imgavatartbvshow.setImageResource(R.drawable.baseline_account_circle_24);
+                    }
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
+
+
 
             if(UserActivity.roleuser != null && UserActivity.roleuser.equals("user")) {
                 btndatkham.setVisibility(View.VISIBLE);

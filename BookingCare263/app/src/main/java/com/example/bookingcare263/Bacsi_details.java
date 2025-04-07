@@ -55,6 +55,7 @@ public class Bacsi_details extends AppCompatActivity {
     private void loadData(){
         Intent intent = getIntent();
         Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
+
         txttiltedt.setText(bacsi.getChuyenkhoa());
         txttenbsdt.setText(bacsi.getName());
         txtthogtindt.setText(bacsi.getThongtin());
@@ -65,13 +66,16 @@ public class Bacsi_details extends AppCompatActivity {
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());
 
         String avatarUri = bacsi.getImg();
-        if ( avatarUri != null && !avatarUri.isEmpty())
-        Glide.with(imgavtarbsdt.getContext())
-                .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
-                .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                .into(imgavtarbsdt);
+        if (avatarUri != null && !avatarUri.isEmpty()) {
 
+            Glide.with(imgavtarbsdt.getContext())
+                    .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imgavtarbsdt);
+        } else{
+            imgavtarbsdt.setImageResource(R.drawable.imagechose);
+        }
 
         btndatlichdt.setOnClickListener(v -> {
             if(UserActivity.iduser!=null){

@@ -16,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.lichhen;
@@ -30,7 +32,6 @@ public class Datlichkham extends AppCompatActivity {
     ImageView imgavtars;
     EditText edthoten, edtsdt, edtngay, edtdiachi;
 
-    DatabaseHelper dbhelper;
 
     // xly radio group
      RadioGroup radioGroupGioKham;
@@ -45,7 +46,6 @@ public class Datlichkham extends AppCompatActivity {
         anhxa();
 
         Intent intent = getIntent();
-        dbhelper = new DatabaseHelper(this);
         Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
 
 
@@ -94,8 +94,18 @@ public class Datlichkham extends AppCompatActivity {
                     bacsi.getImg(),
                     bacsi.getName()
             );
-            boolean inserted = dbhelper.addlichhen(lh);
 
+            FirebaseHelper.addlichhen(lh, new FirebaseCallBack() {
+                @Override
+                public void onSuccess(Object data) {
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
             finish();
 
         });

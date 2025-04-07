@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
@@ -36,16 +38,16 @@ public class Taobaiviet extends AppCompatActivity {
         // anh xa
         anhxa();
 
-        // set name and avatar
+        // set name and avatar bac si
         txtnametbv.setText("Bác sĩ: " + bacsi.getName());
         String avatar = bacsi.getImg();
-        if(avatar != null &&  !avatar.isEmpty())
+        if(avatar != null &&  !avatar.isEmpty()){
             Glide.with(imgavatartbv.getContext())
                     .load(Uri.parse(avatar)) // Chuyển String thành ặc đUri
                     .circleCrop()
                     .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                     .error(R.drawable.baseline_account_circle_24) // Ảnh mịnh nếu load thất bại
-                    .into(imgavatartbv);
+                    .into(imgavatartbv);}
         else{
             imgavatartbv.setImageResource(R.drawable.baseline_account_circle_24);
         }
@@ -69,8 +71,20 @@ public class Taobaiviet extends AppCompatActivity {
                 anh = "";
             }
             Baiviet baiviet = new Baiviet(UserActivity.iduser, content, timestamp,edttitletbv.getText().toString(), anh);
-            helper.insertbaiviet(baiviet);
-            finish();
+            FirebaseHelper.addbaiviet(baiviet, new FirebaseCallBack() {
+                @Override
+                public void onSuccess(Object data) {
+                    finish();
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
+
+
 
         });
 

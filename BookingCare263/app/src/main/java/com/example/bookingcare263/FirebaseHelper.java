@@ -5,10 +5,12 @@ import android.util.Log;
 import androidx.annotation.NonNull;
 
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.model.chuyenkhoa;
+import com.example.bookingcare263.model.lichhen;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -121,6 +123,71 @@ public class FirebaseHelper {
 
 
 
+    // addlichhen
+    public static void addlichhen(lichhen lh, FirebaseCallBack callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        String id = ref.push().getKey();
+        ref.child(id).setValue(lh).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                callBack.onSuccess(null);
+            } else {
+                callBack.onFailed(task.getException().getMessage());
+            }
+        });
+    }
+
+    // get lichhen by idbenhnhan
+    public static void getlichhenbyidbenhnhan(String idbenhnhan, FirebaseCallBack<ArrayList<lichhen>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        ref.orderByChild("idbenhnhan").equalTo(idbenhnhan)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList <lichhen> listlh = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            lichhen lh = data.getValue(lichhen.class);
+                            listlh.add(lh);
+                        }
+                        callBack.onSuccess(listlh);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callBack.onFailed(error.getMessage());
+
+                    }
+                });
+    }
+
+    // get lichhen by idbacsi
+    public static void getlichhenbyidbacsi(String idbacsi, FirebaseCallBack<ArrayList<lichhen>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        ref.orderByChild("idbacsi").equalTo(idbacsi)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<lichhen> listlh = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            lichhen lh = data.getValue(lichhen.class);
+                            listlh.add(lh);
+                        }
+                        callBack.onSuccess(listlh);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+
+
+
+
+
+
+
 
     // add bennhan tb_benhnhan
     public static void addbenhnhan(benhnhan bn, FirebaseCallBack callBack){
@@ -215,6 +282,29 @@ public class FirebaseHelper {
                 });
     }
 
+    public static void getttBacsiBySdt(String sdt, FirebaseCallBack<Bacsi> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
+        ref.orderByChild("sdt").equalTo(sdt)
+                .addValueEventListener (new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Bacsi bs = new Bacsi();
+                        for(DataSnapshot data: snapshot.getChildren()){
+                            bs = data.getValue(Bacsi.class);
+                        }
+                        callBack.onSuccess(bs);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+
+
+
+
     // update bacsi bysdt
     public static void updateBacsi(Bacsi bs, FirebaseCallBack callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
@@ -233,10 +323,92 @@ public class FirebaseHelper {
         ref.child(sdt).removeValue();
     }
 
+    // get bacsi by chuyen kkhoa
+    public static void getBacsiByChuyenkhoa(String chuyenkhoa, FirebaseCallBack<ArrayList<Bacsi>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
+        ref.orderByChild("chuyenkhoa").equalTo(chuyenkhoa)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList<Bacsi> listbs = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Bacsi bs = data.getValue(Bacsi.class);
+                            listbs.add(bs);
+                        }
+                        callBack.onSuccess(listbs);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callBack.onFailed(error.getMessage());
+
+                    }
+                });
+    }
 
 
 
-    // get chuyen khoa
+    // add baiviet
+     public static void addbaiviet(Baiviet bv, FirebaseCallBack callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
+        String id = ref.push().getKey();
+        bv.setId(id);
+        ref.child(id).setValue(bv).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                callBack.onSuccess(null);
+            } else {
+                callBack.onFailed(task.getException().getMessage());
+            }
+        });
+     }
+
+    public  static void getbaivietbyiduser(String iduser, FirebaseCallBack<ArrayList<Baiviet>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference( "tb_baiviet");
+        ref.orderByChild("iduser").equalTo(iduser)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList <Baiviet> listbv = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Baiviet bv = data.getValue(Baiviet.class);
+                            listbv.add(bv);
+                        }
+                        callBack.onSuccess(listbv);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callBack.onFailed(error.getMessage());
+
+                    }
+                });
+    }
+
+    public static void getAllbaiviet(FirebaseCallBack<ArrayList<Baiviet>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList <Baiviet> listbv = new ArrayList<>();
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    Baiviet bv = data.getValue(Baiviet.class);
+                    listbv.add(bv);
+                }
+                callBack.onSuccess(listbv);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                callBack.onFailed(error.getMessage());
+
+            }
+        });
+    }
+
+
+
+
+                                   // get chuyen khoa
     public static void getChuyenKhoa(FirebaseCallBack<ArrayList<chuyenkhoa>> callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoa");
         ref.addValueEventListener(new ValueEventListener() {
@@ -368,6 +540,10 @@ public class FirebaseHelper {
 
 
     }
+
+
+
+
 
 
 

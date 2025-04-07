@@ -17,6 +17,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterlistbacsi;
 import com.example.bookingcare263.model.Bacsi;
@@ -56,8 +58,20 @@ public class Danhsachbacsi extends AppCompatActivity {
         // lay du lieu tu sqlite
 
         databaseHelper = new DatabaseHelper(this);
-        listbacsi = databaseHelper.getBacsiByChuyenKhoa(listbacsi, title);
-        adapter.notifyDataSetChanged();
+
+        FirebaseHelper.getBacsiByChuyenkhoa(title, new FirebaseCallBack<ArrayList<Bacsi>>() {
+            @Override
+            public void onSuccess(ArrayList<Bacsi> data) {
+                listbacsi.clear();
+                listbacsi.addAll(data);
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
 
 
         adapter.setOnClickListener(bacsi->{
@@ -148,7 +162,6 @@ public class Danhsachbacsi extends AppCompatActivity {
 
 
         listbacsi = new ArrayList<>();
-
         rcvlistbacsi = findViewById(R.id.rcvlistbacsi);
         rcvlistbacsi.setLayoutManager(new LinearLayoutManager(this));
         adapter = new adapterlistbacsi(listbacsi);

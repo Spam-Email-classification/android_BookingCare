@@ -5,11 +5,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.adapterus.adapterLichhen;
 import com.example.bookingcare263.databinding.FragmentLichhenusBinding;
 import com.example.bookingcare263.lichhenDetail;
@@ -21,7 +25,6 @@ public class lichhenFragment extends Fragment {
 
     private RecyclerView rcvlichhen;
     private FragmentLichhenusBinding binding;
-    private DatabaseHelper dbhelper;
     private ArrayList<lichhen> listlichhen;
     private adapterLichhen adapter;
 
@@ -35,40 +38,62 @@ public class lichhenFragment extends Fragment {
     }
 
     private void anhxa() {
-        dbhelper = new DatabaseHelper(getContext());
+
+        rcvlichhen = binding.rcvlichhen;
+        listlichhen = new ArrayList<>();
+        adapter = new adapterLichhen(listlichhen);
+        rcvlichhen.setLayoutManager(new LinearLayoutManager(getContext()));
+        rcvlichhen.setAdapter(adapter);
+        adapter.setOnItemClickListener(new adapterLichhen.OnItemClickListener() {
+            @Override
+            public void onItemClick(lichhen lichhen) {
+                Intent intent = new Intent(getContext(), lichhenDetail.class);
+                intent.putExtra("lichhen", lichhen);
+                intent.putExtra("avatarbs", lichhen.getAvatarbs());
+                startActivity(intent);
+            }
+        });
+
         if (UserActivity.iduser != null) {
             if (UserActivity.roleuser.equals("user")) {
-                listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
+
+                FirebaseHelper.getlichhenbyidbenhnhan(UserActivity.iduser, new FirebaseCallBack<ArrayList<lichhen>>() {
+                    @Override
+                    public void onSuccess(ArrayList<lichhen> data) {
+                        listlichhen.clear();
+                        listlichhen.addAll(data);
+                        adapter.notifyDataSetChanged();
+                    }
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
+
+
+
             } else if (UserActivity.roleuser.equals("bacsi")) {
-                listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
-            } else {
-                listlichhen = dbhelper.getAlllichhenbyidbacsi(UserActivity.iduser);
+                FirebaseHelper.getlichhenbyidbacsi(UserActivity.iduser, new FirebaseCallBack<ArrayList<lichhen>>() {
+                    @Override
+                    public void onSuccess(ArrayList<lichhen> data) {
+                        listlichhen.clear();
+                        listlichhen.addAll(data);
+                        adapter.notifyDataSetChanged();
+                    }
+
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
             }
 
-            rcvlichhen = binding.rcvlichhen;
-            adapter = new adapterLichhen(listlichhen);
-            rcvlichhen.setLayoutManager(new LinearLayoutManager(getContext()));
-            rcvlichhen.setAdapter(adapter);
-            adapter.notifyDataSetChanged();
 
-            // Chỉ gọi setOnItemClickListener một lần
-            adapter.setOnItemClickListener(new adapterLichhen.OnItemClickListener() {
-                @Override
-                public void onItemClick(lichhen lichhen) {
-                    Intent intent = new Intent(getContext(), lichhenDetail.class);
-                    intent.putExtra("lichhen", lichhen);
-                    intent.putExtra("avatarbs", lichhen.getAvatarbs());
-                    startActivity(intent);
-                }
-            });
+
         }
     }
 
-    public void loadData() {
-        dbhelper = new DatabaseHelper(getContext());
-        listlichhen = dbhelper.getAlllichhenbyidbenhnhan(UserActivity.iduser);
-        adapter.notifyDataSetChanged();
-    }
+
 
     @Override
     public void onDestroyView() {

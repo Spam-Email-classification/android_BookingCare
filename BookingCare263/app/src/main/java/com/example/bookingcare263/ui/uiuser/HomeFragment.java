@@ -47,7 +47,7 @@ public class HomeFragment extends Fragment {
     private RecyclerView rcvItems, rcvbacsi, rcvchuyenkhoahome, rcvcosoyte;
     private adapterItems adapter;
     private TextView searchBar;
-    DatabaseHelper databaseHelper;
+
     private ViewFlipper viewFlipper;
 
     private adapterBaiviet adapterbv;
@@ -145,7 +145,6 @@ public class HomeFragment extends Fragment {
         ArrayList<Bacsi> listDoctors = new ArrayList<>();
         rcvbacsi = binding.rcvbacsi;
 
-        databaseHelper = new DatabaseHelper(getContext());
 
         ArrayList<accout> listaccout = new ArrayList<>();
 
@@ -278,8 +277,6 @@ public class HomeFragment extends Fragment {
 
         rcvbaiviet = binding.rcvbaiviet;
         listbaiviet = new ArrayList<>();
-        listbaiviet.addAll(databaseHelper.getAllbaiviet());
-        Log.d("listbaiviet","sizelis" +  listbaiviet.size());
         adapterbv = new adapterBaiviet(listbaiviet);
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(getContext()));
         rcvbaiviet.setAdapter(adapterbv);
@@ -291,11 +288,24 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onImageavatarClick(Baiviet baiviet) {
-                Bacsi bacsi = databaseHelper.getBacsiBySdt(baiviet.getIduser());
-                Intent intent;
-                intent = new Intent(getActivity(), Bacsi_details.class);
-                intent.putExtra("bacsi", bacsi);
-                startActivity(intent);
+
+                FirebaseHelper.getBacsiBySdt(baiviet.getIduser(), new FirebaseCallBack<Bacsi>() {
+                    @Override
+                    public void onSuccess(Bacsi data) {
+                        Intent intent;
+                        intent = new Intent(getActivity(), Bacsi_details.class);
+                        intent.putExtra("bacsi", data);
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
+
+
 
             }
 
@@ -303,34 +313,45 @@ public class HomeFragment extends Fragment {
             public void onItemDatkhamClick(Baiviet baiviet) {
                 // datlichkham
 
-                Bacsi bacsi = databaseHelper.getBacsiBySdt(baiviet.getIduser());
-                Intent intent = new Intent(getActivity(), Datlichkham.class);
-                intent.putExtra("bacsi", bacsi);
-                startActivity(intent);
+
+                FirebaseHelper.getBacsiBySdt(baiviet.getIduser(), new FirebaseCallBack<Bacsi>() {
+                    @Override
+                    public void onSuccess(Bacsi data) {
+                        Intent intent = new Intent(getActivity(), Datlichkham.class);
+                        intent.putExtra("bacsi", data);
+                        startActivity(intent);
+
+                    }
+
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
+
+
 
             }
 
         });
 
 
+        FirebaseHelper.getAllbaiviet(new FirebaseCallBack<ArrayList<Baiviet>>() {
+            @Override
+            public void onSuccess(ArrayList<Baiviet> data) {
+                listbaiviet.clear();
+                listbaiviet.addAll(data);
+                adapterbv.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
 
     }
 
-    void loadbaiviet(){
-        listbaiviet.clear();
-        ArrayList <Baiviet> newbaiviet = databaseHelper.getAllbaiviet();
-        // sap xep theo thu tu giam dan id
-
-        listbaiviet.addAll(newbaiviet);
-        adapterbv.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        loadbaiviet();
-
-    }
 
     @Override
     public void onDestroyView() {

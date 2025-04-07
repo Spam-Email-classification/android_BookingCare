@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.DatabaseHelper;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.model.Bacsi;
@@ -30,7 +32,6 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
     private TextView txttaobaiviet, txttenbs;
     RecyclerView rcvbaiviet;
     private ImageView imgavtarbsdt2, imgavatacon;
-    DatabaseHelper helper;
     adapterBaiviet adapterbv;
     ArrayList<Baiviet> listbaiviet;
 
@@ -41,16 +42,69 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         setContentView(R.layout.activity_thongtin_bacsi);
         // anh xa
         anhxa();
-        loadThongtin();
+
+        FirebaseHelper.getttBacsiBySdt(UserActivity.iduser, new FirebaseCallBack<Bacsi>() {
+            @Override
+            public void onSuccess(Bacsi data) {
+
+                txttenbs.setText(data.getName());
+
+                String avatarUri = data.getImg();
+                if (avatarUri != null && !avatarUri.isEmpty()) {
+                    Glide.with(imgavtarbsdt2.getContext())
+                            .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                            .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                            .into(imgavtarbsdt2);
+                } else {
+                    imgavtarbsdt2.setImageResource(R.drawable.imagechose);
+                }
+
+
+                if (avatarUri != null && !avatarUri.isEmpty()) {
+                    Glide.with(imgavatacon.getContext())
+                            .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
+                            .circleCrop()
+                            .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                            .into(imgavatacon);
+                } else {
+                    imgavtarbsdt2.setImageResource(R.drawable.baseline_account_circle_24);
+                }
+
+
+            }
+
+            @Override
+            public void onFailed(String message) {
+                System.out.println("loi");
+
+            }
+        });
+
+
+
 
 
 
         btnsuattbs.setOnClickListener(e->{
-            Bacsi bacsi = helper.getBacsiBySdt(UserActivity.iduser);
+            // get bacsi by sdt
+            FirebaseHelper.getBacsiBySdt(UserActivity.iduser, new FirebaseCallBack<Bacsi>() {
+                @Override
+                public void onSuccess(Bacsi data) {
 
-            Intent intent = new Intent(ThongtinBacsi.this, SuaBS.class);
-            intent.putExtra("bacsi",bacsi);
-            startActivity(intent);
+                    Intent intent = new Intent(ThongtinBacsi.this, SuaBS.class);
+                    intent.putExtra("bacsi",data);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailed(String message) {
+                    System.out.println("loi");
+
+                }
+            });
+
+
+
         });
         btnqllichhen.setOnClickListener(e->{
 //            Intent intent = new Intent(ThongtinBacsi.this,QLLichHen.class);
@@ -61,56 +115,48 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         });
 
         txttaobaiviet.setOnClickListener(e->{
-            Bacsi bacsi = helper.getBacsiBySdt(UserActivity.iduser);
-            Intent intent = new Intent(ThongtinBacsi.this,Taobaiviet.class);
-            intent.putExtra("bacsi",bacsi);
-            startActivity(intent);
+
+            FirebaseHelper.getBacsiBySdt(UserActivity.iduser, new FirebaseCallBack<Bacsi>() {
+                @Override
+                public void onSuccess(Bacsi data) {
+
+                    Intent intent = new Intent(ThongtinBacsi.this, Taobaiviet.class);
+                    intent.putExtra("bacsi",data);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailed(String message) {
+                    System.out.println("loi");
+
+                }
+            });
+
+
+
+        });
+
+        // capnhap bai viet
+        FirebaseHelper.getbaivietbyiduser(UserActivity.iduser, new FirebaseCallBack<ArrayList<Baiviet>>() {
+            @Override
+            public void onSuccess(ArrayList<Baiviet> data) {
+                listbaiviet.clear();
+                listbaiviet.addAll(data);
+                adapterbv.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
         });
 
 
     }
 
-    void loadThongtin(){
-        // getbac by iduserr
-        Bacsi bacsi = helper.getBacsiBySdt(UserActivity.iduser);
-
-        txttenbs.setText(bacsi.getName());
-
-        String avatarUri = bacsi.getImg();
-        if (avatarUri != null && !avatarUri.isEmpty()) {
-            Glide.with(this)
-                    .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                    .into(imgavtarbsdt2);
-        } else {
-            imgavtarbsdt2.setImageResource(R.drawable.imagechose);
-        }
 
 
-        if (avatarUri != null && !avatarUri.isEmpty()) {
-            Glide.with(this)
-                    .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                    .circleCrop()
-                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                    .into(imgavatacon);
-        } else {
-            imgavtarbsdt2.setImageResource(R.drawable.baseline_account_circle_24);
-        }
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        loadBaiviet();
-        loadThongtin();
-
-    }
-
-    void loadBaiviet(){
-        listbaiviet.clear();
-        listbaiviet.addAll(helper.getbaivietbyiduser(UserActivity.iduser));
-        adapterbv.notifyDataSetChanged();
-    }
 
     private void anhxa() {
         btnqllichhen = findViewById(R.id.btnqllhenn);
@@ -118,14 +164,11 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         btnqlbaiviet = findViewById(R.id.btnqlbv);
         txttaobaiviet = findViewById(R.id.txttaobaiviet);
         rcvbaiviet = findViewById(R.id.rcvbaiviet);
-        helper = new DatabaseHelper(this);
         txttenbs = findViewById(R.id.txtnamebstt);
         imgavtarbsdt2 = findViewById(R.id.imgavabsttbs);
         listbaiviet = new ArrayList<>();
         imgavatacon = findViewById(R.id.imgavatacon);
-        listbaiviet.addAll(helper.getbaivietbyiduser(UserActivity.iduser));
         adapterbv = new adapterBaiviet(listbaiviet);
-
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
         rcvbaiviet.setAdapter(adapterbv);
 
@@ -138,10 +181,24 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
 
     @Override
     public void onImageavatarClick(Baiviet baiviet) {
-        Bacsi bacsi1 = helper.getBacsiBySdt(baiviet.getIduser());
-        Intent intent = new Intent(ThongtinBacsi.this, Bacsi_details.class);
-        intent.putExtra("bacsi",bacsi1);
-        startActivity(intent);
+
+        FirebaseHelper.getBacsiBySdt(UserActivity.iduser, new FirebaseCallBack<Bacsi>() {
+            @Override
+            public void onSuccess(Bacsi data) {
+                Intent intent = new Intent(ThongtinBacsi.this, Bacsi_details.class);
+                intent.putExtra("bacsi", data);
+                startActivity(intent);
+
+            }
+
+            @Override
+            public void onFailed(String message) {
+                System.out.println("loi");
+
+            }
+        });
+
+
     }
 
     @Override
