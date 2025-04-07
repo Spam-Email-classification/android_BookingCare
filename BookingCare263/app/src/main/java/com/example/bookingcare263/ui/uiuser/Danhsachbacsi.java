@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -93,11 +94,8 @@ public class Danhsachbacsi extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                listbacsi.clear();
                 String query = search_bar1.getText().toString().trim();
                 filterList(query);
-
-
             }
 
             @Override
@@ -111,28 +109,71 @@ public class Danhsachbacsi extends AppCompatActivity {
 
 
     private void filterList(String query) {
-        filteredList.clear();
-        // get bacsi
+        ArrayList<accout> listacc = new ArrayList<>();
 
-        ArrayList <accout> listacc = listaccactive;
-        for (accout accout : listacc) {
-            Bacsi bacsi = databaseHelper.getBacsiBySdt(accout.getPhone());
-            listbacsi.add(bacsi);
-        }
+        FirebaseHelper.getaccoutbyStatusAndRoletinh("Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>() {
+            @Override
+            public void onSuccess(ArrayList<accout> data) {
+                listacc.clear();
+                listacc.addAll(data);
+
+                if (listacc.isEmpty()) {
+                    applyFilter(query);
+                    return;
+                }
+
+                listbacsi.clear();  // Clear trước khi bắt đầu load lại các bác sĩ
+
+                for (accout acc : listacc) {
+                    FirebaseHelper.getBacsiBySdt(acc.getPhone(), new FirebaseCallBack<Bacsi>() {
+                        @Override
+                        public void onSuccess(Bacsi bacsi) {
+
+                                listbacsi.add(bacsi);  // Thêm bác sĩ vào danh sách
+
+
+
+                            if (listbacsi.size() == listacc.size()) { // Đảm bảo đã lấy hết bác sĩ
+                                Log.d("filterList", "Đã lấy hết bác sĩ: " + listbacsi.size());
+                                applyFilter(query); // Gọi hàm lọc sau khi tải xong toàn bộ bác sĩ
+                            }
+                        }
+
+                        @Override
+                        public void onFailed(String message) {
+
+                            if (listbacsi.size() == listacc.size()) {
+                                applyFilter(query); // Gọi applyFilter dù có thất bại
+                            }
+                        }
+                    });
+                }
+            }
+
+            @Override
+            public void onFailed(String message) {
+                Log.e("filterList", "Lỗi khi lấy danh sách acc: " + message);
+            }
+        });
+    }
+
+    private void applyFilter(String query) {
+        filteredList.clear();
 
         if (query.isEmpty()) {
-            filteredList.addAll(listbacsi);  // Hiển thị tất cả nếu không nhập gì
+            filteredList.addAll(listbacsi); // Nếu không có query, hiển thị tất cả bác sĩ
         } else {
+            // Lọc theo tên hoặc chuyên khoa của bác sĩ
             for (Bacsi item : listbacsi) {
-                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
                 if (item.getName().toLowerCase().contains(query.toLowerCase()) ||
                         item.getChuyenkhoa().toLowerCase().contains(query.toLowerCase())) {
                     filteredList.add(item);
                 }
             }
         }
-        adapter.updateList(filteredList);
 
+        // Cập nhật adapter với danh sách đã lọc
+        adapter.updateList(filteredList);
     }
 
 

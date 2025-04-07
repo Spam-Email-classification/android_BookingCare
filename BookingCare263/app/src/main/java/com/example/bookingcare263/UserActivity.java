@@ -2,6 +2,7 @@ package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
@@ -106,8 +107,20 @@ public class UserActivity extends AppCompatActivity {
         }
         listaccactive = new ArrayList<>();
         helper = new DatabaseHelper(this);
-        listaccactive = helper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
+//        listaccactive = helper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
 
+        FirebaseHelper.getaccoutbyStatusAndRoletinh("Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>() {
+            @Override
+            public void onSuccess(ArrayList<accout> data) {
+                listaccactive.clear();
+                listaccactive.addAll(data);
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
 
 
 

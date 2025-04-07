@@ -119,6 +119,27 @@ public class FirebaseHelper {
         });
     }
 
+    // getAccout danghoatdong
+    public static void getaccoutbyStatusAndRoletinh(String status, String role, FirebaseCallBack<ArrayList<accout>> callback){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<accout> listaccout = new ArrayList<>();
+                for(DataSnapshot data: snapshot.getChildren()){
+                    accout acc = data.getValue(accout.class);
+                    if(acc.getStatus().equals(status) && acc.getAs().equals(role))
+                        listaccout.add(acc);
+                }
+                callback.onSuccess(listaccout);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
 
 
