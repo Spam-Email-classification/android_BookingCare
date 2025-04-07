@@ -160,7 +160,7 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
     private void anhxa() {
         btnqllichhen = findViewById(R.id.btnqllhenn);
         btnsuattbs = findViewById(R.id.btnsuattbs);
-        btnqlbaiviet = findViewById(R.id.btnqlbv);
+
         txttaobaiviet = findViewById(R.id.txttaobaiviet);
         rcvbaiviet = findViewById(R.id.rcvbaiviet);
         txttenbs = findViewById(R.id.txtnamebstt);
@@ -170,6 +170,7 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         adapterbv = new adapterBaiviet(listbaiviet);
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
         rcvbaiviet.setAdapter(adapterbv);
+        adapterbv.setOnItemClickListener(this);
 
     }
 
@@ -202,6 +203,12 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
 
     @Override
     public void onItemDatkhamClick(Baiviet baiviet) {
+
+    }
+
+    @Override
+    public void onItemDeleteClick(Baiviet baiviet) {
+        FirebaseHelper.deletebaiviet(baiviet.getId());
 
     }
 }

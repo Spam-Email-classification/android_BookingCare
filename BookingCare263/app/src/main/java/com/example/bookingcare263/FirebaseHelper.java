@@ -148,6 +148,7 @@ public class FirebaseHelper {
     public static void addlichhen(lichhen lh, FirebaseCallBack callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
         String id = ref.push().getKey();
+        lh.setId(id);
         ref.child(id).setValue(lh).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 callBack.onSuccess(null);
@@ -206,6 +207,13 @@ public class FirebaseHelper {
     public static void updateTrangThai(String id, String trangthai){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
         ref.child(id).child("trangthai").setValue(trangthai);
+    }
+
+
+    // xoa lich hen{
+    public static void deletelichhen(String id){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
+        ref.child(id).removeValue();
     }
 
 
@@ -326,11 +334,6 @@ public class FirebaseHelper {
     }
 
 
-    // xoa lich hen{
-    public static void deletelichhen(String id){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_lichhen");
-        ref.child(id).removeValue();
-    }
 
 
     // update bacsi bysdt
@@ -431,6 +434,11 @@ public class FirebaseHelper {
 
             }
         });
+    }
+
+    public static void deletebaiviet(String id){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
+        ref.child(id).removeValue();
     }
 
 

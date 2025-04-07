@@ -36,6 +36,7 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
         void onItemClick(Baiviet baiviet);
         void onImageavatarClick(Baiviet baiviet);
         void onItemDatkhamClick(Baiviet baiviet);
+        void onItemDeleteClick(Baiviet baiviet);
     }
     @NonNull
     @Override
@@ -64,6 +65,11 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
                 listener.onItemDatkhamClick(baiviet);
             }
         });
+        holder.imgdeletebv.setOnClickListener(v -> {
+            if (listener != null) {
+                listener.onItemDeleteClick(baiviet);
+            }
+        });
 
 
 
@@ -75,7 +81,7 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView imgavatartbvshow, imganhbaivietshow;
+        ImageView imgavatartbvshow, imganhbaivietshow, imgdeletebv;
         TextView txtnametbvshow, txtitleshowbv, txtcontentbv, txtxemthembv, txttimetbvshow;
         Button btndatkham;
         public ViewHolder(@NonNull View itemView) {
@@ -88,11 +94,11 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
             txtxemthembv = itemView.findViewById(R.id.txtxemthembv);
             txttimetbvshow = itemView.findViewById(R.id.txttimetbvshowitem);
             btndatkham = itemView.findViewById(R.id.btndlk);
+            imgdeletebv = itemView.findViewById(R.id.imgdeletebv);
 
 
         }
         public void bind(Baiviet baiviet){
-            txtnametbvshow.setText(baiviet.getTitile());
             // getbac by iduser
             FirebaseHelper.getBacsiBySdt(baiviet.getIduser(), new FirebaseCallBack<Bacsi>() {
                 @Override
@@ -118,6 +124,12 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
             });
 
 
+
+            if(UserActivity.iduser == null || !UserActivity.iduser.equals(baiviet.getIduser())){
+                imgdeletebv.setVisibility(View.GONE);
+            } else {
+                imgdeletebv.setVisibility(View.VISIBLE);
+            }
 
             if(UserActivity.roleuser != null && UserActivity.roleuser.equals("user")) {
                 btndatkham.setVisibility(View.VISIBLE);

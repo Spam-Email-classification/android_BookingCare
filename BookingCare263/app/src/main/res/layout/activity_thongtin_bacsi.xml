@@ -26,6 +26,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txttrangthaitk"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trạng thái: Chờ duyệt"
+                android:gravity="right"
+                android:padding="5dp"
+                android:textColor="#FF9800"/>
+
             <ImageView
                 android:id="@+id/imgavabsttbs"
                 android:layout_width="match_parent"
@@ -40,6 +50,14 @@
                 android:textStyle="bold"
                 android:gravity="center"
                 android:textSize="18dp"/>
+
+            <TextView
+                android:id="@+id/txtsdtbsbv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="0399608832"
+                android:gravity="center"
+                android:textColor="@color/green"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -64,7 +82,7 @@
 
                     android:backgroundTint="@color/blue"
                     android:text="Cập nhập thông tin"
-                    android:textSize="13dp"
+                    android:textSize="11dp"
                     app:cornerRadius="0dp" />
             </LinearLayout>
 
@@ -109,16 +127,6 @@
                         android:textSize="14dp"
                        />
                 </LinearLayout>
-
-                <Button
-                    android:id="@+id/btnqlbv"
-                    android:layout_width="match_parent"
-                    android:layout_margin="5dp"
-                    android:backgroundTint="@color/blue"
-                    android:text="Quản lý bài viết"
-                    android:layout_height="40dp"
-
-                    app:cornerRadius="0dp" />
 
 
             </LinearLayout>

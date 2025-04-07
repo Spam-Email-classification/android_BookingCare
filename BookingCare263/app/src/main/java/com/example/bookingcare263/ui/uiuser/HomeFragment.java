@@ -178,8 +178,7 @@ public class HomeFragment extends Fragment {
                         @Override
                         public void onSuccess(Bacsi data) {
                             listDoctors.add(data);
-
-                                adapterDoctors.notifyDataSetChanged();
+                            adapterDoctors.notifyDataSetChanged();
 
                     }
                         @Override
@@ -330,6 +329,10 @@ public class HomeFragment extends Fragment {
                 });
 
 
+
+            }
+            @Override
+            public void onItemDeleteClick(Baiviet baiviet) {
 
             }
 

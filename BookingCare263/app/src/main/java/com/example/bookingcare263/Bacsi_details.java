@@ -78,8 +78,10 @@ public class Bacsi_details extends AppCompatActivity {
             imgavtarbsdt.setImageResource(R.drawable.imagechose);
         }
 
-        if(!UserActivity.roleuser.equals("user")){
-            btndatlichdt.setVisibility(View.INVISIBLE);
+        if(UserActivity.roleuser != null && UserActivity.roleuser.equals("user")){
+            btndatlichdt.setVisibility(View.VISIBLE);
+        }  else{
+            btndatlichdt.setVisibility(View.GONE);
         }
 
         btndatlichdt.setOnClickListener(v -> {
