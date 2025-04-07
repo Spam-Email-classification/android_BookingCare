@@ -180,10 +180,13 @@ public class Hosoyte extends AppCompatActivity {
             edtngaysinhhsyt.setText(selectedDate);  // Hiển thị ngày chọn trong EditText
         }, year, month, day);
 
-        // Giới hạn ngày: Không cho chọn nhưngx ngày sau ngày hôm nay
         Calendar minDateCalendar = Calendar.getInstance();
-        minDateCalendar.add(Calendar.DAY_OF_MONTH, 1);
-        datePickerDialog.getDatePicker().setMinDate(minDateCalendar.getTimeInMillis());
+        minDateCalendar.set(Calendar.HOUR_OF_DAY, 0);
+        minDateCalendar.set(Calendar.MINUTE, 0);
+        minDateCalendar.set(Calendar.SECOND, 0);
+        minDateCalendar.set(Calendar.MILLISECOND, 0);
+
+        datePickerDialog.getDatePicker().setMaxDate(minDateCalendar.getTimeInMillis());
 
         datePickerDialog.show();
     }
