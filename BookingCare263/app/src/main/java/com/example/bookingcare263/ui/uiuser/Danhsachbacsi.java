@@ -1,6 +1,5 @@
 package com.example.bookingcare263.ui.uiuser;
 
-import static com.example.bookingcare263.UserActivity.listaccactive;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,7 +16,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -34,7 +32,6 @@ public class Danhsachbacsi extends AppCompatActivity {
     private TextView txtSeeMore;
     private EditText search_bar1;
 
-    DatabaseHelper databaseHelper;
 
     private RecyclerView rcvlistbacsi;
     private adapterlistbacsi adapter;
@@ -58,7 +55,6 @@ public class Danhsachbacsi extends AppCompatActivity {
 
         // lay du lieu tu sqlite
 
-        databaseHelper = new DatabaseHelper(this);
 
         FirebaseHelper.getBacsiByChuyenkhoa(title, new FirebaseCallBack<ArrayList<Bacsi>>() {
             @Override
@@ -116,12 +112,10 @@ public class Danhsachbacsi extends AppCompatActivity {
             public void onSuccess(ArrayList<accout> data) {
                 listacc.clear();
                 listacc.addAll(data);
-
                 if (listacc.isEmpty()) {
                     applyFilter(query);
                     return;
                 }
-
                 listbacsi.clear();  // Clear trước khi bắt đầu load lại các bác sĩ
 
                 for (accout acc : listacc) {
@@ -131,8 +125,6 @@ public class Danhsachbacsi extends AppCompatActivity {
 
                                 listbacsi.add(bacsi);  // Thêm bác sĩ vào danh sách
 
-
-
                             if (listbacsi.size() == listacc.size()) { // Đảm bảo đã lấy hết bác sĩ
                                 Log.d("filterList", "Đã lấy hết bác sĩ: " + listbacsi.size());
                                 applyFilter(query); // Gọi hàm lọc sau khi tải xong toàn bộ bác sĩ
@@ -141,7 +133,6 @@ public class Danhsachbacsi extends AppCompatActivity {
 
                         @Override
                         public void onFailed(String message) {
-
                             if (listbacsi.size() == listacc.size()) {
                                 applyFilter(query); // Gọi applyFilter dù có thất bại
                             }
@@ -149,7 +140,6 @@ public class Danhsachbacsi extends AppCompatActivity {
                     });
                 }
             }
-
             @Override
             public void onFailed(String message) {
                 Log.e("filterList", "Lỗi khi lấy danh sách acc: " + message);

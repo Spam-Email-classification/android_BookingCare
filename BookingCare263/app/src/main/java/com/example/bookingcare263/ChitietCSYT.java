@@ -31,7 +31,7 @@ public class ChitietCSYT extends AppCompatActivity {
     TextView txtHospitalName, txtAddress, tvPhone, txtemail, txtwebsite, txtsogiayphephanhnghe, tvinfo;
     Cosoyte csyt;
     Button btnviewonmap;
-    DatabaseHelper helper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -122,7 +122,6 @@ public class ChitietCSYT extends AppCompatActivity {
         txtsogiayphephanhnghe = findViewById(R.id.txtsogiayphephanhnghe);
         tvinfo = findViewById(R.id.tvInfo);
         btnviewonmap = findViewById(R.id.btnViewOnMap);
-        helper = new DatabaseHelper(this);
 
         setSupportActionBar(tbchitietcsyt);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -27,7 +26,6 @@ public class AddCSYT extends AppCompatActivity {
     Button btnThem4csyt;
 
     private Uri imageUri;
-    DatabaseHelper helper;
 
 
     @Override
@@ -156,7 +154,6 @@ public class AddCSYT extends AppCompatActivity {
         edtemailadd4csyt = findViewById(R.id.edtemailadd4csyt);
 
         btnThem4csyt = findViewById(R.id.btnThem4csyt);
-        helper = new DatabaseHelper(this);
         tbaddcsyt.setNavigationOnClickListener(view -> {
             finish();
         });

@@ -12,7 +12,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -27,7 +26,6 @@ public class Taobaiviet extends AppCompatActivity {
     Button btndangtai;
     EditText edtbaibnvt, edttitletbv;
     Uri imageUri;
-    DatabaseHelper helper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -111,8 +109,6 @@ public class Taobaiviet extends AppCompatActivity {
         btndangtai = findViewById(R.id.btndangtai);
         edtbaibnvt = findViewById(R.id.edtbaibnvttbv);
         edttitletbv = findViewById(R.id.txttitletbv);
-        helper = new DatabaseHelper(this);
-
 
     }
 }

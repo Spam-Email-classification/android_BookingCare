@@ -28,7 +28,6 @@ public class listchuyenkhoa extends AppCompatActivity {
     private RecyclerView rcvkhamchuyenkhoa;
     private adapterkhamchuyenkhoa adapter;
     public  ArrayList<chuyenkhoa> listitems;
-    DatabaseHelper helper;
 
 
     @Override
@@ -81,7 +80,6 @@ public class listchuyenkhoa extends AppCompatActivity {
         tbkhamchuyenkhoa = findViewById(R.id.toolbar2);
         rcvkhamchuyenkhoa = findViewById(R.id.rcvkhamchuyenkhoa);
         listitems = new ArrayList<>();
-        helper = new DatabaseHelper(this);
         adapter = new adapterkhamchuyenkhoa(listitems, R.layout.item_chuyenkhoa);
         rcvkhamchuyenkhoa.setLayoutManager(new GridLayoutManager(this, 2));
         rcvkhamchuyenkhoa.setAdapter(adapter);

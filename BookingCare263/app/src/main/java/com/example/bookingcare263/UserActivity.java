@@ -37,8 +37,6 @@ public class UserActivity extends AppCompatActivity {
     public static String phoneuser;
     public static String roleuser;
 
-    public static ArrayList <accout> listaccactive;
-    DatabaseHelper helper;
 
 
     @Override
@@ -105,22 +103,8 @@ public class UserActivity extends AppCompatActivity {
             txtnameheader.setText(name);
             txtsdtheader.setText(phoneuser);
         }
-        listaccactive = new ArrayList<>();
-        helper = new DatabaseHelper(this);
-//        listaccactive = helper.getaccoutbystatusandbyrole("Đang hoạt động", "bacsi");
 
-        FirebaseHelper.getaccoutbyStatusAndRoletinh("Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>() {
-            @Override
-            public void onSuccess(ArrayList<accout> data) {
-                listaccactive.clear();
-                listaccactive.addAll(data);
-            }
 
-            @Override
-            public void onFailed(String message) {
-
-            }
-        });
 
 
 

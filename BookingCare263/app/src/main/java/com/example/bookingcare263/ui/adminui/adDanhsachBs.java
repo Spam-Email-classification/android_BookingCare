@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.ChitietCSYT;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -48,7 +47,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
     adaptercosoyte adaptercsyt;
 
     EditText edtsearch;
-    DatabaseHelper helper;
+
 
     String manager;
 
@@ -171,7 +170,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                 } else if (manager != null && manager.equals("quanlybenhnhan")) {
                     filterList(query, "user");
                 } else if (manager != null && manager.equals("quanlycsyt")) {
-                    filterListcsyt(query);
+//                    filterListcsyt(query);
                 }
 
 
@@ -190,24 +189,34 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
         ArrayList<accout> newlist = new ArrayList();
         listacc.clear();
-        listacc.addAll(helper.getaccoutbyrole(role));
 
-        if (query.isEmpty()) {
-            adapteracc.notifyDataSetChanged();
-              // Hiển thị tất cả nếu không nhập gì
-        } else {
-            for (accout item : listacc) {
-                // Kiểm tra nếu tên bác sĩ hoặc chuyên khoa chứa từ khóa tìm kiếm
-                if (item.getName().toLowerCase().contains(query.toLowerCase()) ||
-                        item.getPhone().toLowerCase().contains(query.toLowerCase())) {
-                    newlist.add(item);
+        FirebaseHelper.getaccoutbyrole(role, new FirebaseCallBack<ArrayList<accout>>() {
+            @Override
+            public void onSuccess(ArrayList<accout> data) {
+                listacc.clear();
+                listacc.addAll(data);
+
+
+                newlist.clear();
+                if(query.isEmpty()){
+                    newlist.addAll(listacc);
+                } else{
+                    for (accout acc : listacc) {
+                        if (acc.getName().toLowerCase().contains(query.toLowerCase()) ||
+                                acc.getPhone().toLowerCase().contains(query.toLowerCase())) {
+                            newlist.add(acc);
+                        }}
                 }
+                listacc.clear();
+                listacc.addAll(newlist);
+                adapteracc.notifyDataSetChanged();
             }
-            listacc.clear();
-            listacc.addAll(newlist);
-            adapteracc.notifyDataSetChanged();
-        }
 
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
 
     }
 
@@ -215,20 +224,33 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         ArrayList<Cosoyte> newlist = new ArrayList<>();
         listcsyte.clear();
 
-        if (query.isEmpty()) {
-            // Khi query trống, tải lại danh sách đầy đủ
-            listcsyte.addAll(helper.getCosoyte());
-        } else {
-            // Nếu query có giá trị, tìm kiếm theo tên hoặc chuyên khoa
-            for (Cosoyte item : helper.getCosoyte()) {
-                if (item.getName().toLowerCase().contains(query.toLowerCase())) {
-                    newlist.add(item);
+
+        FirebaseHelper.getcosoyte(new FirebaseCallBack<ArrayList<Cosoyte>>() {
+            @Override
+            public void onSuccess(ArrayList<Cosoyte> data) {
+                listcsyte.clear();
+                listcsyte.addAll(data);
+
+                if( query.isEmpty()){
+                    newlist.addAll(listcsyte);
                 }
+                else{
+                    for (Cosoyte csyt : listcsyte) {
+                        if (csyt.getName().toLowerCase().contains(query.toLowerCase())) {
+                            newlist.add(csyt);
+                        }}
+                }
+                listcsyte.clear();
+                listcsyte.addAll(newlist);
+                adaptercsyt.notifyDataSetChanged();
+
             }
-            listcsyte.addAll(newlist);
-        }
-        // Cập nhật adapter sau khi thay đổi dữ liệu
-        adaptercsyt.notifyDataSetChanged();
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
     }
 
 
@@ -239,7 +261,6 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         toolbar = findViewById(R.id.tbqlbsad);
         rcvlisbsad = findViewById(R.id.rcvbsad);
         edtsearch = findViewById(R.id.edtsearchad);
-        helper = new DatabaseHelper(this);
 
 
         setSupportActionBar(toolbar);

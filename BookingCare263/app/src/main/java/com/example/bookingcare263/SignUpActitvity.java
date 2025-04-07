@@ -29,7 +29,6 @@ public class SignUpActitvity extends AppCompatActivity {
     Button btnsigup;
     TextView tologin;
     DatabaseReference reference;
-    DatabaseHelper helper;
     Spinner spinrole;
 
     @Override
@@ -46,7 +45,6 @@ public class SignUpActitvity extends AppCompatActivity {
         tologin = findViewById(R.id.tologin);
         spinrole = findViewById(R.id.spinrole);
         String role[] = { "benh nhan", "bacsi"};
-        helper = new DatabaseHelper(this);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
         spinrole.setAdapter(adapter);
         spinrole.setSelection(0);

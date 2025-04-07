@@ -42,8 +42,7 @@ public class lichhenDetail extends AppCompatActivity {
         });
 
         AnhXa();
-        loadDataFromIntent();
-    }
+            }
 
     private void AnhXa() {
         anhBacSi = findViewById(R.id.anhBacSi);
@@ -55,54 +54,54 @@ public class lichhenDetail extends AppCompatActivity {
         giohenkham = findViewById(R.id.gioHenKham);
         trangThai = findViewById(R.id.trangThai);
         nutHuyLichHen = findViewById(R.id.nutHuyLichHen);
-        nutHuyLichHen.setOnClickListener(v -> huyLichHen());
+//        nutHuyLichHen.setOnClickListener(v -> huyLichHen());
     }
 
-    private void loadDataFromIntent() {
-        Intent intent = getIntent();
-        if (intent != null) {
-            lichhen lichHen = (lichhen) intent.getSerializableExtra("lichhen");
-            String imagePath = intent.getStringExtra("anhbacsi");
-            if (imagePath != null) {
+//    private void loadDataFromIntent() {
+//        Intent intent = getIntent();
+//        if (intent != null) {
+//            lichhen lichHen = (lichhen) intent.getSerializableExtra("lichhen");
+//            String imagePath = intent.getStringExtra("anhbacsi");
+//            if (imagePath != null) {
+//
+//                tenBacSi.setText(lichHen.getNamebs());
+//                tenBenhNhan.setText(lichHen.getNamebenhnhan());
+//                sdtBenhNhan.setText(lichHen.getSdtbenhnhan());
+//                diaChiKham.setText(lichHen.getDiachibenhnhan());
+//                ngayhenkham.setText(lichHen.getNgayhenkham());
+//                giohenkham.setText(lichHen.getKhunggiokham());
+//                trangThai.setText(lichHen.getTrangthai());
+//                if (imagePath.startsWith("android.resource://")) {
+//                    Uri uri = Uri.parse(imagePath);
+//                    Glide.with(this).load(uri).into(anhBacSi);
+//                } else {
+//                    anhBacSi.setImageURI(Uri.parse(imagePath));
+//                }
+//            } else {
+//                anhBacSi.setImageResource(R.drawable.plus);
+//            }
+//        }
+//    }
 
-                tenBacSi.setText(lichHen.getNamebs());
-                tenBenhNhan.setText(lichHen.getNamebenhnhan());
-                sdtBenhNhan.setText(lichHen.getSdtbenhnhan());
-                diaChiKham.setText(lichHen.getDiachibenhnhan());
-                ngayhenkham.setText(lichHen.getNgayhenkham());
-                giohenkham.setText(lichHen.getKhunggiokham());
-                trangThai.setText(lichHen.getTrangthai());
-                if (imagePath.startsWith("android.resource://")) {
-                    Uri uri = Uri.parse(imagePath);
-                    Glide.with(this).load(uri).into(anhBacSi);
-                } else {
-                    anhBacSi.setImageURI(Uri.parse(imagePath));
-                }
-            } else {
-                anhBacSi.setImageResource(R.drawable.plus);
-            }
-        }
-    }
-
-    private void huyLichHen() {
-        int lichHenId = getIntent().getIntExtra("id", -1);
-
-        if (lichHenId != -1) {
-            DatabaseHelper helper = new DatabaseHelper(this);
-            helper.updateTrangThaiLichHen(String.valueOf(lichHenId), "Đã hủy");
-
-            // Cập nhật giao diện
-            trangThai.setText("Trạng thái: Đã hủy");
-            trangThai.setTextColor(ContextCompat.getColor(this, R.color.red));
-
-            // Vô hiệu hóa nút
-            nutHuyLichHen.setEnabled(false);
-            nutHuyLichHen.setText("Đã hủy");
-            nutHuyLichHen.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_700));
-
-            Toast.makeText(this, "Đã hủy lịch hẹn với ID: " + lichHenId, Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Không tìm thấy lịch hẹn để hủy", Toast.LENGTH_SHORT).show();
-        }
-    }
+//    private void huyLichHen() {
+//        int lichHenId = getIntent().getIntExtra("id", -1);
+//
+//        if (lichHenId != -1) {
+//            DatabaseHelper helper = new DatabaseHelper(this);
+//            helper.updateTrangThaiLichHen(String.valueOf(lichHenId), "Đã hủy");
+//
+//            // Cập nhật giao diện
+//            trangThai.setText("Trạng thái: Đã hủy");
+//            trangThai.setTextColor(ContextCompat.getColor(this, R.color.red));
+//
+//            // Vô hiệu hóa nút
+//            nutHuyLichHen.setEnabled(false);
+//            nutHuyLichHen.setText("Đã hủy");
+//            nutHuyLichHen.setBackgroundTintList(ContextCompat.getColorStateList(this, R.color.purple_700));
+//
+//            Toast.makeText(this, "Đã hủy lịch hẹn với ID: " + lichHenId, Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(this, "Không tìm thấy lịch hẹn để hủy", Toast.LENGTH_SHORT).show();
+//        }
+//    }
 }

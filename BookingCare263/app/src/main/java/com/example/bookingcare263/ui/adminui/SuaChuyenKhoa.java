@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -28,7 +27,6 @@ public class SuaChuyenKhoa extends AppCompatActivity {
     ImageView imgavatarsuachuyenkhoa;
     EditText edttensuachuyenkhoa, edtthongtinsuachuyenkhoa;
     Button btnSuaChuyenKhoa;
-    DatabaseHelper helper;
     chuyenkhoa ck;
     private Uri imageUri;
 
@@ -130,7 +128,6 @@ public class SuaChuyenKhoa extends AppCompatActivity {
         imgavatarsuachuyenkhoa = findViewById(R.id.imgavatarsuachuyenkhoa);
         edttensuachuyenkhoa = findViewById(R.id.edttensuachuyenkhoa);
         edtthongtinsuachuyenkhoa = findViewById(R.id.edtthongtinsuachuyenkhoa);
-        helper = new DatabaseHelper(this);
         btnSuaChuyenKhoa = findViewById(R.id.btnSuasuacuye);
 
 

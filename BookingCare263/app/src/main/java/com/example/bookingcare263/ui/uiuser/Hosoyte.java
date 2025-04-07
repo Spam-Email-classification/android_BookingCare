@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -33,7 +32,6 @@ public class Hosoyte extends AppCompatActivity {
     TextView edtsdthsyt;
     Button btnluuhsyt;
     RadioGroup rdgioitinh;
-    DatabaseHelper helper;
     Uri imageUri;
     String avatar = "";
 
@@ -46,7 +44,6 @@ public class Hosoyte extends AppCompatActivity {
 
 
 
-        benhnhan bn1 = helper.getbenhnhan(iduser);
 
         // get benhnhan by iduser
         FirebaseHelper.getbenhnhanBySdt(iduser, new FirebaseCallBack<benhnhan>() {
@@ -149,7 +146,6 @@ public class Hosoyte extends AppCompatActivity {
         edtbenhlyne = findViewById(R.id.edtbenhlyne);
         btnluuhsyt = findViewById(R.id.btnluuhsyt);
         rdgioitinh = findViewById(R.id.rdgioitinh);
-        helper = new DatabaseHelper(this);
 
 
         int selectedId = rdgioitinh.getCheckedRadioButtonId();

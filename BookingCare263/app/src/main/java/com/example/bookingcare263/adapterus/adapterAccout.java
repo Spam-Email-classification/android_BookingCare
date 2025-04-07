@@ -11,14 +11,12 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
-import com.google.firebase.database.DatabaseReference;
 
 import java.util.ArrayList;
 
@@ -84,7 +82,6 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imgaccout, imgstatus, imgfixaccout, imgdeleteaccout;
         TextView txttenaccout, txtsdtaccout, txtstatusaccout;
-        DatabaseHelper helper;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             imgaccout = itemView.findViewById(R.id.imgaccout);
@@ -94,8 +91,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
             txttenaccout = itemView.findViewById(R.id.txttenaccout);
             txtsdtaccout = itemView.findViewById(R.id.txtsdtaccout);
             txtstatusaccout = itemView.findViewById(R.id.txtstatusaccout);
-            helper = new DatabaseHelper(itemView.getContext());
-        }
+       }
         public void setdata(accout accout){
 
             // get status by sdt, role

@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -24,7 +23,6 @@ public class ThemChuyenkhoa extends AppCompatActivity {
     ImageView imgavataraddchuyenkhoa;
     EditText edttenaddchuyenkhoa, edtthongtinaddchuyenkhoa;
     Button btnaddchuyenkhoa;
-    DatabaseHelper helper;
     private Uri imageUri;
 
     @Override
@@ -110,7 +108,6 @@ public class ThemChuyenkhoa extends AppCompatActivity {
         imgavataraddchuyenkhoa = findViewById(R.id.imgavataraddchuyenkhoa);
         edttenaddchuyenkhoa = findViewById(R.id.edttenaddchuyenkhoa);
         edtthongtinaddchuyenkhoa = findViewById(R.id.edtthongtinaddchuyenkhoa);
-        helper = new DatabaseHelper(this);
         btnaddchuyenkhoa = findViewById(R.id.btnaddchuyenkhoa);
 
         setSupportActionBar(tbAddchuyenkhoa);

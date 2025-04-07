@@ -9,14 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
-import com.example.bookingcare263.DatabaseHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -32,7 +30,6 @@ public class SuaBS extends AppCompatActivity {
     private Button btnsua4csyt;
     private Spinner spinchuyenkhoacsytsua;
 
-    private DatabaseHelper helper;
 
     Uri imageUri;
 
@@ -156,7 +153,7 @@ public class SuaBS extends AppCompatActivity {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
         spinchuyenkhoacsytsua.setAdapter(adapter1);
 
-        helper = new DatabaseHelper(this);
+
 
 
 
