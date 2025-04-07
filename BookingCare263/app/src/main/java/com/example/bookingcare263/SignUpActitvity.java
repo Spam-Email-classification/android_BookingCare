@@ -96,7 +96,9 @@ public class SignUpActitvity extends AppCompatActivity {
             return;
         }
 
-        accout acc = new accout(name, sdt, pass, as, status);
+        String token = "";
+
+        accout acc = new accout(name, sdt, pass, as, status, token);
 
                 FirebaseHelper.addAccout(acc, new FirebaseCallBack<accout>(){
                     @Override

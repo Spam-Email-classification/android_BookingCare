@@ -26,6 +26,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookingcare263.databinding.ActivityUserBinding;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
@@ -105,6 +106,9 @@ public class UserActivity extends AppCompatActivity {
             txtnameheader.setText(name);
             txtsdtheader.setText(phoneuser);
         }
+        if(iduser!= null){
+            getFMTToken();
+        }
 
     }
 
@@ -113,7 +117,8 @@ public class UserActivity extends AppCompatActivity {
             if(task.isSuccessful()){
                 String token = task.getResult();
                 // cap nhap token len realtime
-                DatabaseReference ref =
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+                ref.child(iduser).child("token").setValue(token);
 
             }
         });

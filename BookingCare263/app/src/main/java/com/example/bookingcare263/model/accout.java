@@ -30,12 +30,13 @@ public class accout {
         this.id = id;
     }
 
-    public accout(String name, String phone, String pass, String as, String status) {
+    public accout(String name, String phone, String pass, String as, String status, String token) {
         this.name = name;
         this.phone = phone;
         this.pass = pass;
         this.as = as;
         this.status = status;
+        this.token = token;
     }
 
     public accout() {
