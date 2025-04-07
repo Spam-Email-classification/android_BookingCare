@@ -174,12 +174,11 @@ public class HomeFragment extends Fragment {
                 // get listbac bysdt
                 listDoctors.clear();
                 for (accout accout : listaccout) {
-                    FirebaseHelper.getttBacsiBySdt(accout.getPhone(), new FirebaseCallBack<Bacsi>(){
+                    FirebaseHelper.getBacsiBySdt(accout.getPhone(), new FirebaseCallBack<Bacsi>(){
                         @Override
                         public void onSuccess(Bacsi data) {
                             listDoctors.add(data);
 
-                            if(listDoctors.size() == listaccout.size())
                                 adapterDoctors.notifyDataSetChanged();
 
                     }
