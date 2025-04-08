@@ -1,0 +1,30 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="8dp">
+
+    <!-- Ảnh bác sĩ hình tròn -->
+    <ImageView
+        android:id="@+id/imgiconbs"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="4dp"
+        android:clipToOutline="true"
+        android:cropToPadding="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo" />
+
+    <!-- Tên bác sĩ -->
+    <TextView
+        android:id="@+id/txtitemsbs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bác sĩ ABC"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:maxWidth="100dp"
+        android:textStyle="bold" />
+</LinearLayout>
