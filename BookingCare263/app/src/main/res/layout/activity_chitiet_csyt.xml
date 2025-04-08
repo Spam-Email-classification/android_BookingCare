@@ -1,0 +1,168 @@
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5"
+    android:padding="16dp"
+    android:id="@+id/main"
+    android:weightSum="1"
+    tools:context=".ChitietCSYT">
+
+    <!-- Nội dung cuộn -->
+    <!-- Ảnh bệnh viện -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tbchitietbenhvien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="3dp"
+        app:titleTextColor="@color/white"
+        android:background="#7BC9DE"
+        app:title="Thông tin bệnh viện"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme" />
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:layout_marginBottom="12dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="6dp">
+
+                <ImageView
+                    android:id="@+id/imgHospital"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/benhvien1" />
+            </androidx.cardview.widget.CardView>
+
+            <!-- Tên bệnh viện -->
+            <TextView
+                android:id="@+id/tvHospitalName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="Bệnh viện Trung Ương"
+                android:textColor="#1E3A8A"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <!-- Địa chỉ bệnh viện -->
+            <TextView
+                android:id="@+id/tvAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:text="📍 Địa chỉ : 123 Đường ABC, Hà Nội"
+                android:textColor="#555"
+                android:textSize="16sp" />
+
+            <!-- Số điện thoại bệnh viện -->
+            <TextView
+                android:id="@+id/tvPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+
+                android:text="📞 Thông tin liên hệ : 0987 654 321"
+                android:textColor="#007AFF"
+                android:textSize="16sp" />
+
+            <!-- Thẻ chứa thông tin bệnh viện -->
+            <TextView
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email" />
+
+            <TextView
+                android:id="@+id/txtwebsite"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Website:" />
+
+            <TextView
+                android:id="@+id/txtsogiayphephanhnghe"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mã số giấy phép hành nghề: " />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#FFFFFF"
+                android:padding="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:text="🏥 Thông tin bệnh viện"
+                        android:textColor="#007AFF"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Bệnh viện Trung Ương cung cấp dịch vụ y tế chất lượng cao với đội ngũ bác sĩ hàng đầu..."
+                        android:textColor="#333"
+                        android:textSize="16sp" />
+
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/btnViewOnMap"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="#007AFF"
+                android:text="Xem trên Google Maps"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:padding="10dp"
+                android:textAllCaps="false"
+                android:onClick="openMap"/>
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+</LinearLayout>
