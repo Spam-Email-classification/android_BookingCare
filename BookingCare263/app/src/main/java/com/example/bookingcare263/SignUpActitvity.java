@@ -2,6 +2,7 @@ package com.example.bookingcare263;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -10,7 +11,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,9 +24,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
+import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.concurrent.TimeUnit;
 
 
 public class SignUpActitvity extends AppCompatActivity {
@@ -30,6 +40,9 @@ public class SignUpActitvity extends AppCompatActivity {
     TextView tologin;
     DatabaseReference reference;
     Spinner spinrole;
+    PhoneAuthProvider.ForceResendingToken resendingToken;
+    FirebaseAuth mAuth;
+    String storedVerificationId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,15 +61,95 @@ public class SignUpActitvity extends AppCompatActivity {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
         spinrole.setAdapter(adapter);
         spinrole.setSelection(0);
+        mAuth = FirebaseAuth.getInstance();
 
 
 
-        btnsigup.setOnClickListener(e->signuprealtime());
+        btnsigup.setOnClickListener(e->{
+            String sdt = edtsdtsignup.getText().toString().trim();
+            if(sdt.length() !=10 || !sdt.startsWith("0")){
+                edtsdtsignup.setError("Vui lòng nhập số điện thoại hợp lệ");
+                edtsdtsignup.requestFocus();
+            }
+            sendOtp(sdt);
+        });
 
         tologin.setOnClickListener(e->startActivity(new Intent(SignUpActitvity.this, LoginActivity.class)));
 
-
     }
+
+    private void sendOtp(String sdt) {
+        PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                "+84" + sdt.substring(1),
+                60,
+                TimeUnit.SECONDS,
+                this,
+                new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+                    @Override
+                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+                        // Tự động xác minh (nếu được) không cần nhập OTP
+                        signInWithPhoneCredential(phoneAuthCredential);
+                    }
+
+                    @Override
+                    public void onVerificationFailed(@NonNull FirebaseException e) {
+                        Toast.makeText(SignUpActitvity.this, "Xác minh thất bại: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Log.e("OTP", "Verification failed", e);
+                    }
+
+                    @Override
+                    public void onCodeSent(@NonNull String verificationId,
+                                           @NonNull PhoneAuthProvider.ForceResendingToken token) {
+                        super.onCodeSent(verificationId, token);
+                        storedVerificationId = verificationId;
+                        resendingToken = token;
+                        showOtpDialog(verificationId); // ✅ Gọi dialog nhập OTP ở đây
+                    }
+                }
+        );
+    }
+
+    private void signInWithPhoneCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential).addOnCompleteListener(this, task -> {
+                    if (task.isSuccessful()) {
+                        // Đúng mã OTP → thực hiện lưu dữ liệu người dùng
+                        signuprealtime(); // hoặc hàm bạn dùng để lưu tài khoản
+                    } else {
+                        Toast.makeText(this,
+
+
+
+                                "Xác minh OTP thất bại", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
+
+
+    private void showOtpDialog(String verificationId){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Nhập mã OTP");
+
+        final EditText input = new EditText(this);
+        input.setInputType(InputType.TYPE_CLASS_NUMBER);
+        input.setHint("Mã OTP gồm 6 chữ số");
+        input.setPadding(50, 40, 50, 10);
+        builder.setView(input);
+
+        builder.setPositiveButton("Xác minh", (dialog, which) -> {
+            String otp = input.getText().toString().trim();
+            if (!otp.isEmpty()) {
+                PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, otp);
+                signInWithPhoneCredential(credential);
+            } else {
+                Toast.makeText(this, "Vui lòng nhập mã OTP", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Hủy", (dialog, which) -> dialog.dismiss());
+        builder.show();
+    }
+
+
 
     private void signuprealtime() {
         reference = FirebaseDatabase.getInstance().getReference("Users");
@@ -99,7 +192,6 @@ public class SignUpActitvity extends AppCompatActivity {
         String token = "";
 
         accout acc = new accout(name, sdt, pass, as, status, token);
-
                 FirebaseHelper.addAccout(acc, new FirebaseCallBack<accout>(){
                     @Override
                     public void onSuccess(accout data) {
@@ -138,7 +230,6 @@ public class SignUpActitvity extends AppCompatActivity {
                         Toast.makeText(SignUpActitvity.this, "Đăng ký thất bại", Toast.LENGTH_SHORT).show();
                     }
                 });
-
 
 
 

@@ -1,5 +1,7 @@
 package com.example.bookingcare263.ui.adminui;
 
+import static com.example.bookingcare263.ui.Xuly.uploadImageToFirebaseStorage;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -131,7 +133,13 @@ public class AddCSYT extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
-            imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            imageUri = Xuly.copyImageToInternalStorage(this, imageUri);
+            String uniqueImageName = "image_" + System.currentTimeMillis() + ".jpg";
+
+            uploadImageToFirebaseStorage(this, imageUri, uniqueImageName, downloadUri -> {
+            });
+
+            // Lấy URI của ảnh
             Glide.with(imgavatar4csyt.getContext())
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
                     .circleCrop()

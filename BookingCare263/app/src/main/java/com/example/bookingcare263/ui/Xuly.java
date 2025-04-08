@@ -4,6 +4,10 @@ import android.content.Context;
 import android.net.Uri;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -47,6 +51,19 @@ public class Xuly {
             return null;
         }
     }
+
+    public static void uploadImageToFirebaseStorage(Context context, Uri imageUri, String imageName, OnSuccessListener<Uri> onSuccessListener) {
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference("images/" + imageName);
+
+        storageRef.putFile(imageUri)
+                .addOnSuccessListener(taskSnapshot -> {
+                    storageRef.getDownloadUrl().addOnSuccessListener(onSuccessListener);
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(context, "Lỗi khi tải ảnh lên Firebase", Toast.LENGTH_SHORT).show();
+                });
+    }
+
 
     public  static String getRelativeTime(String timestampStr) {
         long timestamp = Long.parseLong(timestampStr);

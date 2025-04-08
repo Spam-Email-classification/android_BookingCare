@@ -94,6 +94,9 @@ public class ThemChuyenkhoa extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
             imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            String uniquename = "image_" + System.currentTimeMillis() + ".jpg";
+            Xuly.uploadImageToFirebaseStorage(this, imageUri, uniquename, download->{});
+
             Glide.with(this)
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
                     .circleCrop()

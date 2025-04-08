@@ -36,6 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     private TextView txtquenmk;
 
     DatabaseReference reference;
+
     FirebaseAuth auth;
 
     @Override

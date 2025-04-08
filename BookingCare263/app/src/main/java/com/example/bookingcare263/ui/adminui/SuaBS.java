@@ -127,6 +127,11 @@ public class SuaBS extends AppCompatActivity {
         if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
             imageUri = data.getData();
             imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
+            String uniqueImageName = "image_" + System.currentTimeMillis() + ".jpg";
+            Xuly.uploadImageToFirebaseStorage(this, imageUri, uniqueImageName, downloadUri -> {
+
+            });
+
             Glide.with(imgavatr4csytsua.getContext())
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri
                     .circleCrop()
