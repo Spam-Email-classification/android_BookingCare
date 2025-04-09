@@ -20,6 +20,7 @@ import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
+import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.ui.adminui.SuaBS;
 import com.example.bookingcare263.UserActivity;
 
@@ -28,7 +29,7 @@ import java.util.ArrayList;
 public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.setItemClick {
 
     private Button btnqllichhen, btnsuattbs, btnqlbaiviet;
-    private TextView txttaobaiviet, txttenbs;
+    private TextView txttaobaiviet, txttenbs, txtsdtbsbv, txttrangthaibs;
     RecyclerView rcvbaiviet;
     private ImageView imgavtarbsdt2, imgavatacon;
     adapterBaiviet adapterbv;
@@ -79,6 +80,18 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
             }
         });
 
+        FirebaseHelper.getaccbyid(UserActivity.iduser, new FirebaseCallBack<accout>() {
+            @Override
+            public void onSuccess(accout data) {
+                txtsdtbsbv.setText(data.getPhone());
+                txttrangthaibs.setText("Tài khoản: " + data.getStatus());
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
 
 
 
@@ -154,13 +167,8 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
     }
 
 
-
-
-
     private void anhxa() {
-        btnqllichhen = findViewById(R.id.btnqllhenn);
         btnsuattbs = findViewById(R.id.btnsuattbs);
-
         txttaobaiviet = findViewById(R.id.txttaobaiviet);
         rcvbaiviet = findViewById(R.id.rcvbaiviet);
         txttenbs = findViewById(R.id.txtnamebstt);
@@ -168,6 +176,10 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         listbaiviet = new ArrayList<>();
         imgavatacon = findViewById(R.id.imgavatacon);
         adapterbv = new adapterBaiviet(listbaiviet);
+        txttrangthaibs = findViewById(R.id.txttrangthaitk);
+        txtsdtbsbv = findViewById(R.id.txtsdtbsbv);
+        btnqlbaiviet = findViewById(R.id.btnqlbaiviet);
+
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
         rcvbaiviet.setAdapter(adapterbv);
         adapterbv.setOnItemClickListener(this);

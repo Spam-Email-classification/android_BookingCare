@@ -27,7 +27,9 @@
             android:layout_height="wrap_content"
             android:padding="16dp"
             android:text="@string/terms_content"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:layout_marginBottom="15dp"
+            />
     </ScrollView>
 
 </LinearLayout>

@@ -8,16 +8,19 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookingcare263.DieuKhoan;
+import com.example.bookingcare263.FirebaseCallBack;
+import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.LienHe;
 import com.example.bookingcare263.LoginActivity;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.UserActivity;
+import com.example.bookingcare263.model.accout;
 
 public class ThongtinUser extends AppCompatActivity {
 
     private Button btndangxuat;
     private TextView txtchiase, txthosoyte;
-
+    private TextView txthotenuser, txtsdtuser;
     private TextView txtqlydiachi;
     private TextView txtdonhang;
     private TextView txtdieukhoan;
@@ -54,6 +57,21 @@ public class ThongtinUser extends AppCompatActivity {
             startActivity(intent);
         });
 
+        // get user by iduser
+
+        FirebaseHelper.getaccbyid(UserActivity.iduser, new FirebaseCallBack<accout>() {
+            @Override
+            public void onSuccess(accout data) {
+                txthotenuser.setText(data.getName());
+                txtsdtuser.setText(data.getPhone());
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+
     }
 
 
@@ -78,5 +96,7 @@ public class ThongtinUser extends AppCompatActivity {
         txtdonhang = findViewById(R.id.txtdonhang);
         txtdieukhoan = findViewById(R.id.txtdieukhoan);
         lienhehotro = findViewById(R.id.lienhehotro);
+        txthosoyte = findViewById(R.id.tv_hotenuser);
+        txtsdtuser = findViewById(R.id.txt_sdtuser);
     }
 }

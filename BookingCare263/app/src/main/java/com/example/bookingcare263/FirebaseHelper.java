@@ -421,6 +421,51 @@ public class FirebaseHelper {
     }
 
 
+    // get bacsi by chuyen khoa va sdt
+    public static void getBacsiByChuyenkhoaAndSdt(String chuyenkhoa, String sdt, FirebaseCallBack<Bacsi> callBack) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
+        ref.orderByChild("sdt").equalTo(sdt)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Bacsi bs = new Bacsi();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            bs = data.getValue(Bacsi.class);
+                        }
+                        if(bs.getChuyenkhoa().equals(chuyenkhoa))
+                            callBack.onSuccess(bs);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+    }
+
+
+    // get all bacsi 5 bac si moi lan keo
+    public static void getAllBacsi(FirebaseCallBack<ArrayList<Bacsi>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                ArrayList<Bacsi> listbs = new ArrayList<>();
+                for (DataSnapshot data : snapshot.getChildren()) {
+                    Bacsi bs = data.getValue(Bacsi.class);
+                    listbs.add(bs);
+                }
+                callBack.onSuccess(listbs);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
 
     // add baiviet
      public static void addbaiviet(Baiviet bv, FirebaseCallBack callBack){
@@ -483,6 +528,11 @@ public class FirebaseHelper {
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
         ref.child(id).removeValue();
     }
+
+
+
+
+
 
 
 

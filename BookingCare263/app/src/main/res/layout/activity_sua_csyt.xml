@@ -128,6 +128,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Lưu"
+                android:layout_marginBottom="15dp"
+
                 android:backgroundTint="#FF9800"/>
 
         </LinearLayout>

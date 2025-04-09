@@ -61,7 +61,7 @@ public class Bacsi_details extends AppCompatActivity {
         txttenbsdt.setText(bacsi.getName());
         txtthogtindt.setText(bacsi.getThongtin());
         txtdiachidt.setText(bacsi.getDiachi());
-        txtemaildetail.setText("Email" + bacsi.getEmail());
+        txtemaildetail.setText("Email: " + bacsi.getEmail());
         txtsdtdetail.setText("Liên hệ: " + bacsi.getSdt());
 
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());

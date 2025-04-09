@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +38,7 @@ public class Danhsachbacsi extends AppCompatActivity {
     private adapterlistbacsi adapter;
     private ArrayList<Bacsi> listbacsi;
     private ArrayList<Bacsi> filteredList;
+    private ArrayList<accout> listaccout;
 
 
     @Override
@@ -55,22 +57,83 @@ public class Danhsachbacsi extends AppCompatActivity {
 
         // lay du lieu tu sqlite
 
+        if(title.equals("ĐẶT LỊCH KHÁM")){
 
-        FirebaseHelper.getBacsiByChuyenkhoa(title, new FirebaseCallBack<ArrayList<Bacsi>>() {
-            @Override
-            public void onSuccess(ArrayList<Bacsi> data) {
-                listbacsi.clear();
-                listbacsi.addAll(data);
-                adapter.notifyDataSetChanged();
-            }
+            FirebaseHelper.getaccoutbyStatusAndRole( "Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>()
+            {
+                @Override
+                public void onSuccess(ArrayList<accout> data) {
+                    listaccout.clear();
+                    listaccout.addAll(data);
 
-            @Override
-            public void onFailed(String message) {
+                    // get listbac bysdt
+                    listbacsi.clear();
+                    for (accout accout : listaccout) {
+                        FirebaseHelper.getBacsiBySdt(accout.getPhone(), new FirebaseCallBack<Bacsi>(){
+                            @Override
+                            public void onSuccess(Bacsi data) {
+                                listbacsi.add(data);
 
-            }
-        });
+                                if(listbacsi.size() == listaccout.size()){
+                                    adapter.updateList(new ArrayList<>(listbacsi));
+                                }
+
+                            }
+                            @Override
+                            public void onFailed(String message) {
+                                Toast.makeText(Danhsachbacsi.this, message, Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
+
+                }
+                @Override
+                public void onFailed(String message) {
+                    Toast.makeText(Danhsachbacsi.this, message, Toast.LENGTH_SHORT).show();
+                }
+            });
 
 
+
+
+        }
+        else {
+
+
+            FirebaseHelper.getaccoutbyStatusAndRole("Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>() {
+                @Override
+                public void onSuccess(ArrayList<accout> data) {
+                    listaccout.clear();
+                    listaccout.addAll(data);
+
+                    // get listbac bysdt
+                    listbacsi.clear();
+                    for (accout accout : listaccout) {
+                        FirebaseHelper.getBacsiByChuyenkhoaAndSdt(title, accout.getPhone(), new FirebaseCallBack<Bacsi>() {
+                            @Override
+                            public void onSuccess(Bacsi data) {
+                                listbacsi.add(data);
+
+                                    adapter.notifyDataSetChanged();
+                            }
+
+                            @Override
+                            public void onFailed(String message) {
+
+                            }
+                        });
+                    }
+
+                }
+
+                @Override
+                public void onFailed(String message) {
+                    Toast.makeText(Danhsachbacsi.this, message, Toast.LENGTH_SHORT).show();
+                }
+            });
+
+
+        }
         adapter.setOnClickListener(bacsi->{
             Bacsi x = bacsi;
             Intent intent1 = new Intent(Danhsachbacsi.this, Bacsi_details.class);
@@ -185,6 +248,8 @@ public class Danhsachbacsi extends AppCompatActivity {
             }
         });
         tbbacsi = findViewById(R.id.tbbacsilish);
+        listaccout = new ArrayList<>();
+
 
         // tool bar
         setSupportActionBar(tbbacsi);

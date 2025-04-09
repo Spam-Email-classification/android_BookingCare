@@ -159,7 +159,6 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
             });
             String texttime = Xuly.getRelativeTime(baiviet.getTimestamp());
             txttimetbvshow.setText(texttime);
-//            txtxemthembv.setText(baiviet.getTimestamp());
 
             String anhbaiviet = baiviet.getImg();
             if (anhbaiviet != null && !anhbaiviet.isEmpty()) {

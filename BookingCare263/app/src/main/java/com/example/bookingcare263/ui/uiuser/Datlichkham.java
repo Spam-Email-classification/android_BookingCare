@@ -22,6 +22,7 @@ import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.accout;
+import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.model.lichhen;
 import com.example.bookingcare263.UserActivity;
 
@@ -66,18 +67,28 @@ public class Datlichkham extends AppCompatActivity {
         RadioButton selectedRadioButton = findViewById(selectedid);
         String selectedText = selectedRadioButton.getText().toString();
 
-
-
         Glide.with(this)
                 .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
                 .circleCrop()
                 .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
                 .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
                 .into(imgavtars);
-
-
-
         edtngay.setOnClickListener(e->showDatePickerDialog());
+
+        FirebaseHelper.getbenhnhanBySdt(UserActivity.iduser, new FirebaseCallBack<benhnhan>() {
+            @Override
+            public void onSuccess(benhnhan data) {
+                edthoten.setText(data.getTen());
+                edtsdt.setText(data.getSodienthoai());
+                edtdiachi.setText(data.getDiachi());
+            }
+
+            @Override
+            public void onFailed(String message) {
+
+            }
+        });
+
 
 
         btndatlichkham.setOnClickListener(e->{

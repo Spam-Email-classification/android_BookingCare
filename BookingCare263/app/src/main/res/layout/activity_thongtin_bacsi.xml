@@ -65,7 +65,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/btnqllhenn"
+                    android:id="@+id/btnqlbaiviet"
                     android:layout_width="0dp"
                     android:layout_height="40dp"
                     android:layout_marginRight="4dp"
@@ -143,6 +143,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rcvbaiviet"
                 android:layout_width="match_parent"
+                android:layout_marginBottom="15dp"
+
                 android:layout_height="match_parent" />
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
