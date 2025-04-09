@@ -1,5 +1,7 @@
 package com.example.bookingcare263.ui.bacsiui;
 
+import static com.example.bookingcare263.ui.Xuly.uploadImageToFirebaseStorage;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -19,6 +21,8 @@ import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.ui.Xuly;
 import com.example.bookingcare263.UserActivity;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class Taobaiviet extends AppCompatActivity {
     ImageView imganhbaiviet, imgavatartbv;
@@ -95,7 +99,13 @@ public class Taobaiviet extends AppCompatActivity {
             imageUri = data.getData();
             imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
             String uniquename = "image_" + System.currentTimeMillis() + ".jpg";
-            Xuly.uploadImageToFirebaseStorage(this, imageUri, uniquename, download->{});
+            uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
+
+                // upload link anh
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
+                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+
+            });
 
             Glide.with(this)
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri

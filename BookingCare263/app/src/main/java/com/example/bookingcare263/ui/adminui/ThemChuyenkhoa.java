@@ -1,5 +1,7 @@
 package com.example.bookingcare263.ui.adminui;
 
+import static com.example.bookingcare263.ui.Xuly.uploadImageToFirebaseStorage;
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,8 +17,11 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
+import com.example.bookingcare263.UserActivity;
 import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.ui.Xuly;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class ThemChuyenkhoa extends AppCompatActivity {
     Toolbar tbAddchuyenkhoa;
@@ -95,7 +100,13 @@ public class ThemChuyenkhoa extends AppCompatActivity {
             imageUri = data.getData();
             imageUri = Xuly.copyImageToInternalStorage(this, imageUri);// Lấy URI của ảnh
             String uniquename = "image_" + System.currentTimeMillis() + ".jpg";
-            Xuly.uploadImageToFirebaseStorage(this, imageUri, uniquename, download->{});
+            uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
+
+                // upload link anh
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoa");
+                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+
+            });
 
             Glide.with(this)
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri

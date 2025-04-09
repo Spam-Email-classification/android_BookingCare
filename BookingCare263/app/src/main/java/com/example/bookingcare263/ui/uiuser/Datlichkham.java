@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.FCMHelper;
-import com.example.bookingcare263.FCMNotificationSender;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;

@@ -139,8 +139,6 @@ public class SuaBS extends AppCompatActivity {
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
                 ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
 
-
-
             });
             Glide.with(imgavatr4csytsua.getContext())
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri

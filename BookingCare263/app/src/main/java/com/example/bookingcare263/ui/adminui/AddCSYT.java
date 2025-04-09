@@ -17,8 +17,11 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
+import com.example.bookingcare263.UserActivity;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.Xuly;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class AddCSYT extends AppCompatActivity {
 
@@ -137,8 +140,12 @@ public class AddCSYT extends AppCompatActivity {
             String uniqueImageName = "image_" + System.currentTimeMillis() + ".jpg";
 
             uploadImageToFirebaseStorage(this, imageUri, uniqueImageName, downloadUri -> {
-            });
 
+                // upload link anh
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
+                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+
+            });
             // Lấy URI của ảnh
             Glide.with(imgavatar4csyt.getContext())
                     .load(Uri.parse(imageUri.toString())) // Chuyển String thành Uri

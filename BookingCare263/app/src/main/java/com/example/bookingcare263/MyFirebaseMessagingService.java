@@ -26,7 +26,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     @Override
     public void onNewToken(@NonNull String token) {
         super.onNewToken(token);
-        L,og.d("FCM", "New token: " + token);
+        Log.d("FCM", "New token: " + token);
         if (UserActivity.iduser != null) {
             FirebaseDatabase.getInstance()
                     .getReference("Users")
