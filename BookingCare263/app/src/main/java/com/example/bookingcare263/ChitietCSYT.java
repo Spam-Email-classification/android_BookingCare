@@ -5,12 +5,14 @@ import static com.example.bookingcare263.ui.adminui.AdminActivity.roleadmin;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
@@ -45,6 +47,19 @@ public class ChitietCSYT extends AppCompatActivity {
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
+        btnviewonmap.setOnClickListener(v -> {
+            String diachi = csyt.getDiachi();
+            Log.d("dia chi", diachi);
+            if(diachi != null){
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(diachi));
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps"); // Mở bằng Google Maps
+                if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                    startActivity(mapIntent);
+                }
+            }
+        });
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -70,6 +85,8 @@ public class ChitietCSYT extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+
 
 
 
