@@ -96,7 +96,8 @@ public class ThongtinUser extends AppCompatActivity {
         txtdonhang = findViewById(R.id.txtdonhang);
         txtdieukhoan = findViewById(R.id.txtdieukhoan);
         lienhehotro = findViewById(R.id.lienhehotro);
-        txthosoyte = findViewById(R.id.tv_hotenuser);
+        txthotenuser = findViewById(R.id.tv_hotenuser);
         txtsdtuser = findViewById(R.id.txt_sdtuser);
+
     }
 }
