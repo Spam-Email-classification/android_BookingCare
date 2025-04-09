@@ -8,7 +8,7 @@
     android:orientation="vertical"
     tools:context=".ui.bacsiui.Taobaiviet">
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/tbhsyt"
+        android:id="@+id/tbtaobaiviet"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#7BC9DE"

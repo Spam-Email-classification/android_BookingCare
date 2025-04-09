@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.FirebaseCallBack;
@@ -25,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Taobaiviet extends AppCompatActivity {
+    Toolbar toolbar;
     ImageView imganhbaiviet, imgavatartbv;
     TextView txtnametbv;
     Button btndangtai;
@@ -116,12 +118,17 @@ public class Taobaiviet extends AppCompatActivity {
 
 
     private void anhxa() {
+        toolbar = findViewById(R.id.tbtaobaiviet);
         imganhbaiviet = findViewById(R.id.imganhbaiviet);
         imgavatartbv = findViewById(R.id.imgavatartbv);
         txtnametbv = findViewById(R.id.txtnametbv);
         btndangtai = findViewById(R.id.btndangtai);
         edtbaibnvt = findViewById(R.id.edtbaibnvttbv);
         edttitletbv = findViewById(R.id.txttitletbv);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
     }
 }

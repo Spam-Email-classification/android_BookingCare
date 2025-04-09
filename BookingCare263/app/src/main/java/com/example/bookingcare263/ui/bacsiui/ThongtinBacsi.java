@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -28,6 +29,8 @@ import java.util.ArrayList;
 
 public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.setItemClick {
 
+
+    Toolbar toolbar;
     private Button btnqllichhen, btnsuattbs, btnqlbaiviet;
     private TextView txttaobaiviet, txttenbs, txtsdtbsbv, txttrangthaibs;
     RecyclerView rcvbaiviet;
@@ -118,13 +121,13 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
 
 
         });
-        btnqllichhen.setOnClickListener(e->{
-//            Intent intent = new Intent(ThongtinBacsi.this,QLLichHen.class);
-//            startActivity(intent);
-            // chuyen sang fragment lichhen
-
-
-        });
+//        btnqllichhen.setOnClickListener(e->{
+////            Intent intent = new Intent(ThongtinBacsi.this,QLLichHen.class);
+////            startActivity(intent);
+//            // chuyen sang fragment lichhen
+//
+//
+//        });
 
         txttaobaiviet.setOnClickListener(e->{
 
@@ -168,6 +171,7 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
 
 
     private void anhxa() {
+        toolbar = findViewById(R.id.tbhsytbs);
         btnsuattbs = findViewById(R.id.btnsuattbs);
         txttaobaiviet = findViewById(R.id.txttaobaiviet);
         rcvbaiviet = findViewById(R.id.rcvbaiviet);
@@ -183,6 +187,11 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
         rcvbaiviet.setAdapter(adapterbv);
         adapterbv.setOnItemClickListener(this);
+
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> finish());
 
     }
 

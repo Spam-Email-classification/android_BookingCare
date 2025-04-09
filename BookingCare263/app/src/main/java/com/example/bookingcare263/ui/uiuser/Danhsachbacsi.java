@@ -39,7 +39,7 @@ public class Danhsachbacsi extends AppCompatActivity {
     private ArrayList<Bacsi> listbacsi;
     private ArrayList<Bacsi> filteredList;
     private ArrayList<accout> listaccout;
-
+    String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class Danhsachbacsi extends AppCompatActivity {
         anhxa();
 
         Intent intent = getIntent();
-        String title = intent.getStringExtra("title");
+         title = intent.getStringExtra("title");
         txttitle.setText(title);
         String thongtin = intent.getStringExtra("thongtin");
         txtDescription.setText(thongtin);
@@ -182,16 +182,13 @@ public class Danhsachbacsi extends AppCompatActivity {
                 listbacsi.clear();  // Clear trước khi bắt đầu load lại các bác sĩ
 
                 for (accout acc : listacc) {
-                    FirebaseHelper.getBacsiBySdt(acc.getPhone(), new FirebaseCallBack<Bacsi>() {
+                    FirebaseHelper.getBacsiByChuyenkhoaAndSdt( title, acc.getPhone(), new FirebaseCallBack<Bacsi>() {
                         @Override
                         public void onSuccess(Bacsi bacsi) {
 
-                                listbacsi.add(bacsi);  // Thêm bác sĩ vào danh sách
+                            listbacsi.add(bacsi);  // Thêm bác sĩ vào danh sách
+                            applyFilter(query); // Gọi hàm lọc sau khi tải xong toàn bộ bác sĩ
 
-                            if (listbacsi.size() == listacc.size()) { // Đảm bảo đã lấy hết bác sĩ
-                                Log.d("filterList", "Đã lấy hết bác sĩ: " + listbacsi.size());
-                                applyFilter(query); // Gọi hàm lọc sau khi tải xong toàn bộ bác sĩ
-                            }
                         }
 
                         @Override

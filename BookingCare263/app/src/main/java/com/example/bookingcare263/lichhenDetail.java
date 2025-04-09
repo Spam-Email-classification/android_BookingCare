@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -22,6 +23,7 @@ import com.example.bookingcare263.model.lichhen;
 import com.example.bookingcare263.ui.uiuser.Datlichkham;
 
 public class lichhenDetail extends AppCompatActivity {
+    Toolbar toolbar;
 
     private ImageView imganhBacSi;
     private TextView txttenBacSi;
@@ -48,13 +50,13 @@ public class lichhenDetail extends AppCompatActivity {
         Toast.makeText(this, "idlich name" + lh.getIdbacsi(), Toast.LENGTH_SHORT).show();
 
         // load thong tin
-        txttenBacSi.setText(lh.getNamebs());
-        txttenBenhNhan.setText(lh.getNamebenhnhan());
-        txtsdtBenhNhan.setText(lh.getSdtbenhnhan());
-        txtdiaChiKham.setText(lh.getDiachibenhnhan());
-        txtngayhenkham.setText(lh.getNgayhenkham());
-        txtgiohenkham.setText(lh.getKhunggiokham());
-        txttrangThai.setText(lh.getTrangthai());
+        txttenBacSi.setText("Bác sĩ: " + lh.getNamebs());
+        txttenBenhNhan.setText("Tên bệnh nhân: " + lh.getNamebenhnhan());
+        txtsdtBenhNhan.setText("Ngày hẹn khám: " + lh.getSdtbenhnhan());
+        txtdiaChiKham.setText("Giờ hẹn khám " + lh.getDiachibenhnhan());
+        txtngayhenkham.setText("Địa điểm: " + lh.getNgayhenkham());
+        txtgiohenkham.setText("Số điện thoại: " + lh.getKhunggiokham());
+        txttrangThai.setText("Trạng thái" + lh.getTrangthai());
 
         if(lh.getAvatarbs()!=null)
             Glide.with(imganhBacSi.getContext())
@@ -102,6 +104,7 @@ public class lichhenDetail extends AppCompatActivity {
     }
 
     private void anhxa() {
+        toolbar = findViewById(R.id.thanhCongCu);
         imganhBacSi = findViewById(R.id.anhBacSi);
         txttenBacSi = findViewById(R.id.tenBacSi);
         txttenBenhNhan = findViewById(R.id.tenBenhNhan);
@@ -112,5 +115,9 @@ public class lichhenDetail extends AppCompatActivity {
         txttrangThai = findViewById(R.id.trangThai);
         btnnutHuyLichHen = findViewById(R.id.nutHuyLichHen);
         btnxacnhan = findViewById(R.id.btnxacnhan);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        toolbar.setNavigationOnClickListener(v -> finish());
     }
 }

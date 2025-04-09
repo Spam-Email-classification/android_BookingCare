@@ -16,7 +16,7 @@
         android:layout_height="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:title="Chi tiết lịch hẹn"
-        android:background="@color/blue"
+        android:background="#7BC9DE"
         android:titleTextColor="@android:color/white" />
 
     <!-- Nội dung cuộn -->

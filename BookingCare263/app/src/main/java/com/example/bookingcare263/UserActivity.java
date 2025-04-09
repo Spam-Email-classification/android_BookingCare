@@ -90,6 +90,8 @@ public class UserActivity extends AppCompatActivity {
                 drawer.closeDrawer(GravityCompat.START);
                 return handled;
             }
+
+
         });
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
@@ -100,6 +102,10 @@ public class UserActivity extends AppCompatActivity {
                         1001);
             }
         }
+
+        Bundle bundle = new Bundle();
+        bundle.putString("roleuser", roleuser);
+
 
 
 

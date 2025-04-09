@@ -125,7 +125,7 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
 
 
 
-            if(UserActivity.iduser == null || !UserActivity.iduser.equals(baiviet.getIduser())){
+            if(UserActivity.iduser == null || !UserActivity.iduser.equals(baiviet.getIduser()) ){
                 imgdeletebv.setVisibility(View.GONE);
             } else {
                 imgdeletebv.setVisibility(View.VISIBLE);
