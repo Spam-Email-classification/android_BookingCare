@@ -1,6 +1,7 @@
 package com.example.bookingcare263.ui.bacsiui;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.widget.Button;
@@ -88,6 +89,10 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
             public void onSuccess(accout data) {
                 txtsdtbsbv.setText(data.getPhone());
                 txttrangthaibs.setText("Tài khoản: " + data.getStatus());
+                if(data.getStatus().equals("Đang hoạt động"))
+                    txttrangthaibs.setTextColor(Color.parseColor("#7BC9DE"));
+                // set color co trang thai
+
             }
 
             @Override

@@ -23,6 +23,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bookingcare263.Bacsi_details;
 import com.example.bookingcare263.ChitietCSYT;
+import com.example.bookingcare263.FCMHelper;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
@@ -346,6 +347,9 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
                     // Cập nhật trạng thái
                     acc.setStatus(newStatus);
+
+                    FCMHelper.sendNotification(adDanhsachBs.this, acc.getToken(), "Trạng thái tài khoản đã ", newStatus);
+
                     adapteracc.notifyDataSetChanged(); // Cập nhật lại RecyclerView
 
 

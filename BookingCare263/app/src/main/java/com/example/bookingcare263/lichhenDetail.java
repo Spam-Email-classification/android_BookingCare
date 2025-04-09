@@ -70,7 +70,19 @@ public class lichhenDetail extends AppCompatActivity {
         btnnutHuyLichHen.setOnClickListener(v -> {
 
           FirebaseHelper.deletelichhen(lh.getId());
+          FirebaseHelper.getaccbyid(lh.getIdbenhnhan(), new FirebaseCallBack<accout>() {
+                @Override
+                public void onSuccess(accout data) {
+                    String token = data.getToken();
+                    FCMHelper.sendNotification( lichhenDetail.this, token,  "bacsi: " + lh.getNamebs(), "đã hủy lichhen");
 
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
             finish();
         });
         if(!UserActivity.roleuser.equals("bacsi") || lh.getTrangthai().equals("Xác nhận")){
@@ -88,7 +100,6 @@ public class lichhenDetail extends AppCompatActivity {
                 public void onSuccess(accout data) {
                     String token = data.getToken();
                     FCMHelper.sendNotification( lichhenDetail.this, token, "Bac sĩ " + lh.getNamebs(), "đã xác nhận");
-
                 }
 
                 @Override

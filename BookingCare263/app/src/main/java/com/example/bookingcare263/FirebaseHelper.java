@@ -51,29 +51,6 @@ public class FirebaseHelper {
 
 
 
-    public static void getAllAccout(FirebaseCallBack<ArrayList<accout>> callBack){
-        // dung ValueEventListenner
-
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        ref.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList <accout> bacsiList = new ArrayList<>();
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    accout acc = data.getValue(accout.class);
-                    bacsiList.add(acc);
-                }
-                    callBack.onSuccess(bacsiList);
-
-                }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                callBack.onFailed(error.getMessage());
-            }
-        });
-
-    }
 
     // get accout by status and role
 
@@ -88,6 +65,7 @@ public class FirebaseHelper {
                             if(acc.getStatus().equals(status) && acc.getAs().equals(role))
                                 listaccout.add(acc);
                         }
+                        Collections.reverse(listaccout);
                         callback.onSuccess(listaccout);
                     }
 
@@ -110,6 +88,7 @@ public class FirebaseHelper {
                             accout acc = data.getValue(accout.class);
                             listaccout.add(acc);
                         }
+                        Collections.reverse(listaccout);
                         callBack.onSuccess(listaccout);
 
                     }
@@ -174,6 +153,7 @@ public class FirebaseHelper {
                     if(acc.getStatus().equals(status) && acc.getAs().equals(role))
                         listaccout.add(acc);
                 }
+                Collections.reverse(listaccout);
                 callback.onSuccess(listaccout);
             }
 
@@ -213,6 +193,7 @@ public class FirebaseHelper {
                             lichhen lh = data.getValue(lichhen.class);
                             listlh.add(lh);
                         }
+                        Collections.reverse(listlh);
                         callBack.onSuccess(listlh);
                     }
 
@@ -236,6 +217,7 @@ public class FirebaseHelper {
                             lichhen lh = data.getValue(lichhen.class);
                             listlh.add(lh);
                         }
+                        Collections.reverse(listlh);
                         callBack.onSuccess(listlh);
                     }
 
@@ -441,31 +423,9 @@ public class FirebaseHelper {
 
                     }
                 });
-
-
     }
 
 
-    // get all bacsi 5 bac si moi lan keo
-    public static void getAllBacsi(FirebaseCallBack<ArrayList<Bacsi>> callBack){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
-        ref.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Bacsi> listbs = new ArrayList<>();
-                for (DataSnapshot data : snapshot.getChildren()) {
-                    Bacsi bs = data.getValue(Bacsi.class);
-                    listbs.add(bs);
-                }
-                callBack.onSuccess(listbs);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
-    }
 
     // add baiviet
      public static void addbaiviet(Baiviet bv, FirebaseCallBack callBack){
@@ -513,6 +473,7 @@ public class FirebaseHelper {
                     Baiviet bv = data.getValue(Baiviet.class);
                     listbv.add(bv);
                 }
+                Collections.reverse(listbv);
                 callBack.onSuccess(listbv);
             }
 

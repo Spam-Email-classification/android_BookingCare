@@ -107,7 +107,7 @@ public class HomeFragment extends Fragment {
                     break;
 
                 case "KHÁM TỔNG QUÁT":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
+                    intent = new Intent(getActivity(), KhamTongQuaActivity.class);
                     intent.putExtra("title", itemName);
                     intent.putExtra("thongtin", x.getThongtin());
                     startActivity(intent);
@@ -142,7 +142,7 @@ public class HomeFragment extends Fragment {
 
         listitems = new ArrayList<>();
         listitems.add(new Item("Khám chuyên khoa", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
-        listitems.add(new Item("KHÁM TỔNG QUAT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
+        listitems.add(new Item("KHÁM TỔNG QUÁT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
 
         listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
         listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
