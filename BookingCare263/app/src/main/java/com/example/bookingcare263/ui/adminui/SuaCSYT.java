@@ -45,6 +45,13 @@ public class SuaCSYT extends AppCompatActivity {
 
         edttencsytsua.setText(csyt.getName());
         edtsdtcsytsua.setText(csyt.getSdt());
+
+     
+            // khong cho sua edttencsysu
+            edttencsytsua.setEnabled(false);
+            edtsdtcsytsua.setEnabled(false);
+
+
         edtemailaddcsytsua.setText(csyt.getEmail());
         edtdiachicsytsua.setText(csyt.getDiachi());
         edtchuyenkhoacsytsua.setText(csyt.getChuyenkhoa());
