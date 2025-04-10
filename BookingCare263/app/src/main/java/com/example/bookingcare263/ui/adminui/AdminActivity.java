@@ -100,7 +100,6 @@ public class AdminActivity extends AppCompatActivity {
         cvqlbenhnhan = findViewById(R.id.cvqlbenhnhan);
         cvqlcsyt = findViewById(R.id.cvqlcsyt);
         cvqlchuyenkhoa = findViewById(R.id.cvqlchuyenkhoa);
-        cvqldv = findViewById(R.id.cvqldv);
 
     }
 }
