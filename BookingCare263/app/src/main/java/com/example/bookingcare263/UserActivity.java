@@ -43,7 +43,7 @@ public class UserActivity extends AppCompatActivity {
 
     public static  String iduser ;
     public static String phoneuser;
-    public static String roleuser;
+    public static String roleuser = null;
     private static final int REQUEST_CODE_POST_NOTIFICATIONS = 1;
 
 
@@ -103,8 +103,6 @@ public class UserActivity extends AppCompatActivity {
             }
         }
 
-        Bundle bundle = new Bundle();
-        bundle.putString("roleuser", roleuser);
 
 
 
