@@ -16,6 +16,7 @@ import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.ui.adminui.SuaCSYT;
 import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
+import com.example.bookingcare263.ui.uicsyt.ThongtinCSYT;
 import com.example.bookingcare263.ui.uiuser.ThongtinUser;
 import com.google.android.material.navigation.NavigationView;
 
@@ -196,7 +197,7 @@ public class UserActivity extends AppCompatActivity {
                 FirebaseHelper.getcsytbyid(UserActivity.iduser, new FirebaseCallBack<Cosoyte>() {
                     @Override
                     public void onSuccess(Cosoyte data) {
-                        Intent intent = new Intent(UserActivity.this, ChitietCSYT.class);
+                        Intent intent = new Intent(UserActivity.this, ThongtinCSYT.class);
                         intent.putExtra("cosoyte", data);
                         startActivity(intent);
                     }

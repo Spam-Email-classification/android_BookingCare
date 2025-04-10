@@ -5,7 +5,6 @@ import static com.example.bookingcare263.ui.adminui.AdminActivity.roleadmin;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,10 +17,6 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
-
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.DSchuyenkhoaCSYT;
@@ -63,7 +58,7 @@ public class ChitietCSYT extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       if(roleadmin!= null || "csyt".equals(UserActivity.roleuser))
+       if(roleadmin!= null || csyt.getSdt().equals(UserActivity.iduser))
            getMenuInflater().inflate(R.menu.menusua_xoa, menu);
         return true;
     }

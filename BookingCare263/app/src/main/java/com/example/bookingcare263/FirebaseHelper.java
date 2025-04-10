@@ -717,7 +717,11 @@ public class FirebaseHelper {
 
 
 
-
+// delet chuyenkhoa csyt
+    public static void deletechuyenkhoaCSYT(String id){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoaCSYT");
+        ref.child(id).removeValue();
+    }
 
 
 

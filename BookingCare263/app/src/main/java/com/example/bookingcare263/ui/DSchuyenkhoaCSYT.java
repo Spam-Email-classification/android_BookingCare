@@ -65,7 +65,8 @@ public class DSchuyenkhoaCSYT extends AppCompatActivity implements  adapterckcsy
 
     public boolean onCreateOptionsMenu(Menu menu) {
 
-        getMenuInflater().inflate(R.menu.addmenu, menu);
+        if( csyt.getSdt().equals(UserActivity.iduser))
+            getMenuInflater().inflate(R.menu.addmenu, menu);
         return true;
     }
 
@@ -123,6 +124,8 @@ public class DSchuyenkhoaCSYT extends AppCompatActivity implements  adapterckcsy
 
     @Override
     public void onItemDelete(Chuyenkhoacsyt items) {
+        FirebaseHelper.deletechuyenkhoaCSYT(items.getId());
+
 
     }
 }

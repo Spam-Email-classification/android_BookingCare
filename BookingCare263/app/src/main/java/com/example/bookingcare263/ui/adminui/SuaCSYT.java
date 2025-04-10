@@ -52,7 +52,7 @@ public class SuaCSYT extends AppCompatActivity {
         edtwebsitecsytsua.setText(csyt.getWebsite());
         edtthongtin4csytsua.setText(csyt.getThongtin());
         if(csyt.getImg() != null)
-        Glide.with(imgavatarsuacsyt.getContext())
+            Glide.with(imgavatarsuacsyt.getContext())
                 .load(Uri.parse(csyt.getImg())) // Chuyển String thành Uri
                 .circleCrop()
                 .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load

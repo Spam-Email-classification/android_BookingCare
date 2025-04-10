@@ -91,7 +91,6 @@ public class adapterckcsyt extends RecyclerView.Adapter<adapterckcsyt.ViewHolder
             if (avatarUri != null && !avatarUri.isEmpty()) {
                 Glide.with(avatarkhoacsyt.getContext())
                         .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                        .circleCrop()
                         .into(avatarkhoacsyt);
             } else {
                 avatarkhoacsyt.setImageResource(R.drawable.baseline_account_circle_24);
