@@ -32,6 +32,7 @@ public class Taobaiviet extends AppCompatActivity {
     Button btndangtai;
     EditText edtbaibnvt, edttitletbv;
     Uri imageUri;
+    Baiviet baiviet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +42,7 @@ public class Taobaiviet extends AppCompatActivity {
         Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
         // anh xa
         anhxa();
+        baiviet = new Baiviet();
 
         // set name and avatar bac si
         txtnametbv.setText("Bác sĩ: " + bacsi.getName());
@@ -68,13 +70,14 @@ public class Taobaiviet extends AppCompatActivity {
             String content = edtbaibnvt.getText().toString();
             // timstamp = thoi gian hien tai
             String timestamp = String.valueOf(System.currentTimeMillis());
-            String anh;
-            if(imageUri != null){
-                anh = imageUri.toString();
-            }else{
-                anh = "";
-            }
-            Baiviet baiviet = new Baiviet(UserActivity.iduser, content, timestamp,edttitletbv.getText().toString(), anh);
+            baiviet.setContent(content);
+            baiviet.setTimestamp(timestamp);
+            baiviet.setIduser(UserActivity.iduser);
+            baiviet.setTitile(edttitletbv.getText().toString());
+
+
+
+
             FirebaseHelper.addbaiviet(baiviet, new FirebaseCallBack() {
                 @Override
                 public void onSuccess(Object data) {
@@ -104,8 +107,7 @@ public class Taobaiviet extends AppCompatActivity {
             uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
 
                 // upload link anh
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_baiviet");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+                baiviet.setImg(downloadUri.toString());
 
             });
 
