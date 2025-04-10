@@ -31,6 +31,7 @@ public class AddCSYT extends AppCompatActivity {
     Button btnThem4csyt;
 
     private Uri imageUri;
+    Cosoyte csyt;
 
 
     @Override
@@ -40,6 +41,7 @@ public class AddCSYT extends AppCompatActivity {
         setContentView(R.layout.activity_add_csyt);
 
         anhhxa();
+        csyt = new Cosoyte();
         imgavatar4csyt.setOnClickListener(view -> {
             // chon anh tu dien thoai
             Intent intent1 = new Intent(Intent.ACTION_PICK);
@@ -52,22 +54,19 @@ public class AddCSYT extends AppCompatActivity {
             if (!validate1()){
                 return;
             }
-            String avatar = "";
-            if (imageUri != null) {
-                avatar = imageUri.toString();
-            }
-            Cosoyte csyt = new Cosoyte(
+//            String avatar = "";
+//            if (imageUri != null) {
+//                avatar = imageUri.toString();
+//            }
+            csyt.setName(edttencsyt.getText().toString());
+            csyt.setSdt(edtsdtadd4csyt.getText().toString());
+            csyt.setEmail(edtemailadd4csyt.getText().toString());
+            csyt.setDiachi(edtdiachicsyt.getText().toString());
+            csyt.setChuyenkhoa(edtchuyenkhoacsyt.getText().toString());
+            csyt.setMasogiayphep(edtmasogiayphepcsyt.getText().toString());
+            csyt.setWebsite(edtwebsitecsyt.getText().toString());
+            csyt.setThongtin(edtthongtin4csyt.getText().toString());
 
-                    edttencsyt.getText().toString(),
-                    avatar,
-                    edtdiachicsyt.getText().toString(),
-                    edtchuyenkhoacsyt.getText().toString(),
-                    edtmasogiayphepcsyt.getText().toString(),
-                    edtwebsitecsyt.getText().toString(),
-                    edtthongtin4csyt.getText().toString(),
-                    edtsdtadd4csyt.getText().toString(),
-                    edtemailadd4csyt.getText().toString()
-            );
 
             FirebaseHelper.insertcosoyte(csyt, new FirebaseCallBack() {
                 @Override
@@ -142,8 +141,7 @@ public class AddCSYT extends AppCompatActivity {
             uploadImageToFirebaseStorage(this, imageUri, uniqueImageName, downloadUri -> {
 
                 // upload link anh
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+                csyt.setImg( downloadUri.toString());
 
             });
             // Lấy URI của ảnh

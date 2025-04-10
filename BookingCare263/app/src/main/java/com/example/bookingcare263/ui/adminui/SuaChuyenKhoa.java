@@ -95,7 +95,7 @@ public class SuaChuyenKhoa extends AppCompatActivity {
             uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
                 // upload link anh
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoa");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+                ref.child(ck.getId()).child("img").setValue(downloadUri.toString());
 
             });
 

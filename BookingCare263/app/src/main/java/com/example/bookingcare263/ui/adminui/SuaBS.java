@@ -34,7 +34,7 @@ public class SuaBS extends AppCompatActivity {
     private EditText  edtemailsua4, edtdiachisua, edtmasogiayphepsua, edtgiakhamsua, edtthongtin4sua;
     private Button btnsua4csyt;
     private Spinner spinchuyenkhoacsytsua;
-
+    Bacsi bacsi;
 
     Uri imageUri;
 
@@ -50,7 +50,7 @@ public class SuaBS extends AppCompatActivity {
         anhxa();
 
         Intent intent = getIntent();
-        Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
+        bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
 
         edtten4sua.setText(bacsi.getName());
         edtsdtsua4.setText(bacsi.getSdt());
@@ -137,7 +137,7 @@ public class SuaBS extends AppCompatActivity {
 
                 // upload link anh
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+                ref.child(bacsi.getSdt()).child("img").setValue(downloadUri.toString());
 
             });
             Glide.with(imgavatr4csytsua.getContext())

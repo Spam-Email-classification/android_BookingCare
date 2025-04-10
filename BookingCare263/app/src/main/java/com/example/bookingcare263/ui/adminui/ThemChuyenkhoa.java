@@ -29,6 +29,7 @@ public class ThemChuyenkhoa extends AppCompatActivity {
     EditText edttenaddchuyenkhoa, edtthongtinaddchuyenkhoa;
     Button btnaddchuyenkhoa;
     private Uri imageUri;
+    chuyenkhoa ck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +37,7 @@ public class ThemChuyenkhoa extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_them_chuyenkhoa);
         anhxa();
+        ck = new chuyenkhoa();
 
         imgavataraddchuyenkhoa.setOnClickListener(view -> {
             // chon anh tu dien thoai
@@ -51,11 +53,9 @@ public class ThemChuyenkhoa extends AppCompatActivity {
             if(!validate1()){
                 return;
             }
-            String avatar = "";
-            if(imageUri != null) {
-                avatar = imageUri.toString();
-            }
-            chuyenkhoa ck = new chuyenkhoa(tenchuyenkhoa, avatar, thongtin);
+
+             ck.setTenchuyenkhoa( tenchuyenkhoa);
+            ck.setThongtin(thongtin);
 
             FirebaseHelper.addchuyenkhoa(ck, new FirebaseCallBack() {
                 @Override
@@ -104,8 +104,7 @@ public class ThemChuyenkhoa extends AppCompatActivity {
 
                 // upload link anh
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoa");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
-
+                ck.setImg(downloadUri.toString());
             });
 
             Glide.with(this)
