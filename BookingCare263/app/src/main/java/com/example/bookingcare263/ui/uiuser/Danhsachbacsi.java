@@ -66,6 +66,7 @@ public class Danhsachbacsi extends AppCompatActivity {
                     listaccout.clear();
                     listaccout.addAll(data);
 
+
                     // get listbac bysdt
                     listbacsi.clear();
                     for (accout accout : listaccout) {
@@ -170,60 +171,99 @@ public class Danhsachbacsi extends AppCompatActivity {
     private void filterList(String query) {
         ArrayList<accout> listacc = new ArrayList<>();
 
+
+
+
         FirebaseHelper.getaccoutbyStatusAndRoletinh("Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>() {
             @Override
-            public void onSuccess(ArrayList<accout> data) {
+            public void onSuccess(ArrayList<accout> listAcc) {
                 listacc.clear();
-                listacc.addAll(data);
-                if (listacc.isEmpty()) {
-                    applyFilter(query);
-                    return;
-                }
-                listbacsi.clear();  // Clear trước khi bắt đầu load lại các bác sĩ
+                listacc.addAll(listAcc);
 
-                for (accout acc : listacc) {
-                    FirebaseHelper.getBacsiByChuyenkhoaAndSdt( title, acc.getPhone(), new FirebaseCallBack<Bacsi>() {
-                        @Override
-                        public void onSuccess(Bacsi bacsi) {
+                // Bước 2 sẽ làm trong này
+                Log.d("TAG", "Lấy được acc: " + listAcc.size());
 
-                            listbacsi.add(bacsi);  // Thêm bác sĩ vào danh sách
-                            applyFilter(query); // Gọi hàm lọc sau khi tải xong toàn bộ bác sĩ
+                listbacsi.clear();
+                int[] count = {0};
 
-                        }
+                Log.d("title", title + "");
 
-                        @Override
-                        public void onFailed(String message) {
-                            if (listbacsi.size() == listacc.size()) {
-                                applyFilter(query); // Gọi applyFilter dù có thất bại
+                if(title.equals("ĐẶT LỊCH KHÁM")){
+                    listbacsi.clear();
+                    for (accout acc : listAcc) {
+                        FirebaseHelper.getBacsiBySdt(acc.getPhone(), new FirebaseCallBack<Bacsi>() {
+                            @Override
+                            public void onSuccess(Bacsi data) {
+                                listbacsi.add(data);
+                                count[0]++;
+                                if (count[0] == listAcc.size()) {
+                                    applyFilter(query); // Gọi lọc ban đầu không có query
+                                }
+
                             }
-                        }
-                    });
+
+                            @Override
+                            public void onFailed(String message) {
+                                count[0]++;
+                                if (count[0] == listAcc.size()) {
+                                    applyFilter(query); // Gọi lọc nếu acc cuối cùng bị fail
+                                }
+
+                            }
+                        });
+                    }
                 }
+                else {
+                    listbacsi.clear();
+                    for (accout acc : listAcc) {
+                        Log.d("TAG", "acc phone: " + acc.getPhone());
+                        FirebaseHelper.getBacsiByChuyenkhoaAndSdt(title, acc.getPhone(), new FirebaseCallBack<Bacsi>() {
+                            @Override
+                            public void onSuccess(Bacsi bacsi) {
+                                if (bacsi != null) listbacsi.add(bacsi);
+                                count[0]++;
+                                if (count[0] == listAcc.size()) {
+
+                                    applyFilter(query); // Gọi lọc ban đầu không có query
+                                }
+                            }
+
+                            @Override
+                            public void onFailed(String message) {
+                                count[0]++;
+                                if (count[0] == listAcc.size()) {
+                                    applyFilter(query); // Gọi lọc nếu acc cuối cùng bị fail
+                                }
+                            }
+                        });
+                    }
+
+                }
+
             }
+
             @Override
             public void onFailed(String message) {
-                Log.e("filterList", "Lỗi khi lấy danh sách acc: " + message);
+                Log.e("TAG", "Không lấy được acc: " + message);
             }
         });
+
     }
 
     private void applyFilter(String query) {
         filteredList.clear();
-
+        Log.d("size list bacsi", "" + listbacsi.size());
         if (query.isEmpty()) {
-            filteredList.addAll(listbacsi); // Nếu không có query, hiển thị tất cả bác sĩ
+            filteredList.addAll(listbacsi);
         } else {
-            // Lọc theo tên hoặc chuyên khoa của bác sĩ
-            for (Bacsi item : listbacsi) {
-                if (item.getName().toLowerCase().contains(query.toLowerCase()) ||
-                        item.getChuyenkhoa().toLowerCase().contains(query.toLowerCase())) {
-                    filteredList.add(item);
+            for (Bacsi b : listbacsi) {
+                if (b.getName().toLowerCase().contains(query.toLowerCase()) ||
+                        b.getChuyenkhoa().toLowerCase().contains(query.toLowerCase())) {
+                    filteredList.add(b);
                 }
             }
         }
-
-        // Cập nhật adapter với danh sách đã lọc
-        adapter.updateList(filteredList);
+        adapter.updateList(filteredList); // Cập nhật hiển thị danh sách
     }
 
 

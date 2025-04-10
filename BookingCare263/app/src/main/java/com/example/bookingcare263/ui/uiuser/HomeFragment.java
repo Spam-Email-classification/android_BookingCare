@@ -110,7 +110,7 @@ public class HomeFragment extends Fragment {
 
                 case "ĐẶT LỊCH KHÁM":
                     intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
+                    intent.putExtra("title", "ĐẶT LỊCH KHÁM");
                     intent.putExtra("thongtin", x.getThongtin());
                     startActivity(intent);
                     break;

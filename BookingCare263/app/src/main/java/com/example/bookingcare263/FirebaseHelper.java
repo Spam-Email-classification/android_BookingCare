@@ -144,7 +144,7 @@ public class FirebaseHelper {
     // getAccout danghoatdong
     public static void getaccoutbyStatusAndRoletinh(String status, String role, FirebaseCallBack<ArrayList<accout>> callback){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        ref.addValueEventListener(new ValueEventListener() {
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 ArrayList<accout> listaccout = new ArrayList<>();
@@ -163,6 +163,8 @@ public class FirebaseHelper {
             }
         });
     }
+
+
 
 
 
@@ -383,7 +385,7 @@ public class FirebaseHelper {
     public static void getBacsiByChuyenkhoa(String chuyenkhoa, FirebaseCallBack<ArrayList<Bacsi>> callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
         ref.orderByChild("chuyenkhoa").equalTo(chuyenkhoa)
-                .addValueEventListener(new ValueEventListener() {
+                .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         ArrayList<Bacsi> listbs = new ArrayList<>();
@@ -416,10 +418,32 @@ public class FirebaseHelper {
                         }
                         if(bs.getChuyenkhoa().equals(chuyenkhoa))
                             callBack.onSuccess(bs);
+                        else callBack.onFailed("Không tìm thấy bác sĩ phù hợp");
+
                     }
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+    }
+    public static void getBacsiBySdtfilter( String sdt, FirebaseCallBack<Bacsi> callBack) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_bacsi");
+        ref.orderByChild("sdt").equalTo(sdt)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Bacsi bs = new Bacsi();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            bs = data.getValue(Bacsi.class);
+                        }
+                            callBack.onSuccess(bs);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callBack.onFailed(error.getMessage());
 
                     }
                 });

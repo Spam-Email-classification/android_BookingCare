@@ -44,13 +44,13 @@ public class adapterBacsi  extends RecyclerView.Adapter<adapterBacsi.ViewHolder>
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-
+        if (position >= 0 && position < listitems.size()){
         holder.bind(listitems.get(position));
         holder.itemView.setOnClickListener(v -> {
             if (listener != null) {
                 listener.onItemClick(listitems.get(position));
             }
-        });
+        });}
 
 
     }
