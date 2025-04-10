@@ -171,7 +171,7 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                 } else if (manager != null && manager.equals("quanlybenhnhan")) {
                     filterList(query, "user");
                 } else if (manager != null && manager.equals("quanlycsyt")) {
-//                    filterListcsyt(query);
+                    filterListcsyt(query);
                 }
 
 
