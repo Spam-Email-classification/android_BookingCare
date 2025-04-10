@@ -21,6 +21,7 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.DSchuyenkhoaCSYT;
 import com.example.bookingcare263.ui.adminui.SuaCSYT;
+import com.google.firebase.firestore.auth.User;
 
 public class ChitietCSYT extends AppCompatActivity {
 
@@ -43,7 +44,7 @@ public class ChitietCSYT extends AppCompatActivity {
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
-         if("csyt".equals(UserActivity.roleuser))
+         if("csyt".equals(UserActivity.roleuser) || "bacsi".equals(UserActivity.roleuser))
              btnviewonmap.setVisibility(View.GONE);
 
         Toast.makeText(this, "phone csyt" + csyt.getSdt(), Toast.LENGTH_SHORT).show();

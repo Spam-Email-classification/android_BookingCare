@@ -327,6 +327,8 @@ public class HomeFragment extends Fragment {
             }
             @Override
             public void onItemDeleteClick(Baiviet baiviet) {
+                FirebaseHelper.deletebaiviet(baiviet.getId());
+
 
             }
 

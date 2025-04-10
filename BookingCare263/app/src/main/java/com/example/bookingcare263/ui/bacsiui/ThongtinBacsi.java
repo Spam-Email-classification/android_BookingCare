@@ -187,7 +187,7 @@ public class ThongtinBacsi extends AppCompatActivity implements adapterBaiviet.s
         adapterbv = new adapterBaiviet(listbaiviet);
         txttrangthaibs = findViewById(R.id.txttrangthaitk);
         txtsdtbsbv = findViewById(R.id.txtsdtbsbv);
-        btnqlbaiviet = findViewById(R.id.btnqlbaiviet);
+
 
         rcvbaiviet.setLayoutManager(new LinearLayoutManager(this));
         rcvbaiviet.setAdapter(adapterbv);
