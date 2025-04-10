@@ -149,7 +149,7 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="16dp"
                 android:backgroundTint="#007AFF"
-                android:text="Xem trên Google Maps"
+                android:text="Đặt lịch khám"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
                 android:textStyle="bold"

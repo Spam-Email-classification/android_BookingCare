@@ -54,10 +54,9 @@ public class AddCSYT extends AppCompatActivity {
             if (!validate1()){
                 return;
             }
-//            String avatar = "";
-//            if (imageUri != null) {
-//                avatar = imageUri.toString();
-//            }
+
+
+
             csyt.setName(edttencsyt.getText().toString());
             csyt.setSdt(edtsdtadd4csyt.getText().toString());
             csyt.setEmail(edtemailadd4csyt.getText().toString());

@@ -21,6 +21,7 @@ import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Chuyenkhoacsyt;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
 import com.example.bookingcare263.model.lichhen;
@@ -51,14 +52,42 @@ public class Datlichkham extends AppCompatActivity {
         Intent intent = getIntent();
         Bacsi bacsi = (Bacsi) intent.getSerializableExtra("bacsi");
 
+        Chuyenkhoacsyt ckhoakham = (Chuyenkhoacsyt) intent.getSerializableExtra("chuyenkhoa");
 
-        txtDescription.setText(bacsi.getThongtin());
 
-        txtNameBs.setText(bacsi.getName());
-        txtchuyenkhoa.setText(bacsi.getChuyenkhoa());
-        txtgiakhamdk.setText(String.valueOf(bacsi.getGiaKham()));
-        txtgiakham.setText(String.valueOf(bacsi.getGiaKham()));
-        txttong.setText(String.valueOf(bacsi.getGiaKham()));
+
+        if(bacsi != null) {
+            txtDescription.setText(bacsi.getThongtin());
+            txtNameBs.setText(bacsi.getName());
+            txtchuyenkhoa.setText(bacsi.getChuyenkhoa());
+            txtgiakhamdk.setText(String.valueOf(bacsi.getGiaKham()));
+            txtgiakham.setText(String.valueOf(bacsi.getGiaKham()));
+            if(bacsi.getImg()!= null)
+            Glide.with(this)
+                    .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
+                    .circleCrop()
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imgavtars);
+
+        }
+        else {
+            txtDescription.setText(ckhoakham.getThongtin());
+            txtNameBs.setText(ckhoakham.getTenkhoa());
+            txtchuyenkhoa.setText(ckhoakham.getDiachi());
+            txtgiakhamdk.setText(String.valueOf(ckhoakham.getGiakham()));
+            txtgiakham.setText(String.valueOf(ckhoakham.getGiakham()));
+            if(ckhoakham.getImg()!= null)
+            Glide.with(this)
+                    .load(Uri.parse(ckhoakham.getImg())) // Chuyển String thành Uri
+                    .circleCrop()
+                    .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
+                    .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
+                    .into(imgavtars);
+
+        }
+
+        txttong.setText(txtgiakham.getText().toString());
 
 
         // xu ly radiogroup
@@ -67,12 +96,8 @@ public class Datlichkham extends AppCompatActivity {
         RadioButton selectedRadioButton = findViewById(selectedid);
         String selectedText = selectedRadioButton.getText().toString();
 
-        Glide.with(this)
-                .load(Uri.parse(bacsi.getImg())) // Chuyển String thành Uri
-                .circleCrop()
-                .placeholder(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu đang load
-                .error(R.drawable.baseline_account_circle_24) // Ảnh mặc định nếu load thất bại
-                .into(imgavtars);
+
+
         edtngay.setOnClickListener(e->showDatePickerDialog());
 
         FirebaseHelper.getbenhnhanBySdt(UserActivity.iduser, new FirebaseCallBack<benhnhan>() {
@@ -95,17 +120,30 @@ public class Datlichkham extends AppCompatActivity {
 
             String iduser = UserActivity.iduser;
             if(!validate()) return;
+            String sdt = "";
+            String img = "";
+            String name ="";
+            if(bacsi != null){
+                sdt = bacsi.getSdt();
+                img = bacsi.getImg();
+                name = bacsi.getName();
+            } else {
+                sdt = ckhoakham.getSdtcsyt();
+                img = ckhoakham.getImg();
+                name = ckhoakham.getTenkhoa();
+            }
+
 
             lichhen lh = new lichhen(
                     iduser,
-                    bacsi.getSdt(),
+                    sdt,
                     edtngay.getText().toString(),
                     selectedText,                    "Đang chờ",
                     edthoten.getText().toString(),
                     edtsdt.getText().toString(),
                     edtdiachi.getText().toString(),
-                    bacsi.getImg(),
-                    bacsi.getName()
+                    img,
+                    name
             );
 
             FirebaseHelper.addlichhen(lh, new FirebaseCallBack() {
@@ -121,7 +159,8 @@ public class Datlichkham extends AppCompatActivity {
                 }
             });
 
-            FirebaseHelper.getaccbyid(bacsi.getSdt(), new FirebaseCallBack<accout>() {
+            if(bacsi!= null )
+                FirebaseHelper.getaccbyid(bacsi.getSdt(), new FirebaseCallBack<accout>() {
                 @Override
                 public void onSuccess(accout data) {
                     String token = data.getToken();

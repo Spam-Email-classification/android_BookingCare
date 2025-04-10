@@ -12,6 +12,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
+import com.example.bookingcare263.model.Chuyenkhoacsyt;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
@@ -655,6 +656,44 @@ public class FirebaseHelper {
 
     }
 
+    // add chuyenkoa csyt
+
+    public static void addchuyenkhoaCSYT(Chuyenkhoacsyt ck, FirebaseCallBack callBack) {
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoaCSYT");
+        String id = ref.push().getKey();
+        ck.setId(id);
+        ref.child(id).setValue(ck).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                callBack.onSuccess(null);
+            } else {
+                callBack.onFailed(task.getException().getMessage());
+            }
+        });
+    }
+
+            // get ckcsyt by sdtcsyt
+
+    public static void getchuyenkhoaCSYTbyid(String sdtcsyt, FirebaseCallBack<ArrayList<Chuyenkhoacsyt>> callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoaCSYT");
+        ref.orderByChild("sdtcsyt").equalTo(sdtcsyt)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        ArrayList <Chuyenkhoacsyt> listck = new ArrayList<>();
+                        for (DataSnapshot data : snapshot.getChildren()) {
+                            Chuyenkhoacsyt ck = data.getValue(Chuyenkhoacsyt.class);
+                            listck.add(ck);
+                        }
+                        callBack.onSuccess(listck);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        callBack.onFailed(error.getMessage());
+
+                    }
+                });
+    }
 
 
 

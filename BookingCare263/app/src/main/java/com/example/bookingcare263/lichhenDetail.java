@@ -50,7 +50,7 @@ public class lichhenDetail extends AppCompatActivity {
         Toast.makeText(this, "idlich name" + lh.getIdbacsi(), Toast.LENGTH_SHORT).show();
 
         // load thong tin
-        txttenBacSi.setText("Bác sĩ: " + lh.getNamebs());
+        txttenBacSi.setText( lh.getNamebs());
         txttenBenhNhan.setText("Tên bệnh nhân: " + lh.getNamebenhnhan());
         txtsdtBenhNhan.setText("Ngày hẹn khám: " + lh.getSdtbenhnhan());
         txtdiaChiKham.setText("Giờ hẹn khám " + lh.getDiachibenhnhan());

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.uicsyt.Addckcsyt">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:orientation="vertical">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tbaddcsytck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#7BC9DE"
+
+            app:title="Thêm Chuyên khoa khám"
+            app:titleTextColor="@color/white"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme" />
+
+        <ImageView
+            android:id="@+id/imgckkham"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            android:clipToOutline="true"
+            android:padding="2dp"
+            android:scaleType="centerCrop"
+            android:src="@color/black"
+            tools:srcCompat="@tools:sample/avatars" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="Chọn ảnh"
+            android:textColor="#4CAF50"/>
+
+
+    </LinearLayout>
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/tenckkhoa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Tên Chuyên khoa" />
+
+
+
+            <EditText
+                android:id="@+id/edtdiachikhamck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Địa chỉ khám" />
+
+            <EditText
+                android:id="@+id/edtgiakhamck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Giá khám" />
+
+
+            <EditText
+                android:id="@+id/edtthongtinkham"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textMultiLine"
+                android:hint="Thông tin thêm" />
+
+            <Button
+                android:id="@+id/btnluuttck"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:layout_marginBottom="15dp"
+
+                android:backgroundTint="#FF9800"/>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

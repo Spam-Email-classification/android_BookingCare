@@ -24,6 +24,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Cosoyte;
+import com.example.bookingcare263.ui.DSchuyenkhoaCSYT;
 import com.example.bookingcare263.ui.adminui.SuaCSYT;
 
 public class ChitietCSYT extends AppCompatActivity {
@@ -47,17 +48,12 @@ public class ChitietCSYT extends AppCompatActivity {
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
-        btnviewonmap.setOnClickListener(v -> {
-            String diachi = csyt.getDiachi();
-            Log.d("dia chi", diachi);
-            if(diachi != null){
-                Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(diachi));
-                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                mapIntent.setPackage("com.google.android.apps.maps"); // Mở bằng Google Maps
-                if (mapIntent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(mapIntent);
-                }
-            }
+        Toast.makeText(this, "phone csyt" + csyt.getSdt(), Toast.LENGTH_SHORT).show();
+        btnviewonmap.setOnClickListener(v->{
+            Intent intent1 = new Intent(ChitietCSYT.this, DSchuyenkhoaCSYT.class);
+            intent1.putExtra("cosoyte", csyt);
+
+            startActivity(intent1);
         });
 
     }

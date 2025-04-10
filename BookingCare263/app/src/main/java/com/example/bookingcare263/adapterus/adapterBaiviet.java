@@ -109,7 +109,6 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
                     if (avatarUri != null && !avatarUri.isEmpty()) {
                         Glide.with(imgavatartbvshow.getContext())
                                 .load(Uri.parse(avatarUri)) // Chuyển String thành Uri
-                                .circleCrop()
                                 .into(imgavatartbvshow);
                     } else {
                         imgavatartbvshow.setImageResource(R.drawable.baseline_account_circle_24);
