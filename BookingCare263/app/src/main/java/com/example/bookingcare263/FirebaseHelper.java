@@ -1,15 +1,9 @@
 package com.example.bookingcare263;
 
-import android.content.Context;
-import android.util.Log;
+
 
 import androidx.annotation.NonNull;
 
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Chuyenkhoacsyt;
@@ -23,34 +17,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import org.json.JSONObject;
-
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Executors;
 
 
 
 public class FirebaseHelper {
-
-    // FIREBASE ACCOUTID
-
-    // get all accout
-
-    // ham gui thong bao
-
-
-        private static final String FCM_URL = "https://fcm.googleapis.com/v1/projects/YOUR_PROJECT_ID/messages:send";
-
-
-
-
-
-
 
 
     // get accout by status and role
@@ -113,6 +85,12 @@ public class FirebaseHelper {
         });
     }
 
+    // delete accout by id
+    public static void deleteAccout(String id){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
+        ref.child(id).removeValue();
+    }
+
     // get accout by id
     public static void getaccbyid(String id, FirebaseCallBack<accout> callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
@@ -130,17 +108,6 @@ public class FirebaseHelper {
         });
     }
 
-
-    public static void updateAccout(Bacsi bs, FirebaseCallBack callBack){
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("Users");
-        ref.child(bs.getSdt()).setValue(bs).addOnCompleteListener(task -> {
-            if (task.isSuccessful()) {
-                callBack.onSuccess(null);
-            } else {
-                callBack.onFailed(task.getException().getMessage());
-            }
-        });
-    }
 
     // getAccout danghoatdong
     public static void getaccoutbyStatusAndRoletinh(String status, String role, FirebaseCallBack<ArrayList<accout>> callback){
@@ -721,6 +688,18 @@ public class FirebaseHelper {
     public static void deletechuyenkhoaCSYT(String id){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoaCSYT");
         ref.child(id).removeValue();
+    }
+
+    // update ck csyt
+    public static void updatechuyenkhoaCSYT(Chuyenkhoacsyt ck, FirebaseCallBack callBack){
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoaCSYT");
+        ref.child(ck.getId()).setValue(ck).addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                callBack.onSuccess(null);
+            } else {
+                callBack.onFailed(task.getException().getMessage());
+            }
+        });
     }
 
 

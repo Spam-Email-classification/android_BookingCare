@@ -58,13 +58,30 @@ public class ChitietCSYT extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       if(roleadmin!= null || csyt.getSdt().equals(UserActivity.iduser))
+       if(roleadmin!= null )
            getMenuInflater().inflate(R.menu.menusua_xoa, menu);
+       else if(csyt.getSdt().equals(UserActivity.iduser)){
+           getMenuInflater().inflate(R.menu.menu_suacsyt, menu);
+       }
         return true;
     }
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id == R.id.csytsua) {
+            Intent intent = new Intent(ChitietCSYT.this, SuaCSYT.class);
+            intent.putExtra("cosoyte", csyt);
+            startActivity(intent);
+            finish();
+            return true;
+        } else if(id == R.id.csytxoa){
+
+
+                FirebaseHelper.deletecsyt(csyt.getSdt());
+                FirebaseHelper.deleteAccout(csyt.getSdt());
+            finish();
+            return true;
+        }
+        if(id == R.id.csytsuacsyt){
             Intent intent = new Intent(ChitietCSYT.this, SuaCSYT.class);
             intent.putExtra("cosoyte", csyt);
             startActivity(intent);

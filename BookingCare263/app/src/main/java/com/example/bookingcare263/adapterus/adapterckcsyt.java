@@ -85,6 +85,9 @@ public class adapterckcsyt extends RecyclerView.Adapter<adapterckcsyt.ViewHolder
             } else {
                 imgdeleteckkham.setVisibility(View.VISIBLE);
             }
+            if(UserActivity.iduser != null && UserActivity.iduser.equals(ckcsyt.getSdtcsyt())){
+                btndatkham.setVisibility(View.GONE);
+            }
             txttenkhoacsyt.setText(ckcsyt.getTenkhoa());
             txtdckhoacsyt.setText(ckcsyt.getDiachi());
             String avatarUri = ckcsyt.getImg();

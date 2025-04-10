@@ -25,6 +25,7 @@ import com.example.bookingcare263.model.Chuyenkhoacsyt;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.chuyenkhoa;
 import com.example.bookingcare263.ui.uicsyt.Addckcsyt;
+import com.example.bookingcare263.ui.uicsyt.SuaChuyenkhoakham;
 import com.example.bookingcare263.ui.uiuser.Datlichkham;
 
 import java.util.ArrayList;
@@ -106,6 +107,9 @@ public class DSchuyenkhoaCSYT extends AppCompatActivity implements  adapterckcsy
 
     @Override
     public void onItemClick(Chuyenkhoacsyt items) {
+        Intent intent = new Intent(DSchuyenkhoaCSYT.this, SuaChuyenkhoakham.class);
+        intent.putExtra("chuyenkhoa", items);
+        startActivity(intent);
 
     }
 
@@ -125,7 +129,5 @@ public class DSchuyenkhoaCSYT extends AppCompatActivity implements  adapterckcsy
     @Override
     public void onItemDelete(Chuyenkhoacsyt items) {
         FirebaseHelper.deletechuyenkhoaCSYT(items.getId());
-
-
     }
 }

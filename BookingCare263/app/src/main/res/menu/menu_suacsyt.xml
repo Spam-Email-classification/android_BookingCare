@@ -3,11 +3,7 @@
     <group>
         <item
             android:title="Sửa"
-            android:id="@+id/csytsua"/>
-
-        <item
-            android:title="Xóa"
-            android:id="@+id/csytxoa"/>
+            android:id="@+id/csytsuacsyt"/>
 
 
 
