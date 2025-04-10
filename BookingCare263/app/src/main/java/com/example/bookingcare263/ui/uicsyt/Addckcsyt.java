@@ -101,7 +101,7 @@ public class Addckcsyt extends AppCompatActivity {
 
     private void anhxa() {
         toolbar = findViewById(R.id.tbaddcsytck);
-        imgckkham = findViewById(R.id.imgckkham);
+        imgckkham = findViewById(R.id.imgaddkkham);
         edttenckkhoa = findViewById(R.id.tenckkhoa);
         edtdiachikhamck = findViewById(R.id.edtdiachikhamck);
         edtgiakhamck = findViewById(R.id.edtgiakhamck);
