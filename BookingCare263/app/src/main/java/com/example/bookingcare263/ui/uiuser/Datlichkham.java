@@ -229,7 +229,7 @@ public class Datlichkham extends AppCompatActivity {
     private void anhxa() {
         txtDescription = findViewById(R.id.txtthongtin);
         txtSeeMore = findViewById(R.id.btmxemthem);
-        txtTime = findViewById(R.id.txttime);
+
         txtAddress = findViewById(R.id.txtdiachi);
         txtNameBs = findViewById(R.id.txtnamebs);
         txtchuyenkhoa = findViewById(R.id.txtchuyenkhoa1);

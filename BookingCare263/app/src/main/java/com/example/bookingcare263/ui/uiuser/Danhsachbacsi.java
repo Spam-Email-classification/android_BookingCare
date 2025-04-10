@@ -188,7 +188,7 @@ public class Danhsachbacsi extends AppCompatActivity {
 
                 Log.d("title", title + "");
 
-                if(title.equals("ĐẶT LỊCH KHÁM")){
+                if(title.equals("ĐẶT LỊCH KHÁM") || title.equals("Tìm kiếm bác sĩ, chuyên khoa khám")){
                     listbacsi.clear();
                     for (accout acc : listAcc) {
                         FirebaseHelper.getBacsiBySdt(acc.getPhone(), new FirebaseCallBack<Bacsi>() {

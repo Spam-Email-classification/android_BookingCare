@@ -20,7 +20,6 @@
             android:layout_width="70dp"
             android:layout_height="70dp"
             android:layout_marginRight="5dp"
-            android:background="@drawable/bg_circle"
 
             android:padding="5dp"
             app:srcCompat="@drawable/baseline_account_circle_24" />
@@ -53,14 +52,7 @@
                 android:text="xem thêm"
                 android:textColor="#009688" />
 
-            <TextView
-                android:id="@+id/txttime"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:text="9:00 - 9:30 - Thứ 2 - 17/03/2025"
-                android:textColor="#DBCA31"
-                android:textStyle="bold" />
+      
 
             <TextView
                 android:id="@+id/txtdiachi"

@@ -66,7 +66,7 @@ public class HomeFragment extends Fragment {
         anhxa();
         searchBar.setOnClickListener(v->{
            Intent intent = new Intent(getActivity(), Danhsachbacsi.class);
-           intent.putExtra("title", "BookingCare Search");
+           intent.putExtra("title", "Tìm kiếm bác sĩ, chuyên khoa khám");
            intent.putExtra("thongtin", "Tự tin vươn tâm quốc tế");
            startActivity(intent);
         });
