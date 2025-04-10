@@ -28,7 +28,8 @@
             android:gravity="center"
             android:paddingTop="8dp"
             android:text="TextView"
-            android:textColor="#3F51B5"
+            android:textAlignment="center"
+            android:textColor="#3E51C5"
             android:textStyle="bold" />
 
     </LinearLayout>
