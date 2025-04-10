@@ -61,15 +61,11 @@ public class SuaChuyenKhoa extends AppCompatActivity {
         btnSuaChuyenKhoa.setOnClickListener(e->{
                     String tenchuyenkhoa = edttensuachuyenkhoa.getText().toString();
                     String thongtin = edtthongtinsuachuyenkhoa.getText().toString();
-                    String avatar ;
-                    if(imageUri== null){
-                        avatar = ck.getImg();
 
-                    } else {
-                        avatar = imageUri.toString();
-                    }
-                    chuyenkhoa ck1 = new chuyenkhoa(ck.getId(), tenchuyenkhoa, avatar, thongtin);
-                    FirebaseHelper.updatechuyenkhoa(ck1, new FirebaseCallBack() {
+                    ck.setTenchuyenkhoa(tenchuyenkhoa);
+                    ck.setThongtin(thongtin);
+
+                    FirebaseHelper.updatechuyenkhoa(ck, new FirebaseCallBack() {
                         @Override
                         public void onSuccess(Object data) {
 
@@ -94,8 +90,7 @@ public class SuaChuyenKhoa extends AppCompatActivity {
             String uniquename = "image_" + System.currentTimeMillis() + ".jpg";
             uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
                 // upload link anh
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tb_chuyenkhoa");
-                ref.child(ck.getId()).child("img").setValue(downloadUri.toString());
+               ck.setImg(downloadUri.toString());
 
             });
 
