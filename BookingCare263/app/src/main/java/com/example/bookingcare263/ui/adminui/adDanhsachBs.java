@@ -404,28 +404,6 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        if (roleadmin == "admin" && manager != null && manager.equals("quanlycsyt")) {
-            getMenuInflater().inflate(R.menu.addmenu, menu);
-        }
-        return true;
-    }
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        int id = item.getItemId();
-
-        if (id == R.id.plusss) {
-            // add
-            Intent intent1 = new Intent(adDanhsachBs.this, AddCSYT.class);
-            startActivity(intent1);
-            finish();
-
-
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
 

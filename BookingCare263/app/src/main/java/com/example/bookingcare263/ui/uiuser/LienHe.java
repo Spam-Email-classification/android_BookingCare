@@ -1,4 +1,4 @@
-package com.example.bookingcare263;
+package com.example.bookingcare263.ui.uiuser;
 
 import android.os.Bundle;
 import android.text.Html;
@@ -6,9 +6,8 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+
+import com.example.bookingcare263.R;
 
 public class LienHe extends AppCompatActivity {
     private TextView tvLienHe;

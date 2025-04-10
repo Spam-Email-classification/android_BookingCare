@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".listchuyenkhoa">
+    tools:context=".ui.uiuser.listchuyenkhoa">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar2"

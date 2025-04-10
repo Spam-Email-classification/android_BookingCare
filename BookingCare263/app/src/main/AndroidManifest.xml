@@ -24,7 +24,7 @@
             android:name=".ui.uicsyt.ThongtinCSYT"
             android:exported="false" />
         <activity
-            android:name=".LienHe"
+            android:name=".ui.uiuser.LienHe"
             android:exported="false" />
         <activity
             android:name=".ui.uicsyt.Addckcsyt"
@@ -39,7 +39,7 @@
             android:name=".ui.bacsiui.ThongtinBacsi"
             android:exported="false" />
         <activity
-            android:name=".DieuKhoan"
+            android:name=".ui.uiuser.DieuKhoan"
             android:exported="false" />
         <activity
             android:name=".ui.uiuser.Hosoyte"
@@ -82,7 +82,7 @@
             android:name=".ui.uiuser.KhamTongQuaActivity"
             android:exported="false" />
         <activity
-            android:name=".listchuyenkhoa"
+            android:name=".ui.uiuser.listchuyenkhoa"
             android:exported="false" />
         <activity
             android:name=".lichhenDetail"

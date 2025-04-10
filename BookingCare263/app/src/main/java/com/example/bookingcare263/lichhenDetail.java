@@ -85,7 +85,7 @@ public class lichhenDetail extends AppCompatActivity {
             });
             finish();
         });
-        if(!UserActivity.roleuser.equals("bacsi") || lh.getTrangthai().equals("Xác nhận")){
+        if(UserActivity.roleuser.equals("user") || lh.getTrangthai().equals("Xác nhận")){
             btnxacnhan.setVisibility(View.GONE);
         }
 
@@ -99,7 +99,7 @@ public class lichhenDetail extends AppCompatActivity {
                 @Override
                 public void onSuccess(accout data) {
                     String token = data.getToken();
-                    FCMHelper.sendNotification( lichhenDetail.this, token, "Bac sĩ " + lh.getNamebs(), "đã xác nhận");
+                    FCMHelper.sendNotification( lichhenDetail.this, token, "Lịch hẹn đã được " + lh.getNamebs(), "xác nhận");
                 }
 
                 @Override

@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 
 import com.example.bookingcare263.R;
-import com.example.bookingcare263.listchuyenkhoa;
+import com.example.bookingcare263.ui.uiuser.listchuyenkhoa;
 
 public class AdminActivity extends AppCompatActivity {
 

@@ -5,15 +5,15 @@ import java.io.Serializable;
 public class lichhen implements Serializable {
     private String id;
     private String idbenhnhan;
-    private String idbacsi;
+    private String idnguoihen;
     private String ngayhenkham;
     private String khunggiokham;
     private  String trangthai;
     private String namebenhnhan;
     private String sdtbenhnhan;
     private String diachibenhnhan;
-    private String avatarbs;
-    private String namebs;
+    private String avatar_ng;
+    private String nameng_hen;
 
 
 
@@ -23,29 +23,29 @@ public class lichhen implements Serializable {
 
         this.id = id;
         this.idbenhnhan = idbenhnhan;
-        this.idbacsi = idbacsi;
+        this.idnguoihen = idbacsi;
         this.ngayhenkham = ngayhenkham;
         this.khunggiokham = khunggiokham;
         this.trangthai = trangthai;
         this.namebenhnhan = namebenhnhan;
         this.sdtbenhnhan = sdtbenhnhan;
         this.diachibenhnhan = diachibenhnhan;
-        this.avatarbs = avatarbs;
-        this.namebs = namebs;
+        this.avatar_ng = avatarbs;
+        this.nameng_hen = namebs;
 
     }
     public lichhen( String idbenhnhan, String idbacsi, String ngayhenkham, String khunggiokham, String trangthai,
                     String namebenhnhan, String sdtbenhnhan, String diachibenhnhan, String avatarbs, String namebs) {
         this.idbenhnhan = idbenhnhan;
-        this.idbacsi = idbacsi;
+        this.idnguoihen = idbacsi;
         this.ngayhenkham = ngayhenkham;
         this.khunggiokham = khunggiokham;
         this.trangthai = trangthai;
         this.namebenhnhan = namebenhnhan;
         this.sdtbenhnhan = sdtbenhnhan;
         this.diachibenhnhan = diachibenhnhan;
-        this.avatarbs = avatarbs;
-        this.namebs = namebs;
+        this.avatar_ng = avatarbs;
+        this.nameng_hen = namebs;
     }
 
     public lichhen() {
@@ -53,19 +53,19 @@ public class lichhen implements Serializable {
     }
 
     public String getNamebs() {
-        return namebs;
+        return nameng_hen;
     }
 
     public void setNamebs(String namebs) {
-        this.namebs = namebs;
+        this.nameng_hen = namebs;
     }
 
     public String getAvatarbs() {
-        return avatarbs;
+        return avatar_ng;
     }
 
     public void setAvatarbs(String avatarbs) {
-        this.avatarbs = avatarbs;
+        this.avatar_ng = avatarbs;
     }
 
     public String getSdtbenhnhan() {
@@ -109,11 +109,11 @@ public class lichhen implements Serializable {
     }
 
     public String getIdbacsi() {
-        return idbacsi;
+        return idnguoihen;
     }
 
     public void setIdbacsi(String idbacsi) {
-        this.idbacsi = idbacsi;
+        this.idnguoihen = idbacsi;
     }
 
     public String getNgayhenkham() {

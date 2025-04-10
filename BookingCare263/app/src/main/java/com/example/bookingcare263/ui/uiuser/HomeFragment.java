@@ -2,12 +2,10 @@ package com.example.bookingcare263.ui.uiuser;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -23,22 +21,18 @@ import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
-import com.example.bookingcare263.UserActivity;
 import com.example.bookingcare263.adapterus.adapterBacsi;
 import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.adapterus.adapterItems;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
 import com.example.bookingcare263.adapterus.adapterkhamchuyenkhoa;
 import com.example.bookingcare263.databinding.FragmentHomeusBinding;
-import com.example.bookingcare263.listchuyenkhoa;
 import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.Item;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.chuyenkhoa;
-import com.example.bookingcare263.ui.bacsiui.Taobaiviet;
-import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
 
 import java.util.ArrayList;
 
