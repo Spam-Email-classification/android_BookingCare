@@ -270,65 +270,65 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     }
 
-    @Override
-    public void onFixClick(int position) {
-        if(manager != null && manager.equals("quanlybacsi")){
-            String sdt = listacc.get(position).getPhone();
-//            Bacsi bacsi = helper.getBacsiBySdt(sdt);
-
-            FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>() {
-                @Override
-                public void onSuccess(Bacsi data) {
-                    // Lưu đối tượng bacsi đã lấy được từ Firebase
-
-                    Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
-                    intent.putExtra("bacsi", data);  // Truyền đối tượng bacsi vào Intent
-                    startActivity(intent);
-                }
-                @Override
-                public void onFailed(String message) {
-                    // Xử lý lỗi khi không lấy được bác sĩ từ Firebase
-                    Log.e("Firebase", "Lỗi: " + message);
-                }
-            });
-
-        }  else{
-            // an thanh sua
-            Toast.makeText(this, "Bạn không có quyền sửa tài khoản này", Toast.LENGTH_SHORT).show();
-
-        }
-
-    }
-
-    // xoa accout tren firebase
-
-
-    @Override
-    public void onDeleteClick(int position) {
-        String sdt = listacc.get(position).getPhone();
-        String role = listacc.get(position).getAs();
-
-        if (role.equals("bacsi")){
-            // xóa ở bảng bác six
-          FirebaseHelper.deleteBacsi(sdt);
-            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
-            // xoa tai khoan tren firebase realtime
-
-        } else {
-
-            FirebaseHelper.deletebenhnha(sdt);
-
-            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
-        }
-        reference = FirebaseDatabase.getInstance().getReference("Users");
-
-        reference.child(sdt).removeValue();
-        // Xoa ở bảng bac si
+//    @Override
+//    public void onFixClick(int position) {
+//        if(manager != null && manager.equals("quanlybacsi")){
+//            String sdt = listacc.get(position).getPhone();
+////            Bacsi bacsi = helper.getBacsiBySdt(sdt);
+//
+//            FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>() {
+//                @Override
+//                public void onSuccess(Bacsi data) {
+//                    // Lưu đối tượng bacsi đã lấy được từ Firebase
+//
+//                    Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
+//                    intent.putExtra("bacsi", data);  // Truyền đối tượng bacsi vào Intent
+//                    startActivity(intent);
+//                }
+//                @Override
+//                public void onFailed(String message) {
+//                    // Xử lý lỗi khi không lấy được bác sĩ từ Firebase
+//                    Log.e("Firebase", "Lỗi: " + message);
+//                }
+//            });
+//
+//        }  else{
+//            // an thanh sua
+//            Toast.makeText(this, "Bạn không có quyền sửa tài khoản này", Toast.LENGTH_SHORT).show();
+//
+//        }
+//
+//    }
+//
+//    // xoa accout tren firebase
 
 
-
-
-    }
+//    @Override
+//    public void onDeleteClick(int position) {
+//        String sdt = listacc.get(position).getPhone();
+//        String role = listacc.get(position).getAs();
+//
+//        if (role.equals("bacsi")){
+//            // xóa ở bảng bác six
+//          FirebaseHelper.deleteBacsi(sdt);
+//            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+//            // xoa tai khoan tren firebase realtime
+//
+//        } else {
+//
+//            FirebaseHelper.deletebenhnha(sdt);
+//
+//            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
+//        }
+//        reference = FirebaseDatabase.getInstance().getReference("Users");
+//
+//        reference.child(sdt).removeValue();
+//        // Xoa ở bảng bac si
+//
+//
+//
+//
+//    }
 
     @Override
     public void onStatusLongClick(int position) {

@@ -30,8 +30,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
         this.listener = listener;
     }
     public interface onClickListener{
-        void onFixClick(int position);
-        void onDeleteClick(int position);
+
         void onStatusLongClick(int position);
         void onItemClick(int position);
 
@@ -49,16 +48,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         accout accout = list.get(position);
         holder.setdata(accout);
-        holder.imgfixaccout.setOnClickListener(v->{
-            if (listener != null){
-                listener.onFixClick(position);
-            }
-        });
-        holder.imgdeleteaccout.setOnClickListener(v->{
-            if (listener != null){
-                listener.onDeleteClick(position);
-            }
-        });
+
         holder.imgstatus.setOnClickListener(v->{
             if (listener != null){
                 listener.onStatusLongClick(position);
@@ -86,8 +76,7 @@ public class adapterAccout extends  RecyclerView.Adapter<adapterAccout.ViewHolde
             super(itemView);
             imgaccout = itemView.findViewById(R.id.imgaccout);
             imgstatus = itemView.findViewById(R.id.imgstatus);
-            imgfixaccout = itemView.findViewById(R.id.imgfixaccout);
-            imgdeleteaccout = itemView.findViewById(R.id.imgdeleteaccout);
+
             txttenaccout = itemView.findViewById(R.id.txttenaccout);
             txtsdtaccout = itemView.findViewById(R.id.txtsdtaccout);
             txtstatusaccout = itemView.findViewById(R.id.txtstatusaccout);
