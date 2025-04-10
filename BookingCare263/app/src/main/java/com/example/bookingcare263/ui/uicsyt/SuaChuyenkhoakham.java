@@ -94,7 +94,7 @@ public class SuaChuyenkhoakham extends AppCompatActivity {
 
     private void anhxa() {
         toolbar = findViewById(R.id.tbsuacsytck);
-        imgsuackkham = findViewById(R.id.imgsuackkham);
+        imgsuackkham = findViewById(R.id.imgckkham);
         edtsuatenckkhoa = findViewById(R.id.edtsuatenckkhoa);
         edtsuadiachikhamck = findViewById(R.id.edtsuadiachikhamck);
         edtsuagiakhamck = findViewById(R.id.edtsuagiakhamck);
