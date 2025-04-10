@@ -33,20 +33,20 @@ public class SuaCSYT extends AppCompatActivity {
 
     Button btncsytsua;
     Uri imageUri;
-    @Override
+    Cosoyte csyt;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sua_csyt);
         anhxa();
         Intent intent = getIntent();
-        Cosoyte csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
+         csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
 
         edttencsytsua.setText(csyt.getName());
         edtsdtcsytsua.setText(csyt.getSdt());
 
-     
+
             // khong cho sua edttencsysu
             edttencsytsua.setEnabled(false);
             edtsdtcsytsua.setEnabled(false);
@@ -123,7 +123,7 @@ public class SuaCSYT extends AppCompatActivity {
 
                 // upload link anh
                 DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
-                ref.child(UserActivity.iduser).child("img").setValue(downloadUri.toString());
+                ref.child(csyt.getId()).child("img").setValue(downloadUri.toString());
 
             });
             Glide.with(imgavatarsuacsyt.getContext())
