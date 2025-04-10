@@ -106,12 +106,6 @@ public class HomeFragment extends Fragment {
                     startActivity(intent);
                     break;
 
-                case "KHÁM TỔNG QUÁT":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
-                    intent.putExtra("thongtin", x.getThongtin());
-                    startActivity(intent);
-                    break;
 
 
                 case "ĐẶT LỊCH KHÁM":
@@ -120,12 +114,7 @@ public class HomeFragment extends Fragment {
                     intent.putExtra("thongtin", x.getThongtin());
                     startActivity(intent);
                     break;
-                case "XÉT NGHIỆM":
-                    intent = new Intent(getActivity(), Danhsachbacsi.class);
-                    intent.putExtra("title", itemName);
-                    intent.putExtra("thongtin", x.getThongtin());
-                    startActivity(intent);
-                    break;
+
 
             }
         });
@@ -142,10 +131,10 @@ public class HomeFragment extends Fragment {
 
         listitems = new ArrayList<>();
         listitems.add(new Item("KHÁM CHUYÊN KHOA", R.drawable.main1, "Chuyên khoa cơ xương khớp"));
-        listitems.add(new Item("KHÁM TỔNG QUÁT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
+//        listitems.add(new Item("KHÁM TỔNG QUÁT", R.drawable.main3, " Chuyên khoa khám tổng quát"));
 
         listitems.add(new Item("ĐẶT LỊCH KHÁM", R.drawable.main4, "Chuyên khoa đặt lịch khám"));
-        listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
+//        listitems.add(new Item("XÉT NGHIỆM", R.drawable.main5, "Chuyên khoa xét nghiệm"));
         adapter =  new adapterItems(listitems);
         rcvItems.setLayoutManager(new GridLayoutManager(getContext(), 2));
         rcvItems.setAdapter(adapter);
