@@ -43,11 +43,11 @@ public class ChitietCSYT extends AppCompatActivity {
         }
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
+        Toast.makeText(this, "userrole" + UserActivity.roleuser, Toast.LENGTH_SHORT).show();
 
          if("csyt".equals(UserActivity.roleuser) || "bacsi".equals(UserActivity.roleuser))
              btnviewonmap.setVisibility(View.GONE);
 
-        Toast.makeText(this, "phone csyt" + csyt.getSdt(), Toast.LENGTH_SHORT).show();
         btnviewonmap.setOnClickListener(v->{
             Intent intent1 = new Intent(ChitietCSYT.this, DSchuyenkhoaCSYT.class);
             intent1.putExtra("cosoyte", csyt);
