@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,6 +41,8 @@ public class SuaCSYT extends AppCompatActivity {
         anhxa();
         Intent intent = getIntent();
         Cosoyte csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
+
+
         edttencsytsua.setText(csyt.getName());
         edtsdtcsytsua.setText(csyt.getSdt());
         edtemailaddcsytsua.setText(csyt.getEmail());
@@ -48,6 +51,7 @@ public class SuaCSYT extends AppCompatActivity {
         edtmasogiayphepcsytsua.setText(csyt.getMasogiayphep());
         edtwebsitecsytsua.setText(csyt.getWebsite());
         edtthongtin4csytsua.setText(csyt.getThongtin());
+        if(csyt.getImg() != null)
         Glide.with(imgavatarsuacsyt.getContext())
                 .load(Uri.parse(csyt.getImg())) // Chuyển String thành Uri
                 .circleCrop()
@@ -78,7 +82,8 @@ public class SuaCSYT extends AppCompatActivity {
             } else{
                 avatar = csyt.getImg();
             }
-            Cosoyte csyt1 = new Cosoyte(csyt.getId(), ten, avatar, diachi, thongtin, masogiayphep, website, sdt, email, chuyenkhoa);
+
+            Cosoyte csyt1 = new Cosoyte( ten, avatar, diachi, thongtin, masogiayphep, chuyenkhoa,  email,sdt, website);
 
             FirebaseHelper.updatcosoyte(csyt1, new FirebaseCallBack() {
                 @Override

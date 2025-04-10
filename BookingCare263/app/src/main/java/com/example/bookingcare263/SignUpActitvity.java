@@ -22,6 +22,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.benhnhan;
 import com.google.firebase.FirebaseException;
@@ -57,7 +58,7 @@ public class SignUpActitvity extends AppCompatActivity {
         btnsigup = findViewById(R.id.btnsigup);
         tologin = findViewById(R.id.tologin);
         spinrole = findViewById(R.id.spinrole);
-        String role[] = { "benh nhan", "bacsi"};
+        String role[] = { "bệnh nhân", "bác sĩ", "cơ sở y tế"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, role);
         spinrole.setAdapter(adapter);
         spinrole.setSelection(0);
@@ -159,14 +160,19 @@ public class SignUpActitvity extends AppCompatActivity {
         String status = "Đang hoạt động";
         String banla = spinrole.getSelectedItem().toString();
 
-        if (banla.equals("benh nhan")) {
+        if (banla.equals("bệnh nhân")) {
             as = "user";
             status = "Đang hoạt động";
 
-        } else {
+        } else if(banla.equals("bác sĩ")) {
             as = "bacsi";
             status = "Chờ duyệt";
+        } else {
+            as = "csyt";
+            status = "Đang hoạt động";
+
         }
+
 
         // Kiểm tra dữ liệu trước khi đăng ký
         if (name.isEmpty()) {
@@ -205,7 +211,7 @@ public class SignUpActitvity extends AppCompatActivity {
                                 }
 
                             });
-                        } else {
+                        } else if (acc.getAs().equals("bacsi")) {
                             Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt);
                             FirebaseHelper.addBacsi(bs, new FirebaseCallBack() {
                                         @Override
@@ -217,6 +223,21 @@ public class SignUpActitvity extends AppCompatActivity {
                                         }
                                     }
                                 );
+
+                        } else{
+                            Cosoyte csyt = new Cosoyte(name, "", "", "", "", "", "", sdt, "");
+                            FirebaseHelper.insertcosoyte(csyt, new FirebaseCallBack() {
+                                @Override
+                                public void onSuccess(Object data) {
+
+                                }
+
+                                @Override
+                                public void onFailed(String message) {
+
+                                }
+                            });
+
 
                         }
                         Toast.makeText(SignUpActitvity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();

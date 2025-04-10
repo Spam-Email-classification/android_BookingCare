@@ -20,7 +20,7 @@ public class Cosoyte implements Serializable {
     }
 
     public Cosoyte( String name, String img, String diachi, String thongtin
-            , String masogiayphep, String chuyenkhoa, String email, String sdt, String website) {
+                , String masogiayphep, String chuyenkhoa, String email, String sdt, String website) {
         this.name = name;
         this.img = img;
         this.diachi = diachi;

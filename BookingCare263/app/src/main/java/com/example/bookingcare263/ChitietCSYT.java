@@ -48,6 +48,9 @@ public class ChitietCSYT extends AppCompatActivity {
         Intent intent = getIntent();
          csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
+         if("csyt".equals(UserActivity.roleuser))
+             btnviewonmap.setVisibility(View.GONE);
+
         Toast.makeText(this, "phone csyt" + csyt.getSdt(), Toast.LENGTH_SHORT).show();
         btnviewonmap.setOnClickListener(v->{
             Intent intent1 = new Intent(ChitietCSYT.this, DSchuyenkhoaCSYT.class);
@@ -60,7 +63,7 @@ public class ChitietCSYT extends AppCompatActivity {
 
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-       if(roleadmin!= null)
+       if(roleadmin!= null || "csyt".equals(UserActivity.roleuser))
            getMenuInflater().inflate(R.menu.menusua_xoa, menu);
         return true;
     }
@@ -73,12 +76,8 @@ public class ChitietCSYT extends AppCompatActivity {
             finish();
             return true;
         }
-        if (id == R.id.csytxoa) {
-            FirebaseHelper.deletecsyt(csyt.getId());
 
-            finish();
 
-        }
         return super.onOptionsItemSelected(item);
     }
 
@@ -92,7 +91,7 @@ public class ChitietCSYT extends AppCompatActivity {
         csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
 
 
-        FirebaseHelper.getcsytbyid(csyt.getId(), new FirebaseCallBack<Cosoyte>() {
+        FirebaseHelper.getcsytbyid(csyt.getSdt(), new FirebaseCallBack<Cosoyte>() {
             @Override
             public void onSuccess(Cosoyte data) {
 

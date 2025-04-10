@@ -129,26 +129,13 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Tài khoản đã bị khóa", LENGTH_SHORT).show();
 
                             } else{
-                                if(asdb!=null && asdb.equals("user")){
-                                    String name = ds.child("name").getValue(String.class);
-                                    String phone = ds.child("phone").getValue(String.class);
-
-                                    Intent intent = new Intent(LoginActivity.this, UserActivity.class);
-                                    intent.putExtra("iduser", sdt);
-                                    intent.putExtra("name", name);
-                                    intent.putExtra("phone", phone);
-                                    intent.putExtra("role", asdb);
-                                    startActivity(intent);
-                                    finish();
-
-
-                                } else if( asdb.equals("admin")) {
+                                 if( asdb.equals("admin")) {
                                     Toast.makeText(LoginActivity.this, "Iam admin", LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginActivity.this, AdminActivity.class);
                                     intent.putExtra("role", "admin");
                                     startActivity(intent);
                                     finish();
-                                } else if(asdb!=null && asdb.equals("bacsi")){
+                                } else {
                                     String name = ds.child("name").getValue(String.class);
                                     String phone = ds.child("phone").getValue(String.class);
 
@@ -160,8 +147,6 @@ public class LoginActivity extends AppCompatActivity {
                                     intent.putExtra("role", asdb);
                                     startActivity(intent);
                                     finish();
-
-
                                 }
                             }
 

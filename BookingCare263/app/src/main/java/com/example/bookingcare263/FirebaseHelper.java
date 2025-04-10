@@ -607,7 +607,7 @@ public class FirebaseHelper {
     // update csyte
     public static void updatcosoyte(Cosoyte csyt, FirebaseCallBack callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
-        ref.child(csyt.getId()).setValue(csyt).addOnCompleteListener(task -> {
+        ref.child(csyt.getSdt()).setValue(csyt).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 callBack.onSuccess(null);
             } else {
@@ -618,9 +618,8 @@ public class FirebaseHelper {
     //
     public static void insertcosoyte(Cosoyte csyt, FirebaseCallBack callBack){
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
-        String id = ref.push().getKey();
-        csyt.setId(id);
-        ref.child(id).setValue(csyt).addOnCompleteListener(task -> {
+
+        ref.child(csyt.getSdt()).setValue(csyt).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 callBack.onSuccess(null);
             } else {
@@ -656,6 +655,27 @@ public class FirebaseHelper {
 
     }
 
+    // get csyt getcsytbyid
+    public static void getcsytbysdt(String sdt, FirebaseCallBack<Cosoyte> callBack){
+
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
+        ref.orderByChild("sdt").equalTo(sdt)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                Cosoyte csyt = snapshot.getValue(Cosoyte.class);
+                callBack.onSuccess(csyt);
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+
+    }
     // add chuyenkoa csyt
 
     public static void addchuyenkhoaCSYT(Chuyenkhoacsyt ck, FirebaseCallBack callBack) {

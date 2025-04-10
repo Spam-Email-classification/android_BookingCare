@@ -5,9 +5,9 @@
             android:title="Sửa"
             android:id="@+id/csytsua"/>
 
-        <item
-            android:title="Xóa"
-            android:id="@+id/csytxoa"/>
+<!--        <item-->
+<!--            android:title="Xóa"-->
+<!--            android:id="@+id/csytxoa"/>-->
 
 
 

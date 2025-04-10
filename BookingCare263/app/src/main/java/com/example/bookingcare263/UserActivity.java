@@ -12,7 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
+import com.example.bookingcare263.ui.adminui.SuaCSYT;
 import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
 import com.example.bookingcare263.ui.uiuser.ThongtinUser;
 import com.google.android.material.navigation.NavigationView;
@@ -186,6 +188,24 @@ public class UserActivity extends AppCompatActivity {
                 Intent intent = new Intent(UserActivity.this, ThongtinBacsi.class);
 
                 startActivity(intent);
+            } else if( UserActivity.roleuser.equals("csyt")){
+
+                // get csyt by iduser
+                Log.d("iduser", UserActivity.iduser);
+
+                FirebaseHelper.getcsytbyid(UserActivity.iduser, new FirebaseCallBack<Cosoyte>() {
+                    @Override
+                    public void onSuccess(Cosoyte data) {
+                        Intent intent = new Intent(UserActivity.this, ChitietCSYT.class);
+                        intent.putExtra("cosoyte", data);
+                        startActivity(intent);
+                    }
+
+                    @Override
+                    public void onFailed(String message) {
+
+                    }
+                });
             }
             return true;
         }

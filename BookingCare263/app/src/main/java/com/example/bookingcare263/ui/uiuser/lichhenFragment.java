@@ -70,7 +70,7 @@ public class lichhenFragment extends Fragment {
 
 
 
-            } else if (UserActivity.roleuser.equals("bacsi")) {
+            } else {
                 FirebaseHelper.getlichhenbyidbacsi(UserActivity.iduser, new FirebaseCallBack<ArrayList<lichhen>>() {
                     @Override
                     public void onSuccess(ArrayList<lichhen> data) {
