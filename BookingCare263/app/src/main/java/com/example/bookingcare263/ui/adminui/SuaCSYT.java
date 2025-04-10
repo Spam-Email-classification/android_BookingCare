@@ -40,8 +40,8 @@ public class SuaCSYT extends AppCompatActivity {
         setContentView(R.layout.activity_sua_csyt);
         anhxa();
         Intent intent = getIntent();
-         csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
-
+        csyt = (Cosoyte) intent.getSerializableExtra("cosoyte");
+        Toast.makeText(this, "idcsyt" + csyt.getSdt(), Toast.LENGTH_SHORT).show();
 
         edttencsytsua.setText(csyt.getName());
         edtsdtcsytsua.setText(csyt.getSdt());
@@ -83,16 +83,18 @@ public class SuaCSYT extends AppCompatActivity {
             String masogiayphep = edtmasogiayphepcsytsua.getText().toString();
             String website = edtwebsitecsytsua.getText().toString();
             String thongtin = edtthongtin4csytsua.getText().toString();
-            String avatar ="";
-            if(imageUri != null){
-                avatar = imageUri.toString();
-            } else{
-                avatar = csyt.getImg();
-            }
 
-            Cosoyte csyt1 = new Cosoyte( ten, avatar, diachi, thongtin, masogiayphep, chuyenkhoa,  email,sdt, website);
+            csyt.setName(ten);
+            csyt.setSdt(sdt);
+            csyt.setEmail(email);
+            csyt.setDiachi(diachi);
+            csyt.setChuyenkhoa(chuyenkhoa);
+            csyt.setMasogiayphep(masogiayphep);
+            csyt.setWebsite(website);
+            csyt.setThongtin(thongtin);
 
-            FirebaseHelper.updatcosoyte(csyt1, new FirebaseCallBack() {
+
+            FirebaseHelper.updatcosoyte(csyt, new FirebaseCallBack() {
                 @Override
                 public void onSuccess(Object data) {
 
@@ -121,9 +123,7 @@ public class SuaCSYT extends AppCompatActivity {
             String uniquename = "image_" + System.currentTimeMillis() + ".jpg";
             uploadImageToFirebaseStorage(this, imageUri, uniquename, downloadUri -> {
 
-                // upload link anh
-                DatabaseReference ref = FirebaseDatabase.getInstance().getReference("tbsoyte");
-                ref.child(csyt.getId()).child("img").setValue(downloadUri.toString());
+                csyt.setImg(downloadUri.toString());
 
             });
             Glide.with(imgavatarsuacsyt.getContext())
