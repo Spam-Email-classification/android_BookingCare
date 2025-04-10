@@ -57,7 +57,7 @@ public class Danhsachbacsi extends AppCompatActivity {
 
         // lay du lieu tu sqlite
 
-        if(title.equals("ĐẶT LỊCH KHÁM")){
+        if(title.equals("ĐẶT LỊCH KHÁM") || title.equals("Tìm kiếm bác sĩ, chuyên khoa khám")){
 
             FirebaseHelper.getaccoutbyStatusAndRole( "Đang hoạt động", "bacsi", new FirebaseCallBack<ArrayList<accout>>()
             {

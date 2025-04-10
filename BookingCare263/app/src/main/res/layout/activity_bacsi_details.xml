@@ -91,6 +91,40 @@
                         android:text="TextView"
                         android:textStyle="bold" />
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView8"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Địa chỉ khám"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/txtdiachidt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:paddingLeft="5dp"
+                            android:text="Bệnh viện Ung bướu Hưng Việt \n34 Đại Cồ Việt, Hai Bà Trưng, Hà nội"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:id="@+id/txtgiakhamdt"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="Giá khám: 500.000 đ"
+                            android:textColor="#f95738"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+
                     <TextView
                         android:id="@+id/txtthogtindt"
                         android:layout_width="match_parent"
@@ -105,38 +139,6 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Địa chỉ khám"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/txtdiachidt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:paddingLeft="5dp"
-                    android:text="Bệnh viện Ung bướu Hưng Việt \n34 Đại Cồ Việt, Hai Bà Trưng, Hà nội"
-                    android:textColor="@color/black" />
-
-                <TextView
-                    android:id="@+id/txtgiakhamdt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Giá khám: 500.000 đ"
-                    android:textColor="#f95738"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
 
             <Button
                 android:id="@+id/btndatlichdt"
