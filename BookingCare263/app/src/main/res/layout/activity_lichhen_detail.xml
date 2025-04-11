@@ -95,20 +95,11 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/ngayHenKham"
+                    android:id="@+id/soDienThoai"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Ngày hẹn khám: 15/04/2025"
-                    android:textColor="@color/black"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:id="@+id/gioHenKham"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="Giờ hẹn khám: 08:30"
+                    android:text="Số điện thoại: 0123456789"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 
@@ -122,11 +113,20 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:id="@+id/soDienThoai"
+                    android:id="@+id/gioHenKham"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="Số điện thoại: 0123456789"
+                    android:text="Giờ hẹn khám: 08:30"
+                    android:textColor="@color/black"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/ngayHenKham"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="Ngày hẹn khám: 15/04/2025"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
 

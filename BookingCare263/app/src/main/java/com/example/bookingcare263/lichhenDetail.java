@@ -52,10 +52,10 @@ public class lichhenDetail extends AppCompatActivity {
         // load thong tin
         txttenBacSi.setText( lh.getNamebs());
         txttenBenhNhan.setText("Tên bệnh nhân: " + lh.getNamebenhnhan());
-        txtsdtBenhNhan.setText("Ngày hẹn khám: " + lh.getSdtbenhnhan());
-        txtdiaChiKham.setText("Giờ hẹn khám " + lh.getDiachibenhnhan());
-        txtngayhenkham.setText("Địa điểm: " + lh.getNgayhenkham());
-        txtgiohenkham.setText("Số điện thoại: " + lh.getKhunggiokham());
+        txtsdtBenhNhan.setText("Số điện thoại: " + lh.getSdtbenhnhan());
+        txtdiaChiKham.setText("Địa chỉ " + lh.getDiachibenhnhan());
+        txtngayhenkham.setText("Ngày hẹn khám: " + lh.getNgayhenkham());
+        txtgiohenkham.setText("Giờ khám: " + lh.getKhunggiokham());
         txttrangThai.setText("Trạng thái" + lh.getTrangthai());
 
         if(lh.getAvatarbs()!=null)
