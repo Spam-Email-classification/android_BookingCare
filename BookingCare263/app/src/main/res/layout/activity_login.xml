@@ -104,15 +104,7 @@
             android:textSize="18sp"
             android:elevation="4dp" />
 
-        <TextView
-            android:id="@+id/txtquenmk"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Quên mật khẩu?"
-            android:textColor="#488AA9"
-            android:textSize="16sp"
-            android:gravity="end"
-            android:layout_marginTop="10dp"/>
+
 
         <TextView
             android:id="@+id/tosigup"

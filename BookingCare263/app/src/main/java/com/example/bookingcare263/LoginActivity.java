@@ -33,7 +33,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private Button btnlogin;
     private TextView tosigup;
-    private TextView txtquenmk;
 
     DatabaseReference reference;
 
@@ -54,29 +53,7 @@ public class LoginActivity extends AppCompatActivity {
         tosigup.setOnClickListener(e->startActivity(new Intent(LoginActivity.this, SignUpActitvity.class)));
 
 
-        txtquenmk.setOnClickListener(e->{
-            AlertDialog builder = new AlertDialog.Builder(LoginActivity.this).create();
-            View view = LayoutInflater.from(this).inflate(R.layout.dialog_fotgotpassword, null);
-            EditText  edtemailforgot = view.findViewById(R.id.edtemailforgot);
-            Button btncancel = view.findViewById(R.id.btncancel);
-            Button btnforgot = view.findViewById(R.id.btnforgot);
-            builder.setView(view);
 
-            btncancel.setOnClickListener(v->{
-                builder.dismiss();
-            });
-
-            btnforgot.setOnClickListener(v->{
-                checkemail(edtemailforgot);
-                builder.dismiss();
-            });
-
-            if(builder.getWindow()!= null){
-                builder.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-            }
-            builder.show();
-
-        });
 
         // cap nhap mat khau moi len realtime neu có
 
@@ -192,7 +169,6 @@ public class LoginActivity extends AppCompatActivity {
         edtpasslogin = findViewById(R.id.edtpasslogin);
         btnlogin = findViewById(R.id.btnlogin);
         tosigup = findViewById(R.id.tosigup);
-        txtquenmk = findViewById(R.id.txtquenmk);
 
     }
 }
