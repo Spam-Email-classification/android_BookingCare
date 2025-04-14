@@ -1,0 +1,913 @@
+{
+  "Users": {
+    "1234": {
+      "as": "admin",
+      "name": "1234",
+      "pass": "123456",
+      "phone": "1234",
+      "status": "Đang hoạt động",
+      "token": "czI89QbDQsS2OYlKJj9G9f:APA91bE5MPlBQt2DYlyG9Z8xCi4-wFwiT-pLJWvUkgCIrCvfreLdn1ceix59LMRRAm7koOBOY3b19yDsCSNmVn936oKt_03g1jtAxQRaeGcCQD1X6Lh_rrk"
+    },
+    "3685": {
+      "as": "csyt",
+      "name": "ui",
+      "pass": "468532",
+      "phone": "3685",
+      "status": "Đang hoạt động",
+      "token": "czI89QbDQsS2OYlKJj9G9f:APA91bE5MPlBQt2DYlyG9Z8xCi4-wFwiT-pLJWvUkgCIrCvfreLdn1ceix59LMRRAm7koOBOY3b19yDsCSNmVn936oKt_03g1jtAxQRaeGcCQD1X6Lh_rrk"
+    },
+    "123456": {
+      "as": "admin",
+      "name": "phuong",
+      "pass": "123456",
+      "phone": "123456",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "19001902": {
+      "as": "csyt",
+      "name": "Bệnh viện Hữu Nghị Việt Đức",
+      "pass": "123456",
+      "phone": "19001902",
+      "status": "Đang hoạt động",
+      "token": "e3JzqQPnQNKY54DLixZjIL:APA91bFC4mvslTj_ZinO1paZ_5dv7PVqNmJRuaS0iG8jSxdQsBvPGjVFCcjYseOMO6wilBT9Ov7cjRF4qjvbLShZFBrjx8kTvuhOXIQFyHuOVOTc9kg5sEs"
+    },
+    "1900888866": {
+      "as": "csyt",
+      "name": "Bệnh viện Bạch Mai",
+      "pass": "123456",
+      "phone": "1900888866",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "0655": {
+      "as": "csyt",
+      "name": "0077",
+      "pass": "123456",
+      "phone": "0655",
+      "status": "Đang hoạt động",
+      "token": "czI89QbDQsS2OYlKJj9G9f:APA91bE5MPlBQt2DYlyG9Z8xCi4-wFwiT-pLJWvUkgCIrCvfreLdn1ceix59LMRRAm7koOBOY3b19yDsCSNmVn936oKt_03g1jtAxQRaeGcCQD1X6Lh_rrk"
+    },
+    "06985": {
+      "as": "user",
+      "name": "896",
+      "pass": "49546788",
+      "phone": "06985",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "039965": {
+      "as": "user",
+      "name": "577",
+      "pass": "p56788877",
+      "phone": "039965",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "069572400": {
+      "as": "csyt",
+      "name": "Bệnh viện Trung ương Quân Đội 108",
+      "pass": "123456",
+      "phone": "069572400",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0123456789": {
+      "as": "bacsi",
+      "name": "Hảo Bùi",
+      "pass": "123456",
+      "phone": "0123456789",
+      "status": "Chờ duyệt",
+      "token": ""
+    },
+    "0329123789": {
+      "as": "bacsi",
+      "name": "Nguyễn Văn Quế",
+      "pass": "123456",
+      "phone": "0329123789",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0358793128": {
+      "as": "user",
+      "name": "hagiang",
+      "pass": "hagiang",
+      "phone": "0358793128",
+      "status": "Đang hoạt động",
+      "token": "c5p5opJYRaC7_npekAPJzC:APA91bFQh7mqaJiI8yrVwfT59fAupPcoTp-VzwVydlyzgqca8BfUA2saN-XtnFROx4XEmzaDI2gUU1mZ47JeszrzCgD9LtKetpB3MkgK2IxDkhsM73UbKwM"
+    },
+    "0399608832": {
+      "as": "user",
+      "name": "phuong",
+      "pass": "123456",
+      "phone": "0399608832",
+      "status": "Đang hoạt động",
+      "token": "e3JzqQPnQNKY54DLixZjIL:APA91bFC4mvslTj_ZinO1paZ_5dv7PVqNmJRuaS0iG8jSxdQsBvPGjVFCcjYseOMO6wilBT9Ov7cjRF4qjvbLShZFBrjx8kTvuhOXIQFyHuOVOTc9kg5sEs"
+    },
+    "0703456789": {
+      "as": "bacsi",
+      "name": "Đặng Thị Bích Nguyệt",
+      "pass": "123456",
+      "phone": "0703456789",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0765432198": {
+      "as": "bacsi",
+      "name": "Đoàn Viết Trình",
+      "pass": "123456",
+      "phone": "0765432198",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0777111222": {
+      "as": "bacsi",
+      "name": "Vương Thu Hà",
+      "pass": "123456",
+      "phone": "0777111222",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0788000999": {
+      "as": "bacsi",
+      "name": "Nguyễn Duy Thắng",
+      "pass": "123456",
+      "phone": "0788000999",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0799876543": {
+      "as": "bacsi",
+      "name": "Nguyễn Thị Hương",
+      "pass": "123456",
+      "phone": "0799876543",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0869999888": {
+      "as": "bacsi",
+      "name": "Trương Thị Thanh",
+      "pass": "123456",
+      "phone": "0869999888",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0888666777": {
+      "as": "bacsi",
+      "name": "Mai Thế Cảnh",
+      "pass": "123456",
+      "phone": "0888666777",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0898123456": {
+      "as": "bacsi",
+      "name": "Nguyễn Ngọc Cương",
+      "pass": "123456",
+      "phone": "0898123456",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0904690818": {
+      "as": "csyt",
+      "name": "Bệnh viện K",
+      "pass": "123456",
+      "phone": "0904690818",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "0909112233": {
+      "as": "bacsi",
+      "name": "Hoàng Đình Âu",
+      "pass": "123456",
+      "phone": "0909112233",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0921345678": {
+      "as": "bacsi",
+      "name": "Đoàn Tiến Lưu",
+      "pass": "123456",
+      "phone": "0921345678",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0934567890": {
+      "as": "bacsi",
+      "name": "Phạm Chính Trực",
+      "pass": "123456",
+      "phone": "0934567890",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0966888999": {
+      "as": "bacsi",
+      "name": "Lê Duy Chung",
+      "pass": "123456",
+      "phone": "0966888999",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0973246810": {
+      "as": "bacsi",
+      "name": "Nguyễn Thái Bình",
+      "pass": "123456",
+      "phone": "0973246810",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    },
+    "0987654321": {
+      "as": "bacsi",
+      "name": "Lê Tuấn Linh",
+      "pass": "123456",
+      "phone": "0987654321",
+      "status": "Đang hoạt động",
+      "token": "e3JzqQPnQNKY54DLixZjIL:APA91bFC4mvslTj_ZinO1paZ_5dv7PVqNmJRuaS0iG8jSxdQsBvPGjVFCcjYseOMO6wilBT9Ov7cjRF4qjvbLShZFBrjx8kTvuhOXIQFyHuOVOTc9kg5sEs"
+    },
+    "+6856": {
+      "as": "csyt",
+      "name": "gjgu",
+      "pass": "u8658689",
+      "phone": "+6856",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02432222944": {
+      "as": "csyt",
+      "name": "Bệnh viện Da Liễu Trung Ương",
+      "pass": "123456",
+      "phone": "02432222944",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02435746298": {
+      "as": "csyt",
+      "name": "Bệnh viện đại học Y Hà Nội",
+      "pass": "123456",
+      "phone": "02435746298",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02438254638": {
+      "as": "csyt",
+      "name": "Bệnh viện Phụ Sản Trung Ương",
+      "pass": "123456",
+      "phone": "02438254638",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02462738573": {
+      "as": "csyt",
+      "name": "Bệnh viện Nhi Trung Ương",
+      "pass": "123456",
+      "phone": "02462738573",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02838557267": {
+      "as": "csyt",
+      "name": "Bệnh viện Chợ Rẫy",
+      "pass": "123456",
+      "phone": "02838557267",
+      "status": "Đang hoạt động",
+      "token": ""
+    },
+    "02839526568": {
+      "as": "csyt",
+      "name": "Bệnh viện Từ Dũ",
+      "pass": "123456",
+      "phone": "02839526568",
+      "status": "Đang hoạt động",
+      "token": "cuSICZKtQ72s0Mpk2GuxH3:APA91bHboj9nW4hgZJ3cRjO2tgcVJzkWM5Wwf88qNebRVgWagiDPU3YkLscDBSKXJC4QsUmtg4D2xxKNLtt4PWmvyqo5hdbJa4wDCRZQtdUIXMtkFTpY8Xo"
+    }
+  },
+  "tb_bacsi": {
+    "0123456789": {
+      "chuyenkhoa": "",
+      "diachi": "",
+      "email": "",
+      "giaKham": "",
+      "img": "",
+      "name": "Hảo Bùi",
+      "sdt": "0123456789",
+      "sogiayphephanhnghe": "",
+      "thongtin": ""
+    },
+    "0329123789": {
+      "chuyenkhoa": "Sản phụ khoa",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "quenv@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255442768.jpg?alt=media&token=195fdd60-f0a6-45a7-a011-ffafab1b8047",
+      "name": "Nguyễn Văn Quế",
+      "sdt": "0329123789",
+      "sogiayphephanhnghe": "NVQ123456789",
+      "thongtin": "Thạc sỹ. Bác sỹ  Nguyễn Văn Quế  Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  2000-2006. Sinh viện hệ đa khoa, trường ĐHY Thái Bình  2006-2007. CKĐHchuyên ngành CĐHA, ĐHY HN  2011-2013. Cao học chuyên ngành CĐHA, ĐHY HN  2013-nay. Bác sĩ TRUNG TÂM CĐHA VÀ CAN THIỆP ĐIỆN QUANG BV ĐHY HN  Sách, sách chuyên khảo, giáo trình (Thống kê số lượng, tên cuốn sách, giáo trình, năm xuất bản):  Không  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học trong nước: 1 bài  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia (Thống kê số lượng đề tài cấp Nhà nước, cấp Bộ, cấp cơ sở, đề tài thử nghiệm lâm sàng và hợp tác quốc tế đã chủ trì hoặc tham gia; thời gian thực hiện, kết quả nghiệm thu)  Tham gia 01 đề tài cấp cơ sở nghiệm thu 2013  Hướng dẫn khóa luận tốt nghiệp, luận văn thạc sĩ, luận án tiến sĩ (Thống kê số lượng và thời gian, chuyên ngành hướng dẫn):  Không  Khen thưởng (Thời gian và tên giải thưởng)  Không"
+    },
+    "0703456789": {
+      "chuyenkhoa": "Thân - Tiết niệu",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "nguyetdtb@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255423768.jpg?alt=media&token=6a564dc3-b0bc-4b9c-a302-e012c772c775",
+      "name": "Đặng Thị Bích Nguyệt",
+      "sdt": "0703456789",
+      "sogiayphephanhnghe": "DTBN123456789",
+      "thongtin": "Thạc sỹ. Bác sỹ chuyên khoa cấp II  Đặng Thị Bích Nguyệt  Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  2004-2010. Sinh viện hệ đa khoa, trường ĐHY HN  2010-2011. Học chuyên khoa định hướng chuyên ngành CĐHA, ĐHY HN  2011-2013. Bác sĩ tại trung tâm Chẩn đoán hình ảnh Hà Nội  2013-2016. Học Cao học chuyên ngành CĐHA tại trường ĐHY HN  2020-2022: học Bác sĩ CK II tại trường Đại Học Y Hà Nội.  2010-2013: Bác sĩ chuyên ngành CĐHA - Bệnh viện Tim Hà Nội.  2016- nay. Bác sĩ TT CĐHA bệnh viện Đại học Y HÀ Nội  Chuyên môn sâu  CĐHA cơ xương khớp  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học được đăng trong nước: 2 bài  Số bài báo cáo hội nghị trong nước: 2 bài  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia (Thống kê số lượng đề tài cấp Nhà nước, cấp Bộ, cấp cơ sở, đề tài thử nghiệm lâm sàng và hợp tác quốc tế đã chủ trì hoặc tham gia; thời gian thực hiện, kết quả nghiệm thu)  Tham gia 01 đề tài cấp bộ đang tiến hành.  Tên đề tài “Nghiên cứu giá trị của Xquang, siêu âm, cộng hưởng từ và cắt lớp vi tính có tiêm thuốc tương phản nội khớp trong chẩn đoán một số bệnh lý khớp vai”."
+    },
+    "0765432198": {
+      "chuyenkhoa": "Châm cứu",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "trinhdv@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255406671.jpg?alt=media&token=ddafe4f8-54a3-495f-b3b9-95ae1b95ca83",
+      "name": "Đoàn Viết Trình",
+      "sdt": "0765432198",
+      "sogiayphephanhnghe": "DVT123456789",
+      "thongtin": "Thạc sỹ. Bác sỹ  Đoàn Viết Trình Bác sỹ khoa CĐHA – BV ĐH Y Hà Nội   Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  + Quá trình đào tạo:  2003-2009. Sinh viện hệ đa khoa, trường ĐHY Thái Bình  2009-2010. CKĐHchuyên ngành CĐHA, ĐHY HN  2012-2014. Cao học chuyên ngành CĐHA, ĐHY HN  +Quá trình công tác:  2009-2014: Giảng viên bộ môn CĐHA – Trường ĐH Y Thái Bình  20015-nay: Bác sỹ khoa CĐHA- BV ĐH Y Hà Nội  Sách, sách chuyên khảo, giáo trình (Thống kê số lượng, tên cuốn sách, giáo trình, năm xuất bản): Không  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học trong nước: 1 bài  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia (Thống kê số lượng đề tài cấp Nhà nước, cấp Bộ, cấp cơ sở, đề tài thử nghiệm lâm sàng và hợp tác quốc tế đã chủ trì hoặc tham gia; thời gian thực hiện, kết quả nghiệm thu)  Tham gia 02 đề tài cấp cơ sở nghiệm thu 2015 và 2018.  Hướng dẫn khóa luận tốt nghiệp, luận văn thạc sĩ, luận án tiến sĩ (Thống kê số lượng và thời gian, chuyên ngành hướng dẫn): Không  Khen thưởng (Thời gian và tên giải thưởng): Không"
+    },
+    "0777111222": {
+      "chuyenkhoa": "Ung bướu",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "havt@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255362724.jpg?alt=media&token=853890b5-9b6a-4f84-9907-2d5c1aa8325a",
+      "name": "Vương Thu Hà",
+      "sdt": "0777111222",
+      "sogiayphephanhnghe": "VTH123456789",
+      "thongtin": "Bác sỹ chuyên khoa cấp II. Bác sỹ nội trú  Vương Thu Hà Bác sĩ Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang - BV ĐH Y Hà Nội   Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  2006-2012. Sinh viện hệ đa khoa, trường ĐHY HN  2012-2015. Học bác sỹ nội trú chuyên ngành CĐHA, ĐHY HN  2015-2016. Học theo chương trình FFI tại Pháp  2020-2022: Học BSCK cấp 2 tại ĐHY Hà Nội  2016- nay. Bác sĩ Trung tâm CĐHA &CTĐQ bệnh viện Đại học Y HÀ Nội  Chuyên môn sâu  Can thiệp dưới siêu âm/ cắt lớp vi tính : giảm đau xương khớp, sinh thiết các tạng  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học được đăng trong nước: 3 bài  Số bài báo cáo hội nghị trong nước: 4 bài  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia (Thống kê số lượng đề tài cấp Nhà nước, cấp Bộ, cấp cơ sở, đề tài thử nghiệm lâm sàng và hợp tác quốc tế đã chủ trì hoặc tham gia; thời gian thực hiện, kết quả nghiệm thu)  Tham gia 01 đề tài cấp bộ đang tiến hành.  Tên đề tài “Nghiên cứu giá trị của Xquang, siêu âm, cộng hưởng từ và cắt lớp vi tính có tiêm thuốc tương phản nội khớp trong chẩn đoán một số bệnh lý khớp vai”."
+    },
+    "0788000999": {
+      "chuyenkhoa": "Cột sống",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "thangnd@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255354330.jpg?alt=media&token=1ba5da13-2692-4852-a348-1aa600515135",
+      "name": "Nguyễn Duy Thắng",
+      "sdt": "0788000999",
+      "sogiayphephanhnghe": "NDT123456789",
+      "thongtin": "Thạc sỹ - Bác sỹ  Nguyễn Duy Thắng Bác sỹ Trung tâm CĐHA và can thiệp điện quang – BV ĐH Y Hà Nội.   Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  2001 - 2007. Sinh viện hệ bác sỹ đa khoa, trường ĐH Y HN  2009 - 2010. Định hướng chuyên khoa CĐHA, ĐH Y HN  2012-2014. Cao học chuyên ngành CĐHA, ĐH Y HN  2014 - nay. Bác sỹ Trung tâm CĐHA và can thiệp điện quang BV ĐHY HN  Sách, sách chuyên khảo, giáo trình (Thống kê số lượng, tên cuốn sách, giáo trình, năm xuất bản ):  Không  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)      Số bài báo khoa học trong nước: 1 bài  Đề tài KH & CN các cấp đã chủ trì hoặc tham gia (Thống kê số lượng đề tài cấp Nhà nước, cấp Bộ, cấp cơ sở, đề tài thử nghiệm lâm sàng và hợp tác quốc tế đã chủ trì hoặc tham gia; thời gian thực hiện, kết quả nghiệm thu):  Không  Hướng dẫn khóa luận tốt nghiệp, luận văn thạc sĩ, luận án tiến sĩ (Thống kê số lượng và thời gian, chuyên ngành hướng dẫn):  Không  Khen thưởng (Thời gian và tên giải thưởng)  Không"
+    },
+    "0799876543": {
+      "chuyenkhoa": "Chuyên khoa mắt",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "huongnt@gmail.com",
+      "giaKham": "120.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255316541.jpg?alt=media&token=84d48e7c-0668-423d-bffe-cbd6a1ae25b1",
+      "name": "Nguyễn Thị Hương",
+      "sdt": "0799876543",
+      "sogiayphephanhnghe": "NTH123456789",
+      "thongtin": "Thạc sỹ - Bác sỹ  Nguyễn Thị Hương Bác sĩ Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang - BV ĐH Y Hà Nội   Giới thiệu  Ngay sau khi tốt nghiệp bác sỹ đa khoa Trường Đại học Y Hà Nội, tôi đã học chuyên khoa định hướng chuyên nghành chẩn đoán hình ảnh tại trường Đại học Y Hà Nội nên đã được học những kiến thức cơ bản nhất của chuyên ngành này. Từ năm 2005 đến năm 2008: học Bác sỹ Nội trú các bệnh viện chuyên ngành chẩn đoán hình ảnh của trường Đại học Y Hà Nội, tôi đã được thực tập và làm việc tại các khoa chẩn đoán hình ảnh của bệnh viện Việt Đức, bệnh viện Bạch Mai, là những bệnh viện lớn, có đầy đủ các trang thiết bị hiện đại của chuyên ngành, với số lượng bệnh nhân nhiều và phong phú về mặt bệnh. Đồng thời dưới sự dạy dỗ tận tình của các thầy cùng chuyên ngành và các bậc đàn anh, các bác sĩ của các chuyên ngành khác, tôi đã nắm bắt và thực hành các kiến thức chuyên ngành và các kĩ năng hành nghề trong thực tế. Sau khi tốt nghiệp bác sỹ nội trú, tôi về làm việc tại khoa chẩn đoán hình ảnh trường Đại học Y Hà Nội. Trong môi trường làm việc của một bệnh viện đa khoa với điều kiện tương đối hoàn chỉnh về mặt trang thiết bị nên tôi đã là một Bác sỹ chuẩn đoán hình ảnh đa khoa và bệnh viện trường Đại học Y Hà Nội có máy chụp cộng hưởng từ 1.5Tesla với coil vú chuyên dụng, đây là điều kiện rất thuận lợi để tôi có thể cập nhật, áp dụng những kiến thức mới về cộng hưởng từ nói tuyến vú và làm chuyên sâu hơn về lĩnh vực này  Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  1998-2004: Sinh viên hệ bác sỹ đa khoa, trường ĐHYHN  2004-2005. Học viên lớp chuyên khoa định hướng CĐHA, trường ĐHYHN  2005-2008. BSNT chuyên ngành Chẩn đoán hình ảnh, trường ĐHYHN  2008- đến nay. Bác sĩ Trung tâm Chẩn đoán hình ảnh và can thiệp điện quang, bệnh viện ĐHYHN  Chuyên môn sâu  Chẩn đoán hình ảnh vú: siêu âm, XQuang vú và Cộng hưởng từ Tuyến Vú  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học trong nước: 08 bài  Số bài báo cáo hội nghị trong nước: 05 bài  - Năm 2004, dưới sự hướng dẫn của Cố PGS. Tôn Thất Bách, TS. Trần Bình Giang, thí sinh đã bảo vệ thành công luận văn tốt nghiệp bác sỹ đa khoa: “Đánh giá kết quả phương pháp phẫu thuật nội soi ổ bụng điều trị viêm ruột thừa cấp tại Bệnh viện Việt Đức từ tháng 8/2003-tháng 3/2004’’. - Năm 2008, dưới sự hướng dẫn của PGS. TS. Nguyễn Duy Huề, thí sinh nghiên cứu đề tài “Đặc điểm hình ảnh u mô đệm ống tiêu hóa : nhân 21 trường hợp’’ đăng trên tạp chí Y học Việt Nam, số 2/ 2008 và báo cáo tại Hội nghị điện quang Đông Nam Á lần thứ XIV tháng 9 năm 2008 tại Hà Nội. - Năm 2008, dưới sự hướng dẫn của PGS. TS. Nguyễn Duy Huề, thí sinh đã bảo vệ thành công luận văn tốt nghiệp bác sỹ nội trú : “Nghiên cứu đặc điểm hình ảnh và giá trị chẩn đoán của cộng hưởng từ đối với u nguyên bào tủy hố sau”. - Nhiều nghiên cứu về lĩnh vực cộng hưởng từ tuyến vú và đã hoàn thành các đề tài nghiên cứu sau dưới sự hướng dẫn của Cố PGS TS. Bùi Văn Lệnh : + “Cộng hưởng từ động học tuyến vú”, đăng tải trên tạp chí Y học thực hành số 2 năm 2011 và báo cáo tại hội nghị Hình ảnh Y học và Y học hạt nhân toàn quốc lần thứ XII, tháng 7 năm 2010 tại Hải Phòng. + “Nghiên cứu đặc điểm đồ thị ngấm thuốc của một số bệnh lý tuyến vú trên cộng hưởng từ”, đăng tải trên tạp chí Y học thực hành số 1 năm 2011. + “Nghiên cứu đặc điểm hình ảnh và giá trị của cộng hưởng từ động học trong chẩn đoán ung thư biểu mô tuyến vú thể nội ống”, đăng tải trên tạp chí Điện quang Việt Nam số 3 năm 2011 và báo cáo tại hội nghị Hình ảnh Y học và Y học hạt nhân Việt Pháp lần thứ III, tháng 4 năm 2010 tại Huế.  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia  Chủ trì 01 đề tài cấp cơ sở:  “Nghiên cứu đặc điểm hình ảnh cộng hưởng từ của bệnh lý u hạt Sillicone ở tuyến vú”, nghiệm thu năm 2016.  Khen thưởng (Thời gian và tên giải thưởng)  Bằng khen giải ba Hội thao kỹ thuật tuổi trẻ sáng tạo nghành y tế khu vực Hà Nội lần thứ XXIV, năm 2011"
+    },
+    "0869999888": {
+      "chuyenkhoa": "Hô hấp phổi",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "thanhtt@gmail.com",
+      "giaKham": "230.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255306724.jpg?alt=media&token=25a0501d-f903-4c46-9a96-48ec2017ac3d",
+      "name": "Trương Thị Thanh",
+      "sdt": "0869999888",
+      "sogiayphephanhnghe": "TTT123456789",
+      "thongtin": "Bác sỹ chuyên khoa cấp II, Bác sỹ nội trú.  Trương Thị Thanh Bác sỹ Trung tâm CĐHA& CTĐQ – BV ĐH Y Hà Nội     Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật:  2007-2013: Sinh viên hệ bác sỹ đa khoa Trường Đại học Y Hà Nội  2013-2016: Học Bác sỹ nội trú chuyên ngành chẩn đoán hình ảnh.  2016- đến nay: Bác sỹ  TT Chẩn đoán hình ảnh và CTĐQ - BV Đại học Y Hà Nội  2020- 2022: Bác sĩ Chuyên khoa II tại Trường Đại học Y Hà Nội  Tháng 6 đến tháng 12 năm 2018: đi học chẩn đoán hình ảnh tại đại học AJou Hàn Quốc  Chuyên môn sâu  - Đốt sóng cao tần (RFA) điều trị nhân tuyến giáp dưới hướng dẫn siêu âm. - Điều trị suy tĩnh mạch chi dưới bằng phương pháp Laser, tiêm xơ - Hút u vú có hỗ trợ áp lực âm (VABB) - Chọc hút tế bào, sinh thiết các khối u ( u vú, u giáp, u gan...)  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học được đăng trong nước: 03 bài  Số bài báo cáo hội nghị trong nước: 1 bài"
+    },
+    "0888666777": {
+      "chuyenkhoa": "Da liễu",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "canhmt@gmail.com",
+      "giaKham": "230.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255297854.jpg?alt=media&token=0522f0c3-f0e6-4fb7-b87d-c2d7e394ae36",
+      "name": "Mai Thế Cảnh",
+      "sdt": "0888666777",
+      "sogiayphephanhnghe": "MTC123456789",
+      "thongtin": "Bác sỹ chuyên khoa cấp II. Bác sỹ nội trú  Mai Thế Cảnh Bác sỹ Trung tâm CĐHA và điện quang can thiệp - Bệnh viện đại học Y Hà Nội   Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  2002- 2008: Học Bs Đa Khoa tại Đại Học Y Hà Nội 2008-2011: Học Bác Sỹ Nội Trú Khoá 33- Chẩn Đoán Hình Ảnh Tại Trường Đại Học Y Hà Nội  2020-2022: Bác sỹ chuyên khoa cấp II tại Trường Đại Học Y Hà Nội Từ tháng 11/2011- nay: công tác tại Trung Tâm CĐHA và CTĐQ- BV ĐH Y Hà Nội  Chuyên môn, kỹ thuật chuyên sâu  Chẩn đoán hình ảnh chuyên sâu về gan mật, mắt- mũi- xoang  Sách, sách chuyên khảo, giáo trình (Thống kê số lượng, tên cuốn sách, giáo trình, năm xuất bản ): không  Các công trình khoa học đã công bố (Thống kê số lượng bài đăng trên các tạp chí khoa học trong nước và quốc tế, số báo cáo tham gia các Hội nghị khoa học trong nước và quốc tế)  Số bài báo khoa học trong nước: 2 bài  Số bài báo cáo hội nghị trong nước: 1 bài"
+    },
+    "0898123456": {
+      "chuyenkhoa": "Châm cứu",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "cuongnn@gmail.com",
+      "giaKham": "500.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255613334.jpg?alt=media&token=7a31c4f4-38b2-493f-89f7-8a5ee220e364",
+      "name": "Nguyễn Ngọc Cương",
+      "sdt": "0898123456",
+      "sogiayphephanhnghe": "NNC123456789",
+      "thongtin": "Tiến sĩ, Bác sĩ nội trú  Nguyễn Ngọc Cương Bác sỹ Trung tâm CĐHA và điện quang can thiệp - Bệnh viện đại học Y Hà Nội   QUÁ TRÌNH HỌC TẬP  2001 – 2007: Sinh viên trường ĐHYHN  2007 – 2011: Bác sỹ nội trú bệnh viện Việt Đức, Bạch Mai  5/2010 – 10/2010: Bệnh viện Winterthur, Thụy Sỹ  2011 – 10/2014: BV Trường ĐHYHN  10/2014 - 10/2015: FFI bệnh viện Hautte Pierre Strasbourg  2017 – 2020 : Nghiên cứu sinh chuyên ngành CĐHA trường ĐHY Hà Nội  KINH NGHIỆM LÀM VIỆC  2007 – 2008: Bác sỹ nội trú CĐHA Bệnh viện Việt Đức  2008 – 2011: Bác sỹ nội trú CĐHA BV Bạch Mai  2011 – nay: Bác sĩ TT Chẩn đoán hình ảnh và can thiệp điện quang, BV đại học Y Hà Nội  CÁC KHOÁ ĐÀO TẠO NGẮN HẠN NƯỚC NGOÀI  Radiologic pathologic correlation congress; 6/2010 Vienna, Austria. Aorta stent graft simulation course; 9/2011. Hatyai, Thailand. Peripheral artery angioplasty workshop; 11/2012; Changi hospital, Singapore. Pipeline Ebolization Device skill lab workshop; 3/2017; Catholic university; St Mary’s hospital of Seoul, Korea TWIN – MV teaching workshop neuro intervention in Putra Minimally invasive skills lab; 1/2018, Kuala Lumpur, Malaysia Image Guide Therapy, interventional radiology training course: think embolic 8/2018; Osaka, Japan. Journée de radiologie francaise, 10/2018; France “Mechanical thrombectomy treatment workshop”. 28-29/9/2019, Siriraj Hospital, Bangkok, Thailand CHUYÊN MÔN KỸ THUẬT CHUYÊN SÂU  ĐIỀU TRỊ CAN THIỆP CÁC BỆNH LÝ DƯỚI HƯỚNG DẪN CỦA HÌNH ẢNH:  Điều trị bệnh lý hệ bạch huyết Điều trị các bệnh lý Gan Mật Can thiệp tĩnh mạch Can thiệp thần kinh Tiết niệu sinh dục Can thiệp đốt nhiệt các khối u (dùng sóng cao tần, vi sóng, áp lạnh)  KINH NGHIỆM BÁO CÁO HỘI NGHỊ TRONG NƯỚC  Hội nghị Điện quang và y học hạt nhân Việt Nam lần thứ 12, Nha Trang 8/2010. “kết quả bước đầu điều trị can thiệp nút mạch giãn tĩnh mạch tinh tại bệnh viện Việt Đức  Hội nghị Điện quang và y học hạt nhân Việt Nam lần thứ 13, Huế 8/2011. “Kết quả bước đầu điều trị nút mạch dị dạng động tĩnh mạch não bằng Onyx  Hội nghị Điện quang can thiệp toàn quốc lần thứ 14, Thành phố Hồ Chí Minh 3-4/8/2012: “Điều trị phình động mạch chủ ngực tại bệnh viện Đại học Y Hà Nội nhân 3 trường hợp”.  Hội nghị Điện quang và y học hạt nhân Việt Nam lần thứ 16, Vũng Tàu 8/2014: “Áp dụng kỹ thuật lấy máu siêu chọn lọc tĩnh mạch vùng cổ định lượng PTH chẩn đoán bệnh lý cường cận giáp nguyên phát”.  Hội nghị Nội tiết các bệnh chuyển hoá và Đái tháo đường lần thứ 7, Hà Nội 2-4/10/2014: “Tổng quan về kỹ thuật lấy máu tĩnh mạch một số tuyến nội tiết qua catheter để định lượng hormone”.  Hội nghị Điện quang và y học hạt nhân Việt Nam lần thứ 18, Đà Nẵng 19-20/8/2016: “Giá trị của chụp cắt lớp vi tính phân giải cao trong phát hiện bất thường xương thái dương ở bệnh nhân điếc”.  Hội nghị Điện quang can thiệp toàn quốc lần thứ 6, Hà Nội 20-21/4/2018: “Điều trị rò bạch mạch sau mổ: nhân một trường hợp”.  Hội nghị Điện quang và y học hạt nhân Việt Nam lần thứ 20, Hà Nội 16-18/8/2018: “Điều trị can thiệp bạch mạch tại Bệnh viện Đại học Y Hà Nội”.  Hội nghị Ngoại khoa và phẫu thuật nội soi toàn quốc 2018 – xâm lấn tối thiểu điều trị tối đa, Hạ Long, Quảng Ninh 6-8/10/2018: “Điều trị can thiệp các biến chứng rò bạch huyết sau mổ”.  Hội nghị chẩn đoán hình ảnh thành phố Hồ Chí Minh mở rộng, 6,7/4/2019. Buôn Mê Thuột. “Chẩn đoán và điều trị các hình thái rò bạch mạch”.  Hội nghị “Điện quang can thiệp toàn quốc”, 19-21/4/2019, Hạ Long. “Cập nhật về điều trị điện quang can thiệp rò bạch mạch”.  KINH NGHIỆM BÁO CÁO HỘI NGHỊ QUỐC TẾ  “Endovascular embolization management of gastro intestinal haemorrhage”. 7th Peripheral embolization and Interventional oncology workshop (Boston Scientific, HaNoi 2018).  “Edovascular treatment of ruptured brain AVM: initial experiences with PHIL”. The Asia Pacific Society of Cardiovascular and Interventional Radiology (APSCVIR) 2/2019 – Bali Indonesia.  “Daily practice of lymphatic intervention in Viet Nam”. International lymphatic interventional conference - ILIC 1 – Osaka, Japan 6/2019  CÁC NGHIÊN CỨU ĐÃ THAM GIA  Tham gia đề tài nghiên cứu khoa học cấp bộ 2016. “Giá trị của các phương pháp chẩn đoán và xây dựng quy trình chẩn đoán u tuyến giáp”  Chủ nhiệm đề tài NCKH cấp cơ sở 2017. “Đặc điểm hình ảnh cắt lớp vi tính phân giải cao xương thái dương trên bệnh nhân nghe kém dẫn truyền”  Chủ nhiệm đề tài NCKH cấp cơ sở 2013. “Nghiên cứu áp dụng kỹ thuật điều trị phình động mạch chủ ngực bằng stent phủ”  Sáng kiến cấp cơ sở của Trường Đại học Y Hà Nội: Xây dựng quy trình chụp hệ bạch huyết qua da dưới DSA. Mã 28.2019. Số 29/2019/SK – ĐHYHN ngày 19 tháng 7 năm 2019.  Chủ nhiệm đề tài NCKH cấp cơ sở 2020: Đánh giá kết quả điều trị laser nội mạch trong điều trị bệnh lý suy giãn tĩnh mạch nông chi dưới. Thông qua đề tài 6/2020. Đạt loại Giỏi  Tham gia đề tài NCKH cấp cơ sở 2020: đánh giá hiệu quả phương pháp tiêm cồn tuyệt đối dưới hướng dẫn của chụp mạch số hoá xoá nền trong điều trị đau dây thần kinh V. Đề tài nghiệm thu 6/2020.  CÁC NGHIÊN CỨU ĐÃ XUẤT BẢN TẠP CHÍ TRONG NƯỚC  Nghiên cứu mô bệnh học và tỷ lệ nhiễm Helicobacter Pylori ở bệnh nhân ung thư dạ dày tại bệnh viện Thanh Nhàn. Luận văn tốt nghiệp BSĐK. 8/2007  Kết quả bước đầu điều trị giãn tĩnh mạch tinh bằng phương pháp can thiệp nội mạch tại bệnh viện Việt Đức. Nguyễn Ngọc Cương, Lê Thanh Dũng, Nguyễn Duy Huề. Tạp chí: Y học Việt Nam. Năm 2009 số 2 trang 33-38  Kết quả bước đầu điều trị dị dạng động tĩnh mạch não bằng can thiệp nội mạch sử dụng vật liệu mới: onyx. Phạm Hồng Đức, Vũ Đăng Lưu, Trần Anh Tuấn, Lê Văn Khảng, Nguyễn Khôi Việt, Phạm Minh Thông, Nguyễn Ngọc Cương. Tạp chí điện quang Việt Nam, số 3 tháng 3/2011. Tr 49-54.  Điều trị nội mạch giả phình động mạch vùng cổ do chấn thương, nhân 3 trường hợp. Lê Nguyệt Minh, Lê Thanh Dũng, Vũ Đăng Lưu, Nguyễn Ngọc Cương, Phạm Minh Thông. Kỷ yếu hội nghị điện quang và Y học hạt nhân 2011.  Kết quả bước đầu điều trị phình động mạch não bằng phương pháp điều chỉnh hướng dòng chảy dùng Silk stent. Vũ Đăng Lưu, Trần Anh Tuấn, Phạm Minh Thông, Nguyễn Ngọc Cương. Tạp chí Điện quang việt Nam số 3 tháng 3, 2011. Tr 61-67.  Điều trị dị dạng động tĩnh mạch não bằng can thiệp nội mạch sử dụng vật liệu mới: Onyx. Luận văn tốt nghiệp bác sỹ nội trú. 5/2011.  Điều trị dị dạng động tĩnh mạch thận bằng can thiệp nội mạch tại bệnh viện đại học y Hà Nội. Nguyễn Ngọc Cương, Trần Quốc Hòa, Nguyễn Thái Bình, Lê Tuấn Linh, Bùi Văn Lệnh. Tạp chí Y học thực hành số 12 (799) 2011  Điều trị phình động mạch chủ ngực tại bệnh viện đại học Y Hà Nội nhân ba trường hợp. Nguyễn Ngọc Cương, Lê Tuấn Linh, Bùi Văn Lệnh, Lê Văn Tú, Nguyễn Lân Hiếu, Nguyễn Hữu Tú. Tạp chí điện quang VN số tháng 08/2012, (tr 220-227).  Kết quả bước đầu điều trị phình động mạch chủ ngực bằng stent phủ. Nguyễn Ngọc Cương, Nguyễn Lân Hiếu, Lê Tuấn Linh, Nguyễn Hữu Tú, Nguyễn Hữu Ước, Bùi Văn Lệnh. Tạp chí y học thực hành. Số 896 năm 2013. (Tr 19-24).  Áp dụng kỹ thuật lấy máu tĩnh mạch vùng cổ định lượng PTH trong bệnh lý cường cận giáp nguyên phát. Đề tài dự hội thao kỹ thuật tuổi trẻ Hà Nội. Tháng 3/2013.  Điều trị can thiệp nội mạch dị dạng động tĩnh mạch não bằng onyx. Nguyễn Ngọc Cương, Phạm Hồng Đức, Phạm Minh Thông. Tạp chí nghiên cứu y học, tập 84, số 4, tháng 8/2013. Tr33-40  Kết quả và biến chứng của điều trị gây tắc mạch dị dạng động tĩnh mạch não. Phạm Hồng Đức, Nguyễn Ngọc Cương, Phạm Minh Thông. Tạp chí nghiên cứu y học, tập 87, số 2, tháng 4/2014.  Liên quan cấu trúc mạch dị dạng động tĩnh mạch não với triệu chứng lâm sàng. Phạm Hồng Đức, Nguyễn Ngọc Cương, Phạm Minh Thông. Tạp chí nghiên cứu y học. Số tháng 8/2014.  Áp dụng kỹthuật lấy máu siêu chọn lọc tĩnh mạch vùng định lượng PTH chẩn đoán bệnh lý cường cận giáp nguyên phát (Application of selective parathyroid venous sampling technic in patients with primary hyperparathyroidism). Nguyễn Ngọc Cương, Vũ Bích Nga, Lê Tuấn Linh, Bùi Văn Lệnh. Tạp chí điện quang Việt Nam, số 16, tháng 10/2014. Tr45-51.  Tổng quan về các phương pháp lấy máu tĩnh mạch qua catheter định lượng hormon trong bệnh lý cường chức năng một số tuyến nội tiết. Nguyễn Ngọc Cương, Vũ Bích Nga, Lê Tuấn Linh, Bùi Văn Lệnh. Báo cáo HN Nội tiết toàn quốc 10/2014.  Điều trị rò bạch mạch sau mổ bằng can thiệp qua da: báo cáo trường hợp lâm sàng. Nguyễn Ngọc Cương, Nguyễn Thái Bình, Lê Tuấn Linh, Đoàn Tiến Lưu, Phạm Đức Huấn. Tạp chí Y Học Thực Hành, số 9/2018; tr 12-15.  Đánh giá kết quả điều trị laser nội mạch bệnh lý suy giãn tĩnh mạch nông chi dưới. Trương Thị Thanh, Nguyễn Ngọc Cương, Bùi Văn Đoài, Phạm Văn Điệp, Lê Quang Long, Trần Quốc Đạt, Đoàn Tiến Lưu, Lê Tuấn Linh. Tạp chí Y Học Thực Hành, số tháng 9/2018; tr16-19.  Đánh giá kết quả điều trị dị dạng động tĩnh mạch não vỡ bằng phối hợp hai phương pháp: nút mạch và phẫu thuật. Nguyễn Ngọc Cương, Vũ Đăng Lưu, Trần Anh Tuấn, Nguyễn Thái Bình, Kiều Đình Hùng, Phạm Quỳnh Trang, Lê Tuấn Linh. Tạp chí Y học thực hành (1100) số 6/2019. Tr53-57.  Đánh giá hiệu quả của phương pháp tiêm cồn tuyệt đối liều thấp dưới hướng dẫn của chụp mạch số hoá xoá nền trong điều trị đau dây V. Nguyễn Thành Chung, Nguyễn Ngọc Cương, Lê Tuấn Linh, Bùi Văn Lệnh, Bùi Văn Giang. Tạp chí Y học thực hành (1100) số 6/2019. Tr44- 49.  Đánh giá vai trò của chụp cắt lớp vi tính trong bệnh lý dị dạng động tĩnh mạch não vỡ (2020). Nguyễn Ngọc Cương, Vũ Đăng Lưu, Lê Tuấn Linh, Nguyễn Công Hoan (2020). Tạp chí Y học thực hành (1135) số 6, 79-83.  Đánh giá kết quả nút mạch điều trị đái máu sau tán sỏi thận qua da đường hầm nhỏ tại bệnh viện đại học Y Hà Nội. Phan Nhân Hiển, Lê Tuấn Linh, Nguyễn Ngọc Cương, Nguyễn Thái Bình, Trần Quốc Hoà, Hoàng Long. Tạp chí y học thực hành (1129), số 3, 3/2020. Tr90-93.  Đánh giá kết quả bước đầu điều trị giãn tĩnh mạch mạng nhện chi dưới bằng tiêm xơ. Hoàng Tú Minh, Nguyễn Ngọc Cương, Trương Thị Thanh, Hoàng Đình Âu. Tạp chí Y học thực hành  Nhận xét đặc điểm hình ảnh siêu âm doppler và lâm sàng ở bệnh nhân giãn tĩnh mạch nông chi dưới. Trần Thanh Hải, Bùi Văn Lệnh, Hoàng Đình Âu, Nguyễn Ngọc Cương. Tạp chí y học Việt Nam tập 494 – tháng 9 – số 1, 2020. Tr29-32.  Chẩn đoán và điều trị điện quang can thiệp rò dưỡng chấp vùng cổ sau mổ ung thư tuyến giáp. Nguyễn Ngọc Cương, Phạm Hồng Cảnh, Triệu Quốc Tính, Lê Tuấn Linh, Đoàn Tiến Lưu. Tạp chí Tai Mũi Họng Việt Nam, Volume 65-49, số 3, tháng 10.2020.  Báo cáo kết quả bước đầu điều trị các loại hình rò dưỡng chấp bằng can thiệp qua da nút tắc ống ngực. Nguyễn Ngọc Cương, Phạm Hồng Cảnh, Lê Tuấn Linh, Đoàn Tiến Lưu, Phạm Đức Huấn.Tạp chí y dược học quân sự, số đặc biệt kỷ niệm 70 năm truyền thống bệnh viện Quân Y 103. Tr600 – 610. Tháng 12/2020.  Đánh giá kết quả bước đầu kỹ thuật nút tắc ống ngực điều trị rò dưỡng chấp tại Bệnh viện Đại học Y Hà Nội. Nguyễn Ngọc Cương, Lê Tuấn Linh, Phạm Hồng Cảnh, Đoàn Tiến Lưu. Tạp chí nghiên cứu y học. 134 (10) – 2020. Tr 198 – 206.  Điều trị rò bạch mạch sau mổ bằng can thiệp qua da xuyên nhu mô gan: Báo cáo ca lâm sàng . Phạm Hồng Cảnh, Nguyễn Ngọc Cương, Lê Tuấn Linh, Đoàn Tiến Lưu. Tạp chí nghiên cứu y học. 134 (10) – 2020. Tr 214-224.     CÁC NGHIÊN CỨU ĐÃ XUẤT BẢN TẠP CHÍ HỆ THỐNG ISI - COPUS  1. Conventional digital subtractional vs non-invasive MR angiography in the assessment of brain arteriovenous malformation. Nguyen Ngoc Cuong, Vu Dang Luu, Tran Anh Tuan, Le Tuan Linh, Kieu Dinh Hung, Vo Truong Nhu Ngoc, Kulbhushan Sharma, Van Huy Pham, Dinh-Toi Chu. (2018), Clin Neurol Neurosurg. 169: p. 29-33. 2. “An uncommon therapeutic option for a challenging cause of pleural effusion”. Le Tuan Linh, Nguyen Ngoc Cuong, Tran Viet Hung, Le Hoan, Francois Pons, Delphine Natali. Breathe | June 2019 | Volume 15 | No 2. 3. “Interventional treatment of lymphatic leakage post appendectomy: case report”. Nguyen Ngoc Cuong, Nguyen Thai Binh, Phan Nhan Hien, Nguyen Hoang, Le Tuan Linh, Doan Tien Luu, Vu Dang Luu, Pham Duc Huan, Vo Truong Nhu Ngoc, Md Jamal Uddin, Vu Thi Nga, Chu Dinh Toi. Open Access Maced J Med Sci. 2019 May 14;7(9):1512-1515. 4. “A 24-Year-Old Man With Recurrent Hemoptysis”. Le Hoan, Nguyen Ngoc Cuong, Nguyen Duy Thang, Dinh Thi Thanh Hong, Le Minh Hang, Le Tuan Linh, Tran Ngoc Minh, François Pons, Delphine Natali. Chest. 2020 Feb;157(2):e31-e35. 5. “Value of Diffusion Weighted MRI with Quantitative ADC Map in Diagnosis of Malignant Thyroid Disease”. Le Tuan Linh, Nguyen Ngoc Cuong, Tran Viet Hung, Nguyen Van Hieu, Bui Van Lenh, Nguyen Duy Hue, Van Huy Pham, Vu Thi Nga and Dinh-Toi Chu. Diagnostics 2019, 9(4), 129; https://doi.org/10.3390/diagnostics9040129 6. “Flow diverter stent for treatment of cerebral aneurysms: A report of 130 patients with 134 aneurysms”. Nguyen Thai Binh, Vu Dang Luu, Pham Minh Thong, Nguyen Ngoc Cuong, Nguyen Quang Anh, Tran Anh Tuan, Le Tuan Linh, Nguyen Tat Thien, Md Jamal Uddin, Thien Chu Dinh, Dinh-Toi Chu. Heliyon 6 (2020) e03356 7. \"Interstitial Lymphatic Embolization with Balloon Assistance for Treatment of Chyluria\". Nguyen Ngoc Cuong, Le Tuan Linh, Masanori Inoue, Nguyen Dinh Lien, Hoang Long, Tran Quoc Hoa, Vu Dang Luu, Delphine Natali. (2020),. J Vasc Interv Radiol. 31(3): 523-526. 8. “Intrahepatic lymphatic channel sclerotic embolization for treatment of postoperative lymphatic ascites: a report of 3 cases”. Ngoc Cuong Nguyen, Masanori Inoue, Tuan Linh Le, Hong Canh Pham, Hong Son Trinh, Duc Huan Pham, Hoang Nguyen, Anh Tuan Tran, Dang Luu Vu, Natali Delphine. Radiology Case Reports 15 (2020) 2353–2357. https://doi.org/10.1016/j.radcr.2020.09.009. 9. “A 69-Year-Old Man With Chronic Cough and Recurrent Pneumonia”. Le Hoan; Le Minh Hang, Dinh Thi Thanh Hong, Nguyen Thi Nhu Quynh, Le Tuan Linh; Nguyen Ngoc Cuong; Tran Ngoc Minh; Dao Thi Luan, Nguyen Duy Thang and Natali Delphine. CHEST 2020; 158(6):e283-e287 10. “A 62 year-old man with stridor and dyspnea”. Natali Delphine, Le Hoan, Nguyen Ngoc Cuong, Tran Ngoc Minh, Tran Khanh Chi, Phillipe Hovette. Breath 2021 17: 200201; DOI: 10.1183/20734735.0201-2020  11. “Unilateral Carotid Cavernous Fistula associated with Primitive Persistent Trigeminal Artery Leading to Bilateral Ocular Presentations”. Tung Thanh Hoang, Cuong Ngoc Nguyen, Hieu Lan Nguyen, Prem S. Subramanian. Journal of Neuro-Ophthalmology. Journal of Neuro-Ophthalmology: June 23, 2021 - Volume Publish Ahead of Print - Issue - doi: 10.1097/WNO.0000000000001251 12. “Bilateral blood reflux in Schlemm canals caused by a unilateral dural sinus arteriovenous fistula in a patient with cerebral venous thrombosis”. Tung Thanh Hoang, Hoa Dung Do, Ha Thai Do, Cuong Ngoc Nguyen, Wallace L.M. Alward. J Neuro-Ophthalmol 2021; 00: 1-3 13. “Contralateral Ocular Manifestations of a Carotid Cavernous Fistula Associated With Primitive Persistent Trigeminal Artery”. Tung Thanh Hoang, Cuong Ngoc Nguyen, Anh Quoc Nguyen, Hieu Lan Nguyen, Prem S. Subramanian,Van Trong Pham. J Neuro-Ophthalmol 2021; 00: 1-3 14. “Successful minimal invasive treatment of chylous ascites following pancreaticoduodenectomy: A case report and review of literature”. Thanh Khiem Nguyen, Tuan Hiep Luong, Ngoc Cuong Nguyen, Ham Hoi Nguyen, Ngoc Hung Nguyen, Hong Son Trinh. Annals of Medicine and Surgery 66 (2021) 102451. 15. “Primary hepatic neuroendocrine tumor”. Le Tuan Linh, Nguyen Minh Duc, Hoang Tu Minh, Nguyen Ngoc Cuong, Vuong Thu Ha, Dao-Thi Luan, Thieu-Thi Tra My, and Bui Van Lenh. Endocrinol Diabetes Metab Case Rep. 2021 Jun 1;2021:EDM200220. doi: 10.1530/EDM-20-0220. Epub ahead of print. PMID: 34152286. 16. “Percutaneous sclerosing injection to the thoracic duct under CT guidance for cervical chylous leakage post thyroidectomy: A case report”. Nguyen Ngoc Cuong, Le Hoan, Le Tuan Linh, Pham Huy Tan, Thieu Thi Tra My, Nguyen Minh Duc. Radiology Case Report, Volume 16, Issue 9, September 2021, Pages 2687-2691. 17. Hepatic lymphorrhea following pancreaticoduodenectomy: Preliminary diagnosis and treatment experience from case series of four patients. Thanh Khiem Nguyen, Tuan Hiep Luong, Ngoc Cuong Nguyen, Ham Hoi Nguyen, Van Khang Le, Hong Son Trinh, Hai Dang Do, Van Duy Le, Ngoc Hung Nguyen. Annals Of Medicine and Surgery. 68 (2021) 102648. 18. “Combination of lymph node embolization and musculocutaneous flap operation for the management of groin lymphorrhea”. Pham Thi Viet Dung, Nguyen Ngoc Cuong, Thai Duy Quang, Pham Hong Canh, Le Tuan Linh, Nguyen Minh Duc. September 2021 Annals of Vascular Diseases. DOI: 10.3400/avd.cr.21-00036 1. 19. “Intranodal Lymphangiography and Lymphatic Embolization Treatment for Groin Lymphorrhea: A Preliminary Vietnamese Report”. Ngoc Cuong Nguyen, Hong Canh P, Tuan Linh L, Minh Duc N, Thi Tra My T, Hoan L. Reports in Medical Imaging. 2021;14:71-77. https://doi.org/10.2147/RMI.S333582 20. “A rare case of Kikuchi Fujimoto disease in a young female patient”. Le Hoan, Le Minh Hang, Le Tuan Linh, Thieu Thi Tra My, Tran Ngoc Minh, Dang Duc Thinh, Nguyen Ngoc Cuong. American Journal of Case Report, 2021; 22: e933377. DOI 10.12659/AJCR.933377 21. “A Lesson Learnt from a Dural Carotid Cavernous Fistula-induced Superior Ophthalmic Vein Occlusion with Posterior Ischaemic Optic Neuropathy”. Tung Thanh Hoang, Cuong Ngoc Nguyen,Thanh Thien Huy Ha, Prem S. Subramanian. Neuro opthalmology 11.2021. https://doi.org/10.1080/01658107.2021.2000622 22. “A 32-Year-Old Man with Dyspnea and Stridor”. Le Hoan, MD, PhD; Le Minh Hang, MD; Le Tuan Linh, MD, PhD; Thieu Tra My, MD; Tran Ngoc Minh, MD, PhD; Pham Thuan Manh, MD; and Nguyen Ngoc Cuong, MD, PhD CHEST 2022; 161(3):e153-e157. 23. “Complete resection for a giant recurrent biliary cystadenoma: A surgical case report and review of literature”. Hoang Nguyen, Ngoc Cuong Nguyen, Thi Tra My Thieu, Tuan Hiep Luong, Ngoc Minh Tran, Dang Hung Nguyen, An Khang Nguyen. Annals of Medicine and Surgery. Volume 78, June 2022, 103785. https://doi.org/10.1016/j.amsu.2022.103785 24. Neglected Foreign Bodies in Bronchi in Adults: Experience of 2 Cases. Le Hoan, Le Minh Hang, Dinh-Thi Thanh Hong, Nguyen-Thi Nhu Quynh, Nguyen Ngoc Cuong, Thieu Thi Tra My. Asian Journal of Health Sciences 2022, 8(1):34. 25. Management of chyluria using percutaneous thoracic duct stenting. Nguyen Ngoc Cuong, Le Tuan Linh, Thieu Thi Tra My, Tran Quoc Hoa, Hoang Long, Le Hoan and Masanori Inoue. CVIR Endovascular (10.2022) 5:54 https://doi.org/10.1186/s42155-022-00333-y 26. Convolutional Neural Networks Improve Radiologists' Performance in Breast Cancer Screening for Vietnamese patients.Bui My Hanh, Le Tuan Linh, Nguyen Ngoc Cuong, Thanh Binh Nguyen, Luu Tien Doan, Chung Duy Le, Vu Tat Giao, Thi Ly Ly Ngo, Thi Hong Xuyen Hoang, Nguyen Duc Thang, Nguyen Tu Anh, Nguyen Duc Dan, Nguyen Viet Dung, Tran Vinh Duc, Quang H. Nguyen, Anh Nguyen & Nguyen Hoang Phuong. Applied Artificial Intelligence. November 2022. DOI: https://doi.org/10.1080/08839514.2022.2151185 27. Case report of recurrent respiratory papillomatosis. Le Viet Dung, Nguyen Ngoc Cuong, Ma Mai Hien, Le Tuan Linh, Doan Tien Luu, Thieu-Thi Tra My, Nguyen Minh Duc . Biomedical Research and Therapy, 9(12), 5450-5454. https://doi.org/10.15419/bmrat.v9i12.783 28. Weakly Supervised Localization of the Abnormal Regions in Breast Cancer X-Ray Images Using Patches Classification. Nguyen Hoang Phuong, Ha Manh Toan, Le Tuan Linh, Nguyen Ngoc Cuong, Bui My Hanh. Biomedical and Other Applications of Soft Computing pp 203–212. November 2022. In book: Biomedical and Other Applications of Soft Computing DOI: 10.1007/978-3-031-08580-2_19 29. Chylous ascites after donor nephrectomy: MR lymphangiography and lymphatic embolization treatment. Tran Quoc Hoa, Nguyen Ngoc Cuong, Thieu Thi Tra My, Le Tuan Linh, Le Hoan, Pham Hong Canh, Trieu Quoc Tinh, Tran Nguyen Khanh Chi, Doan Tien Luu, Hoang Long. Radiology case report 18 (2023) 1029- 1032. 29. A 44-Year-Old Man With Chronic Lower Chest Pain. Nguyen Duy Thang; Nguyen Ngoc Cuong; Thieu Thi Tra My; and Le Hoan. Chest. Volume 163, Issue 2, February 2023, Pages e69-e72 30. Thoracic duct stent treatment for chyle leak after nephrectomy. Le Hoan, Nguyen Ngoc Cuong, Thieu Thi Tra My, Doan Tien Luu, Hoang Long, Tran Quoc Hoa, Nguyen Hoang, Nguyen Cong Hoan. Radiology Case Reports 18 (2023) 3199–3202 31. Occlusion of thoracic duct stent resulting in recurrent chyluria: role of renal-lymphatic fistula embolization. Tran Quoc Hoa, Nguyen Ngoc Cuong, Le Hoan, Nguyen Hoang, Hoang Long, Doan Tien Luu & Nguyen Cong Hoan. CVIR endovascular. CVIR Endovascular volume 6, Article number: 39 (2023). 32. Transfer learning for deep neural networks-based classification of breast cancer X-ray images. Tuan Linh Le, My Hanh Bui, Ngoc Cuong Nguyen, Manh Toan Ha, Anh Nguyen, Hoang Phuong Nguyen. COMPUTER METHODS IN BIOMECHANICS AND BIOMEDICAL ENGINEERING: IMAGING & VISUALIZATION 2023. https://doi.org/10.1080/21681163.2023.2275708. 33. Minimally invasive treatment of Chyle Leak after thyroidectomy and cervical lymph node dissection in patients with thyroid carcinoma: Results of a study in 36 patients. Nguyen Ngoc Cuong, Le Hoan, Thieu Thi Tra My, Doan Tien Luu, Le Tuan Linh, Pham Hong Canh, Trieu Quoc Tinh, Tran Nguyen Khanh Chi, Nguyen Quang Trung, Tran Quoc Hoa. Therapeutics and Clinical Risk Management 2024:20 75–82.  SÁCH CHUYÊN KHẢO  Cấp cứu nội tiêu hoá (Chủ biên: PGS.TS. Phạm Ngọc Ánh 2019).  Cập nhật chẩn đoán và điều trị sỏi mật (Chủ biên: PGS. TS. Phạm Đức Huấn 2020)  TRÌNH ĐỘ NGOẠI NGỮ TIN HỌC  - Ngoại ngữ: sử dụng thành thạo tiếng anh và tiếng pháp  - Tin học: thành thạo tin học văn phòng (work, excel). Tin học nghiên cứu: sử dụng thành thạo Endnote; Zotero.  HOẠT ĐỘNG GIẢI TRÍ  - Chơi tốt các môn thể thao: bóng đá, bóng rổ, cầu lông, đá cầu, tennis  KHEN THƯỞNG  - 2013: Bằng khen bộ trưởng Bộ Y tế: Hội thao sáng tạo tuổi trẻ ngành y tế khu vực Hà Nội đề tài: “áp dụng kỹ thuật lấy máu tĩnh mạch vùng cổ định lượng PTH trên bệnh nhân cường cận giáp” (đề tài đạt giải nhất).  - 12.2013: Giấy khen của Hiệu trưởng trường đại học Y Hà Nội về thành tích: đạt giải Ba trong “Hội nghị khoa học công nghệ tuổi trẻ trường đại học Y Hà Nội – 2013”  - 5.2014: Bằng khen của bí thư thứ nhất TW đoàn TNCS Hồ Chí Minh: giải nhất “Hội nghị khoa học công nghệ tuổi trẻ các trường đại học, cao đẳng y dược Việt Nam lần thứ 17, năm 2014”  - 6.2014: Giấy khen của Hiệu trưởng trường đại học Y Hà Nội về phong trào nghiên cứu khoa học  - 3/2017: Bằng khen của Bộ trưởng bộ Y tế: giải nhì hội thao kỹ thuật tuổi trẻ ngành y tế khu vực Hà Nội, đề tài “kỹ thuật tán sỏi thận qua da đường hầm nhỏ bằng laser dưới dướng dẫn của siêu âm”.  - 1/2020: Giấy khen Giám đốc bệnh viện Đại học Y Hà Nội khen thưởng “cá nhân có thành tích xuất sắc của bệnh viện năm 2020”."
+    },
+    "0909112233": {
+      "chuyenkhoa": "Tiêu hóa",
+      "diachi": "Bệnh viện Lão khoa",
+      "email": "auhdhmu@gmail.com",
+      "giaKham": "250.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255263461.jpg?alt=media&token=337cf51a-fcb0-4351-b80c-ed9fa87726a4",
+      "name": "Hoàng Đình Âu",
+      "sdt": "0909112233",
+      "sogiayphephanhnghe": "HDA1234567890",
+      "thongtin": "Tiến sỹ, bác sĩ  Hoàng Đình Âu \nBác sĩ Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang- BV ĐH Y Hà Nội   Quá trình đào tạo  Đào tạo Bác sỹ đa khoa tại trường ĐH Y Hà nội (1988-1994) Đào tạo chuyên ngành CĐHA tại trường ĐH Y Hà nội (1996-1999) Đào tạo chuyên ngành CĐHA tại trường ĐH Lyon 1 (1999-2000) Đào tạo về can thiệp mạch tại bệnh viên Winterthur - Thuỵ sỹ (2006) Đào tạo Thạc sỹ tại trường ĐH Lyon 1 (2011-2012) Đào tạo Tiến sỹ tại trường ĐH Lyon 1 (2012-2015) Công tác tại Bệnh viện Hữu Nghị (2000-2009) Công tác tại Trung tâm CĐHA&CTĐQ- Bệnh viện ĐH Y Hà nội (2009- nay)  \nQuá trình công tác :\n1999-2009: Bác sỹ CĐHA tại BV Hữu Nghị \n2009-nay: Bác sỹ CĐHA tại BV Đại học Y Hà nội  \nChuyên môn kỹ thuật chuyên sâu  Tuyến tiền liệt- Nam học Tiểu khung- Sàn chậu Tim mạch Hàm mặt  \nSách, sách chuyên khảo, giáo trình:  Các công trình khoa học đã công bố:  80 bài báo trong nước  14 bài báo quốc tế  03 báo cáo trong nước  04 báo cáo quốc tế  \nĐề tài KH&CN các cấp đã chủ trì hoặc tham gia:  Tham gia 01 Đề tài cấp nhà nước  Tham gia 02 Đề tài cấp Bộ  Chủ trì 03 Đề tài cơ sở  Giải thưởng:  Giải thưởng Đặng Văn Ngữ- Trường ĐH Y Hà Nội (năm 2018)"
+    },
+    "0921345678": {
+      "chuyenkhoa": "Y học cổ truyền",
+      "diachi": "Bệnh viện Ung Bướu",
+      "email": "luudthmu@gmail.com",
+      "giaKham": "300.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255248251.jpg?alt=media&token=7770cdb7-2a72-4479-8ae9-3b41fac2fe8c",
+      "name": "Đoàn Tiến Lưu",
+      "sdt": "0921345678",
+      "sogiayphephanhnghe": "DTL0987654321",
+      "thongtin": "Tiến sĩ, Bác sĩ nội trú  Đoàn Tiến Lưu Phó Giám đốc Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang Bệnh viện Đại học Y Hà Nội Giảng viên Bộ môn Chẩn đoán hình ảnh Bệnh viện Đại học Y Hà Nội   Quá trình đào tạo:  1994-2000: Bác sĩ đa khoa, trường Đại học Y Hà Nội.  2001-2004: Bác sĩ nội trú, Thạc sĩ Chẩn đoán hình ảnh, trường Đại học Y Hà Nội.  2012: Thực tập khoa Chẩn đoán hình ảnh bệnh viện Winterthur, Thụy Sĩ.  2013-2019: Nghiên cứu sinh Chẩn đoán hình ảnh khóa 32, Đại học Y Hà Nội.  Quá trình công tác:  2005-2010: Trưởng đơn nguyên kĩ thuật cao, Phó trưởng khoa Chẩn đoán hình ảnh bệnh viện Thanh Nhàn.  2011 – 2014: Bác sĩ khoa Chẩn đoán hình ảnh bệnh viện Đại học Y Hà Nội.  2015 – 2020: Phó trưởng khoa Chẩn đoán hình ảnh bệnh viện Đại học Y Hà Nội.  2020-nay: Giảng viên Bộ môn Chẩn đoán hình ảnh Bệnh viện Đại học Y Hà Nội.  2021 đến nay: Phó Giám đốc Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang, bệnh viện Đại học Y Hà Nội  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia  Tham gia 01 đề tài cấp nhà nước:  “Nghiên cứu giá trị siêu âm trong chẩn đoán sỏi mật”, thuộc đề tài cấp nhà nước đã nghiệm thu năm 2005.  Tham gia 01 đề tài cấp bộ:  “Nghiên cứu giá trị của siêu âm trong chẩn đoán ung thư tuyến giáp”, thuộc đề tài cấp bộ nghiệm thu năm 2016.  Chủ trì 02 đề tài cấp cơ sở:  “Nghiên cứu giá trị của chụp cắt lớp vi tính đa dãy trong chẩn đoán ung thư dạ dày”, nghiệm thu năm 2013.  “Nghiên cứu giá trị của cộng hưởng từ trong chẩn đoán dị tật thần kinh thai”, nghiệm thu năm 2021  Bài báo đã đăng, báo cáo hội nghị khoa học:  Số bài báo khoa học đăng trên tạp chí trong nước: 10 bài.  Số bài báo khoa học đăng trên tạp chí quốc tế: 02 bài  Số báo cáo hội nghị khoa học trong nước: 02."
+    },
+    "0934567890": {
+      "chuyenkhoa": "Thần kinh",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "trucpc@gmail.com",
+      "giaKham": "230.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255225106.jpg?alt=media&token=b236d13f-457e-42b7-945c-ddca0d604909",
+      "name": "Phạm Chính Trực",
+      "sdt": "0934567890",
+      "sogiayphephanhnghe": "PCT0987654321",
+      "thongtin": "Bác sỹ chuyên khoa II  Phạm Chính Trực Bác sĩ Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang - BV ĐH Y Hà Nội   Giới thiệu  Thích uống trà, tìm hiểu về các loại trà và ấm Tử sa.  Thích trồng và chăm sóc Bonsai.  Tóm tắt sơ lược về quá trình đào tạo, quá trình công tác, các thành tích và kinh nghiệm nghiên cứu khoa học nổi bật  1989-1995:  Sinh viện hệ chuyên khoa Nhi, trường Đại Học Y Hà Nội.  2005-2007: Học thạc sỹ chuyên ngành chẩn đoán hình ảnh, trường Đại Học Y Hà Nội.  2018-2020: Học CK2 chuyên ngành chẩn đoán hình ảnh, trường Đại Học Y Hà Nội.  1997-2007: Bs chẩn đoán hình ảnh tại Viện Nhi Trung ương 2008 - nay. Bác sỹ Trung tâm chẩn đoán hình ảnh và can thiệp điện quang, bệnh viện Đại Học Y Hà Nội  Chuyên môn kỹ thuật chuyên sâu  Chẩn đoán hình ảnh đa khoa, ít nhiều có kinh nghiệm về CDHA Nhi và CDHA vùng hầu họng  Ngôn ngữ  Tiếng Việt, Tiếng Anh, Tiếng Pháp"
+    },
+    "0966888999": {
+      "chuyenkhoa": "Sản phụ khoa",
+      "diachi": "Bệnh viện hữu nghị Việt Đức",
+      "email": "chungldhmu@gmail.com",
+      "giaKham": "350.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255200562.jpg?alt=media&token=65bf2970-7e50-4d2e-b5ba-048ee17ab681",
+      "name": "Lê Duy Chung",
+      "sdt": "0966888999",
+      "sogiayphephanhnghe": "LDC1234567890",
+      "thongtin": "Tiến sỹ, bác sĩ  Lê Duy Chung Bác sỹ, chủ tịch công đoàn Trung tâm Chẩn đoán hình ảnh và can thiệp      Quá trình đào tạo  1995-2001. Sinh viên hệ đa khoa, trường ĐHY TN  2003. Chuyên khoa sơ bộ CĐHA, ĐHY HN  2007-2009. Cao học CĐHA. ĐHY HN  2012-2013. Đào tạo chuyên ngành CĐHA, Đại học Ajou Hàn Quốc  2014 - 2021 Tiến sĩ CĐHA tại Đại học y Hà Nội  Quá trình công tác  2003 - 2011: Bác sĩ Chẩn đoán hình ảnh Bệnh viện Đa khoa tỉnh Bắc Giang 2011 đến nay: Bác sĩ Trung tâm Chẩn đoán hình ảnh và can thiệp điện quang Bệnh viện Đại học Y Hà Nội  Chuyên môn kỹ thuật chuyên sâu  Chẩn đoán hình ảnh Tai  Chẩn đoán hình ảnh vú  Sách, sách chuyên khảo, giáo trình  Các công trình khoa học đã công bố  Số bài báo khoa học trong nước: 07  Số bài báo cáo hội nghị trong nước: 01  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia  Tham gia 1 đề tài cấp Bộ (nghiệm thu năm 2020)  Ngôn ngữ  Tiếng Việt, Tiếng Anh."
+    },
+    "0973246810": {
+      "chuyenkhoa": "Tim mạch",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "binhtb@gmail.com",
+      "giaKham": "300.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255175121.jpg?alt=media&token=ee2bf4f3-1b26-412f-aaa2-4e54d4622d1e",
+      "name": "Nguyễn Thái Bình",
+      "sdt": "0973246810",
+      "sogiayphephanhnghe": "NTB123456789",
+      "thongtin": "Tiến sỹ, Bác sỹ nội trú  Nguyễn Thái Bình Giảng viên trường Đại học Y Hà Nội, Bác sĩ Trung tâm CĐHA và CTĐQ, PGĐ Trung tâm Y Khoa số 1 Tôn Thất Tùng, Phó trưởng đơn vị Đột quỵ.Quá trình đào tạo  2001 – 2007:  Sinh viện hệ đa khoa, trường ĐHY HN  2008 – 2011:  BSNT chuyên ngành CĐHA, ĐHY HN  2012 – 2013:  Thực tập DFMSA tại Paris - Pháp về Chẩn đoán hình ảnh và can thiệp ( HEGP hospital)  2016-2021: Nghiên cứu sinh Chẩn đoán hình ảnh - Đại học Y Hà Nội  Tham gia khoá các đào tạo ngắn và dài hạn tại Pháp, Hàn Quốc, Singapore, Trung Quốc về can thiệp mạch máu thần kinh, ung bướu, sỏi mật.  Quá trình công tác  2014- nay:  Giảng viên bộ môn CĐHA ĐHY HN, Bs CĐHA - BV ĐHY HN  Chuyên môn, kỹ thuật chuyên sâu  - Tán sỏi mật qua da - Can thiệp điều trị ung thư gan, các loại ung bướu khác (tử cung, tiền liệt tuyến, vú, giáp...) - Can thiệp điều trị các bệnh mạch máu, đột quỵ (phình mạch, dị dạng...) - Can thiệp điều trị các bệnh lý xương khớp - Chẩn đoán hình ảnh chuyên sâu.  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia :  Xây dựng quy trình chẩn đoán và giải pháp điều trị u tuyến giáp (2016). Đề tài cấp Bộ, đã nghiệm thu.  Thành viên tổ chức  Hội Điện quang Việt Nam  Hội Gan mật Việt Nam  Hội bệnh mạch máu Việt Nam  Hội can thiệp mạch châu Á Thái Bình Dương (APSCVIR)  Khen thưởng:  Giải nhì hội thao sáng tạo tuổi trẻ ngành y tế năm 2014  Giải nhất Hội nghị can thiệp mạch Châu Á Thái Bình Dương tại Hàn Quốc APSCVIR (2023) Giải khuyến khích Hội nghị can thiệp mạch Thái Lan (2022)  Ngôn ngữ  Việt Nam, English, French"
+    },
+    "0987654321": {
+      "chuyenkhoa": "Cơ xương khớp",
+      "diachi": "Bệnh viện đại học Y Hà Nội ",
+      "email": "linhlt@gmail.com",
+      "giaKham": "300.000 đ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255158405.jpg?alt=media&token=29e956ce-2834-47f9-9bd2-bec4a980f715",
+      "name": "Lê Tuấn Linh",
+      "sdt": "0987654321",
+      "sogiayphephanhnghe": "LTL1234567890",
+      "thongtin": "Tiến sỹ. Bác sỹ nội trú  Lê Tuấn Linh Giám đốc trung tâm CĐHA và can thiệp điện quang – BV ĐH Y Hà Nội. Giảng viên chính, Phó chủ nhiệm bộ môn CĐHA ĐHY HN.   Giới thiệu  Là bác sĩ chuyên ngành chẩn đoán hình ảnh, được đào tạo liên tục tại trường Đại học Y Hà Nội từ bậc Đại học, đến BSNT và Tiến sĩ. Hiện là giảng viên cơ hữu của bộ môn CĐHA trường Đại học Y Hà Nội. Là một trong những bác sĩ đầu tiên được phân công về công tác kiêm nhiệm tại bệnh viện Đại học Y Hà Nội từ ngày đầu tiên thành lập đến nay, góp phần xây dựng khoa CĐHA mà nay là Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang- BV ĐHYHN trở thành một đơn vị lớn mạnh trong khám chữa bệnh, đào tạo và nghiên cứu khoa học. Ngoài tham gia công tác tại trường đại học Y Hà Nội còn tham gia hỗ trợ đào tạo, hỗ trợ chuyên môn cho nhiều đơn vị y tế trong cả nước. Slogan: Innovation are Rad!  Quá trình đào tạo  1995-2001. Sinh viện hệ đa khoa, trường ĐHY HN  2002-2006. BSNT chuyên ngành CĐHA, ĐHY HN  2004-2005. Thực tập BSNT chuyên ngành CĐHA tại Pháp  2011-2019. Tiến sĩ CĐHA tại Trường Đại học Y Hà Nội  Quá trình công tác  01/2007 đến nay Giảng viên bộ môn CĐHA Chẩn đoán hình ảnh Trường ĐH Y HN 08/2007 đến nay Bác sĩ khoa CĐHA Khoa Chẩn đoán hình ảnh - BVĐHYHN Số 1A, Tôn Thất Tùng, Đống Đa, HN 08/2011 đến 03/2017 Phó khoa CĐHA Khoa Chẩn đoán hình ảnh - BVĐHYHN Số 1A, Tôn Thất Tùng, Đống Đa, HN 03/2017 đến 12/2017 Phụ trách khoa CĐHA Khoa Chẩn đoán hình ảnh - BVĐHYHN Số 1A, Tôn Thất Tùng, Đống Đa, HN 12/2017 đến 12/2020 Trưởng khoa CĐHA Khoa Chẩn đoán hình ảnh - BVĐHYHN Số 1A, Tôn Thất Tùng, Đống Đa, HN 11/2019 đến nay Phó trưởng Bộ môn Bộ môn Chẩn đoán hình ảnh- Trường ĐHY Hà Nội Số 1A, Tôn Thất Tùng, Đống Đa, HN 12/2020 đến nay Giám đốc Trung tâm Trung tâm Chẩn đoán hình ảnh và Can thiệp điện quang -BVĐHYHN Số 1A, Tôn Thất Tùng, Đống Đa, HN 03/2021 đến nay Trưởng phòng khám Phòng khám đa khoa BV ĐHY HN cơ sở Quận Cầu Giấy Trương Công Giai, Cầu Giấy, HN  Chuyên môn, kỹ thuật chuyên sâu  Chẩn đoán hình ảnh đa khoa  Chẩn đoán hình ảnh hệ tiết niệu,  Ứng dụng Công nghệ thông tin trong Chẩn đoán hình ảnh  Ứng dụng AI trong chẩn đoán hình ảnh  Sách, sách chuyên khảo, giáo trình  Thư kí biên soạn cuốn Bài giảng CĐHA dành cho hệ bác sĩ đa khoa, nhà xuất bản y học, năm 2009.  Các công trình khoa học đã công bố  Là tác giả, đồng tác giả hơn 70 bài báo khoa học trong và ngoài nước, tham gian gần 10 công trình nghiên cứu các cấp, tham gia biên soạn nhiều sách phục vụ trong đào tạo cho đại học và sau đại học của trường Đại học Y Hà Nội.  Đề tài KH&CN các cấp đã chủ trì hoặc tham gia  Chủ trì 01 đề tài cấp cơ sở nghiệm thu 2016  Tham gia 02 đề tài cấp bộ  Tham gia 02 đề tài cấp nhà nước  Thành viên tổ chức  Phó trưởng chi hội Chẩn đoán hình ảnh ổ bụng - Hội Điện quang và y học hạt nhân Việt Nam  Ngôn ngữ  Tiếng Việt, Tiếng Anh, Tiếng Pháp.  Khen thưởng  Bằng khen của tỉnh ủy Hà Giang  Bằng khen của Trung ương Đoàn, Bộ y tế, UBDN tỉnh Lào Cai"
+    }
+  },
+  "tb_baiviet": {
+    "-ONXl1RSLALAEBI6qQ-I": {
+      "content": "",
+      "id": "-ONXl1RSLALAEBI6qQ-I",
+      "iduser": "0987654321",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744339995225.jpg?alt=media&token=5377ec82-f1b7-412b-bbed-1358832d0267",
+      "timestamp": "1744340001549",
+      "titile": "HIIHI"
+    },
+    "-ONh4Doiivsd-QQ-nDPA": {
+      "content": "",
+      "id": "-ONh4Doiivsd-QQ-nDPA",
+      "iduser": "0987654321",
+      "timestamp": "1744513069389",
+      "titile": ""
+    }
+  },
+  "tb_benhnhan": {
+    "1234": {
+      "benhlynen": "",
+      "diachi": "",
+      "gioitinh": "",
+      "img": "",
+      "ngaysinh": "",
+      "sodienthoai": "1234",
+      "ten": "1234"
+    },
+    "06985": {
+      "benhlynen": "",
+      "diachi": "",
+      "gioitinh": "",
+      "img": "",
+      "ngaysinh": "",
+      "sodienthoai": "06985",
+      "ten": "896"
+    },
+    "039965": {
+      "benhlynen": "",
+      "diachi": "",
+      "gioitinh": "",
+      "img": "",
+      "ngaysinh": "",
+      "sodienthoai": "039965",
+      "ten": "577"
+    },
+    "0358793128": {
+      "benhlynen": "",
+      "diachi": "",
+      "gioitinh": "",
+      "img": "",
+      "ngaysinh": "",
+      "sodienthoai": "0358793128",
+      "ten": "hagiang"
+    },
+    "0399608832": {
+      "benhlynen": "",
+      "diachi": "",
+      "gioitinh": "",
+      "img": "",
+      "ngaysinh": "",
+      "sodienthoai": "0399608832",
+      "ten": "phuong"
+    }
+  },
+  "tb_chuyenkhoa": [
+    null,
+    {
+      "id": "1",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck1",
+      "tenchuyenkhoa": "Cơ xương khớp",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "\"2\"",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck2",
+      "tenchuyenkhoa": "Thần kinh",
+      "thongtin": "\"Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh.\""
+    },
+    {
+      "id": "\"3\"",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck3",
+      "tenchuyenkhoa": "Tiêu hóa",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "4",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck4",
+      "tenchuyenkhoa": "Tim mạch",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "5",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck5",
+      "tenchuyenkhoa": "Cột sống",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "6",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck6",
+      "tenchuyenkhoa": "Y học cổ truyền",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "7",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck7",
+      "tenchuyenkhoa": "Châm cứu",
+      "thongtin": ""
+    },
+    {
+      "id": "8",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck8",
+      "tenchuyenkhoa": "Sản phụ khoa",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "9",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck8",
+      "tenchuyenkhoa": "Da liễuuu",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "10",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck10",
+      "tenchuyenkhoa": "Hô hấp phổi",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "11",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck11",
+      "tenchuyenkhoa": "Chuyên khoa mắt",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "12",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck12",
+      "tenchuyenkhoa": "Thân - Tiết niệu",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "13",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck13",
+      "tenchuyenkhoa": "Ung bướu",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    },
+    {
+      "id": "14",
+      "img": "android.resource://com.example.bookingcare263/drawable/ck14",
+      "tenchuyenkhoa": "Thận -Tiết liệu",
+      "thongtin": "Nếu các bệnh lý tim mạch là nguyên nhân hàng đầu gây tử vong thì bệnh lý cơ xương khớp đứng đầu trong một loạt nguyên nhân dẫn đến tàn phế. Xã hội càng hiện đại, số ca mắc các bệnh lý này càng cao. Chẳng những vậy, bệnh xương khớp giờ đây đã không còn là căn bệnh của riêng người già mà có xu hướng ngày càng trẻ hóa.  Việt Nam được xếp vào nhóm những quốc gia có tỷ lệ mắc bệnh xương khớp cao nhất thế giới. Số liệu thống kê cho thấy có khoảng 30% người trên 35 tuổi, 60% người trên 65 tuổi và 85% người trên 80 tuổi bị thoái hóa khớp – một trong những bệnh lý xương khớp phổ biến nhất ở nước ta.  Tin vui là những bệnh lý cơ xương khớp nếu được chẩn đoán, điều trị sớm và đúng cách thì có thể điều trị hiệu quả. Người bệnh không còn đau đớn và không gặp phải nguy cơ biến dạng chi thể hay tàn phế. Vì vậy, ngày càng có nhiều bệnh nhân xương khớp chủ động đi tầm soát, thăm khám để cải thiện triệu chứng và phòng ngừa biến chứng bệnh.  Khoa Cơ xương khớp Bệnh viện Đa khoa Tâm Anh được thành lập đã đáp ứng nhu cầu khám, tầm soát và điều trị bệnh cơ xương khớp đang ngày càng gia tăng ở Việt Nam.  Quy tụ đội ngũ chuyên gia có chuyên môn cao, giàu kinh nghiệm thực tiễn, mỗi y bác sĩ của khoa Cơ cơ xương khớp BVĐK Tâm Anh không ngừng học tập và nghiên cứu, áp dụng các phương pháp chẩn đoán và điều trị tiên tiến vào từng bệnh nhân nhằm tối ưu hóa quá trình khám chữa bệnh. Bên cạnh đó, Khoa luôn chú trọng cải tiến chất lượng dịch vụ nhằm mang đến sự hài lòng tuyệt đối cho người bệnh."
+    }
+  ],
+  "tb_chuyenkhoaCSYT": {
+    "-ONYgVodK0j3O1IbgNQr": {
+      "diachi": "Nhà H, tầng 1, số 16 Phủ Doãn, Phường Hàng Bông, Quận Hoàn Kiếm, Hà Nội ",
+      "giakham": "300.000 đ",
+      "id": "-ONYgVodK0j3O1IbgNQr",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744355520315.jpg?alt=media&token=e9ea2bd4-fc8e-4f99-bb6f-4b56703977df",
+      "sdtcsyt": "19001902",
+      "tenkhoa": "Thần kinh",
+      "thongtin": "Khám Nội - Hồi sức thần kinh tại Bệnh viện Việt Đức\n\nĐau đầu \n\nĐau đầu đột ngột, dữ dội\n\nĐau đầu do viêm xoang\n\nĐau đầu do stress\n\nĐau đầu khi quan hệ tình dục\n\nĐau đầu hồi ứng (rebound)\n\nĐau đầu theo cơn chu kỳ (cluster)\n\nĐau đầu mãn tính\n\nĐau đầu khi ho\n\nĐau nhức đầu khi vận động\n\nĐau đầu căn nguyên mạch máu não\n\nĐau nửa đầu\n\nĐau nửa đầu\n\nĐau nửa đầu bên trái/phải\n\nĐau nửa đầu mạn tính\n\nĐau đầu migrine\n\nChóng mặt\n\nChóng mặt buồn nôn\n\nChóng mặt lành tính\n\nChóng mặt ù tai\n\nHội chứng tiền đình\n\nRun\n\nRun toàn thân\n\nRun tay/chân\n\nRun chấn động\n\nDây thần kinh\n\nChèn ép dây thần kinh\n\nLiệt dây thần kinh VII ngoại biên/trung ương\n\nĐau dây thần kinh V\n\nĐau dây thần kinh mặt, hầu họng\n\nCơn co giật\n\nĐộng kinh\n\nĐộng kinh ở trẻ nhỏ\n\nBệnh động kinh\n\nCơn mất ý thức, cơn rối loạn tâm thần\n\nRối loạn thần kinh thực vật\n\nMệt mỏi, hồi hộp, vã mồ hôi, tụt huyết áp...\n\nĐau dây thần kinh\n\nĐau dây thần kinh mặt, hầu họng\n\nĐau thần kinh cổ vai cánh tay\n\nĐau thần kinh chi dưới, đau thắt lưng\n\nĐau thần kinh do zona\n\nHội chứng\n\nHội chứng Ramsay Hunt\n\nHội chứng chân không yên\n\nHội chứng sau bệnh bại liệt\n\nHội chứng sau chấn động\n\nHội chứng ống cổ tay\n\nHội chứng Horner\n\nHội chứng Guillain Barre\n\nBệnh não\n\nXuất huyết não\n\nPhình động mạch não\n\nU não\n\nTai biến mạch máu não do huyết áp cao, đái đường, giai đoạn mới, di chứng.\n\nThiểu năng tuần hoàn não gây đau đầu chóng mặt\n\nKhám tư vấn điều trị viêm não\n\nLiệt\n\nVận động tay chân khó khăn, không chính xác\n\nLiệt mặt\n\nLiệt chi\n\nLiệt hầu họng, nói khó, nuốt nghẹn, sặc, liệt mắt nhìn đôi\n\nViêm tủy\n\nViêm tủy ngang\n\nBệnh thần kinh cơ\n\nNhược cơ, yếu cơ\n\nTeo cơ\n\nĐau nhức\n\nSa sút trí tuệ: suy giảm về nhận thức nhẹ, suy giảm trí nhớ, sa sút trí tuệ nguyên nhân mạch máu\n\nSuy nhược thần kinh\n\nMọi chứng bệnh thần kinh khác do sang chấn, tai nạn, nhiễm trùng, nhiễm độc\n\nChi phí khám với bác sĩ\n\nKhám Giáo sư, Phó Giáo sư, Tiến sĩ, Bác sĩ Chuyên khoa II - Chi phí 500.000 đồng/lần khám\n\nKhám với bác sĩ Trưởng khoa hoặc Phó khoa - Chi phí 500.000 đồng/lần khám\n"
+    },
+    "-ONYhjGw1Nbe7Kt6T85H": {
+      "diachi": "Nhà H, tầng 1 cổng số 7, số 16 Phủ Doãn, Hàng Bông, Hoàn Kiếm, Hà Nội ",
+      "giakham": "300.000 đ",
+      "id": "-ONYhjGw1Nbe7Kt6T85H",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744355765059.jpg?alt=media&token=1a56ba92-124d-4b26-94a2-3583dc6fcbe3",
+      "sdtcsyt": "19001902",
+      "tenkhoa": "Thân - Tiết niệu",
+      "thongtin": "Khám Tiết niệu tại Bệnh viện Hữu nghị Việt Đức\n\nNhiệm vụ \n\nĐiều trị và phẫu thuật bệnh lý hệ Tiết niệu bao gồm:\n\nCác bệnh lý Ung thư đường niệu\n\nCác dị tật của hệ thống tiết niệu\n\nSỏi tiết niệu\n\nChấn thương đường tiết niệu\n\nCác bệnh lý vô sinh, thiểu năng sinh dục nam\n\nChuẩn bị, phẫu thuật và điều trị bênh nhân ghép thận\n\nThời gian tiếp nhận khám bệnh\n\nNgười bệnh có thể đăng kí khám tại Bệnh viện Hữu nghị Việt Đức vào các ngày trong tuần từ thứ 2 - thứ 7, trong giờ hành chính\n\nSáng: 7h00 - 12h00\n\nChiều: 13h30 - 16h30\n\nThông thường, Bệnh viện tiếp nhận đông bệnh nhân đến khám vào đầu giờ sáng, nếu được người bệnh nên đến đăng kí khám sau 9h00 sáng để giảm thiểu được thời gian chờ đợi.\n\nLưu ý quan trọng\n\nBệnh viện có nhiều khu khám bệnh, do đó để thuận tiện và tiết kiệm thời gian khi đi khám, người bệnh nên tìm hiểu kĩ về vị trí khu khám bệnh của mình trước khi đi khám.\n\nBệnh viện Hữu nghị Việt Đức là bệnh viện chuyên về Ngoại khoa, vì vậy, lịch các bác sĩ thường linh động và ưu tiên khám cho các ca cấp cứu.\n\nNgười bệnh nên chủ động chuẩn bị một số câu hỏi liên quan đến tình trạng của mình trước khi đi khám để hành trình khám bệnh được hiệu quả hơn."
+    },
+    "-ONYj0ly_3aFYGBbaE6p": {
+      "diachi": "Nhà C4, Tầng 1, số 16-18 Phủ Doãn, Hàng Bông ,Hoàn Kiếm, Hà Nội ",
+      "giakham": "300.000 đ",
+      "id": "-ONYj0ly_3aFYGBbaE6p",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744355983078.jpg?alt=media&token=3fc229f6-0fec-4a2c-8a21-54366eb73110",
+      "sdtcsyt": "19001902",
+      "tenkhoa": "Cột sống",
+      "thongtin": "Chức năng nhiệm vụ\n\nKhám và điều trị các bệnh lý cột sống\n\nBệnh lý cột sống\n\nChấn thương cột sống\n\nChấn thương chỉnh hình cột sống\n\nThời gian tiếp nhận khám bệnh\n\nNgười bệnh có thể đăng kí khám tại Bệnh viện Hữu nghị Việt Đức vào các ngày trong tuần từ thứ 2 - thứ 7, trong giờ hành chính\n\nSáng: 7h00 - 12h00\n\nChiều: 13h30 - 16h30\n\nThông thường, Bệnh viện tiếp nhận đông bệnh nhân đến khám vào đầu giờ sáng, nếu được người bệnh nên đến đăng kí khám sau 9h00 sáng để giảm thiểu được thời gian chờ đợi.\n\nLưu ý quan trọng\n\nBệnh viện có nhiều khu khám bệnh, do đó để thuận tiện và tiết kiệm thời gian khi đi khám, người bệnh nên tìm hiểu kĩ về vị trí khu khám bệnh của mình trước khi đi khám.\n\nBệnh viện Hữu nghị Việt Đức là bệnh viện chuyên về Ngoại khoa, vì vậy, lịch các bác sĩ thường linh động và ưu tiên khám cho các ca cấp cứu.\n\nNgười bệnh nên chủ động chuẩn bị một số câu hỏi liên quan đến tình trạng của mình trước khi đi khám để hành trình khám bệnh được hiệu quả hơn."
+    },
+    "-ONYjmCnvBUpnPw6bhuf": {
+      "diachi": "Nhà H , tầng 1, số 16 Phủ Doãn, Hàng Bông, Hoàn Kiếm, Hà Nội ",
+      "giakham": "300.000 đ",
+      "id": "-ONYjmCnvBUpnPw6bhuf",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744356339520.jpg?alt=media&token=ad6bfcf9-50a8-494d-bc50-39be16699d41",
+      "sdtcsyt": "19001902",
+      "tenkhoa": "Tiêu hóa ",
+      "thongtin": "Khám Tiêu hóa tại Bệnh viện Hữu nghị Việt Đức\n\nNhiệm vụ của khoa\n\nKhám chữa bệnh: Điều trị phẫu thuật các bệnh lý ngoại khoa tiêu hoá\n\nNghiên cứu khoa học\n\nĐào tạo đại học, sau đại học\n\nChỉ đạo tuyến theo chuyên khoa\n\nHợp tác quốc tế\n\nQuản lý kinh tế\n\nY tế dự phòng\n\nThời gian làm việc\n\nNgười bệnh có thể đăng kí khám tại Bệnh viện Hữu nghị Việt Đức vào các ngày trong tuần từ thứ 2 - thứ 7, trong giờ hành chính\n\nSáng: 7h00 - 12h00\n\nChiều: 13h30 - 16h30\n\nThông thường, Bệnh viện tiếp nhận đông bệnh nhân đến khám vào đầu giờ sáng, người bệnh nên đến đăng kí khám sau 9h00 sáng để giảm thiểu được thời gian chờ đợi.\n\nLưu ý quan trọng\n\nBệnh viện có nhiều khu khám bệnh, do đó để thuận tiện và tiết kiệm thời gian khi đi khám, người bệnh nên tìm hiểu kĩ về vị trí khu khám bệnh của mình trước khi đi khám.\n\nBệnh viện Hữu nghị Việt Đức là bệnh viện chuyên về Ngoại khoa, vì vậy, lịch các bác sĩ thường linh động và ưu tiên khám cho các ca cấp cứu.\n\nNgười bệnh nên chủ động chuẩn bị một số câu hỏi liên quan đến tình trạng của mình trước khi đi khám để hành trình khám bệnh được hiệu quả hơn."
+    },
+    "-ONYlNQIOBHlSevJErNV": {
+      "diachi": "Khu A, Cổng số 1-201B Nguyễn Chí Thanh, Phường 12, quận 5,Hồ Chí Minh ",
+      "giakham": "100.000 đ",
+      "id": "-ONYlNQIOBHlSevJErNV",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744356749120.jpg?alt=media&token=ab1be27d-b647-4327-8f53-4a292f4fce29",
+      "sdtcsyt": "02839526568",
+      "tenkhoa": "Cơ xương khớp",
+      "thongtin": "Phòng khám Cơ Xương Khớp, Bệnh viện Chợ Rẫy nhận khám và điều trị các vấn đề:\n\nBệnh về Khớp\n\nGout (Gút)\n\nViêm cột sống dính khớp\n\nThoái hóa khớp\n\nViêm khoanh khớp vai\n\nĐau khớp vai, đau vai gáy\n\nLupus ban đỏ, đau thắt lưng, đau xương khớp\n\nThoát vị đĩa đệm, viêm khớp\n\nBệnh về Xương\n\nLoãng xương, đau nhức xương\n\nViêm xương, gai xương, vôi hóa cột sống\n\nChấn thương thể thao\n\nBệnh về Cơ\n\nChứng đau mỏi cơ\n\nYếu cơ, Loạn dưỡng cơ\n\nViêm cơ, Teo cơ"
+    },
+    "-ONYmGsp4QZWZCFEpLS7": {
+      "diachi": "Khu A, cổng số 1-201B Nguyễn Chí Thanh, phường 12 , quận 5, Hồ Chí Minh ",
+      "giakham": "120.000 đ",
+      "id": "-ONYmGsp4QZWZCFEpLS7",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744356954638.jpg?alt=media&token=b80755e2-a349-41b5-a736-7d9c7f439609",
+      "sdtcsyt": "02839526568",
+      "tenkhoa": "Thần kinh ",
+      "thongtin": "Thần kinh, Bệnh viện Chợ Rẫy\n\nĐịa chỉ:\n\nKhu A Bệnh viện Chợ Rẫy - số 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Hồ Chí Minh\n\nThời gian làm việc:\n\nBệnh viện làm việc, tiếp nhận khám bệnh cho bệnh nhân ngoại trú từ thứ 2 đến thứ 7 hàng tuần:\n\nThứ 2 đến thứ 6: từ 7h – 16h\n\nThứ 7: từ 7h – 11h\n\nLưu ý thông tin đặt lịch: \n\nVui lòng kiểm tra kĩ thông tin cá nhân (họ tên, giới tính, năm sinh, địa chỉ, BHYT) trước khi xác nhận đặt lịch khám để tránh sai sót và tiết kiệm thời gian (Bệnh viện không chấp nhận với lịch sai thông tin) \n\nTrường hợp đặt sai thông tin, vui lòng đặt lại bằng số điện thoại khác (bắt buộc) \n\nBệnh viện không hỗ trợ đặt lịch khám online cho người nước ngoài, người cần khám sức khỏe xin visa. Quý khách vui lòng đến bệnh viện đặt lịch khám trực tiếp, mang theo visa và giấy tờ tùy thân.\n\nLưu ý:\n\nBệnh nhân thuộc những đối tượng được ưu tiên dưới đây, vui lòng đến trực tiếp bệnh viện đặt lịch khám để được hưởng quyền ưu tiên theo Luật khám chữa bệnh:\n\nNgười bệnh trong tình trạng cấp cứu\n\nTrẻ em dưới 06 tuổi\n\nPhụ nữ có thai\n\nNgười khuyết tật đặc biệt nặng\n\nNgười khuyết tật nặng\n\nNgười từ đủ 75 tuổi trở lên\n\nNgười có công với cách mạng\n"
+    },
+    "-ONYmbtI8MRtqM4Alhi5": {
+      "diachi": "Khu A, cổng số 1-201B Nguyễn Chí Thanh, phường 12 , quận 5, Hồ Chí Minh",
+      "giakham": "200.000 đ",
+      "id": "-ONYmbtI8MRtqM4Alhi5",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744357137504.jpg?alt=media&token=643de888-5e31-4a8b-9d8f-cff4cec4a0d7",
+      "sdtcsyt": "02839526568",
+      "tenkhoa": "Tiêu hóa ",
+      "thongtin": "Tiêu hóa, Bệnh viện Chợ Rẫy\n\nĐịa chỉ:\n\nKhu A Bệnh viện Chợ Rẫy - số 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Hồ Chí Minh\n\nThời gian làm việc:\n\nBệnh viện làm việc, tiếp nhận khám bệnh cho bệnh nhân ngoại trú từ thứ 2 đến thứ 7 hàng tuần:\n\nThứ 2 đến thứ 6: từ 7h – 16h\n\nThứ 7: từ 7h – 11h\n\nLưu ý thông tin đặt lịch: \n\nVui lòng kiểm tra kĩ thông tin cá nhân (họ tên, giới tính, năm sinh, địa chỉ, BHYT) trước khi xác nhận đặt lịch khám để tránh sai sót và tiết kiệm thời gian (Bệnh viện không chấp nhận với lịch sai thông tin) \n\nTrường hợp đặt sai thông tin, vui lòng đặt lại bằng số điện thoại khác (bắt buộc) \n\nBệnh viện không hỗ trợ đặt lịch khám online cho người nước ngoài, người cần khám sức khỏe xin visa. Quý khách vui lòng đến bệnh viện đặt lịch khám trực tiếp, mang theo visa và giấy tờ tùy thân.\n\nLưu ý:\n\nBệnh nhân thuộc những đối tượng được ưu tiên dưới đây, vui lòng đến trực tiếp bệnh viện đặt lịch khám để được hưởng quyền ưu tiên theo Luật khám chữa bệnh:\n\nNgười bệnh trong tình trạng cấp cứu\n\nTrẻ em dưới 06 tuổi\n\nPhụ nữ có thai\n\nNgười khuyết tật đặc biệt nặng\n\nNgười khuyết tật nặng\n\nNgười từ đủ 75 tuổi trở lên\n\nNgười có công với cách mạng\n"
+    },
+    "-ONYn0enWUDvlDb6sQ18": {
+      "diachi": "Khu A, cổng số 1-201B Nguyễn Chí Thanh, phường 12 , quận 5, Hồ Chí Minh",
+      "giakham": "120.000 đ",
+      "id": "-ONYn0enWUDvlDb6sQ18",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744357243944.jpg?alt=media&token=b70342a9-8ff8-44ea-8bb8-43c7a601f050",
+      "sdtcsyt": "02839526568",
+      "tenkhoa": "Tim mạch ",
+      "thongtin": "Tim mạch, Bệnh viện Chợ Rẫy\n\nĐịa chỉ:\n\nKhu A Bệnh viện Chợ Rẫy - số 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Hồ Chí Minh\n\nThời gian làm việc:\n\nBệnh viện làm việc, tiếp nhận khám bệnh cho bệnh nhân ngoại trú từ thứ 2 đến thứ 7 hàng tuần:\n\nThứ 2 đến thứ 6: từ 7h – 16h\n\nThứ 7: từ 7h – 11h\n\nLưu ý thông tin đặt lịch: \n\nVui lòng kiểm tra kĩ thông tin cá nhân (họ tên, giới tính, năm sinh, địa chỉ, BHYT) trước khi xác nhận đặt lịch khám để tránh sai sót và tiết kiệm thời gian (Bệnh viện không chấp nhận với lịch sai thông tin) \n\nTrường hợp đặt sai thông tin, vui lòng đặt lại bằng số điện thoại khác (bắt buộc) \n\nBệnh viện không hỗ trợ đặt lịch khám online cho người nước ngoài, người cần khám sức khỏe xin visa. Quý khách vui lòng đến bệnh viện đặt lịch khám trực tiếp, mang theo visa và giấy tờ tùy thân.\n\nLưu ý:\n\nBệnh nhân thuộc những đối tượng được ưu tiên dưới đây, vui lòng đến trực tiếp bệnh viện đặt lịch khám để được hưởng quyền ưu tiên theo Luật khám chữa bệnh:\n\nNgười bệnh trong tình trạng cấp cứu\n\nTrẻ em dưới 06 tuổi\n\nPhụ nữ có thai\n\nNgười khuyết tật đặc biệt nặng\n\nNgười khuyết tật nặng\n\nNgười từ đủ 75 tuổi trở lên\n\nNgười có công với cách mạng\n"
+    },
+    "-ONeQ8iqShWZWBpirxRl": {
+      "diachi": "",
+      "giakham": "",
+      "id": "-ONeQ8iqShWZWBpirxRl",
+      "sdtcsyt": "039960883",
+      "tenkhoa": "",
+      "thongtin": ""
+    }
+  },
+  "tb_lichhen": {
+    "-ONVIRUBX5pjUYefgD6z": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255306724.jpg?alt=media&token=25a0501d-f903-4c46-9a96-48ec2017ac3d",
+      "diachibenhnhan": "y",
+      "id": "-ONVIRUBX5pjUYefgD6z",
+      "idbacsi": "0869999888",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Trương Thị Thanh",
+      "ngayhenkham": "11/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONVKiDQi8Hp7r-HMxVk": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255306724.jpg?alt=media&token=25a0501d-f903-4c46-9a96-48ec2017ac3d",
+      "diachibenhnhan": "y",
+      "id": "-ONVKiDQi8Hp7r-HMxVk",
+      "idbacsi": "0869999888",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Trương Thị Thanh",
+      "ngayhenkham": "11/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONXs9nCP3Ehp4isC3ir": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744276607305.jpg?alt=media&token=19545184-f8af-4747-a266-28e878c33a11",
+      "diachibenhnhan": "Chào ",
+      "id": "-ONXs9nCP3Ehp4isC3ir",
+      "idbacsi": "123",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "khoa h",
+      "ngayhenkham": "15/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONXsFpEKdS3edjlep6e": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255306724.jpg?alt=media&token=25a0501d-f903-4c46-9a96-48ec2017ac3d",
+      "diachibenhnhan": "how ",
+      "id": "-ONXsFpEKdS3edjlep6e",
+      "idbacsi": "0869999888",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Trương Thị Thanh",
+      "ngayhenkham": "23/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONZMHpa7MSyr1P22CuV": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744355520315.jpg?alt=media&token=e9ea2bd4-fc8e-4f99-bb6f-4b56703977df",
+      "diachibenhnhan": "phuonggm204@gmail.com ",
+      "id": "-ONZMHpa7MSyr1P22CuV",
+      "idbacsi": "19001902",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Thần kinh",
+      "ngayhenkham": "19/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONhNdvU-43Bw4T9NxXi": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255158405.jpg?alt=media&token=29e956ce-2834-47f9-9bd2-bec4a980f715",
+      "diachibenhnhan": "phuonggm204@gmail.com ",
+      "id": "-ONhNdvU-43Bw4T9NxXi",
+      "idbacsi": "0987654321",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Lê Tuấn Linh",
+      "ngayhenkham": "18/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Xác nhận"
+    },
+    "-ONhPLGh50i6VEFU9a8T": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255158405.jpg?alt=media&token=29e956ce-2834-47f9-9bd2-bec4a980f715",
+      "diachibenhnhan": "phuonggm204@gmail.com ",
+      "id": "-ONhPLGh50i6VEFU9a8T",
+      "idbacsi": "0987654321",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Lê Tuấn Linh",
+      "ngayhenkham": "25/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    },
+    "-ONhRFRAJfRKzJA17amN": {
+      "avatarbs": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744255158405.jpg?alt=media&token=29e956ce-2834-47f9-9bd2-bec4a980f715",
+      "diachibenhnhan": "phuonggm204@gmail.com ",
+      "id": "-ONhRFRAJfRKzJA17amN",
+      "idbacsi": "0987654321",
+      "idbenhnhan": "0399608832",
+      "khunggiokham": "7h - 8h30",
+      "namebenhnhan": "phuong",
+      "namebs": "Lê Tuấn Linh",
+      "ngayhenkham": "24/4/2025",
+      "sdtbenhnhan": "0399608832",
+      "trangthai": "Đang chờ"
+    }
+  },
+  "tbsoyte": {
+    "19001902": {
+      "chuyenkhoa": "",
+      "diachi": "40 Tràng Thi, Hoàn Kiếm, Hà Nội ",
+      "email": "benhvienvietduc.info@gmail.com",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744347036598.jpg?alt=media&token=fb74b00f-067b-4089-b2a6-c41a5de7db48",
+      "masogiayphep": "BVHNVD123456789",
+      "name": "Bệnh viện Hữu Nghị Việt Đức",
+      "sdt": "19001902",
+      "thongtin": "Bệnh viện Hữu nghị Việt Đức ngày nay được thành lập từ năm 1902 cùng với sự ra đời của Trường Y khoa Đông Dương, tiền thân của Trường Đại học Y Hà Nội. Từ năm 1904 Bệnh viện chuyển về vị trí hiện tại với tên gọi Nhà thương bảo hộ (Hôpital indigène du Protectorat). Bệnh viện mang các tên gọi khác nhau qua từng giai đoạn lịch sử của đất nước: Bệnh viện Yersin (1943), Bệnh viện Phủ Doãn (1954), Bệnh viện Hữu nghị Việt Nam – Cộng hòa Dân chủ Đức (1958-1990) và Bệnh viện Hữu nghị Việt Đức từ năm 1991 đến nay.\n\nTrong suốt quá trình hình thành và phát triển, Bệnh viện luôn là một trung tâm y tế hàng đầu gắn liền công tác khám chữa bệnh với nghiên cứu khoa học y học và đào tạo, nơi sản sinh ra những thầy thuốc hàng đầu của Việt Nam trong đó có nhiều danh nhân y học: Hồ Đắc Di, Tôn Thất Tùng, Nguyễn Trinh Cơ, Nguyễn Dương Quang….\n\nNgày nay Bệnh viện là một trung tâm y tế chuyên sâu, được xếp hạng Bệnh viện chuyên khoa đặc biệt theo quyết định số 1446/QĐ-BNV ngày 21/9/2015 của Bộ trưởng Bộ Nội vụ. Bệnh viện có quy mô 1500 giường bệnh với hơn 2400 thầy thuốc, cán bộ và nhân viên y tế trong đó có: 4 Giáo sư, 33 Phó giáo sư, 51 Tiến sĩ, 28 bác sĩ chuyên khoa cấp II, 195 Thạc sĩ và Bác sĩ chuyên khoa sau đại học.\n\nCơ cấu tổ chức của Bệnh viện gồm 3 khối chính:\nKhối hành chính – Hậu cần có: Ban giám đốc bệnh viện, Trung tâm đào tạo – chỉ đạo tuyến cùng 14 phòng chức năng. Khối lâm sàng có: Viện Chấn thương Chỉnh hình, 6 Trung tâm, 29 Khoa lâm sàng. Khối cận lâm sàng gồm: Trung tâm Truyền máu, Trung tâm Tế bào gốc, Ngân hàng Mô, 8 khoa và Nhà thuốc bệnh viện.\n\nĐảng bộ bệnh viện có 12 chi bộ với 342 Đảng viên luôn là đảng bộ trong sạch vững mạnh liên tục trong 15 năm qua. Công đoàn bệnh viện có 2105 Đoàn viên công đoàn. Đoàn thanh niên cộng sản Hồ chí minh có 750 Đoàn viên.\nBệnh viện Hữu nghị Việt Đức là bệnh viện chuyên khoa hạng đặc biệt Bộ Y tế giao thực hiện 8 nhiệm vụ chính:\n1.Khám bệnh, chữa bệnh.\n2.Nghiên cứu khoa học.\n3.Đào tạo, bồi dưỡng nhân lực y tế.\n4.Chỉ đạo tuyến.\n5.Hợp tác quốc tế.\n6.Phòng, chống dịch bệnh, thiên tai, thảm họa.\n7.Quản lý bệnh viện; Quản lý chất lượng bệnh viện\n8.Thực hiện các nhiệm vụ khác theo quy định của Bộ Y tế.\nTrong những năm gần đây, Bệnh viện có những bước phát triển vượt bậc:\n\nBệnh viện đã được trang bị các thiết bị y tế hiện đại nhất phục vụ công tác khám chữa bệnh: các hệ thống thiết bị chẩn đoán hình ảnh thế hệ mới: Máy chụp cắt lớp vi tính CT Scanner 256 dãy, 512 lát cắt; CT Scanner 64 dãy, Máy cộng hưởng từ 3.0 Tesla, 1.5 Tesla; Máy chụp mạch số hóa xóa nền thế hệ mới nhất, các hệ thống siêu âm màu 3D, 4D; Hệ thống đo độ loãng xương …\n\nCác hệ thống xét nghiệm hiện đại đảm bảo thực hiện các xét nghiệm chuyên sâu của các chuyên ngành: xét nghiệm huyết học, sinh hóa, vi sinh, miễn dịch, giải phẫu bệnh phục vụ việc chẩn đoán và điều trị.\n\nKhu vực Gây mê hồi sức với: 42 bàn mổ và 50 giường hồi sức với các trang thiết bị hiện đại: Hệ thống kính hiển vi phẫu thuật, robot trong mổ, hệ thống phòng mổ ORI, Hybrid, các phương tiện hồi sức đảm bảo việc thực hiện các trường hợp phẫu thuật và hồi sức phức tạp nhất. Trung tâm truyền máu, Ngân hàng mô, Khoa thận nhân tạo cũng được trang bị các thiết bị hiện đại phục vụ chuyên môn.\n\nVới đội ngũ chuyên gia hàng đầu trong các chuyên khoa sâu và trang thiết bị hiện đại, Bệnh viện đã đi sâu trong phát triển kỹ thuật trình độ cao như thành công của việc ghép đa tạng, phẫu thuật thần kinh sọ não, lồng ngực, phẫu thuật nội soi bụng, sọ não, cột sống, khớp, tiết niệu…\n\nTại Bệnh viện các công trình nghiên cứu cấp nhà nước, cấp bộ và cấp cơ sở được triển khai có hiệu quả trong chăm sóc và điều trị được đánh giá cao tại các hội đồng khoa học, trong số này đã có nhiều tài liêu đăng trên các tạp chí quốc tế và quốc gia uy tín.\n\nVề công tác đào tạo, Bệnh viện là cơ sở thực hành của trường Đại học Y Hà nội, Khoa Y dược Đại học Quốc gia và nhiều trường đại học và cao đẳng trong khối ngành sức khỏe. Hàng năm có hơn 3000 lượt sinh viên và học viên (Tiến sỹ, Thạc sỹ y khoa, Bác sỹ chuyên khoa, Cử nhân, Điều dưỡng … ) học, thực tập chuyên môn tại bệnh viện.\n\nVới những nỗ lực và phấn đấu không ngừng nghỉ của nối tiếp các thế hệ thầy thuốc và các nhân viên y tế qua nhiều thời kỳ, Bệnh viện đã được Đảng và Nhà nước ghi nhận, đánh giá cao qua các phần thưởng cao quý\n– Danh hiệu Anh hùng Lực lượng vũ trang năm 2004.\n– Danh hiệu Anh hùng Lao động thời kỳ đổi mới năm 2006.",
+      "website": "https://benhvienvietduc.org"
+    },
+    "1900888866": {
+      "chuyenkhoa": "",
+      "diachi": "78 Đường Giải Phóng, Phương Mai, Đống Đa, Hà Nội",
+      "email": "vanphongbvbm@gmail.com",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744352039492.jpg?alt=media&token=37b550c8-ecce-40f7-9379-577d4a97c7fa",
+      "masogiayphep": "BVBM1234567890",
+      "name": "Bệnh viện Bạch Mai",
+      "sdt": "1900888866",
+      "thongtin": "Bệnh viện Bạch Mai là bệnh viện Đa khoa hoàn chỉnh hạng đặc biệt đầu tiên tại Việt Nam, với tầm nhìn trở thành bệnh viện uy tín trong khu vực và trên thế giới. Chúng tôi cam kết chăm sóc sức khỏe toàn diện cho mọi người dân bằng tài năng, y đức và sự tận tâm.\nChính sách chất lượng\nSứ mệnh:Là Bệnh viện công lập đa khoa hạng đặc biệt chăm sóc sức khỏe toàn diện cho mọi người dân.\nTầm nhìn:Trở thành một bệnh viện uy tín trong khu vực và trên thế giới, phát triển các mũi nhọn chuyên sâu, có nguồn nhân lực chất lượng cao trong môi trường làm việc an toàn, chuyên nghiệp, hiệu quả, được các tổ chức Tiêu chuẩn quốc tế công nhận.\nGiá trị cốt lõi:An toàn - Tin cậy - Hiệu quả\nCam kết:Bệnh viện cam kết đồng hành cùng mọi người dân để bảo vệ và nâng cao sức khỏe cho mỗi người và cho cả cộng đồng.\n105 năm hình thành và phát triển:\n-Năm 1911:Bệnh viện Bạch Mai được thành lập, ban đầu là Nhà thương Cống Vọng nhỏ bé chuyên để thu nhận và điều trị bệnh nhân truyền nhiễm.\n- Từ năm 1911-1935: Bệnh viện mang tên René Robin được xây dựng quy mô hơn, là cơ sở thực hành chính của trường Đại học Y khoa Đông Dương.\n- Từ năm 1035 - 1945: Bệnh viện được mang tên Bệnh viện Bạch Mai.\n- Giai đoạn 1945 - 1954: Thời kỳ kháng chiến chống Pháp, Bệnh viện là pháo đài của quân và dân ta trong cuộc kháng chiến bảo vệ Thủ đô, hoạt động chuyên môn diễn ra tronq điều kiện khó khăn về mọi mặt.\n- Giai đoạn 1954 - 1964: Cải tạo cơ sở vật chất sau chiến tranh tàn phá, tăng số lượng cán bộ và mở rộng quy mô hoạt động chuyên môn. Bệnh viện vinh dự được đón Chủ tịch Hồ Chí Minh đến thăm hai lần: 12/1954 và 3/1960.\n-Giai đoạn 1965 - 1975: Thời kỳ kháng chiến chống Mỹ, nhiều cán bộ Bệnh viện đã tình nguyện vào Nam chiến đấu. Thủ tướng Phạm Văn Đồng và các đồng chí Lãnh đạo Đảng, Nhà nước, Chính phủ đã nhiều lân đến thăm và động viên CBCC Bệnh viện. Năm 1972, bốn lần máy bay B52 Mỹ ném bom hủy diệt Bệnh viện, 28 cán bộ y tế của Bệnh viện đã anh dũng hy sinh trong khi đang cứu chữa bệnh nhân.\n-Từ 1975 đến nay: Đất nước thống nhất, Bệnh viện Bạch Mai bước vào kỷ nguyên mới, đảm nhiệm trọng trách khám chữa bệnh tuyến cuối của ngành y tế.\n-Năm 2006: Được Bộ y tế công nhận là Bệnh viện đa khoa hoàn chỉnh hạng đặc biệt đầu tiên của Việt Nam.\n-Năm 2011: Kỷ niệm 100 năm thành lập đón nhận Huân chương Độc lập hạng nhất lần thứ 2; Quy mô 1400 giường bệnh với: 02 Viện, 07 Trung tâm, 22 Khoa Lâm sàng, 06 Khoa Cận lâm sàng, 10 Phòng/Ban chức năng, Trường Trung học Y tế, Tạp chí Y học lâm sàng, Đơn vị Dịch vụ; Mục tiêu: xây dựng Bệnh viện Bạch Mai trở thành Trung tâm Y học hàng đầu của Việt Nam ngang tầm các nước tiên tiến trong khu vực\n-Năm 2016 đến nay: rên chặng đường hội nhập và phát triển, Bệnh viện kỷ niệm 105 năm thành lập và đón nhân Huân chương Độc lập hạng 3 lần thứ 2; Quy mô 1900 giường bệnh với 55 đơn vị trực thuộc: 03 Viện, 08 Trung tâm, 12 Phòng/Ban chức năng, 23 Khoa Lâm sàng, 06 Khoa Cận lâm sàng, Trường Cao đẳng Y tế, Tạp chí Y học lâm sàng, Đơn vị Dịch vụ; Khánh thành Trung Tâm Hội nghị Quốc tế Bạch Mai có 01 Hội trường 700 chỗ với nhiều trang thiết bị hiện đại và hệ thống hội trường mini đồng bộ; Khánh thành tòa nhà Trung tâm Tim mạch trẻ em và Trung tâm Ung bướu quy mô 800 giường; Khởi công Trung tâm Khám bệnh tại khu Trạm lao cũ và Bệnh viện Bạch Mai cơ sở 2 tại Phủ Lý (Hà Nam) cùng nhiều công trình khác.\n",
+      "website": "https://bachmai.gov.vn"
+    },
+    "069572400": {
+      "chuyenkhoa": "",
+      "diachi": "Số 1 Trần Hưng Đạo, Hai Bà Trưng, Hà Nộ",
+      "email": " bvtuqd108@benhvien108.vn",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744351649010.jpg?alt=media&token=63c34092-3ecb-4e90-91a2-e2db7b777aa7",
+      "masogiayphep": "BVTUQD1081234567890",
+      "name": "Bệnh viện Trung ương Quân Đội 108",
+      "sdt": "069572400",
+      "thongtin": "Bệnh viện TWQĐ 108 là Bệnh viện hạng đặc biệt, là trung tâm y tế chuyên sâu của nước Cộng hoà Xã hội Chủ nghĩa Việt Nam, là bệnh viện đa khoa, chiến lược tuyến cuối của Quân đội Nhân dân Việt Nam. Với mô hình Viện - Trường từ năm 1995, Bệnh viện còn là trung tâm nghiên cứu khoa học và đào tạo sau đại học, với tên gọi Viện nghiên cứu Khoa học Y dược Lâm sàng 108. Vẻ vang và tự hào, Bệnh viện là trung tâm bảo vệ, chăm sóc sức khoẻ cho các đồng chí lãnh đạo cao nhất của Đảng, Nhà nước, Quân đội, khám chữa bệnh cho Bộ đội, Nhân dân và người bệnh quốc tế Lào, Cam Pu Chia.\nThế mạnh của Bệnh viện là có đội ngũ cán bộ nhân viên, chuyên gia hùng hậu với hơn 800 Bác sỹ, Kỹ sư, trong đó có 180 Tiến sỹ, 3 Giáo sư, 28 Phó Giáo sư, còn lại là Bác sỹ Chuyên khoa 1, 2 và Thạc sỹ. Thêm vào đó, Bệnh viện có đội ngũ 1800 điều dưỡng, kỹ thuật viên lành nghề, hầu hết có trình độ đại học và sau đại học. Các nhà khoa học của Bệnh viện đã rất tích cực nghiên cứu khoa học, đổi mới sáng tạo, triển khai kỹ thuật mới và đạt được nhiều thành tựu trong chẩn đoán, điều trị. Nhiều phương pháp chẩn đoán và điều trị đã đạt kết quả tương đương với các nước tiên tiến trên thế giới, được cộng đồng khoa học quốc tế công nhận, ghi nhận qua các chứng nhận, giải thưởng lớn trong nước và quốc tế.\n Bên cạnh đó, Bệnh viện luôn nhận được sự quan tâm, đầu tư đặc biệt của Đảng, Nhà nước, Quân uỷ Trung ương –Thủ trưởng Bộ Quốc phòng. Cơ sở hạ tầng khang trang, trang thiết bị hiện đại như: Hơn 50 phòng mổ, bao gồm phòng mổ đa năng Hybrid, hệ thống xét nghiệm tự động; hệ thống xạ trị, xạ phẫu suất liều cao TrueBeam Stx, hệ thống PET/CT thế hệ mới, máy xạ trị điều biến liều, máy chụp cộng hưởng từ chức năng không tiếng ồn 3.0 Tesla, máy chụp cộng hưởng từ MRI Philip 1.5 và 3.0 Tesla, Máy chụp CT 512 lát cắt hiện đại nhất Việt Nam và nhiều trang bị kỹ thuật hiện đại khác…\nBệnh viện là một trong vài trung tâm hàng đầu về ghép mô tạng, là trung tâm số 1 về ghép gan; là một trong những trung tâm phẫu thuật chấn thương chỉnh hình, kỹ thuật tạo hình vi phẫu, các kỹ thuật can thiệp tim mạch chuyên sâu, kỹ thuật phẫu thuật cấy máy tạo nhịp bó nhánh trái, cấy ghép dụng cụ hỗ trợ thất trái, thay van động mạch chủ ít xâm lấn. Bệnh viện là cơ sở y tế đi đầu tổ chức nhóm cấp cứu tim mạch quân đội, nhóm cấp cứu đột quỵ não trong quân đội, đạt chất lượng Bạch kim điều trị đột quỵ của Hội Đột quỵ thế giới, Bệnh viện đi tiên phong nghiên cứu ứng dụng kỹ thuật tiên tiến điều trị bệnh truyền nhiễm, là một trong bốn trung tâm trên toàn cầu được Cơ quan Trao đổi Hàn lâm (DAAD) của CHLB Đức chọn tài trợ dự án phòng ngừa dịch mới nổi và tái nổi; đi đầu nghiên cứu ứng dụng công nghệ sinh học, sinh học phân tử, công nghệ gene và tế bào gốc, được cấp nhiều bằng độc quyền sáng chế. Bệnh viện là đơn vị đầu tiên thực hiện các kỹ thuật y học hạt nhân, hiện đang hợp tác hiệu quả với IAEA nghiên cứu Theranostics trong ung thư. Thuộc tốp dẫn đầu cả nước về kiểm soát nhiễm khuẩn, đã giành giải thưởng Vệ sinh tay xuất sắc Châu Á Thái Bình Dương; đạt chứng nhận ISO 9001-2015 đầu tiên trong Quân đội, với 21 đơn vị đạt ISO 9001-2015 và 7 khoa trong Bệnh viện đạt ISO 15189:2012; áp dụng hiệu quả mô hình quản lý LEAN, 5S, quy trình Triage và đang triển khai áp dụng tiêu chuẩn JCI của Hoa Kỳ.\nBệnh viện không ngừng hợp tác với các trường đại học, các viện nghiên cứu Y dược, các bệnh viện, các hội nghề nghiệp của các nước có nền y học phát triển trên thế giới (Đức, Anh, Pháp, Mỹ, Nga, Trung Quốc, Nhật Bản, Hàn Quốc,...). Trong nước, Bệnh viện mở rộng liên kết hợp tác với các đơn vị quân dân y của 16 tỉnh, thành phố với 32 bệnh viện đa khoa và 04 trường Đại học Y khoa. Tổ chức kết nối hệ thống Telemedicine trong mạng lưới quân y và một số bệnh viện dân y trong đó Bệnh viện TWQĐ 108 là trung tâm kết nối để hỗ trợ chuyên môn trực tuyến trong cấp cứu, phẫu thuật các ca bệnh khó, phức tạp mà các cơ sở y tế, bệnh viện tuyến dưới chưa xử lý được.\nQuan điểm của Bệnh viện trong mọi hoạt động là phương châm “Gìn giữ giá trị cốt lõi, thúc đẩy sự tiến bộ, luôn tìm cách tốt hơn, tìm ra những khả năng mới hơn” và  “Ưu tiên nhất cho chất lượng”; Xây dựng Bệnh viện văn hoá hạnh phúc, văn hoá hàn lâm để phát triển bền vững. Tinh thần “Cho đi để mãi mãi trường tồn” Bệnh viện sẵn sàng chia sẻ kiến thức, kinh nghiệm, nhân lực, vật lực để giúp đỡ các bệnh viện trong và ngoài quân đội chuyển giao kỹ thuật nhằm cứu chữa được nhiều người bệnh hơn, mang về hạnh phúc cho nhiều người bệnh cũng chính là mang hạnh phúc về cho chính cán bộ nhân viên của Bệnh viện.\nSau 74 năm xây dựng, trưởng thành và phát triển Bệnh viện đã vinh dự được Đảng, Nhà nước tặng thưởng nhiều danh hiệu cao quý: 3 lần Anh hùng; Huân chương Sao vàng; Huân chương Hồ Chí Minh; Huân chương Độc lập hạng nhất; Huân chương Quân công; Huân chương Chiến công hạng Nhất; Huân chương Độc lập của Nhà nước Lào và nhiều phần thưởng cao quý khác. Và phần thưởng cao quý nhất, tâm đắc nhất chính là niềm tin yêu của người bệnh và người nhà người bệnh.",
+      "website": "https://www.benhvien108.vn"
+    },
+    "0904690818": {
+      "chuyenkhoa": "",
+      "diachi": "Số 30 đường Cầu Bươu, Tân Triều, Thanh Trì, Hà Nội",
+      "email": "benhvienk@bvk.org.vn\n",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744351872531.jpg?alt=media&token=11ce890c-4323-4e41-994c-56135410a658",
+      "masogiayphep": "BVKTT1234567890",
+      "name": "Bệnh viện K",
+      "sdt": "0904690818",
+      "thongtin": "Ngày 17 tháng 7 năm 1969, được sự đồng ý của Chính phủ, Bộ trưởng Bộ Y tế ra quyết định số 711/QĐ-BYT thành lập Bệnh viện K được thành lập từ tiền thân là Viện Curie Đông Dương (Insitut Curie de L’Indochine) ra đời tại Hà Nội vào ngày 19/10/1923 do Luật sư Mourlan phụ trách.. Bệnh viện với 3 cơ sở khang trang, sạch sẽ và nhiều trang thiết bị hiện đại sánh ngang tầm với các quốc gia trong khu vực. Hiện nay, 3 cơ sở khám chữa bệnh trên địa bàn Hà Nội đó là: \nCơ sở 1: Số 43 Quán Sứ, Hoàn Kiếm, Hà Nội. \nCơ sở 2: Tựu Liệt, Tam Hiệp, Thanh Trì, Hà Nội.\nCơ sở 3: cơ sở Tân Triều, số 30 Cầu Bươu, Thanh Trì, Hà Nội.\n Bệnh viện hiện có 80 viện, trung tâm, khoa, phòng, bộ phận trực thuộc với hơn 1.700 cán bộ, người lao động.  Sứ mệnh của Bệnh viện K\nSứ mệnh: Khám và điều trị cho tất cả người bệnh ung bướu trong và ngoài nước; lấy người bệnh làm trung tâm, mang đến giải pháp chăm sóc sức khỏe tối ưu từ sự tích hợp giữa KHÁM CHỮA BỆNH - NGHIÊN CỨU KHOA HỌC, ĐÀO TẠO – HỢP TÁC QUỐC TẾ\nTầm nhìn của Bệnh viện K Bằng khát vọng tiên phong, với chiến lược phát triển bền vững và hội nhập mạnh mẽ, Bệnh viện K phấn đấu trở thành bệnh viện kiểu mẫu, chuyên nghiệp, dẫn đầu Việt Nam và đạt chuẩn quốc tế, có nhiều cơ sở (chuỗi bệnh viện) có cơ sở vật chất khang trang, sạch đẹp, có trang thiết bị y tế hiện đại ngang tầm với các nước tiên tiến trong khu vực và thế giới, có nguồn nhân lực chất lượng cao, đầu ngành ung bướu, với tác phong phục vụ chuyên nghiệp, đạt chuẩn quốc tế trong công tác khám, điều trị và phòng chống ung thư, là người bạn đồng hành, thân thiết của người bệnh và thầy thuốc, góp phần tích cực vào công tác phòng chống ung thư cũng như nâng tầm vị thế của Việt Nam trong cuộc chiến phòng chống bệnh ung thư trên thế giới.",
+      "website": "https://benhvienk.vn"
+    },
+    "02432222944": {
+      "chuyenkhoa": "",
+      "diachi": "Số 15A - Đường Phương Mai - Quận Đống Đa - Hà Nội",
+      "email": "bvdalieutrunguong@gmail.com",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744352886216.jpg?alt=media&token=e6e86ce5-661e-48f5-9f5b-1c5a7008e6fa",
+      "masogiayphep": "BVDLTU1234567890",
+      "name": "Bệnh viện Da Liễu Trung Ương",
+      "sdt": "02432222944",
+      "thongtin": "Bệnh viện Da liễu Trung ương là Bệnh viện chuyên khoa đầu ngành Da liễu có chức năng : Nghiên cứu mô hình bệnh tật, các phương pháp chẩn đoán, điều trị, dự phòng và phục hồi chức năng các bệnh thuộc chuyên ngành bệnh Phong và Da liễu, Đào tạo cán bộ, công tác khám, chữa bệnh và phục hồi chức năng, Phẫu thuật tạo hình thẩm mỹ, Săn sóc da,Chỉ đạo tuyến, Hợp tác quốc tế….\nLịch sử hình thành:\n-Tháng 10/1954: Từ khoa “Bệnh lý Nội thương – Da liễu” được hình thành vào tháng hai năm 1954 và Trường Đại học Y Dược trên núi rừng Việt Bắc (Chiêm Hoá, Tuyên Quang), Giáo sư Đặng Vũ Hỷ cùng với 45 cán bộ – công nhân viên kháng chiến chống thực dân xâm lược Pháp về tiếp quản khu ngoài da của Bệnh viện Bạch Mai tháng 10/1954.\n-Từ tháng 10 năm 1954 đến năm 1972: Giáo sư Đặng Vũ Hỷ – Chủ nhiệm Khoa Da liễu Bệnh viện Bạch Mai kiêm chủ nhiệm Bộ môn Da liễu trường Đại học Y Hà Nội. Giáo sư Lê Kinh Duệ – Phó Chủ nhiệm Bộ môn\n-Từ năm 1964:Giáo sư Lê Tử Vân được cử làm Phó Chủ nhiệm Khoa Da liễu Bệnh viện Bạch Mai\n-Sau khi Giáo sư Đặng Vũ Hỷ qua đời năm 1972, cho tới năm 1981: Giáo sư Lê Kinh Duệ được bổ nhiệm làm Chủ nhiệm khoa Da liễu Bệnh viện Bạch Mai kiêm Chủ nhiệm Bộ môn Da liễu trường Đại học Y Hà Nội. Giáo sư Lê Tử Vân giữ chức Phó Chủ nhiệm khoa, Phó Chủ nhiệm Bộ môn. Giáo sư Nguyễn Thị Đào – Làm Phó Chủ nhiệm Bộ môn.\n-Ngày 28 tháng giêng năm 1982: Bộ Y tế ra Quyết định số 70/BYT-QĿ thành lập Viện Da liễu Việt Nam trực thuộc Bộ Y tế nằm trong Bệnh viện Bạch Mai.\n-Ngày 30/3/2006: Thủ tướng Chính phủ ra quyết định số 486/QĐ-TTg về việc thành lập Viện Da liễu Quốc gia trực thuộc Bộ Y tế\n-Ngày 13/11/2009: Bộ Y tế ban hành Quyết định số 4453/QĐ-BYT về việc đổi tên Viện Da liễu Quốc gia thành Bệnh viện Da liễu Trung ương trực thuộc Bộ Y tế",
+      "website": "https://dalieu.vn"
+    },
+    "02435746298": {
+      "chuyenkhoa": "",
+      "diachi": " Số 1 Tôn Thất Tùng, Phường Kim Liên, Quận Đống Đa, Hà Nội",
+      "email": " benhviendaihocyhanoi@hmuh.vn",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744354647564.jpg?alt=media&token=fdbd69ff-0071-4b6f-9c8c-6be91b95b3ec",
+      "masogiayphep": "BVDHYHN1234567890",
+      "name": "Bệnh viện đại học Y Hà Nội",
+      "sdt": "02435746298",
+      "thongtin": "Bệnh viện Đại học Y Hà Nội được thành lập theo Quyết định số 137/QĐ-BYT ngày 16/01/2007 của Bộ trưởng Bộ Y tế và chính thức đi vào hoạt động ngày 19/9/2007.\n\nBệnh viện Đại học Y Hà Nội thành lập là niềm mong muốn, ước mơ của nhiều thế hệ thầy và trò Trường Đại học Y Hà Nội.\n\nQuá trình xây dựng và trưởng thành, Bệnh viện đã có những bước phát triển vượt bậc, đạt được nhiều thành tựu to lớn, toàn diện về mọi mặt, tạo sự tín nhiệm trong lòng người bệnh và nhân dân cả nước cũng như bạn bè quốc tế, củng cố thêm niềm tự hào và ý chí quyết tâm vững bước tương lai.\n\nBệnh viện những ngày đầu thành lập còn rất sơ khai, thiếu nhân lực, thiếu trang thiết bị, chưa có nguồn bệnh nhân, không có kinh phí của Nhà nước, khó khăn trăm bề. Bệnh viện đã vượt khó: từ chỗ chỉ có 150 giường bệnh với hơn 150 CBVC; chỉ có 4 phòng chức năng, 02 khoa lâm sàng, 05 khoa cận lâm sàng; số bệnh nhân nhân đến khám bệnh chỉ có 50.000 người/năm.\n\nĐến nay, Bệnh viện đã có 500 giường bệnh với hơn 1000 CBVC là các thầy thuốc là GS, PGS, TS, ThS… gồm trên 600 CB cơ hữu, hơn 100 CB kiêm nhiệm và trên 300 CB của Trường Đại học Y Hà Nội tham gia công tác chuyên môn; 43 đơn vị gồm 10 phòng chức năng, 08 trung tâm, 18 khoa lâm sàng, 07 khoa cận lâm sàng; số bệnh nhân đến khám bệnh hơn 500.000 người/năm, có những ngày có gần 3.000 người đến khám bệnh tại Bệnh viện.\n\nTrong 14 năm qua, Bệnh viện từng bước trưởng thành và phát triển vượt bậc, tạo được thương hiệu và niềm tin trong nhân dân. Đạt được những thành tích đó là do Bệnh viện được sự quan tâm chỉ đạo của Bộ Y tế, Đảng ủy - Ban Giám hiệu Trường ĐHYHN, sự hỗ trợ của các Bệnh viện TW tại Hà Nội, các cơ quan, doanh nghiệp, các tổ chức trong và ngoài nước, các cơ quan hữu quan của Bộ Y tế, Thành phố Hà Nội hỗ trợ về chuyên môn và mọi phương diện. Tập thể lãnh đạo và cán bộ Bệnh viện đã luôn nêu cao tinh thần đoàn kết vượt qua nhiều khó khăn, thử thách, đã kiên định, bền bỉ xây dựng Bệnh viện, lập nên những thành tựu vẻ vang và đáng tự hào với trình độ khám chữa bệnh tiên tiến, phương tiện và trang thiết bị hiện đại.\nBệnh viện là một đơn vị trực thuộc và được thừa hưởng lợi thế về thương hiệu của Trường Đại học Y Hà Nội, là cơ sở thực hành của Trường nên có sự gắn kết chặt chẽ về công tác đào tạo, nghiên cứu khoa học.\n\n- Cơ sở vật chất: Xanh - Sạch - Đẹp, ngay từ đầu thực hiện không nằm ghép. Hiện tại Bệnh viện có 5 khối nhà (A2, B, C, B1, A5) với tổng diện tích xây dựng 10.500 m2, tổng diện tích sàn xây dựng 22.300 m2.\n\n- Trang thiết bị: Bệnh viện được trang bị, sử dụng các hệ thống thiết bị y tế hiện đại để phục vụ khám chữa bệnh như: máy chụp cộng hưởng từ 1,5T (2 hệ thống); máy chụp cắt lớp vi tính 128 lát cắt; hệ thống máy chụp mạch số hóa; 8 hệ thống nội soi khám tiêu hóa độ phân giải cao; các thiết bị hiện đại khác như kính hiển vi phẫu thuật CarlZeiss Opmi Pentero, hệ thống định vị trong phẫu thuật, máy chụp x-quang vú kỹ thuật số, 04 hệ thống máy x-quang số hóa và hàng loạt các hệ thống máy xét nghiệm hiện đại nhất như Cobas 8000 hãng Roche, Advia 1800, 2400, Centau XP, XPT...\n\n- Bệnh viện đã ứng dụng và phát triển nhiều kỹ thuật cao, tiên tiến trong đó có nhiều kỹ thuật lần đầu tại Việt Nam được triển khai trong lĩnh vực: Tim mạch, Cấp cứu, Gây mê hồi sức, Ngoại khoa, Ung bướu, Chẩn đoán hình ảnh, Răng Hàm Mặt, Tai Mũi Họng, Trung tâm nghiên cứu Gen - Protein, Nội soi can thiệp… giúp người bệnh bệnh giảm thiểu biến chứng, giảm chi phí, nâng cao chất lượng điều trị và chuyển giao kỹ thuật cho các Bệnh viện trong nước.\n\n- Bệnh viện là đơn vị tự hạch toán, tự chủ tài chính, có mức tăng trưởng mạnh mẽ qua các năm. Bệnh viện được đánh giá là đơn vị đi đầu trong ngành Y tế về cơ chế, mô hình chính sách, quản lý kinh tế góp phần vào việc hoạch định chính sách về kinh tế y tế của nước ta trong thời điểm hiện nay. Bệnh viện không những giữ vững được tốc độ tăng trưởng mà còn có những bước nhảy vọt, chấp hành tốt nghĩa vụ thuế, đóng góp vào ngân sách Nhà nước. Bệnh viện đã tạo được uy tín với thương hiệu \"Bệnh viện không phong bì\", tạo dựng được niềm tin, sự hài lòng của người bệnh và gia đìn (qua nhiều năm, tỷ lệ người bệnh được khảo sát đánh giá hài lòng về chất lượng dịch vụ và chuyên môn của Bệnh viện luôn trên 90%).",
+      "website": "benhviendaihocyhanoi.com "
+    },
+    "02438254638": {
+      "chuyenkhoa": "",
+      "diachi": "Số 1 Triệu Quốc Đạt, P.Trần Hưng Đạo, Q. Hoàn Kiếm, TP. Hà Nội",
+      "email": "ipmn@hn.vnn.vn  ",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744353136248.jpg?alt=media&token=ec8a5e9a-2f8b-4cb7-89da-2497efb45e3c",
+      "masogiayphep": "BVPSTU1234567890",
+      "name": "Bệnh viện Phụ Sản Trung Ương",
+      "sdt": "02438254638",
+      "thongtin": "*Thành tích:\n\n          Những đóng góp cho sự nghiệp chăm sóc và bảo vệ sức khỏe nhân dân của bệnh viện Phụ - Sản Trung ương được nhà nước tặng thưởng nhiều phần thưởng cao quý‎:\n\n           -  Anh hùng Lao động năm 2010     \n\n           -  Huân chương Độc lập hạng Ba năm 2008\n\n           -  Huân chương Lao động hạng Nhất năm 2002 và 1985                               -  \n\n           -  Huân chương Lao động hạng Hai năm 1982\n\n           -  Huân chương Lao động hạng Ba năm 1976\n\n           -  Cờ Thi đua của Chính phủ năm 2019, 2020\n\n           -  Cờ Thi đua của Bộ Y tế năm 2013, 2016, 2018\n\n           -  Nhiều năm liên tục Tập thể Lao động xuất sắc và được Bằng khen của Bộ trưởng Bộ Y tế\n\nvà nhiều cờ thi đua, bằng khen của Chính phủ. Nhiều cá nhân xuất sắc được nhà nước và các tổ chức trao tặng bằng khen và danh hiệu cao quý. Năm 2010, Giám đốc bệnh viện Phụ - Sản Trung ương đã vinh dự được Nhà nước tặng danh hiệu Anh hùng Lao động thời kỳ đổi mới. Đảng bộ bệnh viện liên tục nhiều năm là Đảng bộ trong sạch, vững mạnh; Công đoàn bệnh viện đạt Công đoàn vững mạnh xuất sắc; Đoàn thanh niên đạt danh hiệu Cơ sở Đoàn vững mạnh, xuất sắc.\n*Định hướng phát triển thời gian tới:\n          Nhìn lại chặng đường phát triển trong những năm qua, cán bộ viên chức bệnh viện luôn tự hào trong bất kỳ hoàn cảnh nào những người thầy thuốc bệnh viện Phụ - Sản Trung ương luôn giữ vững phẩm chất tốt đẹp của người cán bộ y tế, trau dồi y đức, tận tuỵ phục vụ người bệnh. Dưới sự lãnh đạo của Đảng bộ bệnh viện và sự phấn đấu nỗ lực của tập thể VCNLĐ, bệnh viện Phụ - Sản Trung ương đã có những tiến bộ vượt bậc. Công tác quản lý của bệnh viện được hoàn thiện, quyền làm chủ của VCNLĐ, của người bệnh và gia đình người bệnh được phát huy, nội bộ đoàn kết nhất trí, chất lượng chuyên môn ngày càng được nâng cao. Đạt được những thành tích trên đây không chỉ là sự nỗ lực của VCNLĐ bệnh viện thuộc nhiều thế hệ mà còn nhờ vào sự lãnh đạo và chỉ đạo đúng đắn của lãnh đạo Bộ Y tế, các Vụ, Cục chức năng; các cấp uỷ Đảng, chính quyền thành phố Hà Nội và quận Hoàn Kiếm. Sự phối hợp có hiệu quả của các ngành, các cấp; các đoàn thể chính trị, chính trị - xã hội và các tổ chức, cá nhân trong và ngoài nước. Thời gian tới, tập thể VCNLĐ bệnh viện Phụ - Sản Trung ương sẽ tiếp tục phát huy những thế mạnh của bệnh viện, đoàn kết dưới sự lãnh đạo của Đảng bộ, Ban Giám đốc và các đoàn thể hoàn thành xuất sắc mọi nhiệm vụ được giao, tiếp tục xây dựng bệnh viện Phụ - Sản Trung ương trở thành địa chỉ khám, chữa bệnh hàng đầu của ngành y tế Việt Nam và quốc tế",
+      "website": "http://www.benhvienphusantrunguong.org.vn"
+    },
+    "02462738573": {
+      "chuyenkhoa": "",
+      "diachi": "18/879 La Thành, phường Láng Thượng, quận Đống Đa, Hà Nộ",
+      "email": " chamsockhachhang@nch.gov.vn",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744353335649.jpg?alt=media&token=12e158c3-3b2f-4c8b-969f-15f3bde80750",
+      "masogiayphep": "BVNTU1234567890",
+      "name": "Bệnh viện Nhi Trung Ương",
+      "sdt": "02462738573",
+      "thongtin": "I. TỔNG QUAN\nTrung tâm Sơ sinh – Bệnh viện Nhi Trung ương là một trong những Trung tâm hàng đầu Việt Nam trong lĩnh vực chăm sóc trẻ Sơ sinh với phương châm “Vì tương lai của trẻ sơ sinh Việt Nam”\n\nThành lập năm 1969, cùng với lịch sử phát triển lâu dài hơn 50 năm của Bệnh viện, Trung tâm Sơ sinh hiện có 05 khoa đi vào hoạt động với cơ sở vật chất vượt trội; đội ngũ chuyên gia, bác sĩ đầu ngành; liên tục ứng dụng các phương pháp điều trị mới nhất thế giới cùng chất lượng dịch vụ hoàn hảo, đến nay Trung tâm Sơ sinh đã trở thành địa chỉ chăm sóc sức khỏe tin cậy cho hàng nghìn trẻ sơ sinh tại Việt Nam.\n\nTrung tâm Sơ sinh là đơn vị lâm sàng đầu tiên của Bệnh viện đạt chứng chỉ ISO 9001- 2020 – chứng chỉ uy tín tiêu chuẩn quản lý về quản lý chất lượng, sản phẩm và dịch vụ y tế, được công nhận trên 160 quốc gia.\n\nII. CƠ SỞ TRANG THIẾT BỊ HIỆN ĐẠI – DỊCH VỤ CHUYÊN NGHIỆP\nTrung tâm Sơ sinh được đặt trong một tòa nhà riêng thuộc khuôn viên bệnh viện, với diện tích 6719 m2, bao gồm 05 tầng với 05 khoa dành riêng cho chăm sóc và điều trị trẻ sơ sinh:\n\n– Khoa Khám bệnh và Cấp cứu sơ sinh – TT Sơ sinh\n\n– Khoa Điều trị tích cực sơ sinh – TT sơ sinh\n\n– Khoa Điều trị và Chăm sóc đặc biệt 1 – TT sơ sinh\n\n– Khoa Điều trị và Chăm sóc đặc biệt 2 – TT sơ sinh\n\n– Khoa Điều trị tích cực Kangaroo và Ngân hàng sữa mẹ – TT sơ sinh\n\n+ Đơn vị Điều trị tích cực Kangaroo\n\n+ Ngân hàng sữa mẹ\n\nQuy mô 200 giường bệnh, với 65 giường hồi sức và 40 máy thở. Hệ thống trang thiết bị hiện đại, hỗ trợ tối ưu cho việc chẩn đoán và điều trị. Không gian khám chữa bệnh hiện đại, sang trọng, lịch sự và có hệ thống kiểm soát nhiễm khuẩn tối ưu. Hệ thống quản lý dữ liệu thông minh cho phép chia sẻ và kết nối thông tin trực tuyến, giúp bệnh nhân linh hoạt hơn trong việc đăng ký và theo dõi kết quả khám chữa bệnh, rút ngắn tối đa thời gian chờ đợi.\n\n– MÁY HẠ THÂN NHIỆT TOÀN THÂN ĐIỀU TRỊ CHO BỆNH NÃO DO THIẾU OXY\n\n– MÁY SỬ DỤNG KHÍ NO (Nitric oxide)\n\n– MÁY LỌC MÁU PRISMA FLEX\n\n– MÁY THỞ CAO TẦN DRAGER\n\n– HỆ THỐNG LỒNG ẤP\n\n– HỆ THỐNG ĐÈN CHIẾU VÀNG DA\n\nIII. ĐỘI NGŨ CHUYÊN GIA Y TẾ TRÌNH ĐỘ CAO – CHUYÊN NGHIỆP\nTrung tâm cũng quy tụ đội ngũ bác sĩ và chuyên gia y tế đầu ngành của Việt Nam trong lĩnh vực Sơ sinh, có trình độ chuyên môn cao, giàu kinh nghiệm, hướng đến mục tiêu trở thành một trong những trung tâm hàng đầu của Việt Nam và khu vực cả về chuyên môn và nghiên cứu khoa học, đồng thời, đạt tiêu chuẩn Quốc tế cao nhất về quản lý chất lượng và an toàn cho bệnh nhân.\n\nTrung tâm thường xuyên có kế hoạch hợp tác chuyển giao kỹ thuật, trao đổi chuyên môn với các trung tâm Nhi khoa trên thế giới: Anh, Mỹ, Thụy Điển, Nhật Bản, Pháp…. Nhằm nâng cao năng lực chuyên môn và trình độ kỹ thuật cho đội ngũ nhân viên y tế.\n\nIV. THÀNH TỰU ĐẠT ĐƯỢC – PHÁT TRIỂN KỸ THUẬT CAO\nMỗi năm, Trung tâm Sơ sinh thực hiện khám trên 15.000 trẻ và điều trị trên 4000 trẻ sơ sinh bệnh lý phức tạp như bệnh lý hô hấp, tim mạch, nhiễm khuẩn, dị tật bẩm sinh, sơ sinh non tháng, cân nặng thấp…\n\nTỷ lệ tử vong sơ sinh từ trên 12% những năm trước 2015 xuống dưới 7%.\n\nCứu sống nhiều trẻ sinh non tháng, từ 25 tuần tuổi thai, cân nặng thấp nhất là 480 gram.\n\nTrung tâm luôn cập nhật và phát triển các kỹ thuật hiện đại trên thế giới trong chăm sóc và điều trị cho trẻ sơ sinh:\n\n– Kỹ thuật hạ thân nhiệt cho trẻ sơ sinh bị tổn thương não do thiếu oxy\n\n– Lọc máu cho bệnh nhân rối loạn chuyển hóa, nhiễm trùng nặng\n\n– Điều trị bệnh lý Tăng áp phổi sơ sinh bằng khí Nitric oxide (NO)\n\n– Thay máu tự động cho bệnh nhân vàng da nặng\n\n– Nuôi dưỡng tĩnh mạch trung tâm cho trẻ cân nặng thấp\n\nBên cạnh đó trung tâm ngày càng đi sâu và chuyên nghiệp trong các dịch vụ chăm sóc trẻ sơ sinh nhằm ngày càng hoàn thiện chất lượng dịch vụ và đem lại sự phát triển toàn diện cho trẻ:\n\n– Trung tâm chăm sóc Kangaroo:\n\n– Ngân hàng sữa mẹ: với mục tiêu cung cấp nguồn sữa mẹ đầy đủ và quý giá cho tất cả trẻ sơ sinh bị thiếu thốn nguồn sữa mẹ.\n\n– Khám đánh giá và theo dõi sự phát triển tâm vận động lâu dài cho trẻ sơ sinh bệnh lý phức tạp.\n\nV. ĐÀO TẠO LIÊN TỤC – NGHIÊN CỨU KHOA HỌC – PHÁT TRIỂN LÂU DÀI VÀ BỀN VỮNG.\nTrung tâm Sơ sinh có định hướng xuyên suốt và đầu tư bài bản cho đào tạo và nghiên cứu khoa học luôn phối hợp chặt chẽ với Viện nghiên cứu sức khỏe Trẻ em để xây dựng mô hình đào tạo nhân lực y khoa chuẩn quốc tế, mang tính đột phá tại Việt Nam. Trung tâm là hệ thống thực hành của các sinh viên y khoa, các bác sĩ nhi khoa cơ bản, bác sĩ nội trú, cao học, chuyên khoa, nghiên cứu sinh… của các bệnh viện lớn và nhiều trường đại học đào tạo y khoa trong cả nước.\n\nTrung tâm Sơ sinh là đơn vị đi đầu trong công tác đào tạo và chỉ đạo tuyến, chuyển giao kỹ thuật cho các bệnh viện vệ tinh. Đặc biệt, Trung tâm đã đào tạo và giúp các bệnh viện tuyến dưới trong việc nâng cao năng lực khám chữa bệnh, hồi sức cấp cứu và chăm sóc trẻ sơ sinh vì mục tiêu giảm tỷ lệ tử vong sơ sinh Việt Nam.\n\nTrong những năm qua, Trung tâm Sơ sinh không ngừng phấn đấu để khẳng định sứ mệnh lớn lao mà mình theo đuổi bằng việc trở thành một đơn vị chăm sóc trẻ sơ sinh hàng đầu, toàn diện và chất lượng.\n\nVI. TẦM NHÌN – SỨ MỆNH – GIÁ TRỊ CỐT LÕI\nTrung tâm Sơ sinh cam kết phát triển hệ thống y tế vươn tầm quốc tế thông qua những thành tựu đột phá, nhằm mang lại chất lượng điều trị xuất sắc và dịch vụ chăm sóc hoàn hảo. 4 chữ N – I –  C – U với ý nghĩa:\n\n– Necessary – Sự cần thiết: Luôn là điểm đến tin cậy cho tất cả những trẻ sơ sinh cần chăm sóc và tư vấn với sự cam kết tốt nhất.\n\n– Improvement – Sự tiến bộ: Phấn đấu không ngừng và nỗ lực phát triển để nâng cao năng lực chăm sóc và điều trị cho trẻ sơ sinh.\n\n– Creativity – Sự sáng tạo: Không ngừng sáng tạo và đổi mới nhằm mang lại các giải pháp tốt nhất cho người bệnh.\n\n– Understanding – Sự thấu hiểu: Quan tâm, chia sẻ và hướng tới chất lượng phục vụ tốt nhất cho người bệnh và người nhà.\n\nVII. CAM KẾT VỚI KHÁCH HÀNG\n– Bệnh nhi được thăm khám với các chuyên gia có trình độ chuyên môn cao.\n\n– Tuân thủ phác đồ điều trị, đảm bảo chất lượng chăm sóc người bệnh với tiêu chí hàng đầu là ưu tiên an toàn người bệnh và thường xuyên được đánh giá, phân tích kỹ lưỡng để cải thiện chất lượng dịch vụ.\n\n– Các quyền lợi của bệnh nhi và thân nhân được tôn trọng, đề cao, đặt biệt là quyền riêng tư và bảo mật thông tin, đối xử bình đẳng, trao đổi thông tin rõ ràng, tư vấn đầy đủ các kiến thức về chăm sóc và nuôi dưỡng trẻ sơ sinh.\n\nVIII. CÁC DỊCH VỤ ĐANG THỰC HIỆN TẠI TRUNG TÂM\nCHĂM SÓC VÀ ĐIỀU TRỊ CHO TRẺ SƠ SINH BỆNH LÝ\n\nKHÁM SỨC KHOẺ TỔNG QUÁT\n\n– Khám phát hiện bệnh lý vàng da sớm và điều trị bằng liệu pháp ánh sáng\n\n– Khám và điều trị bệnh lý về hô hấp, tiêu hóa, nhiễm trùng sơ sinh\n\n– Khám theo dõi cho bệnh nhân sơ sinh sau khi ra viện, đặc biệt là trẻ sinh non, trẻ vàng da thay máu, trẻ bị bệnh não do thiếu oxy\n\n– Sàng lọc và tư vấn các bệnh lý bẩm sinh, di truyền và hiếm gặp\n\nTƯ VẤN CHĂM SÓC TRẺ SƠ SINH\n\n– Tư vấn chăm sóc da, mắt, rốn\n\n– Tư vấn theo dõi sự tăng trưởng và phát triển\n\n– Tư vấn dinh dưỡng\n\nTƯ VẤN NUÔI CON BẰNG SỮA MẸ\n\n– Tư vấn cách cho con bú\n\n– Tư vấn duy trì nguồn sữa mẹ\n\n– Tư vấn giải pháp thay thế sữa mẹ\n\nDỊCH VỤ TẮM BÉ VÀ MASSAGE\n\nTƯ VẤN TIÊM CHỦNG\n\nXÉT NGHIỆM SÀNG LỌC SAU SINH\n\n– Thiếu hụt men G6PD\n\n– Sàng lọc thính lực\n\n– Sàng lọc tim bẩm sinh\n\n– Suy giáp, tăng sản thượng thận\n\n– Các bệnh lý rối loạn chuyển hóa\n\nBệnh nhi đến khám sẽ:\n\n– Không cần di chuyển nhiều nơi và đi xa\n\n– Hưởng dịch vụ an toàn, sạch sẽ và nhanh chóng\n\n– Được tư vấn, thăm khám và hỗ trợ tận tình bởi các chuyên gia giàu kinh nghiệm của Trung tâm Sơ sinh – Bệnh viện Nhi Trung ương.",
+      "website": "https://benhviennhitrunguong.gov.vn"
+    },
+    "02838557267": {
+      "chuyenkhoa": "",
+      "diachi": " 201B Nguyễn Chí Thanh, Phường 12, Quận 5, Hồ Chí Minh, Việt Nam",
+      "email": "bvchoray@choray.vn",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744353892436.jpg?alt=media&token=c131022d-7765-4ca4-b8a9-c4a5634502f1",
+      "masogiayphep": "BVCR1234567890",
+      "name": "Bệnh viện Chợ Rẫy",
+      "sdt": "02838557267",
+      "thongtin": "Năm 1900\nBệnh viện Chợ Rẫy (BVCR) được thành lập từ năm 1900 với tên là “Hôpital Municipal de Cho lon”, rồi lần lượt bệnh viện được đổi tên thành “Hôpital Indigene de Cochinchine” (1919), “Hôpital Lalung Bonnaire” (1938), “Hôpital 415” (1945). Sau đó bệnh viện được tách ra làm 2 phòng khám là Hàm Nghi và Nam Việt. Hai phòng khám này sáp nhập lại vào năm 1957 cho tới ngày nay. Trong thực tế, người dân vẫn dùng tên Chợ Rẫy để gọi bệnh viện từ ngày thành lập.\n\nNăm 1971\n\nNăm 1971, BVCR được tái xây dựng trên một diện tích 53.400m2 với trang thiết bị hiện đại để trở thành một trong những bệnh viện lớn nhất Đông Nam Á. Công trình được hoàn thành vào tháng sáu năm 1974 bằng viện trợ không hoàn lại của Chính phủ Nhật Bản. Những năm 1993-1995, Chính phủ Nhật Bản tiếp tục viện trợ không hoàn lại nâng cấp cơ sở hạ tầng bệnh viện.\n\nHIỆN NAY\n\nNgày nay, tại miền Nam Việt Nam, tại Thành phố Hồ Chí Minh, BVCR hiện diện các khu nhà nhiều tầng: khu nhà 11 tầng, khu nhà Trung tâm Ung bướu Chợ Rẫy.... Thế mạnh nổi bật tại BVCR là sự kết hợp giữa các chuyên khoa mang lại hiệu quả tốt nhất trong việc chẩn đoán và điều trị bệnh. BVCR luôn theo mục tiêu hiện đại hóa quy trình kỹ thuật y khoa, nâng cao chất lượng dịch vụ y tế và phong cách giao tiếp; BVCR là nơi mà tất cả các bệnh nhân luôn đặt niềm tin tuyệt đối. ",
+      "website": "http://choray.vn"
+    },
+    "02839526568": {
+      "chuyenkhoa": "",
+      "diachi": "284 Cống Quỳnh, P. Phạm Ngũ Lão\nQuận 1, Tp. Hồ Chí Minh, Việt Nam",
+      "email": "web.admin@tudu.com.vn",
+      "img": "https://firebasestorage.googleapis.com/v0/b/bookingcare263.firebasestorage.app/o/images%2Fimage_1744354256534.jpg?alt=media&token=dc7d119d-f692-44f6-91ef-105631da6a57",
+      "masogiayphep": "BVTD1234567890",
+      "name": "Bệnh viện Từ Dũ",
+      "sdt": "02839526568",
+      "thongtin": "Bệnh viện Từ Dũ là một trong những bệnh viện chuyên khoa sản – phụ khoa hàng đầu tại Việt Nam, trực thuộc Sở Y tế TP. Hồ Chí Minh. Với bề dày lịch sử hơn 80 năm hình thành và phát triển, bệnh viện luôn đi đầu trong lĩnh vực chăm sóc sức khỏe sinh sản, điều trị hiếm muộn – vô sinh, và chăm sóc mẹ và bé trước, trong và sau sinh.\n\n🎯 Sứ mệnh\nMang đến dịch vụ khám chữa bệnh chất lượng cao trong lĩnh vực sản phụ khoa, không ngừng cải tiến kỹ thuật và ứng dụng công nghệ hiện đại để chăm sóc sức khỏe toàn diện cho phụ nữ và trẻ sơ sinh.\n\n🏥 Thế mạnh nổi bật\nKhám và điều trị các bệnh lý sản phụ khoa.\n\nChăm sóc tiền sản, hậu sản và sinh thường/sinh mổ an toàn.\n\nTrung tâm hỗ trợ sinh sản (IVF Từ Dũ) hàng đầu cả nước.\n\nĐào tạo, nghiên cứu và chuyển giao kỹ thuật y tế cho tuyến dưới.\n\n👩‍⚕️ Đội ngũ\nBệnh viện sở hữu đội ngũ bác sĩ, điều dưỡng và kỹ thuật viên chuyên môn cao, tận tâm và nhiều kinh nghiệm, đặc biệt trong lĩnh vực hiếm muộn và các ca sinh khó.",
+      "website": "https://www.tudu.com.vn"
+    }
+  }
+}
