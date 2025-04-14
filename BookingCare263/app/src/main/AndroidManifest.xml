@@ -60,13 +60,13 @@
             android:name=".ChitietCSYT"
             android:exported="false" />
         <activity
-            android:name=".ui.adminui.SuaCSYT"
+            android:name=".ui.uicsyt.SuaCSYT"
             android:exported="false" />
         <activity
             android:name=".ui.adminui.AddCSYT"
             android:exported="false" />
         <activity
-            android:name=".ui.adminui.SuaBS"
+            android:name=".ui.bacsiui.SuaBS"
             android:exported="false" />
         <activity
             android:name=".ui.adminui.AdminActivity"

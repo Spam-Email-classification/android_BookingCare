@@ -20,8 +20,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.DSchuyenkhoaCSYT;
-import com.example.bookingcare263.ui.adminui.SuaCSYT;
-import com.google.firebase.firestore.auth.User;
+import com.example.bookingcare263.ui.uicsyt.SuaCSYT;
 
 public class ChitietCSYT extends AppCompatActivity {
 

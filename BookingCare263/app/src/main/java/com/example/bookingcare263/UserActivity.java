@@ -4,17 +4,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.bookingcare263.model.Cosoyte;
-import com.example.bookingcare263.model.accout;
-import com.example.bookingcare263.ui.adminui.SuaCSYT;
 import com.example.bookingcare263.ui.bacsiui.ThongtinBacsi;
 import com.example.bookingcare263.ui.uicsyt.ThongtinCSYT;
 import com.example.bookingcare263.ui.uiuser.ThongtinUser;
@@ -36,8 +32,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.messaging.FirebaseMessaging;
 import android.Manifest;
-
-import java.util.ArrayList;
 
 public class UserActivity extends AppCompatActivity {
 

@@ -8,15 +8,10 @@ import android.widget.TextView;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import com.example.bookingcare263.ChitietCSYT;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.DSchuyenkhoaCSYT;
-import com.example.bookingcare263.ui.adminui.SuaCSYT;
 
 public class ThongtinCSYT extends AppCompatActivity {
     Toolbar toolbar;

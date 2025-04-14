@@ -1,4 +1,4 @@
-package com.example.bookingcare263.ui.adminui;
+package com.example.bookingcare263.ui.uicsyt;
 
 import static com.example.bookingcare263.ui.Xuly.uploadImageToFirebaseStorage;
 
@@ -18,11 +18,8 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
-import com.example.bookingcare263.UserActivity;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.ui.Xuly;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class SuaCSYT extends AppCompatActivity {
     private Toolbar tbsuacsyt;
