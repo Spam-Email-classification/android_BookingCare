@@ -59,7 +59,7 @@ public class lichhenDetail extends AppCompatActivity {
         txtdiaChiKham.setText("Địa chỉ " + lh.getDiachibenhnhan());
         txtngayhenkham.setText("Ngày hẹn khám: " + lh.getNgayhenkham());
         txtgiohenkham.setText("Giờ khám: " + lh.getKhunggiokham());
-        txttrangThai.setText("Trạng thái" + lh.getTrangthai());
+        txttrangThai.setText("Trạng thái: " + lh.getTrangthai());
 
         if(lh.getAvatarbs()!=null)
             Glide.with(imganhBacSi.getContext())

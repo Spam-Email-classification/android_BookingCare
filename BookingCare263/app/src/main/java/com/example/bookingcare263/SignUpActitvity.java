@@ -72,8 +72,8 @@ public class SignUpActitvity extends AppCompatActivity {
                 edtsdtsignup.setError("Vui lòng nhập số điện thoại hợp lệ");
                 edtsdtsignup.requestFocus();
             }
-//            sendOtp(sdt);
-            signuprealtime();
+            sendOtp(sdt);
+//            signuprealtime();
         });
 
         tologin.setOnClickListener(e->startActivity(new Intent(SignUpActitvity.this, LoginActivity.class)));
