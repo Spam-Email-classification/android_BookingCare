@@ -22,7 +22,7 @@ import com.example.bookingcare263.ui.uiuser.listchuyenkhoa;
 
 public class AdminActivity extends AppCompatActivity {
 
-    CardView cvqlbs, cvqlbenhnhan, cvqlcsyt, cvqlchuyenkhoa, cvqllichhen, cvqldv;
+    CardView cvqlbs, cvqlbenhnhan, cvqlcsyt, cvqlchuyenkhoa, cvqlbvbv, cvqldv;
     public static String roleadmin;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,11 @@ public class AdminActivity extends AppCompatActivity {
             intent.putExtra("manager", "quanlychuyenkhoa");
             startActivity(intent);
 
+        });
+        cvqlbvbv.setOnClickListener(view -> {
+            Intent intent = new Intent(AdminActivity.this, adDanhsachBs.class);
+            intent.putExtra("manager", "quanlybv");
+            startActivity(intent);
         });
 
 
@@ -100,6 +105,7 @@ public class AdminActivity extends AppCompatActivity {
         cvqlbenhnhan = findViewById(R.id.cvqlbenhnhan);
         cvqlcsyt = findViewById(R.id.cvqlcsyt);
         cvqlchuyenkhoa = findViewById(R.id.cvqlchuyenkhoa);
+        cvqlbvbv = findViewById(R.id.cvqlbvbv);
 
     }
 }

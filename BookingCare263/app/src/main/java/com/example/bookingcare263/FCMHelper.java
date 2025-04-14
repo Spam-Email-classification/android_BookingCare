@@ -6,7 +6,9 @@ import android.util.Log;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.google.android.gms.tasks.Task;
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.firebase.functions.FirebaseFunctions;
 
 import org.json.JSONObject;
 
@@ -18,6 +20,8 @@ import java.security.interfaces.RSAPrivateKey;
 import java.security.spec.PKCS8EncodedKeySpec;
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import okhttp3.*;
@@ -26,7 +30,31 @@ public class FCMHelper {
 
     private static final String TAG = "FCM";
 
-    // Gửi thông báo đến topic hoặc device token
+
+
+    public static Task<String> sendFCM(String token, String title, String body) {
+        FirebaseFunctions functions = FirebaseFunctions.getInstance();
+
+        Map<String, Object> data = new HashMap<>();
+        data.put("token", token);
+        data.put("title", title);
+        data.put("body", body);
+
+        return functions
+                .getHttpsCallable("sendNotification")
+                .call(data)
+                .continueWith(task -> {
+                    if (!task.isSuccessful()) {
+                        throw task.getException();
+                    }
+
+                    Map<String, Object> result = (Map<String, Object>) task.getResult().getData();
+                    return result.get("success").toString();
+                });
+    }
+
+
+
     public static void sendNotification(Context context, String targetToken, String title, String body) {
         new Thread(() -> {
             try {

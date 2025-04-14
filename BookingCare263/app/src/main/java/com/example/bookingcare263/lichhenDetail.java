@@ -3,6 +3,7 @@ package com.example.bookingcare263;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.graphics.Insets;
@@ -21,6 +23,8 @@ import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.accout;
 import com.example.bookingcare263.model.lichhen;
 import com.example.bookingcare263.ui.uiuser.Datlichkham;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 
 public class lichhenDetail extends AppCompatActivity {
     Toolbar toolbar;
@@ -46,8 +50,7 @@ public class lichhenDetail extends AppCompatActivity {
 
         Intent intent = getIntent();
         lichhen lh = (lichhen) intent.getSerializableExtra("lichhen");
-        Toast.makeText(this, "idlich hen" + lh.getId(), Toast.LENGTH_SHORT).show();
-        Toast.makeText(this, "idlich name" + lh.getIdbacsi(), Toast.LENGTH_SHORT).show();
+
 
         // load thong tin
         txttenBacSi.setText( lh.getNamebs());
@@ -99,7 +102,15 @@ public class lichhenDetail extends AppCompatActivity {
                 @Override
                 public void onSuccess(accout data) {
                     String token = data.getToken();
-                    FCMHelper.sendNotification( lichhenDetail.this, token, "Lịch hẹn đã được " + lh.getNamebs(), "xác nhận");
+
+                    FCMHelper.sendFCM(token, "Bạn có lịch hẹn mới", "Hãy kiểm tra ứng dụng!")
+                            .addOnSuccessListener(response -> {
+                                Log.d("FCM", "Success: " + response);
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e("FCM", "Error", e);
+                            });
+
                 }
 
                 @Override

@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "BookingCare263"
 include(":app")
- 

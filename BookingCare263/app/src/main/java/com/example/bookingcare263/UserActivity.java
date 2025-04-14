@@ -123,7 +123,6 @@ public class UserActivity extends AppCompatActivity {
         phoneuser = intent.getStringExtra("phone");
         roleuser = intent.getStringExtra("role");
 
-        Toast.makeText(this, "iduser" + iduser, Toast.LENGTH_SHORT).show();
 
         NavigationView nav_view = findViewById(R.id.nav_view);
         View headerView = nav_view.getHeaderView(0);
@@ -191,8 +190,6 @@ public class UserActivity extends AppCompatActivity {
                 startActivity(intent);
             } else if( UserActivity.roleuser.equals("csyt")){
 
-                // get csyt by iduser
-                Log.d("iduser", UserActivity.iduser);
 
                 FirebaseHelper.getcsytbyid(UserActivity.iduser, new FirebaseCallBack<Cosoyte>() {
                     @Override

@@ -28,8 +28,10 @@ import com.example.bookingcare263.FirebaseCallBack;
 import com.example.bookingcare263.FirebaseHelper;
 import com.example.bookingcare263.R;
 import com.example.bookingcare263.adapterus.adapterAccout;
+import com.example.bookingcare263.adapterus.adapterBaiviet;
 import com.example.bookingcare263.adapterus.adaptercosoyte;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.model.Cosoyte;
 import com.example.bookingcare263.model.accout;
 import com.google.firebase.database.DatabaseReference;
@@ -54,6 +56,8 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     adapterAccout adapteracc;
     ArrayList <accout> listacc;
+    ArrayList <Baiviet> listbaiviet;
+    adapterBaiviet adapter;
     DatabaseReference reference;
 
     @Override
@@ -151,6 +155,51 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
 
             edtsearch.setHint("Tìm cơ sở y tế");
+        } else if(manager != null && manager.equals("quanlybv")){
+            edtsearch.setHint("Tìm tên bác sĩ");
+            toolbar.setTitle("Quản lý bài viết");
+            listbaiviet = new ArrayList<>();
+            adapter = new adapterBaiviet(listbaiviet);
+            rcvlisbsad.setAdapter(adapter);
+            rcvlisbsad.setLayoutManager(new LinearLayoutManager(this));
+
+            FirebaseHelper.getAllbaiviet(new FirebaseCallBack<ArrayList<Baiviet>>() {
+                @Override
+                public void onSuccess(ArrayList<Baiviet> data) {
+                    listbaiviet.clear();
+                    listbaiviet.addAll(data);
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onFailed(String message) {
+
+                }
+            });
+            adapter.setOnItemClickListener(new adapterBaiviet.setItemClick() {
+                @Override
+                public void onItemClick(Baiviet baiviet) {
+
+                }
+
+                @Override
+                public void onImageavatarClick(Baiviet baiviet) {
+
+                }
+
+                @Override
+                public void onItemDatkhamClick(Baiviet baiviet) {
+
+                }
+
+                @Override
+                public void onItemDeleteClick(Baiviet baiviet) {
+                    FirebaseHelper.deletebaiviet(baiviet.getId());
+
+                }
+            });
+
+
         }
 
         edtsearch.addTextChangedListener(new TextWatcher() {
@@ -172,6 +221,12 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
                     filterList(query, "user");
                 } else if (manager != null && manager.equals("quanlycsyt")) {
                     filterListcsyt(query);
+                }
+                else if(manager != null && manager.equals("quanlybv")){
+                    // get bai viet by id bacsi
+
+
+
                 }
 
 
@@ -221,6 +276,8 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
 
     }
 
+
+
     private void filterListcsyt(String query) {
         ArrayList<Cosoyte> newlist = new ArrayList<>();
         listcsyte.clear();
@@ -269,66 +326,6 @@ public class adDanhsachBs extends AppCompatActivity implements adapterAccout.onC
         toolbar.setNavigationOnClickListener(v -> finish());
 
     }
-
-//    @Override
-//    public void onFixClick(int position) {
-//        if(manager != null && manager.equals("quanlybacsi")){
-//            String sdt = listacc.get(position).getPhone();
-////            Bacsi bacsi = helper.getBacsiBySdt(sdt);
-//
-//            FirebaseHelper.getBacsiBySdt(sdt, new FirebaseCallBack<Bacsi>() {
-//                @Override
-//                public void onSuccess(Bacsi data) {
-//                    // Lưu đối tượng bacsi đã lấy được từ Firebase
-//
-//                    Intent intent = new Intent(adDanhsachBs.this, SuaBS.class);
-//                    intent.putExtra("bacsi", data);  // Truyền đối tượng bacsi vào Intent
-//                    startActivity(intent);
-//                }
-//                @Override
-//                public void onFailed(String message) {
-//                    // Xử lý lỗi khi không lấy được bác sĩ từ Firebase
-//                    Log.e("Firebase", "Lỗi: " + message);
-//                }
-//            });
-//
-//        }  else{
-//            // an thanh sua
-//            Toast.makeText(this, "Bạn không có quyền sửa tài khoản này", Toast.LENGTH_SHORT).show();
-//
-//        }
-//
-//    }
-//
-//    // xoa accout tren firebase
-
-
-//    @Override
-//    public void onDeleteClick(int position) {
-//        String sdt = listacc.get(position).getPhone();
-//        String role = listacc.get(position).getAs();
-//
-//        if (role.equals("bacsi")){
-//            // xóa ở bảng bác six
-//          FirebaseHelper.deleteBacsi(sdt);
-//            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
-//            // xoa tai khoan tren firebase realtime
-//
-//        } else {
-//
-//            FirebaseHelper.deletebenhnha(sdt);
-//
-//            Toast.makeText(this, "Xóa thành công", Toast.LENGTH_SHORT).show();
-//        }
-//        reference = FirebaseDatabase.getInstance().getReference("Users");
-//
-//        reference.child(sdt).removeValue();
-//        // Xoa ở bảng bac si
-//
-//
-//
-//
-//    }
 
     @Override
     public void onStatusLongClick(int position) {

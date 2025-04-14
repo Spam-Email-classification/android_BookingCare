@@ -67,13 +67,13 @@ public class SignUpActitvity extends AppCompatActivity {
 
 
         btnsigup.setOnClickListener(e->{
-//            String sdt = edtsdtsignup.getText().toString().trim();
-//            if(sdt.length() !=10 || !sdt.startsWith("0")){
-//                edtsdtsignup.setError("Vui lòng nhập số điện thoại hợp lệ");
-//                edtsdtsignup.requestFocus();
-//            }
-//            sendOtp(sdt);
-            signuprealtime();
+            String sdt = edtsdtsignup.getText().toString().trim();
+            if(sdt.length() !=10 || !sdt.startsWith("0")){
+                edtsdtsignup.setError("Vui lòng nhập số điện thoại hợp lệ");
+                edtsdtsignup.requestFocus();
+            }
+            sendOtp(sdt);
+//            signuprealtime();
         });
 
         tologin.setOnClickListener(e->startActivity(new Intent(SignUpActitvity.this, LoginActivity.class)));

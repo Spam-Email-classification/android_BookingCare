@@ -19,6 +19,7 @@ import com.example.bookingcare263.model.Bacsi;
 import com.example.bookingcare263.model.Baiviet;
 import com.example.bookingcare263.ui.Xuly;
 import com.example.bookingcare263.UserActivity;
+import com.example.bookingcare263.ui.adminui.AdminActivity;
 
 import java.util.ArrayList;
 
@@ -124,10 +125,11 @@ public class adapterBaiviet extends RecyclerView.Adapter<adapterBaiviet.ViewHold
 
 
 
-            if(UserActivity.iduser == null || !UserActivity.iduser.equals(baiviet.getIduser()) ){
-                imgdeletebv.setVisibility(View.GONE);
-            } else {
+            if(UserActivity.iduser != null || baiviet.getIduser().equals(UserActivity.roleuser)
+                    || "admin".equals(AdminActivity.roleadmin) ){
                 imgdeletebv.setVisibility(View.VISIBLE);
+            } else {
+                imgdeletebv.setVisibility(View.GONE);
             }
 
             if(UserActivity.roleuser != null && UserActivity.roleuser.equals("user")) {

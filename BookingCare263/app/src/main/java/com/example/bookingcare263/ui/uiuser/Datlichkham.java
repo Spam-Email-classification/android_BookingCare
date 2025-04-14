@@ -5,6 +5,7 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -164,7 +165,15 @@ public class Datlichkham extends AppCompatActivity {
                 @Override
                 public void onSuccess(accout data) {
                     String token = data.getToken();
-                    FCMHelper.sendNotification( Datlichkham.this,token, "Bạn có lịch hẹn mới", "vui lòng xác nhận");
+                    FCMHelper.sendFCM(token, "Bạn có lịch hẹn mới", "Hãy kiểm tra ứng dụng!")
+                            .addOnSuccessListener(response -> {
+                                Log.d("FCM", "Success: " + response);
+                            })
+                            .addOnFailureListener(e -> {
+                                Log.e("FCM", "Error", e);
+                            });
+
+
                 }
 
                 @Override

@@ -47,7 +47,9 @@ android {
     }
 }
 
+
 dependencies {
+
 
     implementation ("com.squareup.okhttp3:okhttp:4.10.0")
     implementation ("com.auth0:java-jwt:3.19.2")
@@ -64,6 +66,7 @@ dependencies {
     implementation(libs.firebase.firestore)
     implementation(libs.firebase.messaging)
     implementation(libs.firebase.storage)
+    implementation(libs.firebase.functions)
     annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
 
     implementation(libs.appcompat)
