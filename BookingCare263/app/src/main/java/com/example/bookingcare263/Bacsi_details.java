@@ -96,7 +96,11 @@ public class Bacsi_details extends AppCompatActivity {
 
         if( "user".equals(UserActivity.roleuser)){
             btndatlichdt.setVisibility(View.VISIBLE);
-        }  else{
+        }
+         else if ( UserActivity.iduser == null && AdminActivity.roleadmin == null){
+            btndatlichdt.setVisibility(View.VISIBLE);
+        }
+        else{
             btndatlichdt.setVisibility(View.GONE);
         }
 
