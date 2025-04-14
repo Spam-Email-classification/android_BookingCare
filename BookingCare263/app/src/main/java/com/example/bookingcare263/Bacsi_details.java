@@ -14,13 +14,15 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.bumptech.glide.Glide;
 import com.example.bookingcare263.model.Bacsi;
+import com.example.bookingcare263.ui.adminui.AdminActivity;
+import com.example.bookingcare263.ui.bacsiui.ImageActivity;
 import com.example.bookingcare263.ui.uiuser.Datlichkham;
 
 public class Bacsi_details extends AppCompatActivity {
     Toolbar tbbacsidetail;
-    TextView txttiltedt, txttenbsdt, txtthogtindt, txtdiachidt, txtgiakhamdt, txtemaildetail, txtsdtdetail;
+    TextView txttiltedt, txttenbsdt, txtthogtindt, txtdiachidt, txtgiakhamdt, txtemaildetail, txtsdtdetail, txtmasogiayphepsuadt;
     Button btndatlichdt;
-    ImageView imgavtarbsdt;
+    ImageView imgavtarbsdt, imganhgiayphepdt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,8 @@ public class Bacsi_details extends AppCompatActivity {
         txtemaildetail = findViewById(R.id.txtemaildetail);
         txtsdtdetail = findViewById(R.id.txtsdtdetail);
         tbbacsidetail = findViewById(R.id.tbbacsidetail);
+        txtmasogiayphepsuadt = findViewById(R.id.txtmasogiayphepsuadt);
+        imganhgiayphepdt = findViewById(R.id.imganhgiayphepdt);
 
 
         // toolbar
@@ -63,8 +67,20 @@ public class Bacsi_details extends AppCompatActivity {
         txtdiachidt.setText(bacsi.getDiachi());
         txtemaildetail.setText("Email: " + bacsi.getEmail());
         txtsdtdetail.setText("Liên hệ: " + bacsi.getSdt());
-
+        txtmasogiayphepsuadt.setText("Mã số giấy phép: " + bacsi.getSogiayphephanhnghe());
         txtgiakhamdt.setText("Giá khám: " + bacsi.getGiaKham());
+
+        if("admin".equals(AdminActivity.roleadmin )|| bacsi.getSdt().equals(UserActivity.iduser)){
+            imganhgiayphepdt.setVisibility(View.VISIBLE);
+        } else{
+            imganhgiayphepdt.setVisibility(View.GONE);
+        }
+        imganhgiayphepdt.setOnClickListener(e->{
+            Intent intent1 = new Intent(Bacsi_details.this, ImageActivity.class);
+            intent1.putExtra("anhgiayphep", bacsi.getImggiayphep());
+            startActivity(intent1);
+
+        });
 
         String avatarUri = bacsi.getImg();
         if (avatarUri != null && !avatarUri.isEmpty()) {
@@ -78,7 +94,7 @@ public class Bacsi_details extends AppCompatActivity {
             imgavtarbsdt.setImageResource(R.drawable.imagechose);
         }
 
-        if(UserActivity.iduser != null && !"user".equals(UserActivity.roleuser)){
+        if(UserActivity.iduser == null || "user".equals(UserActivity.roleuser)){
             btndatlichdt.setVisibility(View.VISIBLE);
         }  else{
             btndatlichdt.setVisibility(View.GONE);

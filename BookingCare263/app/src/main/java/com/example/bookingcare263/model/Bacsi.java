@@ -14,6 +14,7 @@ public class Bacsi implements Serializable {
     private String sogiayphephanhnghe;
     private String email;
     private String sdt;
+    private String imggiayphep;
 
 
     public  Bacsi(){
@@ -21,7 +22,7 @@ public class Bacsi implements Serializable {
     }
 
     public Bacsi(String id, String name, String chuyenkhoa, String diachi, String img, String thongtin,
-                 String GiaKham, String sogiayphephanhnghe, String email, String sdt) {
+                 String GiaKham, String sogiayphephanhnghe, String email, String sdt, String imggiayphep) {
         this.id = id;
         this.name = name;
         this.chuyenkhoa = chuyenkhoa;
@@ -32,10 +33,12 @@ public class Bacsi implements Serializable {
         this.sogiayphephanhnghe = sogiayphephanhnghe;
         this.email = email;
         this.sdt = sdt;
+        this.imggiayphep = imggiayphep;
     }
 
     public Bacsi(String name, String chuyenkhoa, String diachi, String img, String thongtin,
-                 String GiaKham, String sogiayphephanhnghe, String email, String sdt) {
+                 String GiaKham, String sogiayphephanhnghe, String email, String sdt
+                ,String imggiayphep) {
 
         this.name = name;
         this.chuyenkhoa = chuyenkhoa;
@@ -46,8 +49,16 @@ public class Bacsi implements Serializable {
         this.sogiayphephanhnghe = sogiayphephanhnghe;
         this.email = email;
         this.sdt = sdt;
+        this.imggiayphep = imggiayphep;
     }
 
+    public String getImggiayphep() {
+        return imggiayphep;
+    }
+
+    public void setImggiayphep(String imggiayphep) {
+        this.imggiayphep = imggiayphep;
+    }
 
     public String getSogiayphephanhnghe() {
         return sogiayphephanhnghe;

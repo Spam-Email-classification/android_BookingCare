@@ -9,6 +9,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.google.android.gms.tasks.Task;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.functions.FirebaseFunctions;
+import com.google.firebase.functions.HttpsCallableResult;
 
 import org.json.JSONObject;
 
@@ -28,31 +29,12 @@ import okhttp3.*;
 
 public class FCMHelper {
 
-    private static final String TAG = "FCM";
 
+    private static FirebaseFunctions mFunctions;
 
-
-    public static Task<String> sendFCM(String token, String title, String body) {
-        FirebaseFunctions functions = FirebaseFunctions.getInstance();
-
-        Map<String, Object> data = new HashMap<>();
-        data.put("token", token);
-        data.put("title", title);
-        data.put("body", body);
-
-        return functions
-                .getHttpsCallable("sendNotification")
-                .call(data)
-                .continueWith(task -> {
-                    if (!task.isSuccessful()) {
-                        throw task.getException();
-                    }
-
-                    Map<String, Object> result = (Map<String, Object>) task.getResult().getData();
-                    return result.get("success").toString();
-                });
+    public FCMHelper() {
+        mFunctions = FirebaseFunctions.getInstance();
     }
-
 
 
     public static void sendNotification(Context context, String targetToken, String title, String body) {

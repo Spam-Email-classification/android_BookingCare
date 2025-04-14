@@ -72,8 +72,8 @@ public class SignUpActitvity extends AppCompatActivity {
                 edtsdtsignup.setError("Vui lòng nhập số điện thoại hợp lệ");
                 edtsdtsignup.requestFocus();
             }
-            sendOtp(sdt);
-//            signuprealtime();
+//            sendOtp(sdt);
+            signuprealtime();
         });
 
         tologin.setOnClickListener(e->startActivity(new Intent(SignUpActitvity.this, LoginActivity.class)));
@@ -212,7 +212,7 @@ public class SignUpActitvity extends AppCompatActivity {
 
                             });
                         } else if (acc.getAs().equals("bacsi")) {
-                            Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt);
+                            Bacsi bs = new Bacsi( name,  "", "", "", "", "", "", "",sdt, "");
                             FirebaseHelper.addBacsi(bs, new FirebaseCallBack() {
                                         @Override
                                         public void onSuccess(Object data) {

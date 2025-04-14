@@ -165,19 +165,14 @@ public class Datlichkham extends AppCompatActivity {
                 @Override
                 public void onSuccess(accout data) {
                     String token = data.getToken();
-                    FCMHelper.sendFCM(token, "Bạn có lịch hẹn mới", "Hãy kiểm tra ứng dụng!")
-                            .addOnSuccessListener(response -> {
-                                Log.d("FCM", "Success: " + response);
-                            })
-                            .addOnFailureListener(e -> {
-                                Log.e("FCM", "Error", e);
-                            });
-
+                    Log.d("FCM", "Token: " + token);
+                    FCMHelper.sendNotification(Datlichkham.this,token, "Thông báo đặt lịch khám", "Bạn đã đặt lịch khám thành công");
 
                 }
 
                 @Override
                 public void onFailed(String message) {
+                    Log.e("FCM", "Error: " + message);
 
                 }
             });

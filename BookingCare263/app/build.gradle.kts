@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.google.gms.google.services)
+
 }
+
 
 android {
     namespace = "com.example.bookingcare263"
@@ -55,8 +57,7 @@ dependencies {
     implementation ("com.auth0:java-jwt:3.19.2")
     implementation ("com.google.auth:google-auth-library-oauth2-http:1.17.0")
 
-
-
+    implementation ("com.android.volley:volley:1.2.1")
     implementation ("com.github.bumptech.glide:glide:4.12.0")
     implementation(libs.legacy.support.v4)
     implementation(libs.firebase.auth)

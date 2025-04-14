@@ -103,13 +103,7 @@ public class lichhenDetail extends AppCompatActivity {
                 public void onSuccess(accout data) {
                     String token = data.getToken();
 
-                    FCMHelper.sendFCM(token, "Bạn có lịch hẹn mới", "Hãy kiểm tra ứng dụng!")
-                            .addOnSuccessListener(response -> {
-                                Log.d("FCM", "Success: " + response);
-                            })
-                            .addOnFailureListener(e -> {
-                                Log.e("FCM", "Error", e);
-                            });
+                    FCMHelper.sendNotification(lichhenDetail.this ,token, "Bạn có lịch hẹn mới", "Hãy kiểm tra ứng dụng!");
 
                 }
 

@@ -97,22 +97,44 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp" />
 
-            <EditText
-                android:id="@+id/edtmasogiayphepsua"
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="text"
-                android:hint="Mã số giấy phép hành nghề" />
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/edtmasogiayphepsua"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:layout_weight="8"
+                    android:inputType="text"
+                    android:hint="Mã số giấy phép hành nghề" />
+
+                <ImageView
+                    android:id="@+id/imganhgiayphep"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/arrow" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/txtanhgiayphep"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/green"
+                android:text="nhấn để xem ảnh" />
 
             <EditText
                 android:id="@+id/edtgiakhamsua"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="text"
-                android:hint="Giá khám" />
-
+                android:hint="Giá khám"
+                android:inputType="text" />
 
             <EditText
                 android:id="@+id/edtthongtin4sua"
